@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<title>บทที่ 15 — User Requirements: Use Case vs User Story | BA Final Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%232456d6%27/%3E%3Ctext x=%2750%27 y=%2770%27 font-size=%2752%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27sans-serif%27 font-weight=%27bold%27%3EBA%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="topbar">
+      <button class="burger" id="burger" aria-label="เปิดเมนู">☰</button>
+      <div class="crumb" id="crumb"></div>
+      <div class="spacer"></div>
+      <a class="home-link" href="index.html">หน้าแรก</a>
+    </header>
+    <main class="content">
+
+      <h1 class="hero">บทที่ 15 · Understanding User Requirements — Use Case vs User Story</h1>
+      <p class="lead">เปลี่ยนจาก "product-centric" (ฟีเจอร์ขายได้) เป็น <strong>usage-centric</strong> (ผู้ใช้ต้องทำอะไรให้สำเร็จ) — เทียบ 2 ตัวหลักคือ Use Case กับ User Story (ควิซ 10)</p>
+
+      <h2 id="s1">1. Product-centric vs User-centric vs Usage-centric</h2>
+      <div class="grid c3">
+        <div class="card"><h4>🛍️ Product-centric</h4><p>มองว่า "จะขายอะไร" → <strong>Features that sell</strong></p></div>
+        <div class="card"><h4>👤 User-centric</h4><p>มองจากมุมผู้ใช้ → <strong>User Stories</strong></p></div>
+        <div class="card"><h4>🎯 Usage-centric</h4><p>มองจาก "งานที่ผู้ใช้ต้องทำให้สำเร็จ" → <strong>Use Cases</strong> (necessary functionality)</p></div>
+      </div>
+      <p>ทั้ง Use Case และ User Story เปลี่ยนคำถามจาก "อยากให้ระบบทำอะไร" → <strong>"ผู้ใช้ต้อง accomplish อะไร"</strong></p>
+
+      <h2 id="s2">2. Use Case (ย่อ)</h2>
+      <div class="box def">
+        <div class="box-title">📖 นิยาม</div>
+        <p><strong>Use case</strong> = ลำดับปฏิสัมพันธ์ (sequence of interactions) ระหว่างระบบกับ <strong>external actor</strong> ที่ทำให้ actor บรรลุ<strong>ผลลัพธ์ที่มีคุณค่า</strong> (outcome of value) · <strong>ชื่อเขียนแบบ Verb + Object</strong> เสมอ (เช่น "Order a product")</p>
+        <p>วิธีหา actor: ใคร/อะไร<strong>ได้รับแจ้ง</strong>เมื่อระบบทำงาน? ใคร<strong>ให้ข้อมูล/บริการ</strong>แก่ระบบ? ใคร<strong>ช่วย</strong>ระบบตอบสนอง-เสร็จงาน?</p>
+      </div>
+
+      <h2 id="s3">3. User Story</h2>
+      <div class="box def">
+        <div class="box-title">📖 นิยาม + เทมเพลต</div>
+        <p><strong>User story</strong> = คำอธิบายฟีเจอร์แบบ "สั้น ง่าย" จากมุมมองของผู้ที่ต้องการความสามารถนั้น (มักเป็นผู้ใช้/ลูกค้า) — ใช้ใน Agile</p>
+      </div>
+      <div class="formula">As a <b>&lt;type of user&gt;</b>, I want <b>&lt;some goal&gt;</b> so that <b>&lt;some reason&gt;</b></div>
+      <p>ตัวอย่างครบ: <em>"As a <strong>customer</strong>, I want to <strong>update my customer profile</strong> so that <strong>future purchases are billed to a new credit card number</strong>."</strong></em></p>
+      <ul>
+        <li>ส่วน user class <strong>สัมพันธ์กับ Primary Actor ของ use case</strong> · rationale ไปอยู่ใน brief description ของ use case ได้</li>
+        <li>user class ไม่จำเป็นต้องเป็นมนุษย์ (bot ก็ได้)</li>
+      </ul>
+
+      <h2 id="s4">4. เทียบกันแบบตรงไปตรงมา (ออกสอบชัด ๆ)</h2>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th></th><th>User Story 📝</th><th>Use Case 📖</th></tr></thead>
+        <tbody>
+          <tr><td><strong>รูปแบบ</strong></td><td>ประโยคเดียว 3 ส่วน (user-goal-reason)</td><td>ลำดับ interaction ละเอียด (มีเทมเพลต/บทสนทนา)</td></tr>
+          <tr><td><strong>จุดแข็ง</strong></td><td><strong>เรียบง่าย กระชับ</strong> — ทำเร็ว ทุกคนเข้าใจ</td><td>ให้<strong>โครงสร้าง+บริบท</strong> — BA ใช้นำการสนทนา elicit เจาะลึกการโต้ตอบ user-system</td></tr>
+          <tr><td><strong>จุดอ่อน</strong></td><td><strong>ขาดโครงสร้างและบริบท</strong> → ทีมง่ายที่จะ<strong>พลาด acceptance tests</strong></td><td>ใหญ่กว่า ต้องลงแรงกว่า (แต่ครบกว่า)</td></tr>
+          <tr><td><strong>เจาะลึกถึงไหน</strong></td><td>ระดับ "อยากได้อะไร"</td><td>ระดับ "ผู้ใช้จินตนาการมือปฏิสัมพันธ์กับระบบอย่างไร" (แต่<strong>ไม่ลง design specifics</strong> — แค่ภาพในหัวผู้ใช้)</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>Core Distinction — ทั้งสองนำไปสู่ FR และการทดสอบอย่างไร</h3>
+      <figure class="diagram">
+        <svg viewBox="0 0 700 240" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <defs><marker id="a151" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#556"/></marker></defs>
+          <g text-anchor="middle" font-size="12.5">
+            <rect x="30" y="30" width="190" height="60" rx="12" fill="#fff8e9" stroke="#f59e0b" stroke-width="2"/>
+            <text x="125" y="55" font-weight="800" fill="#a16207">User Story</text><text x="125" y="75" fill="#556" font-size="11">As a… I want… so that…</text>
+            <rect x="30" y="140" width="190" height="60" rx="12" fill="#e8eeff" stroke="#2456d6" stroke-width="2"/>
+            <text x="125" y="165" font-weight="800" fill="#1a3fa0">Use Case</text><text x="125" y="185" fill="#556" font-size="11">interactions + scenario</text>
+            <rect x="300" y="85" width="160" height="60" rx="12" fill="#e2f7f4" stroke="#0d9488" stroke-width="2"/>
+            <text x="380" y="110" font-weight="800" fill="#0b7a70">Functional</text><text x="380" y="130" font-weight="800" fill="#0b7a70">Requirements</text>
+            <rect x="530" y="85" width="150" height="60" rx="12" fill="#e7f8ee" stroke="#16a34a" stroke-width="2"/>
+            <text x="605" y="110" font-weight="800" fill="#14713c">Acceptance Tests</text><text x="605" y="130" fill="#3a7" font-size="11">(เกณฑ์ความสำเร็จ)</text>
+          </g>
+          <g stroke="#556" stroke-width="2.5" marker-end="url(#a151)">
+            <line x1="222" y1="60" x2="296" y2="103"/>
+            <line x1="222" y1="170" x2="296" y2="127"/>
+            <line x1="462" y1="115" x2="526" y2="115"/>
+          </g>
+          <text x="350" y="225" text-anchor="middle" font-size="12" fill="#888">User Requirement (ทั้ง 2 แบบ) → แปลงเป็น FR → ใช้สร้าง acceptance tests/cases</text>
+        </svg>
+        <figcaption>ภาพ 15.1 — เส้นทาง: User Requirement (Story/Use Case) → Functional Requirements → Tests</figcaption>
+      </figure>
+
+      <div class="box exam">
+        <div class="box-title">🎯 ข้อสอบถูก/ผิดที่ชอบหลอก</div>
+        <ul>
+          <li>❌ "เอาคำขอผู้ใช้ไปเขียน FR ส่งโปรแกรมเมอร์ได้ทันที" — ต้องวิเคราะห์/ทำให้ชัดก่อนเสมอ</li>
+          <li>❌ "User Requirements คือขั้นสุดท้ายของ BA ไม่ต้องแปลงเป็น FR/acceptance tests"</li>
+          <li>❌ "Use Case ต้องใส่รายละเอียด design เสมอ" / ❌ "ชื่อ user story ขึ้นต้น Verb+Noun เสมอ" (นั่นคือกฎของ use case!)</li>
+          <li>✅ User story บอก user class + rationale · ✅ Persona ช่วยเมื่อไม่มีผู้ใช้จริง</li>
+        </ul>
+      </div>
+
+      <h2 id="s5">สรุปท้ายบท</h2>
+      <div class="box def">
+        <div class="box-title">✅ ต้องจำให้ได้</div>
+        <ol>
+          <li>Usage-centric = ถามว่า "ผู้ใช้ต้องทำอะไรให้สำเร็จ" ไม่ใช่ "ระบบทำอะไรได้"</li>
+          <li>Use Case: ลำดับ interaction กับ actor จนได้ outcome of value · ชื่อ Verb+Object</li>
+          <li>User Story: "As a…, I want…, so that…" — สั้น กระชับ แต่ขาดโครงสร้าง/บริบท (เสี่ยงพลาด acceptance tests)</li>
+          <li>Use Case ให้โครงสร้าง+บริบท นำการสนทนาได้ดี — แต่ไม่ลง design</li>
+          <li>ทั้งคู่ต้องแปลงต่อเป็น FR + acceptance criteria เสมอ</li>
+        </ol>
+      </div>
+
+      <div class="quiz-q">
+        <div class="q-text">🧪 ข้อใดอธิบายข้อจำกัดของ User Stories ได้ถูกต้อง?</div>
+        <div class="opts">
+          <button class="opt" data-c="1">ก. ขาดโครงสร้างและบริบท ทำให้ทีมพลาด acceptance tests บางส่วนได้ง่าย</button>
+          <button class="opt">ข. ต้องเขียนชื่อแบบ Verb + Object เสมอจึงจะถูกต้อง</button>
+          <button class="opt">ค. ต้องใส่รายละเอียดการออกแบบระบบครบถ้วน</button>
+          <button class="opt">ง. ใช้ได้เฉพาะใน Waterfall เท่านั้น</button>
+        </div>
+        <div class="explain">💡 ข คือกฎของ Use Case · ค ผิดทั้ง use case และ story ที่ต้องหลีกเลี่ยง design · ง ผิด — story เกิดมาเพื่อ Agile</div>
+      </div>
+
+      <div id="doneWrap" style="margin-top:30px;">
+        <button id="doneBtn" style="font-family:inherit;font-size:15px;font-weight:700;padding:10px 22px;border-radius:12px;border:2px solid #16a34a;background:#fff;color:#14713c;cursor:pointer;">☑ ทำเครื่องหมายว่าอ่านแล้ว</button>
+      </div>
+      <div class="pager" id="pager"></div>
+    </main>
+  </div>
+</div>
+<script src="assets/app.js"></script>
+<script src="assets/tts.js"></script>
+</body>
+</html>

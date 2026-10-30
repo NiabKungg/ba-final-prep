@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<title>บทที่ 18 — Non-Functional Requirements | BA Final Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%232456d6%27/%3E%3Ctext x=%2750%27 y=%2770%27 font-size=%2752%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27sans-serif%27 font-weight=%27bold%27%3EBA%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="topbar">
+      <button class="burger" id="burger" aria-label="เปิดเมนู">☰</button>
+      <div class="crumb" id="crumb"></div>
+      <div class="spacer"></div>
+      <a class="home-link" href="index.html">หน้าแรก</a>
+    </header>
+    <main class="content">
+
+      <h1 class="hero">บทที่ 18 · Non-Functional Requirements (NFR)</h1>
+      <p class="lead">NFR = <strong>Constraints</strong> — ข้อจำกัดที่การออกแบบ/สร้างต้องเคารพ · จัด 3 หมวดใหญ่ + คุณภาพ + Supplementary Specifications + การ trade-off</p>
+
+      <h2 id="s1">1. FR vs NFR — เส้นแบ่งที่ต้องชัด</h2>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Functional Requirements</th><th>Non-Functional Requirements</th></tr></thead>
+        <tbody>
+          <tr><td><strong>ระบบทำอะไร</strong> (what the system should do)</td><td>ประกอบด้วย <strong>Constraints</strong> ที่ต้องเคารพระหว่างพัฒนา (design + implementation) — <strong>คำสำคัญคือ "Constraints"</strong></td></tr>
+          <tr><td>input ที่รับ · output ที่ผลิต · ข้อมูลที่เก็บให้ระบบอื่นใช้ · การคำนวณ · timing/synchronization ของสิ่งเหล่านี้</td><td>มัก<strong>ไม่ผูกกับ use case เดียว</strong> — แทรก穿透ตัว (transcend locality) หลาย use cases · <strong>บางตัวขัดกันเอง</strong> (เร็ว vs ดูแลง่าย)</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="box exam">
+        <div class="box-title">🎯 เกณฑ์ตัดสินว่าเป็น FR หรือ NFR (Random Thoughts จากเอกสาร)</div>
+        <ul>
+          <li>ถ้าข้อกำหนดนั้นเป็น<strong>ส่วนหนึ่งของหน้าที่หลักของแอป</strong> → เขียนเป็น <strong>FR</strong> (เช่น performance ของระบบ real-time, reliability ของระบบ safety-critical!)</li>
+          <li>ถ้าเป็น<strong>ข้อจำกัด/การจำกัดการออกแบบ</strong> → เป็น <strong>NFR</strong> เกือบทั้งหมด</li>
+          <li>NFR ทุกข้อต้อง <strong>verifiable</strong> (ตรวจได้) และบางข้อต้อง <strong>measured</strong> (วัดค่าได้/วัดผ่าน simulation)</li>
+        </ul>
+      </div>
+
+      <h2 id="s2">2. 3 หมวดใหญ่ของ NFR</h2>
+      <figure class="diagram">
+        <svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <g text-anchor="middle">
+            <rect x="20" y="20" width="215" height="300" rx="14" fill="#e7f8ee" stroke="#16a34a" stroke-width="2.5"/>
+            <text x="127" y="48" font-size="13.5" font-weight="800" fill="#14713c">1. Quality NFR</text>
+            <text x="127" y="68" font-size="11" fill="#3a7">(คุณภาพ)</text>
+            <g font-size="11" fill="#334" text-anchor="start">
+              <text x="34" y="98">• Response time (&lt; 2 วินาที)</text>
+              <text x="34" y="118">• Throughput (ธุรกรรม/นาที)</text>
+              <text x="34" y="138">• Resource usage (หน่วยความจำ)</text>
+              <text x="34" y="158">• Reliability (MTBF)</text>
+              <text x="34" y="178">• Availability (เวลาที่ระบบ up)</text>
+              <text x="34" y="198">• Recovery (MTTR)</text>
+              <text x="34" y="218">• Reusability (%)</text>
+            </g>
+            <text x="127" y="252" font-size="10.5" fill="#14713c" text-anchor="middle">⚠️ บางครั้ง response time</text>
+            <text x="127" y="267" font-size="10.5" fill="#14713c">เป็น FR ของระบบ real-time</text>
+            <text x="127" y="290" font-size="10.5" fill="#14713c">ถ้าระบุวิธีการทำงานละเอียด</text>
+            <text x="127" y="305" font-size="10.5" fill="#14713c">การกู้คืน = FR</text>
+            <rect x="252" y="20" width="215" height="300" rx="14" fill="#fff8e9" stroke="#f59e0b" stroke-width="2.5"/>
+            <text x="360" y="48" font-size="13.5" font-weight="800" fill="#a16207">2. Environment &amp;</text>
+            <text x="360" y="66" font-size="13.5" font-weight="800" fill="#a16207">Technology Constraints</text>
+            <text x="360" y="86" font-size="11" fill="#a16a08">(สิ่งแวดล้อม+เทคโนโลยี)</text>
+            <g font-size="11" fill="#334" text-anchor="start">
+              <text x="266" y="118">• Platform — ทำงานบนอะไร</text>
+              <text x="266" y="138">  (ระบุ platform ต่ำสุดที่รองรับ</text>
+              <text x="266" y="156">  เช่น OS + พื้นที่ดิสก์)</text>
+              <text x="266" y="180">• Technology to be used —</text>
+              <text x="266" y="198">  ภาษาโปรแกรม/ฐานข้อมูล</text>
+              <text x="266" y="218">  (คนในทีมคุ้นเคย → ลด training)</text>
+            </g>
+            <rect x="484" y="20" width="215" height="300" rx="14" fill="#f1e9fe" stroke="#7c3aed" stroke-width="2.5"/>
+            <text x="591" y="48" font-size="13.5" font-weight="800" fill="#6d28d9">3. Project Plan &amp;</text>
+            <text x="591" y="66" font-size="13.5" font-weight="800" fill="#6d28d9">Development Methods</text>
+            <text x="591" y="86" font-size="11" fill="#84c">(แผนโครงการ+วิธีพัฒนา)</text>
+            <g font-size="11" fill="#334" text-anchor="start">
+              <text x="498" y="118">• Development process —</text>
+              <text x="498" y="136">  SDLC / RUP / Agile / Scrum /</text>
+              <text x="498" y="154">  XP / FDD · วิธีทดสอบ</text>
+              <text x="498" y="174">  (อ้างถึง ไม่ใส่รายละเอียด)</text>
+              <text x="498" y="200">• Cost &amp; Delivery dates —</text>
+              <text x="498" y="218">  มักอยู่ในสัญญา/แผนโครงการ</text>
+              <text x="498" y="238">  (Bigee! สำคัญมาก)</text>
+              <text x="498" y="262">• Traceability</text>
+            </g>
+          </g>
+        </svg>
+        <figcaption>ภาพ 18.1 — NFR 3 หมวด: Quality · Environment &amp; Technology Constraints · Project Plan &amp; Development Methods</figcaption>
+      </figure>
+
+      <h2 id="s3">3. Quality Models — โมเดลคุณภาพหลายสำนัก</h2>
+      <ul>
+        <li><strong>Product Operation:</strong> Accuracy, Reliability, Efficiency, Integrity, Usability · <strong>Product Revision:</strong> Maintainability, Flexibility, Testability · <strong>Product Transition:</strong> Interface facility, Reusability, Transferability</li>
+        <li><strong>Barry Boehm:</strong> Validity, clarity, understandability, modifiability, modularity, generality, economy, resilience, documentation</li>
+        <li><strong>Laurence Best:</strong> Accuracy &amp; comprehensiveness · simplicity of use · operational flexibility · ease of development/maintenance/extension · security &amp; control · resource efficiency · recovery</li>
+        <li><strong>แนวคิด:</strong> มีหลายรายการ "คุณภาพ" — แต่ละ attribute ต้องถูกพิจารณาตอนออกแบบ (architect ต้องวนหลายรอบ: เริ่มจาก functionality → ค่อยใส่ modifiability โดยไม่ทำฟังก์ชันพัง)</li>
+      </ul>
+
+      <h3>Trade-offs — ทุกอย่างแลกกันหมด</h3>
+      <ul>
+        <li>Performance มักใช้ fewer indirection + optimize โครงสร้าง → <strong>ลด maintainability/reusability</strong></li>
+        <li><strong>Cost ขัดกับทุกอย่าง</strong> — และ "usability มักถูกเสียสละเป็นอันดับแรก!"</li>
+        <li>Architect ต้องหาดีไซน์ที่<strong>สมดุล</strong>ระหว่าง NFR ที่แข่งกัน · อย่าให้ assumption ของ user พาไปสู่ "architectural nightmare" (เช่น ต้องการ availability 100%)</li>
+      </ul>
+
+      <h2 id="s4">4. เก็บ NFR ไว้ที่ไหน — Use Case vs Supplementary Specifications</h2>
+      <ul>
+        <li>ใน RUP NFR อยู่ใน <strong>Supplementary Specifications</strong> (ห้ามคิดว่า "supplementary" = รอง — <strong>เยอะแยะโครงการพังเพราะละเลยมัน</strong>: เคส "รองรับ 300-500 ผู้ใช้พร้อมกัน" แต่ตอน UAT รับได้แค่ 8 — ทีมหมกมุ่น UI จนระบบไม่เคยถูก deploy!)</li>
+        <li><strong>เก็บใน use case</strong> เมื่อ NFR ใช้เฉพาะบริบท use case นั้น · <strong>เก็บใน Supplementary Specs</strong> เมื่อเป็น global/ไม่เปลี่ยนตาม use case — ถ้า interaction เยอะ ส่วนใหญ่เก็บใน use case · ถ้า interaction น้อย ส่วนใหญ่เป็น NFR · <strong>รักษาสมดุล ต้องมีทั้งคู่</strong></li>
+        <li>หมวดตาม Bittner &amp; Spence: Legal &amp; Regulatory (อายุถึงกฎหมายจึงซื้อแอลกอฮอล์ได้) · Application Development Standards (พัฒนาตาม RUP) · Quality attributes (available ≥ 90%) · Constraints (เขียนด้วย Java 2) · Others</li>
+      </ul>
+
+      <h3>กระบวนการจัดการ NFR (Kulak &amp; Guiney)</h3>
+      <ol>
+        <li><strong>Identify</strong> — ถาม user เรื่อง response time/สิ่งที่รำคาญตอนนี้</li>
+        <li><strong>Validate</strong> กับ stakeholder ที่เกี่ยวข้อง</li>
+        <li><strong>Document</strong> — ชื่อ + ผลกระทบ (ถ้าไม่สำเร็จ ระบบ/ธุรกิจเสียหายอย่างไร) · จับทันทีที่ถาม (interview/questionnaire) · แยก "ความกังวลธุรกิจ" (ใส่ use case) ออกจาก NFR</li>
+        <li><strong>Rank</strong> — สำคัญมาก! บาง NFR แพงกว่าตัว use case เอง · ไม่มีของฟรี</li>
+        <li>ใช้<strong>ตารางเทมเพลต</strong>: Category · Number · Name · Description · Applies to Use Case(s) · Exceptions (+priority ได้)</li>
+      </ol>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Category</th><th>#</th><th>Name</th><th>Description</th><th>Applies to</th><th>Exceptions</th></tr></thead>
+        <tbody>
+          <tr><td>—</td><td>1</td><td>Persistency</td><td>Student objects ต้อง persistent</td><td>Use cases ที่ update Student</td><td>None</td></tr>
+          <tr><td>—</td><td>2</td><td>Security</td><td>System Administrator ต้องผ่าน authentication</td><td>UC ที่เข้าถึง Profile DB</td><td>None</td></tr>
+          <tr><td>—</td><td>3</td><td>Availability</td><td>Profile DB ต้อง available 95% ของเวลา</td><td>ทุก UC ที่ต้อง authentication</td><td>None</td></tr>
+        </tbody>
+      </table></div>
+
+      <h2 id="s5">สรุปท้ายบท</h2>
+      <div class="box def">
+        <div class="box-title">✅ ต้องจำให้ได้</div>
+        <ol>
+          <li>NFR = <strong>Constraints</strong> (คำเดียวที่ต้องจำ) · FR = สิ่งที่ระบบทำ</li>
+          <li>3 หมวด: Quality (response/throughput/resource/MTBF/availability/MTTR/reusability) · Environment &amp; Tech (platform/ภาษา) · Project Plan &amp; Methods (process/งบ-กำหนดส่ง)</li>
+          <li>ถ้าเป็นหน้าที่หลักของแอป = FR แม้จะฟังดู "ด้านคุณภาพ" (real-time/safety-critical)</li>
+          <li>NFR ต้อง verifiable (+measured) · ต้อง rank (บางตัวแพงกว่า use case)</li>
+          <li>เก็บ global NFR ใน Supplementary Specs · เฉพาะ use case ใส่ใน use case · ต้องสมดุลทั้งคู่</li>
+          <li>Trade-offs: performance↔maintainability · cost↔ทุกอย่าง · usability โดนเสียสละบ่อยสุด</li>
+        </ol>
+      </div>
+
+      <div class="quiz-q">
+        <div class="q-text">🧪 ข้อใดควรบันทึกเป็น NFR (constraint)?</div>
+        <div class="opts">
+          <button class="opt">ก. ระบบต้องคำนวณดอกเบี้ยเงินกู้จากอัตราที่กำหนด</button>
+          <button class="opt" data-c="1">ข. ระบบต้องทำงานร่วมกับฐานข้อมูล Core Banking เดิมของธนาคาร</button>
+          <button class="opt">ค. ระบบต้องพิมพ์ใบเสร็จหลังชำระเงิน</button>
+          <button class="opt">ง. ระบบต้องบันทึกประวัติการกู้ยืมของสมาชิก</button>
+        </div>
+        <div class="explain">💡 ข = design constraint (ถูกกำหนดโดยสภาพแวดล้อมจริง ไม่ใช่พฤติกรรม) · ก/ค/ง เป็นพฤติกรรมที่ระบบ "ทำ" = FR</div>
+      </div>
+
+      <div id="doneWrap" style="margin-top:30px;">
+        <button id="doneBtn" style="font-family:inherit;font-size:15px;font-weight:700;padding:10px 22px;border-radius:12px;border:2px solid #16a34a;background:#fff;color:#14713c;cursor:pointer;">☑ ทำเครื่องหมายว่าอ่านแล้ว</button>
+      </div>
+      <div class="pager" id="pager"></div>
+    </main>
+  </div>
+</div>
+<script src="assets/app.js"></script>
+<script src="assets/tts.js"></script>
+</body>
+</html>

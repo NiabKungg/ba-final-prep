@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<title>บทที่ 17 — Functional Requirements & SRS & EARS | BA Final Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%232456d6%27/%3E%3Ctext x=%2750%27 y=%2770%27 font-size=%2752%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27sans-serif%27 font-weight=%27bold%27%3EBA%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="topbar">
+      <button class="burger" id="burger" aria-label="เปิดเมนู">☰</button>
+      <div class="crumb" id="crumb"></div>
+      <div class="spacer"></div>
+      <a class="home-link" href="index.html">หน้าแรก</a>
+    </header>
+    <main class="content">
+
+      <h1 class="hero">บทที่ 17 · Writing Functional Requirements — SRS & EARS ⭐</h1>
+      <p class="lead">FR คือสิ่งที่ระบบ "ต้องทำ" — บทนี้คือหัวใจของควิซ 11: การตั้งรหัส FR · ลักษณะข้อกำหนดที่ดี · EARS/Active voice · ความคลุมเครือ · Boundary values · Negative requirements</p>
+
+      <h2 id="s1">1. ภาพรวม: เอกสารตามลำดับชั้น Requirements</h2>
+      <ul>
+        <li><strong>Vision &amp; Scope document</strong> เก็บ Business Requirements (บท 13)</li>
+        <li><strong>User requirements</strong> เก็บเป็น use cases / user stories (บท 15-16)</li>
+        <li><strong>FR + NFR</strong> เก็บใน <strong>SRS (Software Requirements Specification)</strong> — ส่งให้คนออกแบบ สร้าง และตรวจสอบทางออก</li>
+      </ul>
+      <div class="box def">
+        <div class="box-title">📖 SRS ตามมาตรฐาน ISO/IEC/IEEE 2011</div>
+        <p>ระบุ <strong>ฟังก์ชัน/ความสามารถที่ระบบต้องมี + คุณลักษณะ + ข้อจำกัด</strong> · บรรยายพฤติกรรมของระบบในสภาวะต่าง ๆ ให้ครบตามจำเป็น + คุณภาพที่ต้องการ (performance, security, usability) · เป็นฐานของการวางแผน ออกแบบ เขียนโค้ด <strong>ทดสอบ</strong> และคู่มือผู้ใช้ · <strong>ไม่รวม</strong> design/construction/testing/project management details (ยกเว้น design constraints ที่รู้แล้ว)</p>
+        <p><strong>ใครใช้ SRS:</strong> ลูกค้า/การตลาด (รู้ว่าจะได้อะไร) · PM (ประมาณงาน) · ทีมพัฒนา (รู้ว่าต้องสร้างอะไร) · ผู้ทดสอบ (ทำ requirements-based tests) · ฝ่ายดูแล · ผู้เขียนคู่มือ · ฝ่ายกฎหมาย · <strong>ผู้รับเหมา</strong> (ผูกพันทางกฎหมายได้)</p>
+      </div>
+
+      <h2 id="s2">2. Labelling Requirements — ตั้งรหัสให้ถูกวิธี</h2>
+      <div class="box def">
+        <div class="box-title">📖 กฎเหล็ก</div>
+        <p>ทุก requirement ต้องมี <strong>unique + persistent identifier</strong> เพื่ออ้างใน change request / traceability matrix / cross-reference — ❌ ใช้ bullet (•) หรือ ✓ อย่างเดียว<strong>อ้างอิงไม่ได้เลย</strong></p>
+      </div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>วิธี</th><th>รูปแบบ</th><th>ข้อควรระวัง</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Sequence number</strong></td><td><code>FR-26</code>, <code>UC-9</code> (prefix = ชนิด)</td><td><strong>ห้าม reuse เลขเดิม</strong>เมื่อลบข้อเก่า (FR-26 เดิม ≠ FR-26 ใหม่ จะสับสน)</td></tr>
+          <tr><td><strong>Hierarchical numbering</strong></td><td><code>3.2.4.3</code> ลูกของ 3.2.4</td><td>อย่า<strong>เรียงเลขใหม่</strong>ทุกอาทิตย์เมื่อมีแก้ไข!</td></tr>
+          <tr><td><strong>หมวดหมู่+ลำดับ</strong> ⭐</td><td>หมวด 3.5 "Editor Functions" → <code>ED-1, ED-2</code> · ห้องยา → <code>PHARM-1, PHARM-2</code></td><td>บอกทั้งหมวด+ความสัมพันธ์ (ใช้แบบนี้ในควิซ: MED-FR-101 ไม่ reuse)</td></tr>
+          <tr><td><strong>Hierarchical textual tags</strong></td><td><code>Product.Cart.01</code></td><td>parent เขียนเป็น title/feature name ไม่ใช่ FR</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>ลักษณะของชุด requirements ที่ดี (Collections) 4 ข้อ</h3>
+      <ol>
+        <li><strong>Complete</strong> — ไม่มีข้อ/ข้อมูลจำเป็นหาย (ข้อที่หาย<strong>มองไม่เห็น</strong>เพราะมันไม่อยู่ตรงนั้น!)</li>
+        <li><strong>Consistent</strong> — ไม่ขัดแย้งกันเอง/กับ requirements ระดับบน</li>
+        <li><strong>Modifiable</strong> — มีประวัติการแก้ไขต่อข้อ + รู้ความเชื่อมโยงเพื่อแก้พร้อมกัน</li>
+        <li><strong>Traceable</strong> — ย้อนหลังถึงที่มา + ไปหน้าถึง design/โค้ด/แบบทดสอบ</li>
+      </ol>
+
+      <h2 id="s3">3. EARS — Easy Approach to Requirements Syntax</h2>
+      <div class="box def">
+        <div class="box-title">📖 2 มุมมองการเขียน</div>
+        <p><strong>System perspective:</strong> "The system <strong>shall</strong>…" / "must" / "needs to" + กริยา + ผลที่มองเห็น — และ<strong>ระบุ trigger/เงื่อนไข/event</strong> ที่ทำให้ระบบทำพฤติกรรมนั้น · ตัวอย่าง: <em>"ถ้าสารเคมีที่ขอถูกพบในคลัง ระบบจะแสดงรายการภาชนะทั้งหมดของสารนั้น"</em></p>
+        <p><strong>User perspective:</strong> "The <strong>[user class]</strong> shall be able to <strong>[do something]</strong> <strong>[to object]</strong> <strong>[qualifying conditions]</strong>" · หรือ "The system shall <strong>let/allow/permit/enable</strong> [user class] to [do something]" · ตัวอย่าง: <em>"The Chemist shall be able to reorder any chemical he has ordered in the past by retrieving and editing the order details"</em></p>
+      </div>
+
+      <h2 id="s4">4. Active Voice — ประโยคาถูกต้องต้อง "รู้ว่าใครทำ"</h2>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>❌ Passive (คลุมเครือ)</th><th>✅ Active (ชัดเจน)</th></tr></thead>
+        <tbody>
+          <tr><td>"ข้อมูลเครดิตบูโรจะ<strong>ได้รับการอัปเดต</strong> และผลการพิจารณาจะ<strong>ถูกส่งออก</strong>" (ใครทำ? ระบบ? ผู้ใช้?)</td><td>"เมื่อผู้กู้กดยืนยัน ระบบจะตรวจสอบเครดิตบูโรผ่าน API ภายใน 5 วินาที"</td></tr>
+          <tr><td>"Serial number <strong>will be updated</strong>" (ใครอัปเดต?)</td><td>"ระบบจะอัปเดต serial number ทุกครั้งที่บันทึกการขาย"</td></tr>
+          <tr><td>"ผู้ใช้ควรทำรายการได้อย่าง<strong>ราบรื่น ไร้รอยต่อ เป็นมิตร</strong>"</td><td>"หากยอดขอสินเชื่อ &gt; 100,000 บาท ระบบจะแสดงหน้าจอให้อัปโหลดสลิปเงินเดือน 6 เดือน"</td></tr>
+        </tbody>
+      </table></div>
+
+      <h2 id="s5">5. Writing Styles 5 ข้อ</h2>
+      <ol>
+        <li><strong>Punch line ก่อน</strong> — ข้อกำหนดนำหน้า, รายละเอียด (เหตุผล/ที่มา/priority) ตามหลัง</li>
+        <li><strong>ใช้ตาราง/ลิสต์/ไดอะแกรม</strong> ปน — ช่วยคนที่เรียนรู้ต่างสไตล์</li>
+        <li><strong>อย่าผสม passive กับ active</strong> ในเนื้อเดียวกัน</li>
+        <li><strong>ห้ามใช้หลายคำเรียกของเดียวกัน</strong> เพื่อความหลากหลาย (customer/account/patron/user/client = สับสน — เลือกคำเดียว)</li>
+        <li><strong>อ่านง่ายสำคัญกว่าน่าสนใจ</strong></li>
+      </ol>
+
+      <h2 id="s6">6. หลีกเลี่ยงความคลุมเครือ (Ambiguity) — ข้อสอบหลัก!</h2>
+      <div class="grid c2">
+        <div class="card">
+          <h4>1) คำวัดไม่ได้ / กริยาวิเศษณ์</h4>
+          <p>ห้าม: reasonably, appropriately, generally, approximately, usually, <strong>quickly, รวดเร็ว, เหมาะสม, ง่าย</strong> → แทนด้วย<strong>ตัวเลขวัดได้</strong>: "ประมวลผลเสร็จภายใน <strong>3 วินาที</strong>ในสภาวะโหลดปกติ"</p>
+        </div>
+        <div class="card">
+          <h4>2) คำเชื่อมรวมหลายข้อ</h4>
+          <p>"และ / หรือ / additionally / also / unless / except / but" อาจแฝง<strong>หลาย requirements ในประโยคเดียว</strong> → <strong>แตกออก</strong>เป็นข้อ ๆ ที่ทดสอบแยกได้ · ห้ามใช้ <strong>"และ/หรือ" (and/or)</strong> เด็ดขาด — เช่น "ส่งแจ้งเตือนถึงลูกค้า<strong>/</strong>พนักงาน" ต้องระบุว่าลูกค้า หรือพนักงาน หรือทั้งคู่ ในสภาวะใด</p>
+        </div>
+        <div class="card">
+          <h4>3) A/B construct</h4>
+          <p>"Delivery/Fulfillment Team" ตีความได้ 5 แบบ (ชื่อทีม? คำพ้อง? หรือ? และ?) → เขียนให้ชัดว่าหมายถึงอะไร</p>
+        </div>
+        <div class="card">
+          <h4>4) Boundary values (ค่าขอบเขต) ⭐</h4>
+          <p>"&lt;500 ไม่มีพอยต์ · 500-1,000 ได้ 50 · ≥1,000 ได้ 150" → <strong>500 พอดี กับ 1,000 พอดี อยู่กลุ่มไหน? แล้ว 500.50 ล่ะ?</strong> → ใช้คำชัดเจน: "5 วัน<strong>หรือน้อยกว่า</strong> (5 or fewer)" · "<strong>ยาวกว่า</strong> 5 วัน<strong>ถึง</strong> (through) 10 วัน" · "<strong>ยาวกว่า</strong> 10 วัน" — through/inclusive/exclusive คือคำมหัศจรรย์</p>
+        </div>
+      </div>
+
+      <h3>Negative Requirements → เปลี่ยนเป็นบวก</h3>
+      <p>"ระบบ<strong>จะต้องไม่</strong>ยอมให้พนักงานทั่วไปเข้าถึงรายงานเงินเดือน" — จะ implement "อย่า ๆ ไหน"? ทดสอบยังไง? → เขียนใหม่เป็นพฤติกรรมบวกที่ระบุสิทธิ์: <em>"ระบบจะอนุญาต<strong>เฉพาะ</strong>ผู้ใช้กลุ่ม Department Manager ให้เรียกดูรายงานเงินเดือนประจำแผนก (พร้อมแจ้งเตือน/บันทึกการพยายามเข้าถึง)"</em> · <strong>ปฏิเสธซ้ำชั้น ("ต้องไม่ปฏิเสธผู้ที่ไม่ได้ไม่มีตำแหน่ง…") ห้ามเด็ดขาด</strong></p>
+
+      <h3>ระดับความละเอียด (Level of Detail)</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>ควร<strong>ละเอียดมาก</strong>เมื่อ…</th><th>ควร<strong>ละเอียดน้อยลงได้</strong>เมื่อ…</th></tr></thead>
+        <tbody>
+          <tr><td>· งานให้<strong>ลูกค้าภายนอก</strong><br>· <strong>Outsource</strong> พัฒนา/ทดสอบ<br>· ทีม<strong>กระจายพื้นที่</strong> (geographically dispersed)<br>· ทดสอบ<strong>ยึดตาม requirements</strong> (requirements-based testing)<br>· ต้องการ<strong>ประมาณงานแม่น</strong><br>· ต้องการ <strong>traceability</strong></td><td>· งาน<strong>ภายใน</strong>บริษัทเอง<br>· <strong>ลูกค้ามีส่วนร่วม</strong>ตลอด<br>· นักพัฒนา<strong>ชำนาญ domain</strong> สูง<br>· มีงานเดิมเป็นตัวอย่าง (replace ระบบเก่า)<br>· ใช้<strong>ซอฟต์แวร์สำเร็จรูป</strong> (package) มาปรับแต่ง</td></tr>
+        </tbody>
+      </table></div>
+      <p><strong>Granularity ที่ดี:</strong> เขียนให้ <strong>individually testable</strong> — ถ้าคิด test cases ที่สัมพันธ์กัน "จำนวนน้อย" ได้ = ขนาดพอดี · ถ้าต้องใช้ tests มากมายหลายแนว = หลาย requirements รวมกันอยู่ ให้แยก · ไม่จำเป็นต้องละเอียดเท่ากันทุกข้อ แต่พยายามให้สม่ำเสมอ</p>
+
+      <h2 id="s7">7. ตัวอย่างแปลงข้อกำหนดแย่ ๆ (จากเอกสาร — อ่านสนุกและออกสอบจริง)</h2>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>เดิม ❌</th><th>ใหม่ ✅</th></tr></thead>
+        <tbody>
+          <tr><td>"ระบบต้องแสดงสถานะข้อความเป็น<strong>ระยะ ๆ ไม่น้อยกว่าทุก 60 วินาที</strong>"</td><td>แตก 5 ข้อ: แสดงในพื้นที่กำหนด / อัปเดตทุก 60±5 วิ หลังเริ่มประมวลผล / มองเห็นต่อเนื่อง / แสดง % ที่เสร็จ / แสดง "Done" เมื่อเสร็จ + ข้อความเมื่อค้าง</td></tr>
+          <tr><td>"ตรวจสอบเลขที่โครงการออนไลน์กับมาสเตอร์ลิสต์ <strong>ถ้าเป็นไปได้</strong> (if possible)"</td><td>"<strong>ณ เวลาที่</strong>ผู้ขอกรอกเลขที่โครงการ ระบบจะแสดง error หากเลขนั้นไม่อยู่ในมาสเตอร์ลิสต์"</td></tr>
+          <tr><td>"อนุญาตให้ผู้ใช้เชื่อมต่ออุปกรณ์เพิ่มเติม<strong>ได้ง่าย</strong>"</td><td>1) ระบบต้องมี USB port ให้เชื่อมอุปกรณ์วัดใด ๆ ที่มี USB · 2) USB อยู่หน้าเครื่อง ให้ช่างที่ผ่านอบรมเสียบเสร็จ<strong>ภายใน 10 วินาที</strong></td></tr>
+        </tbody>
+      </table></div>
+
+      <h2 id="s8">สรุปท้ายบท</h2>
+      <div class="box def">
+        <div class="box-title">✅ ต้องจำให้ได้</div>
+        <ol>
+          <li>SRS = FR+NFR · ไม่ใส่ design/PM details · ผู้ใช้ 9 กลุ่ม</li>
+          <li>รหัส FR: unique+persistent · ห้าม reuse เลขเดิม · ห้ามเรียงใหม่ทุกสัปดาห์ · นิยม "หมวด-ลำดับ" (PHARM-1)</li>
+          <li>Collections 4: Complete · Consistent · Modifiable · Traceable</li>
+          <li>EARS: "The system shall…" + trigger · "The [user class] shall be able to…"</li>
+          <li>Active voice เสมอ — ต้องรู้ว่า "ใครทำ"</li>
+          <li>ห้าม adverbs คลุมเครือ / และ-หรือ / A/B · แตกประโยครวม · Boundary ใช้ through/inclusive · Negative → positive</li>
+          <li>ละเอียดมากเมื่อ: ลูกค้านอก/outsourced/ทีมกระจาย/ทดสอบตาม req/ประมาณงานแม่น/traceability</li>
+        </ol>
+      </div>
+
+      <div class="quiz-q">
+        <div class="q-text">🧪 (ควิซจริง) สถานการณ์ใดที่ทีม "ลดระดับความละเอียดของ FR ได้โดยไม่เสี่ยงสูง"?</div>
+        <div class="opts">
+          <button class="opt">ก. จ้างบริษัทต่างประเทศที่กระจายตามเขตเวลาต่างกัน</button>
+          <button class="opt" data-c="1">ข. ทีมพัฒนาเป็นพนักงานประจำที่ชำนาญสายธุรกิจนี้มาก</button>
+          <button class="opt">ค. ลูกค้าจ่ายเงินตามผลทดสอบที่อิงเอกสาร requirements</button>
+          <button class="opt">ง. ต้องใช้ requirements ประเมินงบและกำหนดส่งแบบแม่นยำสูง</button>
+        </div>
+        <div class="explain">💡 ข้อ ข = dev เชี่ยวชาญ domain ในองค์กร (จากตาราง) · อีกทางเลือกที่ถูกคือ "ซื้อซอฟต์แวร์สำเร็จรูปมาปรับแต่ง" ส่วน ก/ค/ง ต้องละเอียดขึ้น</div>
+      </div>
+
+      <div id="doneWrap" style="margin-top:30px;">
+        <button id="doneBtn" style="font-family:inherit;font-size:15px;font-weight:700;padding:10px 22px;border-radius:12px;border:2px solid #16a34a;background:#fff;color:#14713c;cursor:pointer;">☑ ทำเครื่องหมายว่าอ่านแล้ว</button>
+      </div>
+      <div class="pager" id="pager"></div>
+    </main>
+  </div>
+</div>
+<script src="assets/app.js"></script>
+<script src="assets/tts.js"></script>
+</body>
+</html>

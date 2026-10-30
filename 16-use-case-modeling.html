@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<title>บทที่ 16 — Use Case Modeling (UML) | BA Final Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%232456d6%27/%3E%3Ctext x=%2750%27 y=%2770%27 font-size=%2752%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27sans-serif%27 font-weight=%27bold%27%3EBA%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="topbar">
+      <button class="burger" id="burger" aria-label="เปิดเมนู">☰</button>
+      <div class="crumb" id="crumb"></div>
+      <div class="spacer"></div>
+      <a class="home-link" href="index.html">หน้าแรก</a>
+    </header>
+    <main class="content">
+
+      <h1 class="hero">บทที่ 16 · Use Case Modeling (มุม UML)</h1>
+      <p class="lead">บทนี้เพิ่มเติมเรื่อง Use Case จากมุมมอง System Analysis: ประโยชน์เต็ม ๆ · Actor 4 ชนิด · ความสัมพันธ์ include/extend/depends/inheritance · Use Case Narrative · Ranking Matrix · Misuse Case</p>
+
+      <blockquote style="border-left:4px solid var(--brand);margin:18px 0;padding:6px 16px;color:var(--ink-soft);font-style:italic;">"ส่วนที่ยากที่สุดของการสร้างระบบซอฟต์แวร์คือการตัดสินใจว่าจะสร้างอะไรกันแน่… ไม่มีงานไหนที่ทำพลาดแล้วบั่นทอนระบบได้มากไปกว่านี้ และไม่มีอะไรแก้ยากไปกว่านี้ในภายหลัง" — Fred Brooks</blockquote>
+
+      <h2 id="s1">1. User-Centered Development & ประโยชน์ของ Use-Case Modeling</h2>
+      <ul>
+        <li><strong>User-centered development</strong> = พัฒนาระบบโดยยึดความเข้าใจ<strong>ความต้องการของ stakeholder + เหตุผลที่ระบบควรถูกพัฒนา</strong></li>
+        <li><strong>Use-case modeling</strong> = สร้างโมเดลฟังก์ชันของระบบในรูป <strong>business events — ใครเริ่ม event และระบบตอบสนองอย่างไร</strong></li>
+      </ul>
+      <p><strong>ประโยชน์ (จำเป็นชุด):</strong> เครื่องมือเก็บ functional requirements · ช่วยแตกระบบเป็นชิ้นที่บริหารได้ · สื่อสารกับผู้ใช้<strong>ด้วยภาษาที่เขาเข้าใจ</strong> · ระบุ-มอบหมาย-ติดตาม-ควบคุมงานพัฒนา · ช่วยประเมิน scope/effort/schedule · <strong>กำหนดแผน-กรณีทดสอบ</strong> · เป็นฐานคู่มือผู้ใช้ · requirements traceability · จุดเริ่มหา data objects/entities · ข้อกำหนดออกแบบ UI/การเข้าถึงฐานข้อมูล · กรอบขับเคลื่อนโครงการทั้งหมด</p>
+
+      <h2 id="s2">2. นิยามหลัก 3 ตัว</h2>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>ตัว</th><th>คือ</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Use case</strong></td><td>ลำดับขั้นตอนที่สัมพันธ์กันเชิงพฤติกรรม (scenario) — อัตโนมัติ+มือ — เพื่อ<strong>เสร็จสิ้นงานธุรกิจหนึ่ง ๆ</strong> · อธิบายฟังก์ชันจากมุมผู้ใช้ภายนอก</td></tr>
+          <tr><td><strong>Use-case diagram</strong></td><td>ภาพแสดงปฏิสัมพันธ์ระหว่างระบบ กับ ระบบภายนอก/ผู้ใช้ — ใครใช้อย่างไร</td></tr>
+          <tr><td><strong>Use-case narrative</strong></td><td>ข้อความบรรยาย business event + ผู้ใช้โต้ตอบกับระบบอย่างไรเพื่อเสร็จงาน</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>Actor 4 ชนิด (ออกสอบ!)</h3>
+      <div class="grid c2">
+        <div class="card"><h4>👤 Primary business actor</h4><p>ผู้ที่<strong>ได้ประโยชน์หลัก</strong>จากการใช้ use case — เช่น พนักงานที่<strong>ได้รับเงินเดือน</strong></p></div>
+        <div class="card"><h4>⌨️ Primary system actor</h4><p>ผู้ที่<strong>ติดต่อระบบโดยตรงเพื่อเริ่ม/ทริกเกอร์</strong> event — เช่น <strong>พนักงานธนาคาร</strong>คีย์รายการฝาก</p></div>
+        <div class="card"><h4>🤝 External server actor</h4><p>ผู้ที่<strong>ตอบสนองคำขอ</strong>ของ use case — เช่น <strong>บริษัทเครดิต</strong>ที่อนุมัติการชาร์จบัตร</p></div>
+        <div class="card"><h4>📦 External receiver actor</h4><p>ผู้ที่<strong>ไม่ใช่ primary แต่ได้รับบางอย่างที่มีคุณค่า</strong> — เช่น <strong>คลังสินค้า</strong>ที่รับใบแพ็คสินค้า</p></div>
+      </div>
+      <p>⚠️ <strong>Temporal event</strong> — เหตุการณ์ที่ระบบทำงานเมื่อ<strong>ถึงเวลา</strong> (เช่น รายงานรายสัปดาห์) → <strong>actor คือ "Time"</strong></p>
+
+      <h2 id="s3">3. ความสัมพันธ์ใน Use Case Diagram</h2>
+      <figure class="diagram">
+        <svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <defs><marker id="a161" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#556"/></marker></defs>
+          <!-- system boundary -->
+          <rect x="150" y="14" width="420" height="292" rx="12" fill="#fafcff" stroke="#8896b5" stroke-width="2"/>
+          <text x="360" y="36" text-anchor="middle" font-size="12.5" font-weight="800" fill="#445">ระบบ (System boundary / subject)</text>
+          <!-- actor left -->
+          <circle cx="60" cy="120" r="11" fill="#fff4dc" stroke="#f59e0b" stroke-width="2.5"/>
+          <line x1="60" y1="131" x2="60" y2="155" stroke="#f59e0b" stroke-width="2"/>
+          <line x1="44" y1="140" x2="76" y2="140" stroke="#f59e0b" stroke-width="2"/>
+          <line x1="60" y1="155" x2="47" y2="175" stroke="#f59e0b" stroke-width="2"/>
+          <line x1="60" y1="155" x2="73" y2="175" stroke="#f59e0b" stroke-width="2"/>
+          <text x="60" y="192" text-anchor="middle" font-size="11.5" font-weight="700" fill="#a16207">Actor</text>
+          <!-- use cases -->
+          <g font-size="11.5">
+            <ellipse cx="270" cy="90" rx="85" ry="26" fill="#e8eeff" stroke="#2456d6" stroke-width="2"/><text x="270" y="95" text-anchor="middle" fill="#1a3fa0">Place Order</text>
+            <ellipse cx="460" cy="170" rx="85" ry="26" fill="#e2f7f4" stroke="#0d9488" stroke-width="2"/><text x="460" y="175" text-anchor="middle" fill="#0b7a70">Validate User</text>
+            <ellipse cx="270" cy="230" rx="85" ry="26" fill="#fff8e9" stroke="#f59e0b" stroke-width="2"/><text x="270" y="235" text-anchor="middle" fill="#a16207">Track Order</text>
+            <ellipse cx="460" cy="262" rx="85" ry="24" fill="#fdeaea" stroke="#dc2626" stroke-width="2"/><text x="460" y="267" text-anchor="middle" fill="#b91c1c">Notify Delay</text>
+          </g>
+          <!-- association -->
+          <line x1="76" y1="112" x2="188" y2="95" stroke="#556" stroke-width="2" marker-end="url(#a161)"/>
+          <text x="128" y="88" font-size="10.5" fill="#556">association (เริ่มโดย actor)</text>
+          <line x1="76" y1="130" x2="188" y2="222" stroke="#556" stroke-width="2"/>
+          <text x="120" y="190" font-size="10.5" fill="#888">receiver (ไม่มีหัวลูกศร)</text>
+          <!-- include -->
+          <path d="M 340 105 L 396 150" stroke="#0d9488" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#a161)"/>
+          <text x="352" y="118" font-size="10" fill="#0b7a70" font-weight="700">«include»</text>
+          <!-- extend -->
+          <path d="M 452 238 L 330 255" stroke="#dc2626" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#a161)"/>
+          <text x="382" y="248" font-size="10" fill="#b91c1c" font-weight="700">«extend»</text>
+          <!-- notes -->
+          <text x="360" y="322" text-anchor="middle" font-size="12" fill="#556">«include» = ต้องใช้ทุกครั้ง (แตกมาจาก use case หลัก) · «extend» = ทางเลือก/ข้อยกเว้น (เสริมเมื่อมีเหตุ)</text>
+        </svg>
+        <figcaption>ภาพ 16.1 — องค์ประกอบ Use Case Diagram: Actor · System boundary · Association · «include» · «extend»</figcaption>
+      </figure>
+
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>ความสัมพันธ์</th><th>คืออะไร</th><th>ทิศลูกศร</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Association</strong></td><td>การโต้ตอบ actor–use case · มีหัวลูกศร = <strong>เริ่มโดย actor</strong> · ไม่มีหัว = <strong>receiver actor</strong> · เป็นได้ทั้ง unidirectional/bidirectional</td><td>เส้นทึบ actor ↔ ellipse</td></tr>
+          <tr><td><strong>«extends» (Extension use case)</strong></td><td>ดึงขั้นตอนออกจาก use case เดิมเพื่อ<strong>ความเรียบง่าย</strong> — เพิ่มฟังก์ชันให้ต้นฉบับ · <strong>มักไม่ระบุในเฟส requirements</strong> · ลูกศรจาก <strong>extension → ต้นฉบับ</strong></td><td>เส้นประ + «extends»</td></tr>
+          <tr><td><strong>«uses» / «includes» (Abstract use case)</strong></td><td>รวมขั้นตอน<strong>ซ้ำกัน</strong>ของหลาย use case ไว้ที่เดียว (ลด redundancy) · <strong>มักไม่ระบุในเฟส requirements</strong> · ลูกศรจาก <strong>ต้นฉบับ → abstract</strong></td><td>เส้นประ + «uses»</td></tr>
+          <tr><td><strong>«depends on»</strong></td><td>บอกว่าต้องทำ use case ใด<strong>ก่อน</strong> — ช่วยจัดลำดับการพัฒนา</td><td>เส้นประ + «depends on»</td></tr>
+          <tr><td><strong>Inheritance (ของ actor)</strong></td><td>สร้าง abstract actor รวมพฤติกรรมร่วม — actor อื่น<strong>สืบทอด</strong>ปฏิสัมพันธ์นั้น (ลด redundancy)</td><td>ลูกศร → abstract actor</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="box deep">
+        <div class="box-title">🧠 กฎ include vs extend (จาก elicitation handout — เข้าใจลึกไว้)</div>
+        <p><strong>«include»:</strong> แสดง commonality — base <strong>ต้อง</strong>ใช้ included (เช่น ถอนเงิน/ฝากเงิน/พิมพ์ statement ต่าง include "Identify Customer") · ใช้แทนการซ้ำรายละเอียด · เมื่อ included เสร็จ control กลับ base</p>
+        <p><strong>«extend»:</strong> ทำให้ optional/exceptional ชัดเจน — <strong>base เดินได้โดยไม่มี extension</strong> · ต้องมี extension points + condition · <strong>ใช้อย่างประหยัด (sparingly)</strong> · ชื่อ use case แบบ Verb-Noun · หลีกเลี่ยง functional decomposition ซ้อนลึก · "If in doubt, leave it out" — <strong>ข้อความบรรยาย (text) สำคัญกว่าไดอะแกรม</strong> · ห้ามพรรณนา UI ใน use case</p>
+      </div>
+
+      <h2 id="s4">4. ขั้นตอน Requirements Use-Case Modeling (4 ขั้น)</h2>
+      <ol class="steps">
+        <li><b class="st">Identify business actors</b> — ถาม: ใคร/อะไรให้ input? รับ output? ต้องเชื่อมระบบอื่นไหม? มี event อัตโนมัติตามเวลาไหม? ใครดูแลข้อมูล? · ตั้งชื่อด้วย<strong>คำนาม</strong></li>
+        <li><b class="st">Identify business requirements use cases</b> — ถาม: งานหลักของ actor คืออะไร? เขาต้องการ/ให้ข้อมูลอะไร? ระบบ/actor ต้องแจ้งเหตุการณ์อะไรแก่กัน? · เน้น<strong>essential use cases</strong> (critical/complex) ที่ปลอด technology · ตั้งชื่อด้วย<strong>กริยา+เป้าหมาย</strong> (Submit Subscription Order)</li>
+        <li><b class="st">Construct use-case model diagram</b></li>
+        <li><b class="st">Document use-case narratives</b> — เขียน high-level ก่อน (เห็นภาพรวม+ขนาด) แล้วขยายเป็น expanded (typical course + alternate courses)</li>
+      </ol>
+      <p><strong>เทมเพลต use case (ฟิลด์มาตรฐาน):</strong> Identifier · Name (verb-object) · Authors · Goal · Preconditions · Postconditions (รวม minimal guarantee) · Primary actor · Participants/Secondary actors · Related requirements/use cases · Description of events (scenarios) · Trigger · Summary · Steps · Special requirements</p>
+
+      <h2 id="s5">5. Use Case + Project Management</h2>
+      <ul>
+        <li><strong>Use-case ranking &amp; priority matrix:</strong> ให้คะแนน 1-5 ต่อ 6 เกณฑ์: ① กระทบสถาปัตยกรรมมาก ② ทำง่ายแต่ฟังก์ชันสำคัญ ③ มีความเสี่ยง/time-critical/ซับซ้อน ④ มี research/เทคโนโลยีใหม่-เสี่ยง ⑤ เป็นหน้าที่ธุรกิจหลัก ⑥ เพิ่มรายได้/ลดต้นทุน</li>
+        <li><strong>Use-case dependency diagram:</strong> ภาพความ depend กัน — ช่วยเข้าใจฟังก์ชัน · <strong>หา use case ที่หายไป</strong> · เห็นตัวไหน critical กว่ากัน</li>
+      </ul>
+
+      <h2 id="s6">6. Misuse Case — มุมมองคนร้าย (จาก elicitation handout)</h2>
+      <div class="box def">
+        <div class="box-title">📖 แนวคิด (Sindre &amp; Opdahl)</div>
+        <p><strong>Misuse case</strong> = use case ที่<strong>คุกคามระบบ</strong> — เป้าหมายจากมุม "misactor" (ผู้ไม่หวังดี: แฮกเกอร์, คู่แข่ง, พนักงานทุจริต) · ใช้กับ <strong>security &amp; risk analysis</strong> (Murphy's Law: อะไรที่พังได้ จะพัง)</p>
+        <p><strong>ความสัมพันธ์:</strong> <code>threatens</code> (misuse → use) · <code>mitigates</code> (use → misuse) (+ <code>aggravates</code>, <code>conflicts with</code> ใน trade-off) · สัญลักษณ์ ellipse <strong>กลับสี</strong></p>
+        <p><strong>3 ขั้นหา misuse:</strong> ① หา misactors จาก use case diagram ปกติ ② หาว่า misactor จะทำอะไร (misuse cases + threatens) ③ ถามว่าอะไร<strong>กลบความเสี่ยง</strong> (mitigates) → เพิ่ม included use case/extension/scenario ใหม่ · ตัวอย่าง: "Steal the Car" threatens "Drive the Car" → mitigate ด้วย "Lock the Car", "Lock the Transmission"</p>
+        <p>⚠️ ระวัง: อย่าตกไป<strong>ออกแบบทางออกเร็วเกิน</strong> (เป้าหมายคือหา requirements) · มุมมองบางส่วนอาจพลาด misactor/ threats</p>
+      </div>
+
+      <h2 id="s7">สรุปท้ายบท</h2>
+      <div class="box def">
+        <div class="box-title">✅ ต้องจำให้ได้</div>
+        <ol>
+          <li>Actor 4 ชนิด: business / system / external server / external receiver · temporal event → actor = Time</li>
+          <li>Association (หัวลูกศร=ผู้เริ่ม) · «extends» (ทางเลือก) · «uses/includes» (ส่วนร่วม) · «depends on» · inheritance</li>
+          <li>4 ขั้น: หา actors → หา use cases → วาด diagram → เขียน narrative (high-level → expanded)</li>
+          <li>Ranking matrix 6 เกณฑ์ + dependency diagram</li>
+          <li>Misuse case: misactor / threatens / mitigates — เพื่อ security requirements</li>
+        </ol>
+      </div>
+
+      <div class="quiz-q">
+        <div class="q-text">🧪 "ระบบต้องออกรายงานสรุปอัตโนมัติทุกวันจันทร์ 08:00" — actor ของ use case นี้คือใคร?</div>
+        <div class="opts">
+          <button class="opt">ก. ผู้จัดการที่รับรายงาน</button>
+          <button class="opt" data-c="1">ข. Time (เวลา) — เพราะเป็น temporal event</button>
+          <button class="opt">ค. ผู้ดูแลระบบที่ตั้งค่า</button>
+          <button class="opt">ง. ไม่มี actor เพราะเป็นระบบอัตโนมัติ</button>
+        </div>
+        <div class="explain">💡 Temporal event (เกิดตามเวลาที่กำหนด) → actor คือ Time · ก เป็น external receiver actor (รับค่า) ไม่ใช่ผู้ทริกเกอร์</div>
+      </div>
+
+      <div id="doneWrap" style="margin-top:30px;">
+        <button id="doneBtn" style="font-family:inherit;font-size:15px;font-weight:700;padding:10px 22px;border-radius:12px;border:2px solid #16a34a;background:#fff;color:#14713c;cursor:pointer;">☑ ทำเครื่องหมายว่าอ่านแล้ว</button>
+      </div>
+      <div class="pager" id="pager"></div>
+    </main>
+  </div>
+</div>
+<script src="assets/app.js"></script>
+<script src="assets/tts.js"></script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<title>บทที่ 10 — Process Redesign / BPR (สอบเขียนข้อ 2) | BA Final Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%232456d6%27/%3E%3Ctext x=%2750%27 y=%2770%27 font-size=%2752%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27sans-serif%27 font-weight=%27bold%27%3EBA%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="topbar">
+      <button class="burger" id="burger" aria-label="เปิดเมนู">☰</button>
+      <div class="crumb" id="crumb"></div>
+      <div class="spacer"></div>
+      <a class="home-link" href="index.html">หน้าแรก</a>
+    </header>
+    <main class="content">
+
+      <h1 class="hero">บทที่ 10 · Process Redesign & Business Process Re-engineering (BPR)</h1>
+      <p class="lead">⭐ <strong>สอบเขียนข้อ 2: "Re-Design Process จากข้อ 1 พร้อมอธิบาย"</strong> — บทนี้รวมทุกอย่างที่ต้องใช้ตอบ: ทำไมต้อง redesign, คำถาม As-Is/To-Be, ระยะของโครงการ BPR, วิธีการ และอุปสรรค + เทคนิคเขียนคำตอบให้ได้คะแนนเต็ม</p>
+
+      <h2 id="s1">1. ทำไมต้อง Re-engineer? (Why Re-engineer?)</h2>
+      <p>จุดเริ่มของการ redesign มักมาจาก "อาการ" ของกระบวนการที่ใช้งานจริง (จากสไลด์ Managing process context):</p>
+      <div class="grid c2">
+        <div class="card"><h4>⚙️ อาการจากเทคโนโลยี/กระบวนการ</h4><p>· <strong>Technology change</strong> → กระบวนการเดิมใช้ไม่ได้ผล<br>· <strong>Poorly designed processes</strong> → <strong>Process redundancy</strong> (ซ้ำซ้อน)<br>· <strong>Too slow to complete</strong> → <strong>Process efficiency is poor</strong> (ช้า/ประสิทธิภาพต่ำ)</p></div>
+        <div class="card"><h4>😟 อาการจากตลาด/ต้นทุน</h4><p>· <strong>Customer dissatisfaction</strong> (ลูกค้าไม่พอใจ)<br>· <strong>High cost</strong> (ต้นทุนสูง)<br>· <strong>Ineffective process</strong> (ได้ผลไม่ตรงเป้า)</p></div>
+      </div>
+
+      <h3>As-Is vs To-Be — คู่คำถามที่ต้องตอบให้ได้ (สไลด์หลักของบทนี้)</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th></th><th>As-Is (ปัจจุบัน)</th><th>To-Be (อนาคต)</th></tr></thead>
+        <tbody>
+          <tr><td><strong>คำถามหลัก</strong></td><td><strong>What is wrong?</strong> — กระบวนการเดิมผิดพลาดตรงไหน?</td><td><strong>What could we do?</strong> — เราทำอย่างอื่นได้อะไรบ้าง?</td></tr>
+          <tr><td><strong>คำถามย่อย</strong></td><td>Why is it wrong? (ทำไมถึงผิด)<br>What are the problems? (ปัญหาคืออะไร)<br>What are the obstacles? (อุปสรรคคืออะไร)</td><td>How could we do it? (จะทำอย่างไร)<br>How to solve them? (แก้ปัญหาเหล่านั้นอย่างไร)<br>Goals of redesign (เป้าหมายของการออกแบบใหม่คืออะไร)</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="box exam">
+        <div class="box-title">🎯 โครงคำตอบข้อเขียน "Redesign พร้อมอธิบาย"</div>
+        <p>ใช้โครงนี้เขียนตอบ: <strong>(1)</strong> ชี้ปัญหาของ As-Is (ข้อ 1) 1-3 ข้อ เช่น งานเรียงลำดับทั้งที่ทำขนานได้ / มี handoff มาก / มี NVA (รอ ส่งต่อ แก้ซ้ำ) / ลูกค้าต้องเดินหลายจุด → <strong>(2)</strong> นำเสนอ To-Be: วาด BPMN ใหม่ + บอกว่าเปลี่ยนอะไร → <strong>(3)</strong> อธิบายเหตุผลทีละจุดเชื่อมกับปัญหา + ผลที่คาดหวัง (เวลาลดลง ต้นทุนลด ลูกค้าพอใจขึ้น)</p>
+      </div>
+
+      <h2 id="s2">2. Redesign Issues — ประเด็นที่ต้องระวังตอน redesign</h2>
+      <ul>
+        <li><strong>Motivation</strong> — ขาดแรงจูงใจที่จะปรับกระบวนการ</li>
+        <li><strong>Attitude</strong> — อาจมีการต่อต้านการเปลี่ยนแปลง (resistance to change)</li>
+        <li><strong>Knowledge</strong> — ความรู้เรื่องกระบวนการ (เข้าใจผิด/ไม่ครบ)</li>
+        <li><strong>Creativity</strong> — ขาดความคิดสร้างสรรค์</li>
+        <li><strong>Innovation</strong> — ไม่กล้าริเริ่มสิ่งใหม่</li>
+      </ul>
+
+      <h2 id="s3">3. Stages to a BPR Project — 5 ระยะของโครงการ BPR</h2>
+      <figure class="diagram">
+        <svg viewBox="0 0 740 380" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <defs><marker id="a101" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#556"/></marker></defs>
+          <g text-anchor="middle" font-size="12">
+            <!-- 5 stage boxes vertical -->
+            <rect x="60" y="20" width="200" height="54" rx="12" fill="#e8eeff" stroke="#2456d6" stroke-width="2"/>
+            <text x="160" y="43" font-weight="800" fill="#1a3fa0" font-size="13.5">1. Preparation</text>
+            <text x="160" y="61" fill="#556" font-size="10.5">Team · Mission · Problem</text>
+            <rect x="60" y="94" width="200" height="54" rx="12" fill="#e2f7f4" stroke="#0d9488" stroke-width="2"/>
+            <text x="160" y="117" font-weight="800" fill="#0b7a70" font-size="13.5">2. Diagnosis</text>
+            <text x="160" y="135" fill="#556" font-size="10.5">วินิจฉัย As-Is หาสาเหตุ</text>
+            <rect x="60" y="168" width="200" height="54" rx="12" fill="#fff8e9" stroke="#f59e0b" stroke-width="2"/>
+            <text x="160" y="191" font-weight="800" fill="#a16207" font-size="13.5">3. Analysis</text>
+            <text x="160" y="209" fill="#556" font-size="10.5">→ Insight (มุมมองเชิงลึก)</text>
+            <rect x="60" y="242" width="200" height="54" rx="12" fill="#f1e9fe" stroke="#7c3aed" stroke-width="2"/>
+            <text x="160" y="265" font-weight="800" fill="#6d28d9" font-size="13.5">4. Redesign</text>
+            <text x="160" y="283" fill="#556" font-size="10.5">→ Creativity (สร้าง To-Be)</text>
+            <rect x="60" y="316" width="200" height="54" rx="12" fill="#fdeaea" stroke="#dc2626" stroke-width="2"/>
+            <text x="160" y="339" font-weight="800" fill="#b91c1c" font-size="13.5">5. Deployment</text>
+            <text x="160" y="357" fill="#556" font-size="10.5">→ Implement (นำไปใช้จริง)</text>
+          </g>
+          <g stroke="#556" stroke-width="2.5" marker-end="url(#a101)">
+            <line x1="160" y1="74" x2="160" y2="90"/>
+            <line x1="160" y1="148" x2="160" y2="164"/>
+            <line x1="160" y1="222" x2="160" y2="238"/>
+            <line x1="160" y1="296" x2="160" y2="312"/>
+          </g>
+          <!-- right: key word outputs -->
+          <g font-size="12" text-anchor="middle">
+            <rect x="330" y="20" width="380" height="120" rx="14" fill="#fafcff" stroke="#8896b5" stroke-width="1.5"/>
+            <text x="520" y="46" font-weight="800" fill="#334">ทีม (Team)</text>
+            <text x="520" y="70" fill="#556">· ตั้งทีม BPR ให้ครบทั้งฝ่ายธุรกิจ+IT</text>
+            <text x="520" y="90" fill="#556">· พันธกิจ (Mission): ขอบเขต+เป้าหมายชัด</text>
+            <text x="520" y="110" fill="#556">· ปัญหา (Problem): ให้เห็นต้นทุนของการไม่เปลี่ยน</text>
+            <text x="520" y="130" fill="#556">· สื่อสารวิสัยทัศน์+ผลประโยชน์+ความเสี่ยงให้องค์กรรับรู้</text>
+            <rect x="330" y="160" width="380" height="120" rx="14" fill="#fafcff" stroke="#8896b5" stroke-width="1.5"/>
+            <text x="520" y="186" font-weight="800" fill="#334">วิเคราะห์ (Analysis → Insight)</text>
+            <text x="520" y="210" fill="#556">· ทำความเข้าใจลูกค้า/การแข่งขัน/เทคโนโลยี</text>
+            <text x="520" y="230" fill="#556">· เลือกกระบวนการที่จะ redesign + กำหนดขอบเขต</text>
+            <text x="520" y="250" fill="#556">· วินิจฉัยปัญหา: เปรียบเทียบ+จัดลำดับ แล้วเลือกโจทย์</text>
+            <text x="520" y="270" fill="#556">· เจาะรายละเอียดกระบวนการเป้าหมาย (แต่งาน redesign ไม่ต้องลงรายละเอียดทุกอย่าง)</text>
+            <rect x="330" y="300" width="380" height="70" rx="14" fill="#fafcff" stroke="#8896b5" stroke-width="1.5"/>
+            <text x="520" y="326" font-weight="800" fill="#334">ออกแบบใหม่ (Redesign → Creativity)</text>
+            <text x="520" y="348" fill="#556">· ประเมินทางเลือกโดยรวมพฤติกรรมองค์กร+เทคโนโลยี+HR</text>
+            <text x="520" y="366" fill="#556">· ออกแบบขั้นตอนใหม่ ให้เกิดความคิดสร้างสรรค์จริง</text>
+          </g>
+        </svg>
+        <figcaption>ภาพ 10.1 — Stages to a BPR Project: Preparation → Diagnosis → Analysis → Redesign → Deployment (พร้อมคำกำกับผลลัพธ์แต่ละระยะ)</figcaption>
+      </figure>
+
+      <h2 id="s4">4. BPR Methodology</h2>
+      <div class="grid c2">
+        <div class="card">
+          <h4>Generic Methodology (5 ขั้น)</h4>
+          <ol>
+            <li><strong>Create a Reengineering Framework</strong> — สร้างรากฐาน/กรอบครอบคลุมให้ความพยายามเปลี่ยนแปลงทั้งหมด มี focus, direction, motivation ที่ยั่งยืน</li>
+            <li>Identify processes for innovation เลือกกระบวนการเป้าหมาย</li>
+            <li>Understand and improve existing processes — เข้าใจและปรับปรุงของเดิม</li>
+            <li>Design new processes / สร้าง vision ของกระบวนการใหม่</li>
+            <li>Prototype &amp; implement — ทดลองและทำให้เป็นจริง</li>
+          </ol>
+        </div>
+        <div class="card">
+          <h4>Davenport &amp; Short</h4>
+          <ol>
+            <li>Identify processes for innovation — เลือกกระบวนการที่จะปฏิวัติ</li>
+            <li>Identify change levers — หา "คานงัด" ของการเปลี่ยน (เทคโนโลยีที่เอื้อ/เปลี่ยนสถานะได้)</li>
+            <li>Develop process vision — สร้างวิสัยทัศน์ของกระบวนการ</li>
+            <li>Understand and improve existing processes — เข้าใจ+ปรับปรุงกระบวนการเดิม</li>
+            <li>Design and prototype new processes — ออกแบบและต้นแบบกระบวนการใหม่</li>
+          </ol>
+        </div>
+      </div>
+
+      <h2 id="s5">5. Barriers to BPR — อุปสรรคของ BPR</h2>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>ประเภท</th><th>ตัวอย่าง</th><th>ต้นตอ (causes)</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Hard barriers</strong></td><td>ปัญหาไอที · ปัญหาทรัพยากร (resource) · ข้อจำกัดทางกฎหมาย (legal obstacles)</td><td rowspan="3">มาจาก 4 ด้าน: <strong>Project</strong> (เนื้อหา/การบริหารโครงการ) · <strong>People</strong> (บุคลิก/กลุ่มคน) · <strong>Organization</strong> (โครงสร้าง/วัฒนธรรม) · <strong>Environment</strong> (คู่ค้า/สาธารณะ)</td></tr>
+          <tr><td><strong>Soft barriers</strong></td><td>การต่อต้านจากบุคคล/กลุ่ม<strong>ภายใน</strong> · การต่อต้านจาก<strong>ภายนอก</strong>องค์กร</td></tr>
+          <tr><td><strong>ตัวอย่างอื่น</strong></td><td>บุคลากรขาดทักษะ/ความรู้ · ผู้บริหารขาดความมุ่งมั่น · ประมาณการเวลา/ต้นทุนต่ำเกิน · สูญเสียคนเก่ง · เทคโนโลยีใหม่ใช้ยาก · ปัญหาความปลอดภัย · วัฒนธรรมองค์กรเดิม</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>Overcoming the Barriers — "Here's what to do"</h3>
+      <ul>
+        <li><strong>เตรียมความพร้อมบุคลากร</strong> (training/retraining) และให้รางวัลกับความสำเร็จ</li>
+        <li><strong>สื่อสาร</strong>วิสัยทัศน์ ผลประโยชน์ และความเสี่ยงให้ชัดทั้งองค์กร</li>
+        <li>ให้ผู้บริหารระดับสูงเป็น<strong>แบบอย่าง/สนับสนุนอย่างเห็นได้ชัด</strong></li>
+        <li>จัดสรรงบ/เวลาอย่าง<strong>สมจริง</strong> + วางแผนสำรอง</li>
+        <li>เลือกเทคโนโลยีที่<strong>เหมาะสม+เข้าถึงได้</strong></li>
+      </ul>
+
+      <h2 id="s6">6. เทคนิค Redesign ยอดนิยม (คลาสสิกที่ใช้ตอบข้อสอบได้เลย)</h2>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>เทคนิค</th><th>ทำอะไร</th><th>เหมาะเมื่อเจอปัญหา</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Eliminate (ตัด NVA)</strong></td><td>ตัดกิจกรรม NVA ทิ้ง (ตาม Lean)</td><td>ขั้นตอนที่ลูกค้าไม่ยินดีจ่าย ไม่มีใครต้องการ</td></tr>
+          <tr><td><strong>Parallelize (ทำขนาน)</strong></td><td>เปลี่ยนงานเรียงลำดับ (serial) เป็นขนาน (AND gateway)</td><td>งานหลายขั้นไม่มี dependency ต่อกันจริง → ลดเวลารวมมาก (กรณี Calvert County)</td></tr>
+          <tr><td><strong>Automation</strong></td><td>ให้ระบบทำแทนคน (เช่น กรอกข้อมูลอัตโนมัติ, e-form)</td><td>งานซ้ำ ๆ ผิดพลาดง่าย</td></tr>
+          <tr><td><strong>Reduce handoffs</strong></td><td>รวมงาน/ลดการส่งต่อระหว่างแผนก (แต่งานเดียวจบ)</td><td>Handoff มาก → รอนาน + ข้อมูลหาย</td></tr>
+          <tr><td><strong>Single point of contact</strong></td><td>ตั้งตำแหน่งประสานงานกลาง (เช่น Permit Coordinator)</td><td>ลูกค้าต้องติดต่อหลายหน่วยงาน</td></tr>
+          <tr><td><strong>Triage / แยกประเภทงาน</strong></td><td>แยกงานง่าย-ยาก เข้าเส้นทางต่างกัน</td><td>งานเล็กต้องรอคิวงานใหญ่ (FIFO ไม่เหมาะ)</td></tr>
+          <tr><td><strong>Digitize ของจริง → ข้อมูล</strong></td><td>เปลี่ยนกระดาษ/การเดินทางของเอกสารเป็นข้อมูลดิจิทัล</td><td>Transportation/Inventory waste ของเอกสาร</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="box baseline">
+        <div class="box-title">📋 ตัวอย่างเต็ม: Redesign ระบบขออนุญาตก่อสร้าง (Calvert County)</div>
+        <p><strong>As-Is:</strong> งานเรียง FIFO ยาวเหยียด + รีวิวทีละหน่วยแบบ serial + เอกสารกระดาษเดินทางระหว่างอาคาร + ผู้ขอติดต่อ 17 หน่วยงาน + ไม่รู้สถานะ</p>
+        <p><strong>To-Be:</strong> ① แยกงาน 3 ระดับ (Simple/Routine/Complex) ② รีวิว<strong>ขนานกัน</strong> (เหลือ dependency จริงแค่จุดเดียว) ③ ตั้ง <strong>Permit Coordinator</strong> จุดเดียวจบ ④ รวมที่ติดต่อ 1 อาคาร + เอกสารดิจิทัล ⑤ ระบบสถานะละเอียดให้ผู้ขอเช็คได้ → <strong>ผล: เวลารวมลดลงมหาศาล ลูกค้าพึงพอใจ ไม่ต้องเพิ่มตำแหน่งงาน</strong></p>
+        <p>นี่คือแม่แบบคำตอบที่ดีมากสำหรับข้อสอบ: <em>ชี้ปัญหา → แก้ทีละจุดด้วยเทคนิคข้างบน → ผลลัพธ์</em></p>
+      </div>
+
+      <h2 id="s7">7. อื่น ๆ ที่ควรรู้ (จากแผนที่เนื้อหาของสไลด์)</h2>
+      <ul>
+        <li><strong>Management & Plans:</strong> management plans + <strong>change management</strong> (บริหารการเปลี่ยนแปลง) ต้องมาคู่กับ redesign เสมอ</li>
+        <li><strong>ERP:</strong> ระบบวางแผนทรัพยากรองค์กรมักเป็น "คานงัด" ของการ redesign กระบวนการข้ามหน่วยงาน</li>
+        <li><strong>Readiness for change:</strong> องค์กรต้องพร้อมรับการเปลี่ยน (ทักษะ ทัศนคติ ผู้นำ)</li>
+        <li><strong>Factors for success:</strong> ผู้บริหารสนับสนุน · ทีมเหมาะสม · เทคโนโลยีเอื้อ · สื่อสาร · บริหารการเปลี่ยนแปลง</li>
+        <li><strong>Characteristics of Re-engineered Processes:</strong> กระบวนการที่ผ่าน BPR มักมี handoff น้อยลง ใช้ IT ผสานงาน คนมีอำนาจตัดสินใจมากขึ้น (case worker) ทำหลายขั้นในครั้งเดียว</li>
+        <li><strong>Eliminating non-value-adding activities</strong> = หัวใจตรงของ redesign (จากบท 4 และ 9)</li>
+      </ul>
+
+      <h2 id="s8">สรุปท้ายบท</h2>
+      <div class="box def">
+        <div class="box-title">✅ ต้องจำให้ได้จากบทนี้</div>
+        <ol>
+          <li>เหตุผล redesign: กระบวนการซ้ำซ้อน/ช้า/ไม่ได้ผล + ลูกค้าไม่พอใจ + ต้นทุนสูง + เทคโนโลยีเปลี่ยน</li>
+          <li>คำถาม: As-Is = What is wrong? Why? Problems? Obstacles? · To-Be = What could we do? How? Goals?</li>
+          <li>5 ระยะ BPR: <strong>Preparation (Team-Mission-Problem) → Diagnosis → Analysis (Insight) → Redesign (Creativity) → Deployment (Implement)</strong></li>
+          <li>Methodology: Generic 5 ขั้น + Davenport &amp; Short (เลือก process → change levers → vision → เข้าใจของเดิม → design/prototype)</li>
+          <li>Barriers: Hard (IT/resource/กฎหมาย) + Soft (การต่อต้านใน-นอก) — รากจาก Project/People/Organization/Environment</li>
+          <li>เทคนิคตอบข้อสอบ: Eliminate · ทำขนาน · Automation · ลด handoff · จุดติดต่อเดียว · Triage · ดิจิทัล + อธิบายเหตุผลและผลลัพธ์ทุกจุด</li>
+        </ol>
+      </div>
+
+      <div class="quiz-q">
+        <div class="q-text">🧪 (แนวข้อสอบเขียน) ถ้า As-Is มีปัญหา "หลายแผนกตรวจสอบเอกสารเรียงลำดับกันทีละแผนก ทั้งที่ไม่ขึ้นต่อกัน" — ควร redesign อย่างไร?</div>
+        <div class="opts">
+          <button class="opt">ก. เพิ่มพนักงานทุกแผนกให้ทำเร็วขึ้น</button>
+          <button class="opt" data-c="1">ข. ให้แผนกที่ไม่ขึ้นต่อกันตรวจพร้อมกัน (แบบขนาน) แล้วค่อยประมวลผลรวม</button>
+          <button class="opt">ค. ให้ลูกค้ายื่นเอกสารซ้ำแต่ละแผนกเพื่อความชัดเจน</button>
+          <button class="opt">ง. ยกเลิกการตรวจสอบทั้งหมดเพื่อลดเวลา</button>
+        </div>
+        <div class="explain">💡 งานที่ไม่มี dependency จริง → ทำขนาน (AND) เวลารวม = max ของสาย ไม่ใช่ผลรวม — ง. ผิดเพราะการตรวจสอบมักเป็น BVA (ลดได้ ตัดทิ้งไม่ได้) · ก. เพิ่มต้นทุนไม่แก้ที่ราก</div>
+      </div>
+
+      <div id="doneWrap" style="margin-top:30px;">
+        <button id="doneBtn" style="font-family:inherit;font-size:15px;font-weight:700;padding:10px 22px;border-radius:12px;border:2px solid #16a34a;background:#fff;color:#14713c;cursor:pointer;">☑ ทำเครื่องหมายว่าอ่านแล้ว</button>
+      </div>
+      <div class="pager" id="pager"></div>
+    </main>
+  </div>
+</div>
+<script src="assets/app.js"></script>
+<script src="assets/tts.js"></script>
+</body>
+</html>

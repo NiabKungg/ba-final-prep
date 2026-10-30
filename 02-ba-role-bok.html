@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<title>บทที่ 2 — บทบาท Business Analyst & Body of Knowledge | BA Final Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%232456d6%27/%3E%3Ctext x=%2750%27 y=%2770%27 font-size=%2752%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27sans-serif%27 font-weight=%27bold%27%3EBA%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="topbar">
+      <button class="burger" id="burger" aria-label="เปิดเมนู">☰</button>
+      <div class="crumb" id="crumb"></div>
+      <div class="spacer"></div>
+      <a class="home-link" href="index.html">หน้าแรก</a>
+    </header>
+    <main class="content">
+
+      <h1 class="hero">บทที่ 2 · บทบาท Business Analyst & Body of Knowledge</h1>
+      <p class="lead">BA คือใคร ทำอะไร ไม่ทำอะไร — และ "ความรู้พื้นฐาน" (Body of Knowledge) 6 แกนที่อาจารย์เขียนไว้บนกระดาน พร้อมโมเดลความคิด As-Is → To-Be ที่เป็นหัวใจของทั้งวิชา</p>
+
+      <h2 id="s1">1. Business Analyst คือใคร ทำอะไรบ้าง?</h2>
+      <div class="box analogy">
+        <div class="box-title">💭 นึกภาพก่อน</div>
+        <p>สมัยก่อนคุณอาจเป็นแค่ <strong>Data Modeler</strong> (คนวาดโมเดลข้อมูล) — แต่ "วันนี้" คุณคือ <strong>Business Analyst</strong> หรือ <strong>Enterprise Architect</strong> เพราะระบบธุรกิจยุคใหม่ซับซ้อนและเชื่อมโยงกันทุกด้าน ต้องการคนที่มองเห็นธุรกิจ "ทั้งก้อน" ไม่ใช่แค่ข้อมูล</p>
+      </div>
+
+      <h3>หน้าที่หลัก 4 ข้อของ BA (The Premise)</h3>
+      <ol class="steps">
+        <li><b class="st">Discover facts about the business</b> ค้นหา/ค้นพบข้อเท็จจริงใหม่ ๆ เกี่ยวกับธุรกิจ</li>
+        <li><b class="st">Facilitate communication between business experts</b> เป็นตัวกลางอำนวยความเข้าใจระหว่างผู้เชี่ยวชาญทางธุรกิจด้วยกันเอง</li>
+        <li><b class="st">Help specify the way the business will work</b> ช่วยกำหนด "วิธีทำงาน" ของธุรกิจในอนาคต (To-Be)</li>
+        <li><b class="st">Provide specifications to technical staff</b> ส่งต่อข้อกำหนดให้ฝ่ายเทคนิค (ในองค์กรหรือ vendor ภายนอก) เพื่อ implement ฐานข้อมูล แอปพลิเคชัน และแม้กระทั่งโครงสร้างองค์กรใหม่</li>
+      </ol>
+      <p>สรุปสั้น ๆ: BA ต้องการ <strong>"โมเดลหลากหลายชนิด"</strong> (You need a whole bunch of models!) ไม่ใช่แค่โมเดลเดียว</p>
+
+      <div class="box exam">
+        <div class="box-title">🎯 ข้อสอบชอบถาม "สิ่งที่ BA ไม่ทำ"</div>
+        <ul>
+          <li>❌ เขียนโค้ดและทดสอบระบบเองทั้งหมด (ไม่ใช่หน้าที่หลัก)</li>
+          <li>❌ เป็นผู้มีอำนาจตัดสินใจขั้นเด็ดขาดทุกเรื่อง (BA เป็นผู้<strong>อำนวยความสะดวก</strong> ไม่ใช่ผู้บริหารสูงสุด)</li>
+          <li>❌ หลีกเลี่ยงการทำแบบจำลอง/แผนภาพ (ตรงข้าม — โมเดลคือเครื่องมือหลักของ BA)</li>
+          <li>✅ ค้นพบข้อเท็จจริง · สื่อสารกลาง · กำหนดวิธีทำงานใหม่ · ส่งต่อข้อกำหนดให้ทีมเทคนิค</li>
+        </ul>
+      </div>
+
+      <div class="box deep">
+        <div class="box-title">🧠 คุณสมบัติของ Analyst ที่ดี (จาก Job Description จริง)</div>
+        <p>"มีความสามารถและเอนคลินายันที่จะ <strong>tolerate chaos, ambiguity, and lack of knowledge</strong> (ทนต่อความโกลาหล ความคลุมเครือ และความไม่รู้) และยังทำงานได้อย่างมีประสิทธิภาพแม้ในสภาวะเหล่านั้น"</p>
+      </div>
+
+      <h3>สิ่งที่บทเรียนนี้ "ไม่" พูดถึง (จำไว้ตอบถูก/ผิด)</h3>
+      <ul>
+        <li>Business Modeling ดีหรือไม่ — <strong>สมมติว่าดี</strong> (assumption: yes)</li>
+        <li>Methodology (SDLC, JAD, Agile) — ไม่พูดถึง</li>
+        <li>สัญลักษณ์/Notation (Barker vs Chen vs UML) — ไม่ชี้ว่าแบบไหนดีที่สุด</li>
+        <li>Tools (ERwin vs Rational Rose vs Visio) — ไม่พูดถึง</li>
+        <li>การจัดหน้าเอกสาร — ไม่พูดถึง</li>
+      </ul>
+
+      <h2 id="s2">2. Business Analysis คืออะไร (แผนภาพใหญ่ประจำวิชา)</h2>
+      <figure class="diagram">
+        <svg viewBox="0 0 760 260" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <defs><marker id="a2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2456d6"/></marker></defs>
+          <!-- left: needs -->
+          <rect x="10" y="30" width="180" height="120" rx="14" fill="#fff" stroke="#db2777" stroke-width="2"/>
+          <text x="100" y="60" text-anchor="middle" font-size="13.5" font-weight="800" fill="#be1d64">Pains · Hopes</text>
+          <text x="100" y="80" text-anchor="middle" font-size="13.5" fill="#333">Fears · Problems</text>
+          <text x="100" y="100" text-anchor="middle" font-size="13.5" fill="#333">Opportunities</text>
+          <text x="100" y="120" text-anchor="middle" font-size="13.5" fill="#333">Mandates</text>
+          <text x="100" y="142" text-anchor="middle" font-size="12.5" fill="#888">↓ สังเคราะห์เป็น</text>
+          <rect x="35" y="185" width="130" height="36" rx="18" fill="#db2777"/>
+          <text x="100" y="208" text-anchor="middle" font-size="13.5" font-weight="800" fill="#fff">BUSINESS NEED</text>
+          <!-- middle: BA -->
+          <rect x="240" y="22" width="280" height="200" rx="16" fill="#e8eeff" stroke="#2456d6" stroke-width="2.5"/>
+          <text x="380" y="52" text-anchor="middle" font-size="15.5" font-weight="800" fill="#1a3fa0">BUSINESS ANALYSIS</text>
+          <text x="380" y="76" text-anchor="middle" font-size="12.5" fill="#556">Input: Business facts +</text>
+          <text x="380" y="92" text-anchor="middle" font-size="12.5" fill="#556">Business conditions + possibilities</text>
+          <g font-size="12.5" font-weight="700" text-anchor="middle">
+            <rect x="262" y="106" width="76" height="40" rx="10" fill="#fff" stroke="#3b6fe0" stroke-width="1.5"/><text x="300" y="130" fill="#1a3fa0">1. Discovery</text>
+            <rect x="342" y="106" width="76" height="40" rx="10" fill="#fff" stroke="#3b6fe0" stroke-width="1.5"/><text x="380" y="123" fill="#1a3fa0">2. Assess-</text><text x="380" y="138" fill="#1a3fa0">ment</text>
+            <rect x="422" y="106" width="84" height="40" rx="10" fill="#fff" stroke="#3b6fe0" stroke-width="1.5"/><text x="464" y="123" fill="#1a3fa0">3. Specifi-</text><text x="464" y="138" fill="#1a3fa0">cation</text>
+          </g>
+          <text x="300" y="170" text-anchor="middle" font-size="11.5" fill="#777">(as-is)</text>
+          <text x="380" y="170" text-anchor="middle" font-size="11.5" fill="#777">(เช็คความเป็นไปได้)</text>
+          <text x="464" y="170" text-anchor="middle" font-size="11.5" fill="#777">(to-be)</text>
+          <rect x="270" y="182" width="220" height="32" rx="16" fill="#2456d6"/>
+          <text x="380" y="203" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">→ BUSINESS REQUIREMENTS</text>
+          <!-- right -->
+          <rect x="570" y="70" width="180" height="100" rx="14" fill="#e7f8ee" stroke="#16a34a" stroke-width="2"/>
+          <text x="660" y="105" text-anchor="middle" font-size="14" font-weight="800" fill="#14713c">Design &amp; Deliver a</text>
+          <text x="660" y="125" text-anchor="middle" font-size="14" font-weight="800" fill="#14713c">Mechanized Solution</text>
+          <text x="660" y="148" text-anchor="middle" font-size="12" fill="#556">(ออกแบบ+ส่งมอบคำตอบเชิงระบบ)</text>
+          <!-- arrows -->
+          <line x1="192" y1="203" x2="236" y2="160" stroke="#2456d6" stroke-width="3" marker-end="url(#a2)"/>
+          <line x1="522" y1="120" x2="566" y2="120" stroke="#2456d6" stroke-width="3" marker-end="url(#a2)"/>
+        </svg>
+        <figcaption>ภาพ 2.1 — ภาพใหญ่ของ Business Analysis: ความต้องการธุรกิจ → (Discovery → Assessment → Specification) → Business Requirements → ทางออกเชิงระบบ</figcaption>
+      </figure>
+
+      <div class="box exam">
+        <div class="box-title">🎯 Business Analysis ประกอบด้วย 3 ส่วน (ท่อง!)</div>
+        <ol>
+          <li><strong>Discovery</strong> — เข้าใจ/จัดทำเอกสารข้อเท็จจริงของธุรกิจ<strong>ปัจจุบัน</strong> (<strong>As-Is</strong>)</li>
+          <li><strong>Assessment</strong> — ประเมินสภาวะ (conditions) + ความเป็นไปได้ (possibilities) ของธุรกิจ</li>
+          <li><strong>Specification</strong> — นิยามความต้องการของธุรกิจ<strong>ในอนาคต</strong> (<strong>To-Be</strong>)</li>
+        </ol>
+        <p>ซึ่งตรงกับควิซ: "Business Analysis = เปรียบเทียบกับกระบวนการที่เป็นอยู่ (As-Is) + ดูความเป็นไปได้ + เริ่มจากความต้องการของธุรกิจ" — ส่วน "คุณสมบัติของระบบใหม่ที่ควรเป็น" และ "ออกแบบกระบวนการใหม่" คือแนวคิดของ <strong>Solution/Design</strong> ไม่ใช่ตัว Business Analysis เอง</p>
+      </div>
+
+      <h2 id="s3">3. Body of Knowledge (BOK) — 6 แกนความรู้ (จากกระดานอาจารย์)</h2>
+      <figure class="diagram">
+        <svg viewBox="0 0 620 380" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <g font-weight="800" text-anchor="middle" font-size="15">
+            <!-- hexagon-ish layout -->
+            <rect x="230" y="14" width="160" height="46" rx="12" fill="#2456d6"/><text x="310" y="42" fill="#fff" font-size="13">1. CHANGE (การเปลี่ยนแปลง)</text>
+            <rect x="30" y="80" width="160" height="46" rx="12" fill="#3b6fe0"/><text x="110" y="108" fill="#fff" font-size="13">2. NEED (ความต้องการ)</text>
+            <rect x="430" y="80" width="160" height="46" rx="12" fill="#0d9488"/><text x="510" y="108" fill="#fff" font-size="13">3. SOLUTION (ทางออก)</text>
+            <rect x="30" y="250" width="160" height="46" rx="12" fill="#f59e0b"/><text x="110" y="278" fill="#3d2b00" font-size="13">4. STAKEHOLDER</text>
+            <rect x="430" y="250" width="160" height="46" rx="12" fill="#db2777"/><text x="510" y="278" fill="#fff" font-size="13">6. CONTEXT (บริบท)</text>
+            <rect x="225" y="150" width="170" height="80" rx="16" fill="#dc2626" stroke="#7f1d1d" stroke-width="3"/>
+            <text x="310" y="182" fill="#fff" font-size="16">5. VALUE</text>
+            <text x="310" y="203" fill="#ffd7d7" font-size="11.5">(คุณค่า — เน้นสุด!)</text>
+            <text x="310" y="219" fill="#fff" font-size="10.5">Business Value + Product Value</text>
+          </g>
+          <g stroke="#b9c7e6" stroke-width="2">
+            <line x1="310" y1="60" x2="310" y2="150"/>
+            <line x1="190" y1="103" x2="240" y2="165"/>
+            <line x1="430" y1="103" x2="380" y2="165"/>
+            <line x1="190" y1="273" x2="240" y2="215"/>
+            <line x1="430" y1="273" x2="380" y2="215"/>
+          </g>
+          <text x="310" y="345" text-anchor="middle" font-size="13" fill="#556" font-weight="700">แกนทั้ง 6 เชื่อมโยงกันรอบ "คุณค่า" — ทุกการวิเคราะห์ต้องมองครบทุกแกน</text>
+          <text x="310" y="366" text-anchor="middle" font-size="12" fill="#888">(เทียบได้กับ BACCM — Business Analysis Core Concept Model)</text>
+        </svg>
+        <figcaption>ภาพ 2.2 — 6 Core Concepts จากกระดานอาจารย์ (Sep 15): Change · Need · Solution · Stakeholder · <strong>Value (วงกลมแดงเน้น)</strong> · Context</figcaption>
+      </figure>
+
+      <h3>Stakeholders รอบตัวเรา (แผนภาพจากกระดาน)</h3>
+      <ul>
+        <li>⬆️ <strong>Supervisor / Manager</strong> — หัวหน้างาน</li>
+        <li>⬇️ <strong>Project Sponsor / Project Owner</strong> — ผู้สนับสนุน/เจ้าของโครงการ</li>
+        <li>⬅️ <strong>Peers</strong> — เพื่อนร่วมงานระดับเดียวกัน</li>
+        <li>➡️ <strong>Customer / Supplier</strong> — ลูกค้า / ผู้ส่งมอบ</li>
+      </ul>
+
+      <h2 id="s4">4. Model คืออะไร (โครงสร้างที่ออกสอบแน่นอน)</h2>
+      <div class="formula">Model = <b>Diagram</b> (Nodes + Links) + <b>Text/Narrative</b></div>
+      <ul>
+        <li><strong>Nodes (จุด)</strong> = ธาตุหลัก (key elements) ของมุมมองนั้น เช่น entities, activities, states, locations, parties</li>
+        <li><strong>Links (เส้นเชื่อม)</strong> = ความสัมพันธ์ที่มีความหมายระหว่าง nodes — <strong>ข้อสังเกต: nodes หาง่ายกว่า links เสมอ</strong> (links คือส่วนที่ยาก) และชุด node เดียวกันอาจมีได้หลายความสัมพันธ์ (คน—รถ: เป็นเจ้าของ? / ขับ? / ถูกพาไป?)</li>
+        <li>รูปแบบอื่นของโมเดล: Matrices (เมทริกซ์), Illustrations, 3-D, Prototypes, Narrative</li>
+      </ul>
+
+      <h3>จุดมุ่งหมายของการทำโมเดล 3 ข้อ</h3>
+      <ol>
+        <li><strong>To clearly document facts</strong> — จัดทำเอกสารข้อเท็จจริงให้ชัด</li>
+        <li><strong>To facilitate better communication</strong> — สื่อสารกับ "กลุ่มผู้ชม" ที่ตั้งใจไว้ (ทั้ง business people และ technical people)</li>
+        <li><strong>To lead to actualization of a solution</strong> — เป็นทั้ง (ก) <strong>specification</strong> ของสิ่งที่ต้องการ และ (ข) เครื่องมือ <strong>ตรวจสอบ/ทดสอบ</strong> (test) สิ่งที่ถูกส่งมอบ</li>
+      </ol>
+
+      <h3>แบ่งประเภทโมเดล</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>มิติ</th><th>แบบที่ 1</th><th>แบบที่ 2</th></tr></thead>
+        <tbody>
+          <tr><td>ตามช่วงเวลา (stage)</td><td><strong>Current state</strong> = As-Is / as built / old</td><td><strong>Future state</strong> = To-Be / proposed / new</td></tr>
+          <tr><td>ตามระดับรายละเอียด</td><td><strong>Framing models</strong> — ภาพรวมกรอบงาน</td><td><strong>Detailed models</strong> — เจาะลึก</td></tr>
+        </tbody>
+      </table></div>
+
+      <h2 id="s5">5. As-Is → To-Be (หัวใจของวิชา — เชื่อมทุกบท)</h2>
+      <figure class="diagram">
+        <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <defs><marker id="a3" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker></defs>
+          <!-- SMART -->
+          <rect x="235" y="14" width="250" height="42" rx="12" fill="#7c3aed"/>
+          <text x="360" y="40" text-anchor="middle" font-size="14" font-weight="800" fill="#fff">SMART OBJECTIVES</text>
+          <text x="360" y="78" text-anchor="middle" font-size="11.5" fill="#888">(เป้าหมายที่ Specific · Measurable · Achievable · Relevant · Time-bound)</text>
+          <!-- baseline As-Is -->
+          <rect x="40" y="220" width="280" height="52" rx="14" fill="#eef2fa" stroke="#55657a" stroke-width="2"/>
+          <text x="180" y="242" text-anchor="middle" font-size="15" font-weight="800" fill="#334">AS-IS (ปัจจุบัน)</text>
+          <text x="180" y="262" text-anchor="middle" font-size="11.5" fill="#667">กระบวนการ/ระบบที่ทำงานอยู่ตอนนี้</text>
+          <!-- ladder -->
+          <g stroke="#16a34a" stroke-width="3">
+            <line x1="335" y1="246" x2="395" y2="246" marker-end="url(#a3)"/>
+          </g>
+          <!-- To-Be -->
+          <rect x="400" y="220" width="280" height="52" rx="14" fill="#e7f8ee" stroke="#16a34a" stroke-width="2.5"/>
+          <text x="540" y="242" text-anchor="middle" font-size="15" font-weight="800" fill="#14713c">TO-BE (อนาคต)</text>
+          <text x="540" y="262" text-anchor="middle" font-size="11.5" fill="#3a7">NEEDS → Business Requirements</text>
+          <!-- middle: bridge -->
+          <path d="M 120 220 L 200 120 L 520 120 L 600 220" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="7 5"/>
+          <rect x="255" y="96" width="210" height="44" rx="12" fill="#fff8e9" stroke="#f59e0b" stroke-width="2"/>
+          <text x="360" y="116" text-anchor="middle" font-size="12.5" font-weight="800" fill="#a16207">การเปลี่ยนผ่านด้วย</text>
+          <text x="360" y="133" text-anchor="middle" font-size="12.5" font-weight="800" fill="#a16207">Business Requirements + โมเดล</text>
+          <text x="360" y="290" text-anchor="middle" font-size="12.5" fill="#556" font-weight="700">STRATEGY = แผนเพื่อสร้างและส่งมอบ "คุณค่า" ให้ลูกค้า (ข้อความสรุปจากกระดานอาจารย์)</text>
+        </svg>
+        <figcaption>ภาพ 2.3 — As-Is → To-Be: บันไดจากสถานะปัจจุบันขึ้นสู่เป้าหมาย โดยมี SMART Objectives นำทาง และ Needs/BR เป็นขั้นบันได</figcaption>
+      </figure>
+
+      <div class="box analogy">
+        <div class="box-title">💭 เปรียบเทียบ</div>
+        <p><strong>As-Is</strong> = ถ่ายรูปบ้านหลังปัจจุบัน (รู้ว่าอะไรพัง อะไรน่ารำคาญ) · <strong>To-Be</strong> = ภาพ 3 มิติบ้านหลังใหม่ที่อยากได้ · ส่วน <strong>BA</strong> คือสถาปนิกที่วัดบ้านเดิม ฟังความต้องการเจ้าของ แล้ววาดแบบใหม่พร้อมบอกว่าต้องรื้ออะไรทิ้ง ต่ออะไรเพิ่ม</p>
+      </div>
+
+      <h2 id="s6">6. บริบทโครงการ (Projects) กับ Enabling Media + Motivation</h2>
+      <ul>
+        <li>การทำ Business modeling <strong>เกือบทั้งหมดทำในรูป "โครงการ"</strong> — เช่น Data warehouse project, Process improvement project, Technology update project, ERP project, Org redesign project</li>
+        <li><strong>อดีต:</strong> โครงการกระทบด้านเดียว (แอปใหม่ = process + ข้อมูล / ฐานข้อมูลใหม่ = data / ปรับโครงสร้าง = organization)</li>
+        <li><strong>ปัจจุบัน:</strong> ทุกอย่างเชื่อมกัน โครงการส่วนใหญ่กระทบ<strong>ครบทั้ง 5 ด้าน</strong> (Process, Data, Event, Location, Socio-Political) — BA ต้องรับมือให้ได้</li>
+        <li><strong>Enabling Media</strong> = "เทคโนโลยี" ในความหมายกว้างสุด — BA ต้อง discovery/assessment/specify ทิศทางของมันด้วย</li>
+        <li><strong>Motivation Chain (ตอบ Why):</strong> Business Intentions (ในแผนกลยุทธ์) → เริ่ม<strong>โครงการ</strong>เพื่อตอบเจตนารมณ์ → <strong>Business models</strong> สนับสนุนเป้าหมายโครงการ</li>
+      </ul>
+
+      <h2 id="s7">สรุปท้ายบท</h2>
+      <div class="box def">
+        <div class="box-title">✅ ต้องจำให้ได้จากบทนี้</div>
+        <ol>
+          <li>BA 4 หน้าที่: Discover facts · Facilitate communication · Specify future work · Provide specs to tech staff</li>
+          <li>Business Analysis 3 ส่วน: <strong>Discovery (As-Is) · Assessment · Specification (To-Be)</strong></li>
+          <li>BOK 6 แกน: <strong>Change · Need · Solution · Stakeholder · Value · Context</strong> (Value คือศูนย์กลาง)</li>
+          <li><strong>Model = Diagram (Nodes + Links) + Narrative</strong> — links ยากกว่า nodes</li>
+          <li>โมเดลมี 2 วัตถุประสงค์ใหญ่: documentation + communication (+ เป็น spec & test ของทางออก)</li>
+          <li>As-Is (current) → To-Be (future); Framing vs Detailed models</li>
+        </ol>
+      </div>
+
+      <div class="quiz-q">
+        <div class="q-text">🧪 ลองทำ (จากควิซจริง): ข้อใดกล่าวถึง "Business Analysis" ได้ถูกต้อง? (เลือกได้หลายข้อ — ข้อสอบเลือกข้อที่ถูกที่สุด)</div>
+        <div class="opts">
+          <button class="opt" data-c="1">ก. เปรียบเทียบกับกระบวนการที่เป็นอยู่ (As-Is)</button>
+          <button class="opt" data-c="1">ข. ดูความเป็นไปได้ของการทำงาน (Feasibility)</button>
+          <button class="opt" data-c="1">ค. เริ่มจากการดูความต้องการของธุรกิจ (Business Needs)</button>
+          <button class="opt">ง. คุณสมบัติของระบบใหม่ที่ควรต้องเป็น / ออกแบบกระบวนการใหม่ให้เหมาะกับปัญหา</button>
+        </div>
+        <div class="explain">💡 ก-ข-ค คือ Business Analysis (Discovery/Assessment/Specification) — ส่วน ง คืองานของ "Solution Design" ซึ่งอยู่ถัดไปหลังจากวิเคราะห์จบแล้ว</div>
+      </div>
+
+      <div id="doneWrap" style="margin-top:30px;">
+        <button id="doneBtn" style="font-family:inherit;font-size:15px;font-weight:700;padding:10px 22px;border-radius:12px;border:2px solid #16a34a;background:#fff;color:#14713c;cursor:pointer;">☑ ทำเครื่องหมายว่าอ่านแล้ว</button>
+      </div>
+      <div class="pager" id="pager"></div>
+    </main>
+  </div>
+</div>
+<script src="assets/app.js"></script>
+<script src="assets/tts.js"></script>
+</body>
+</html>

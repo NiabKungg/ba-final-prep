@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<title>บทที่ 1 — พื้นฐานธุรกิจ & ความต้องการธุรกิจ | BA Final Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%232456d6%27/%3E%3Ctext x=%2750%27 y=%2770%27 font-size=%2752%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27sans-serif%27 font-weight=%27bold%27%3EBA%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="topbar">
+      <button class="burger" id="burger" aria-label="เปิดเมนู">☰</button>
+      <div class="crumb" id="crumb"></div>
+      <div class="spacer"></div>
+      <a class="home-link" href="index.html">หน้าแรก</a>
+    </header>
+    <main class="content">
+
+      <h1 class="hero">บทที่ 1 · พื้นฐานธุรกิจ & ความต้องการธุรกิจ</h1>
+      <p class="lead">Business · Business Needs · Business Intentions — ปูพื้นก่อนเข้าสู่โลกของ Business Analyst ทุกอย่างในวิชานี้เริ่มจากคำถามง่าย ๆ ว่า <strong>"ธุรกิจต้องการอะไร และเราจะช่วยให้ถึงเป้าหมายนั้นได้อย่างไร"</strong></p>
+
+      <h2 id="s1">1. Business คืออะไร?</h2>
+      <div class="box def">
+        <div class="box-title">📖 นิยาม</div>
+        <p>ธุรกิจ (Business) ถูกเริ่มโดย <strong>ผู้ประกอบการ (Entrepreneurs)</strong> ที่ <strong>มองเห็นความต้องการ (see a need)</strong>, <strong>รู้จักโอกาส (recognize the opportunity)</strong> แล้วเข้าสู่ธุรกิจเพื่อ <strong>ตอบสนองความต้องการนั้น (meet that need)</strong></p>
+        <p>ธุรกิจกับผู้คนต้องการกันและกัน — มี <strong>stakeholders</strong> มากมาย: เราพึ่งพาธุรกิจเพื่อหาสินค้า/บริการ และเพื่อการจ้างงาน</p>
+      </div>
+
+      <h3>ธุรกิจทำงานอย่างไร — สมการหลักของธุรกิจ</h3>
+      <p>ธุรกิจ<strong>ซื้อปัจจัยการผลิต (Inputs)</strong> เช่น วัตถุดิบ แรงงาน เครื่องจักร ที่ดิน → <strong>แปรรูป/ผลิต (Process)</strong> → <strong>ส่งมอบผลผลิต (Outputs)</strong> คือสินค้าและบริการ โดยเน้น <strong>ใช้ทรัพยากรอย่างมีประสิทธิภาพ (efficient use of resources)</strong> เพื่อ <strong>สร้างกำไร (profit/surplus)</strong></p>
+
+      <figure class="diagram">
+        <svg viewBox="0 0 720 200" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <defs>
+            <marker id="arr1" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2456d6"/></marker>
+          </defs>
+          <!-- Inputs -->
+          <rect x="15" y="30" width="150" height="90" rx="14" fill="#e8eeff" stroke="#2456d6" stroke-width="2"/>
+          <text x="90" y="62" text-anchor="middle" font-size="17" font-weight="800" fill="#1a3fa0">INPUTS</text>
+          <text x="90" y="86" text-anchor="middle" font-size="12.5" fill="#334">วัตถุดิบ · แรงงาน</text>
+          <text x="90" y="104" text-anchor="middle" font-size="12.5" fill="#334">เครื่องจักร · ที่ดิน</text>
+          <text x="90" y="150" text-anchor="middle" font-size="12.5" fill="#777">ต้นทุน: Fixed + Variable</text>
+          <!-- Process -->
+          <rect x="235" y="30" width="170" height="90" rx="14" fill="#fff4dc" stroke="#f59e0b" stroke-width="2"/>
+          <text x="320" y="62" text-anchor="middle" font-size="17" font-weight="800" fill="#a16207">PROCESS</text>
+          <text x="320" y="86" text-anchor="middle" font-size="12.5" fill="#334">แปรรูป / ผลิต / ให้บริการ</text>
+          <text x="320" y="104" text-anchor="middle" font-size="12.5" fill="#334">(เน้นความมีประสิทธิภาพ)</text>
+          <!-- Output -->
+          <rect x="475" y="30" width="150" height="90" rx="14" fill="#e7f8ee" stroke="#16a34a" stroke-width="2"/>
+          <text x="550" y="62" text-anchor="middle" font-size="17" font-weight="800" fill="#14713c">OUTPUTS</text>
+          <text x="550" y="86" text-anchor="middle" font-size="12.5" fill="#334">สินค้า (Goods)</text>
+          <text x="550" y="104" text-anchor="middle" font-size="12.5" fill="#334">บริการ (Services)</text>
+          <text x="550" y="150" text-anchor="middle" font-size="12.5" fill="#777">นำไปสู่รายได้ (Revenue)</text>
+          <!-- arrows -->
+          <line x1="167" y1="75" x2="231" y2="75" stroke="#2456d6" stroke-width="3" marker-end="url(#arr1)"/>
+          <line x1="407" y1="75" x2="471" y2="75" stroke="#2456d6" stroke-width="3" marker-end="url(#arr1)"/>
+          <!-- profit -->
+          <rect x="250" y="165" width="220" height="30" rx="15" fill="#16a34a"/>
+          <text x="360" y="185" text-anchor="middle" font-size="14" font-weight="800" fill="#fff">PROFIT = Revenue − Costs</text>
+        </svg>
+        <figcaption>ภาพ 1.1 — ธุรกิจคือการเปลี่ยน Inputs ให้เป็น Outputs อย่างมีประสิทธิภาพเพื่อให้เกิดกำไร</figcaption>
+      </figure>
+
+      <div class="box analogy">
+        <div class="box-title">💭 เปรียบเทียบให้เห็นภาพ</div>
+        <p>คิดง่าย ๆ ว่าธุรกิจเหมือน <strong>"ร้านผลไม้ปั่น"</strong>: ซื้อผลไม้+น้ำแข็ง (Inputs) → ปั่นใส่แก้ว (Process) → ขายน้ำผลไม้ (Output) เงินที่ลูกค้าจ่ายคือ Revenue หักต้นทุนผลไม้/ค่าแรง/ค่าเช่าแล้ว ที่เหลือคือ Profit — BA (นักวิเคราะห์ธุรกิจ) คือคนที่ช่วยทำให้ขั้นตอน "ปั่น" นั้น เร็วขึ้น ถูกลง และลูกค้าพึงพอใจมากขึ้น</p>
+      </div>
+
+      <h3>3 ประเภทอุตสาหกรรม (Types of Industry)</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>ประเภท</th><th>ทำอะไร</th><th>ตัวอย่าง</th><th>จุดสังเกต</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Primary</strong><br>(ขั้นที่ 1)</td><td>เก็บเกี่ยว/สกัดทรัพยากรธรรมชาติ ไปใช้ผลิตสินค้าต่อ</td><td>เหมืองแร่ ประมง เกษตร ป่าไม้ น้ำมันและก๊าซ</td><td>ต้องใช้เงินลงทุนวิจัย/เครื่องจักรสูง · ระบบอัตโนมัติช่วยลดแรงงาน</td></tr>
+          <tr><td><strong>Secondary</strong><br>(ขั้นที่ 2)</td><td>แปรรูปวัตถุดิบให้เป็นผลิตภัณฑ์สำเร็จรูป</td><td>แร่ทอง → เครื่องประดับ · น้ำมันดิบ → น้ำมันเครื่อง/พลาสติก · ข้าวสาลี → แป้ง → ขนม</td><td>เทคโนโลยี/CAD ทำให้ผลิตได้มากขึ้นด้วยคนน้อยลง</td></tr>
+          <tr><td><strong>Tertiary</strong><br>(ขั้นที่ 3)</td><td>ให้บริการแก่ผู้บริโภคและธุรกิจอื่น มักเกี่ยวกับการขาย/ใช้ผลิตภัณฑ์จาก Secondary</td><td>ธนาคาร โลจิสติกส์ ท่องเที่ยว ซอฟต์แวร์</td><td>ขยายตัวเร็ว สร้างงานบริการมาก จากเทคโนโลยี สังคมสูงวัย ผู้บริโภคยุ่งและเรียกร้องคุณภาพ</td></tr>
+        </tbody>
+      </table></div>
+
+      <h2 id="s2">2. อะไรบ้างที่มีอิทธิพลต่อธุรกิจ (Influences on Business)</h2>
+      <p>ธุรกิจหนึ่ง ๆ ถูกมองได้ 6 มุม (functional areas) ล้อมรอบด้วย <strong>ปัจจัยภายนอก (External Factors)</strong> และมี <strong>เป้าหมายกับกลยุทธ์ (Objectives & Strategy)</strong> เป็นแกนกลาง โดยมองทั้งมุม <strong>ภายใน+ภายนอก (Internal & External Influences)</strong></p>
+
+      <figure class="diagram">
+        <svg viewBox="0 0 560 420" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <!-- center -->
+          <circle cx="280" cy="210" r="72" fill="#e8eeff" stroke="#2456d6" stroke-width="2.5"/>
+          <text x="280" y="200" text-anchor="middle" font-size="14.5" font-weight="800" fill="#1a3fa0">OBJECTIVES</text>
+          <text x="280" y="220" text-anchor="middle" font-size="14.5" font-weight="800" fill="#1a3fa0">&amp; STRATEGY</text>
+          <text x="280" y="240" text-anchor="middle" font-size="11.5" fill="#556">(+ Internal &amp; External</text>
+          <text x="280" y="254" text-anchor="middle" font-size="11.5" fill="#556">Influences)</text>
+          <!-- 6 areas around -->
+          <g font-size="13.5" font-weight="700">
+            <rect x="160" y="18" width="240" height="42" rx="10" fill="#fff" stroke="#0d9488" stroke-width="2"/><text x="280" y="44" text-anchor="middle" fill="#0b7a70">MARKETING</text>
+            <rect x="418" y="80" width="130" height="60" rx="10" fill="#fff" stroke="#f59e0b" stroke-width="2"/><text x="483" y="105" text-anchor="middle" fill="#a16207">HUMAN</text><text x="483" y="124" text-anchor="middle" fill="#a16207">RESOURCES</text>
+            <rect x="418" y="280" width="130" height="60" rx="10" fill="#fff" stroke="#7c3aed" stroke-width="2"/><text x="483" y="305" text-anchor="middle" fill="#6d28d9">PRODUCTION &amp;</text><text x="483" y="324" text-anchor="middle" fill="#6d28d9">OPERATIONS</text>
+            <rect x="160" y="360" width="240" height="42" rx="10" fill="#fff" stroke="#db2777" stroke-width="2"/><text x="280" y="386" text-anchor="middle" fill="#be1d64">ACCOUNTING &amp; FINANCE</text>
+            <rect x="12" y="280" width="130" height="60" rx="10" fill="#fff" stroke="#16a34a" stroke-width="2"/><text x="77" y="305" text-anchor="middle" fill="#14713c">EXTERNAL</text><text x="77" y="324" text-anchor="middle" fill="#14713c">FACTORS</text>
+            <rect x="12" y="80" width="130" height="60" rx="10" fill="#fff" stroke="#dc2626" stroke-width="2"/><text x="77" y="105" text-anchor="middle" fill="#b91c1c">OBJECTIVES</text><text x="77" y="124" text-anchor="middle" fill="#b91c1c">&amp; STRATEGY</text>
+          </g>
+          <!-- connect lines -->
+          <g stroke="#b9c7e6" stroke-width="2">
+            <line x1="280" y1="60" x2="280" y2="138"/>
+            <line x1="418" y1="140" x2="340" y2="176"/>
+            <line x1="418" y1="290" x2="340" y2="244"/>
+            <line x1="280" y1="360" x2="280" y2="282"/>
+            <line x1="142" y1="290" x2="220" y2="244"/>
+            <line x1="142" y1="140" x2="220" y2="176"/>
+          </g>
+        </svg>
+        <figcaption>ภาพ 1.2 — 6 สายงานหลักของธุรกิจล้อมรอบ "เป้าหมายและกลยุทธ์" — ทุกสายงานรับอิทธิพลทั้งจากภายในและภายนอก</figcaption>
+      </figure>
+
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>สายงาน</th><th>เรื่องสำคัญที่ต้องรู้</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Marketing</strong></td><td>Market Analysis (ขนาดตลาด, Segments) · Market Research (Primary/Secondary) · Marketing Mix 4P: <strong>Price, Place, Promotion, Product</strong> · Niche vs Mass marketing</td></tr>
+          <tr><td><strong>Objectives & Strategy</strong></td><td>โครงสร้างนิติบุคคล (Sole Proprietor / Partnership / Corporation) · Mission Statements · <strong>Stakeholders</strong> (Customers, Suppliers, Employees, Communities) · <strong>SWOT</strong> (Strengths, Weaknesses, Opportunities, Threats)</td></tr>
+          <tr><td><strong>Human Resources</strong></td><td>โครงสร้างผู้บริหาร (Top / Middle / Front-line / Operatives) · สไตล์ผู้นำ: <strong>Autocratic, Democratic, Laissez-Faire</strong> · MBO · Motivation · Recruitment & Training · Workforce Planning · Communication</td></tr>
+          <tr><td><strong>Production/Operations</strong></td><td>Efficiency & Effectiveness · Stock & Quality Control · Capacity Utilization · Production Methods · <strong>Economies / Diseconomies of Scale</strong></td></tr>
+          <tr><td><strong>Accounting & Finance</strong></td><td>Profit & Loss · <strong>Break-Even Point</strong> · Balance Sheet · Budgeting · Revenue</td></tr>
+          <tr><td><strong>External Factors</strong></td><td>Market Structure (Perfect Competition / Monopoly / Imperfect / Oligopoly) · Macro-economy (Business Cycles, นโยบายรัฐ) · กฎหมาย · Social Responsibility · Business Ethics</td></tr>
+        </tbody>
+      </table></div>
+
+      <h2 id="s3">3. Business Needs — ความต้องการของธุรกิจ</h2>
+      <div class="box def">
+        <div class="box-title">📖 นิยาม</div>
+        <p><strong>Business Need</strong> = สิ่งที่บริษัททุกแห่งต้องมีเพื่อ <strong>ดำเนินงานอย่างมีประสิทธิภาพ</strong> และมุ่งสู่พันธกิจ/เป้าหมาย (mission & objectives) ได้สำเร็จ โดยเป้าหมายหลักของทุกบริษัทคือ <strong>เสิร์ฟตลาด ทำให้ลูกค้าพึงพอใจ พัฒนาต่อเนื่อง และคงความมีกำไร (remain profitable)</strong></p>
+        <p>การหา Business Needs อีกชื่อคือ <strong>Enterprise Analysis</strong> = การวิเคราะห์ ทำความเข้าใจ และระบุเป้าหมายของบริษัท เพื่อบรรลุวิสัยทัศน์เชิงกลยุทธ์โดยรวม</p>
+      </div>
+
+      <h3>Business Need vs Business Requirement (แยกให้ออก — ออกสอบบ่อย)</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th></th><th>Business Need 🧭</th><th>Business Requirement 🛠️</th></tr></thead>
+        <tbody>
+          <tr><td><strong>คืออะไร</strong></td><td>การระบุ<strong>วัตถุประสงค์เชิงกลยุทธ์</strong> — ให้ทิศทางและความหมายกับองค์กร</td><td><strong>สิ่งที่ต้องมี</strong>เพื่อบรรลุวัตถุประสงค์นั้น — พนักงานต้องการอะไรจึงจะทำงานสำเร็จ</td></tr>
+          <tr><td><strong>ตัวอย่าง</strong></td><td>"เราต้องลดต้นทุนคลังสินค้า" (ทิศทาง)</td><td>"ต้องมีระบบรับ-ส่งสินค้าอัตโนมัติ" (สิ่งที่ต้องทำ)</td></tr>
+          <tr><td><strong>ถ้าไม่ชัดเจน</strong></td><td colspan="2">ทีม/โครงการ/พนักงานจะขัดแย้งกัน เขียน requirement ผิด และทำงานไม่มีประสิทธิภาพ</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="box analogy">
+        <div class="box-title">💭 เปรียบเทียบ</div>
+        <p>Business Need เหมือน <strong>"อยากลดน้ำหนัก 5 กิโล"</strong> (เป้าหมายใหญ่) ส่วน Business Requirement คือ <strong>"ต้องออกกำลังกายสัปดาห์ละ 3 ครั้ง + คุมอาหาร"</strong> (สิ่งที่ต้องทำเพื่อให้ถึงเป้า) — ถ้ารู้แค่เป้าแต่ไม่รู้ว่าต้องทำอะไร ก็ไปไม่ถึง</p>
+      </div>
+
+      <h3>ประเภทของ Business Needs (16 ชนิด — จำเป็นกลุ่ม)</h3>
+      <div class="grid c3">
+        <div class="card"><h4>🏗️ โครงสร้าง/ทรัพยากร</h4><p>Infrastructure · Talent · Facilities (สถานที่) · Processes · Systems · Applications</p></div>
+        <div class="card"><h4>🧠 ความรู้/ทรัพย์สิน</h4><p>Knowledge · Tools · Intellectual Property · Data · Customer experience</p></div>
+        <div class="card"><h4>📈 ธุรกิจ</h4><p>Products & services · Financial · Market opportunity · Production plan · Human capital</p></div>
+      </div>
+
+      <h3>แบ่งตามระดับ: Strategic vs Functional</h3>
+      <ul>
+        <li><strong>Strategic Needs</strong> — นิยามวิสัยทัศน์ พันธกิจ และเหตุผลการมีอยู่ของธุรกิจเชิงคุณภาพ มักหมุนรอบ 3 เรื่อง: <strong>1) Profit maximization 2) Competitive advantage 3) Cost leadership</strong></li>
+        <li><strong>Functional Needs</strong> — เพื่อผลิตสินค้า/บริการ ธุรกิจต้องการ inputs ให้เพียงพอต่อ output; เป้าหมายถูกขับเคลื่อนผ่าน<strong>โครงการ (projects)</strong> ที่พนักงานบริหารจัดการ — ต้องหา <strong>gaps</strong> (ช่องว่างระหว่างปัจจุบันกับที่ควรจะเป็น) แล้วจัดหาปัจจัยที่ขาด: วัตถุดิบ เครื่องมือ คนทักษะสูง ระบบ ฯลฯ</li>
+      </ul>
+
+      <h3>IRACIS — เหตุผลการทำโครงการ (จำง่าย 3 คำ)</h3>
+      <div class="formula"><b>I</b>ncrease Revenues&nbsp;&nbsp;·&nbsp;&nbsp;<b>A</b>void Costs&nbsp;&nbsp;·&nbsp;&nbsp;<b>I</b>mprove Services</div>
+      <p>ทุกโครงการที่ดีต้องตอบได้ว่าทำไปเพื่ออย่างใดอย่างหนึ่งใน 3 ข้อนี้ (เพิ่มรายได้ / หลีกเลี่ยงต้นทุน / ปรับปรุงบริการ)</p>
+
+      <h3>ตัวอย่าง Need of Business ที่เจอจริง</h3>
+      <p>Audience analysis · Data analysis · Budget planning · Business plan · Cash flow forecasting · Organizational culture · Customer experience · Market research · Productivity analysis · Process analysis · System analysis · Capacity planning · Problem analysis · Project planning · Human resource analysis · Employee retention · Targeting the right customer · Business capability analysis · Business benchmarking · Product/service offering analysis · Technology analysis</p>
+
+      <h2 id="s4">4. Business Intentions — เจตนารมณ์ของธุรกิจ</h2>
+      <div class="box def">
+        <div class="box-title">📖 นิยาม + คำถามหาเจตนารมณ์</div>
+        <p>เจตนารมณ์ธุรกิจพบได้จากการถามตัวเองว่า: <strong>Who am I?</strong> (ฉันคือใคร) · <strong>What do I want?</strong> (ฉันต้องการอะไร) · <strong>How can I serve?</strong> (ฉันจะรับใช้/ส่งมอบคุณค่าอย่างไร)</p>
+      </div>
+
+      <h3>4 ระดับของ Intentions</h3>
+      <figure class="diagram">
+        <svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <g font-size="13">
+            <rect x="20" y="16" width="600" height="54" rx="12" fill="#f1e9fe" stroke="#7c3aed" stroke-width="2"/>
+            <text x="40" y="38" font-weight="800" fill="#6d28d9" font-size="14.5">4. Meaningful Purpose — เป้าหมายที่มีความหมาย</text>
+            <text x="40" y="58" fill="#444">รักษา/สร้างความได้เปรียบให้ยั่งยืน ด้วยการนวัตกรรมเร็วกว่าระบบนิเวศรอบตัว</text>
+            <rect x="20" y="84" width="600" height="54" rx="12" fill="#e8eeff" stroke="#2456d6" stroke-width="2"/>
+            <text x="40" y="106" font-weight="800" fill="#1a3fa0" font-size="14.5">3. Strategic Intention — เจตนารมณ์เชิงกลยุทธ์</text>
+            <text x="40" y="126" fill="#444">บริษัทวางแผน "เปลี่ยนโครงสร้างของโลก" ผ่านอุตสาหกรรมนี้อย่างไร · ทุกกิจกรรมต้องขับเคลื่อนการเปลี่ยนแปลงนั้น</text>
+            <rect x="20" y="152" width="600" height="54" rx="12" fill="#e2f7f4" stroke="#0d9488" stroke-width="2"/>
+            <text x="40" y="174" font-weight="800" fill="#0b7a70" font-size="14.5">2. Experience Theme — ธีมประสบการณ์</text>
+            <text x="40" y="194" fill="#444">ใส่ทรัพยากรการออกแบบประสบการณ์ทั้งหมดลงในข้อเสนอหนึ่ง ๆ (รวม acting intentions ไว้ด้วย)</text>
+            <rect x="20" y="220" width="600" height="54" rx="12" fill="#fff8e9" stroke="#f59e0b" stroke-width="2"/>
+            <text x="40" y="242" font-weight="800" fill="#a16207" font-size="14.5">1. Acting Intention — เจตนารมณ์การลงมือทำ</text>
+            <text x="40" y="262" fill="#444">บอกคนหน้างาน (frontline) ชัดเจนว่าควรทำงาน "อย่างไร" ต่อหน้าลูกค้าในทุกช่องทาง</text>
+          </g>
+        </svg>
+        <figcaption>ภาพ 1.3 — 4 ระดับของ Business Intentions เรียงจากเจตนารมณ์การลงมือ (ล่าง) สู่เป้าหมายที่มีความหมาย (บน)</figcaption>
+      </figure>
+
+      <h3>Strategic Intent Hierarchy — บันไดกลยุทธ์ (ท่องเป็นลำดับ!)</h3>
+      <figure class="diagram">
+        <svg viewBox="0 0 660 330" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <g font-size="13">
+            <!-- ladder steps -->
+            <rect x="40" y="16" width="420" height="48" rx="10" fill="#16256b"/>
+            <text x="60" y="38" fill="#fff" font-weight="800" font-size="14.5">1. VISION — วิสัยทัศน์</text>
+            <text x="60" y="56" fill="#c9d6ff" font-size="12">พิมพ์เขียวตำแหน่งในอนาคต · "ความฝัน" ของธุรกิจ · ทุกส่วนต้องเดินตาม</text>
+            <rect x="80" y="76" width="420" height="48" rx="10" fill="#2456d6"/>
+            <text x="100" y="98" fill="#fff" font-weight="800" font-size="14.5">2. MISSION — พันธกิจ</text>
+            <text x="100" y="116" fill="#dbe6ff" font-size="12">เหตุผลการมีอยู่ · ธุรกิจคืออะไร เป้าหมายอะไร จะไปถึงอย่างไร (ปัจจุบัน+ลูกค้า)</text>
+            <rect x="120" y="136" width="420" height="48" rx="10" fill="#3b6fe0"/>
+            <text x="140" y="158" fill="#fff" font-weight="800" font-size="14.5">3. BUSINESS DEFINITION — นิยามธุรกิจ</text>
+            <text x="140" y="176" fill="#dbe6ff" font-size="12">มองจาก ความต้องการลูกค้า + กลุ่มเป้าหมาย + เทคโนโลยีทางเลือก → ใช้ตัดสินใจกลยุทธ์</text>
+            <rect x="160" y="196" width="420" height="48" rx="10" fill="#5b8bff"/>
+            <text x="180" y="218" fill="#fff" font-weight="800" font-size="14.5">4. BUSINESS MODEL — โมเดลธุรกิจ</text>
+            <text x="180" y="236" fill="#eaf0ff" font-size="12">กลยุทธ์การดำเนินงาน: รายได้จากไหน ลูกค้าใคร จัดหาเงินทุนอย่างไร (คู่แข่งใช้ไม่เหมือนกัน)</text>
+            <rect x="200" y="256" width="420" height="48" rx="10" fill="#7c3aed"/>
+            <text x="220" y="278" fill="#fff" font-weight="800" font-size="14.5">5. GOALS &amp; OBJECTIVES — เป้าหมาย</text>
+            <text x="220" y="296" fill="#efe4ff" font-size="12">Goals = ผลลัพธ์ปลายทาง · Objectives = การกระทำที่วัดได้ตามเวลา (base of measurement)</text>
+          </g>
+          <!-- arrow -->
+          <path d="M 510 290 L 560 290 L 560 40 L 520 40" stroke="#16a34a" stroke-width="3" fill="none" stroke-dasharray="6 4"/>
+          <path d="M 528 32 L 512 40 L 528 48 Z" fill="#16a34a"/>
+          <text x="600" y="165" text-anchor="middle" font-size="12.5" fill="#14713c" transform="rotate(90 600 165)">จากความฝัน → ลงมาสู่สิ่งที่วัดผลได้</text>
+        </svg>
+        <figcaption>ภาพ 1.4 — บันได Strategic Intent: Vision → Mission → Business Definition → Business Model → Goals &amp; Objectives</figcaption>
+      </figure>
+
+      <div class="box exam">
+        <div class="box-title">🎯 จุดที่ออกสอบ / สอบถามบ่อย</div>
+        <ul>
+          <li><strong>Vision ต่างจาก Mission:</strong> Vision = ภาพอนาคตที่อยากไปถึง (the dream), เปลี่ยนช้า · Mission = เหตุผลการมีอยู่วันนี้ + ขอบเขตธุรกิจปัจจุบัน</li>
+          <li><strong>Goals vs Objectives:</strong> Goals = ผลลัพธ์ปลายทาง · Objectives = สิ่งที่<strong>วัดได้ตามกรอบเวลา</strong> (time-based measurable actions)</li>
+          <li><strong>Meaningful Purpose 6 ข้อ:</strong> 1) Enriches greater humanity 2) Enriches workers/contributors 3) Aligns contributors ไปทางเดียวกัน 4) เป็น "ดาบสองคม" บอกว่าอะไร/ใคร In-Out 5) Works for the people who choose to be in 6) Concise, evocative, memorable</li>
+        </ul>
+      </div>
+
+      <h2 id="s5">5. Competitive Advantage — ความได้เปรียบเชิงแข่งขัน</h2>
+      <p><strong>Competitive Advantage</strong> = ตำแหน่งที่ได้เปรียบซึ่งองค์กรแสวงหา เพื่อทำกำไรได้มากกว่าคู่แข่ง แหล่งที่มา เช่น: ทีมงาน · เทคโนโลยี/วิธีผลิตเฉพาะ · สินค้าที่ไม่มีใครมี (ลิขสิทธิ์/สิทธิบัตร) · <strong>Cost leadership</strong> (ผลิต-ขายถูกกว่า) · แบรนด์และชื่อเสียง</p>
+      <p>คำถามหาความได้เปรียบของบริษัท: <strong>คุณส่งมอบคุณค่า/ประโยชน์อะไรให้ลูกค้า? ตลาดเป้าหมายคือใคร? ใครเล่นในสนามเดียว/ใกล้เคียงกับคุณ?</strong></p>
+
+      <h3>Sustainable Competitive Advantage 3 แบบ (ยั่งยืนระยะยาว)</h3>
+      <div class="grid c3">
+        <div class="card"><h4>💎 Differentiation</h4><p>ปรับกลยุทธ์ให้<strong>แตกต่าง/โดดเด่น</strong>จากคู่แข่งชัดเจน (ลูกค้ายอมจ่ายเพิ่มเพื่อความต่าง)</p></div>
+        <div class="card"><h4>💰 Cost Leadership</h4><p>ตั้งราคา<strong>ถูกกว่า</strong>คู่แข่ง ผู้บริโภคเลือกเพราะ "คุ้มค่าทางการเงิน"</p></div>
+        <div class="card"><h4>🎯 Focus Advantage</h4><p>เจาะ<strong>กลุ่มเฉพาะ</strong>ของตลาด เพื่อความพึงพอใจและความภักดีที่ลึกกว่า</p></div>
+      </div>
+
+      <h3>Value Chain — ห่วงโซ่คุณค่า</h3>
+      <p>บริษัทมี <strong>Primary Activities</strong> (กิจกรรมหลัก — สร้างคุณค่า/รายได้ของบริษัทโดยตรง) และ <strong>Supporting Activities</strong> (กิจกรรมสนับสนุน — จำเป็นเพื่อให้บริษัทนิ่งและสนับสนุนทุกกิจกรรมหลัก แต่ไม่ได้สร้างคุณค่าโดยตรง)</p>
+
+      <figure class="diagram">
+        <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <!-- support bars -->
+          <g font-size="12.5">
+            <rect x="40" y="16" width="640" height="34" rx="8" fill="#e8eeff" stroke="#2456d6" stroke-width="1.5"/>
+            <text x="360" y="38" text-anchor="middle" fill="#1a3fa0" font-weight="700">Support: Quality/HSE · HR · Legal · Maintenance · ICT · R&amp;D · Marketing · Finance · Product Change Mgmt</text>
+            <rect x="40" y="58" width="640" height="34" rx="8" fill="#e8eeff" stroke="#2456d6" stroke-width="1.5"/>
+            <text x="360" y="80" text-anchor="middle" fill="#1a3fa0" font-weight="700">Support: Infrastructure (Facilities, Public Relations, Plan)</text>
+          </g>
+          <!-- primary arrow -->
+          <g>
+            <path d="M 40 130 L 340 130 L 370 165 L 340 200 L 40 200 L 70 165 Z" fill="#f59e0b" opacity="0.15"/>
+            <g font-size="12.5" font-weight="700" text-anchor="middle">
+              <rect x="50" y="138" width="80" height="54" rx="8" fill="#fff4dc" stroke="#f59e0b" stroke-width="2"/><text x="90" y="161" fill="#a16207">Procure</text><text x="90" y="178" fill="#a16207">(จัดหา)</text>
+              <rect x="140" y="138" width="80" height="54" rx="8" fill="#fff4dc" stroke="#f59e0b" stroke-width="2"/><text x="180" y="161" fill="#a16207">Produce</text><text x="180" y="178" fill="#a16207">(ผลิต)</text>
+              <rect x="230" y="138" width="80" height="54" rx="8" fill="#fff4dc" stroke="#f59e0b" stroke-width="2"/><text x="270" y="161" fill="#a16207">Warehouse</text><text x="270" y="178" fill="#a16207">(คลัง)</text>
+              <rect x="320" y="138" width="80" height="54" rx="8" fill="#fff4dc" stroke="#f59e0b" stroke-width="2"/><text x="360" y="161" fill="#a16207">Sell</text><text x="360" y="178" fill="#a16207">(ขาย)</text>
+              <rect x="410" y="138" width="80" height="54" rx="8" fill="#fff4dc" stroke="#f59e0b" stroke-width="2"/><text x="450" y="161" fill="#a16207">Deliver</text><text x="450" y="178" fill="#a16207">(ส่งมอบ)</text>
+              <rect x="500" y="138" width="120" height="54" rx="8" fill="#fff4dc" stroke="#f59e0b" stroke-width="2"/><text x="560" y="161" fill="#a16207">Pay &amp; Collect</text><text x="560" y="178" fill="#a16207">(เก็บเงิน)</text>
+            </g>
+            <text x="90" y="232" font-size="12" fill="#777" text-anchor="middle">←</text>
+            <text x="360" y="240" text-anchor="middle" font-size="13" fill="#a16207" font-weight="700">PRIMARY ACTIVITIES = สร้างคุณค่าสู่ลูกค้า (แถบสีส้ม)</text>
+          </g>
+          <text x="40" y="278" font-size="12.5" fill="#556">หลักคิด: ห่วงโซ่กิจกรรมทั้งหมดทำให้ผลิตภัณฑ์มีคุณค่ารวมมากกว่าผลรวมคุณค่าของแต่ละกิจกรรมแยกกัน</text>
+        </svg>
+        <figcaption>ภาพ 1.5 — Value Chain: กิจกรรมหลัก (Procure → Produce → Warehouse → Sell → Deliver → Pay &amp; Collect) + กิจกรรมสนับสนุนด้านบน</figcaption>
+      </figure>
+
+      <h3>Values vs Efforts (ใช้ตอนจัดลำดับฟีเจอร์)</h3>
+      <ul>
+        <li><strong>Value</strong> = Revenue Potential (ศักยภาพรายได้)</li>
+        <li><strong>Effort</strong> = ชั่วโมง/ทรัพยากร/เงินลงทุนที่ต้องใช้ทำฟีเจอร์นั้น — ยิ่งใช้แรงมาก ยิ่งต้องให้คุณค่ามากพอจึงคุ้มลงทุน</li>
+        <li><strong>Business value ของระบบสารสินเมธิดองค์กร (Enterprise Systems):</strong> ข้อมูลทั้งองค์กรช่วยผู้บริหารตัดสินใจ · เพิ่มประสิทธิภาพการปฏิบัติงาน · ตอบสนองลูกค้าเร็ว · บังคับมาตรฐาน/ข้อมูลร่วมทั้งบริษัท · ผู้บริหารเห็นประสิทธิภาพหน่วยงาน/สินค้าใดกำไรสูง-ต่ำได้ทันที</li>
+      </ul>
+
+      <h2 id="s6">สรุปท้ายบท</h2>
+      <div class="box def">
+        <div class="box-title">✅ ต้องจำให้ได้จากบทนี้</div>
+        <ol>
+          <li>ธุรกิจ = Inputs → Process → Outputs เพื่อกำไร · อุตสาหกรรม 3 ขั้น: Primary → Secondary → Tertiary</li>
+          <li><strong>Business Need</strong> = ทิศทาง/วัตถุประสงค์เชิงกลยุทธ์ · <strong>Business Requirement</strong> = สิ่งที่ต้องมีเพื่อไปถึงเป้า</li>
+          <li><strong>IRACIS</strong>: Increase Revenues · Avoid Costs · Improve Services</li>
+          <li>บันไดกลยุทธ์: <strong>Vision → Mission → Business Definition → Business Model → Goals &amp; Objectives</strong></li>
+          <li>ความได้เปรียบยั่งยืน 3 แบบ: <strong>Differentiation · Cost Leadership · Focus</strong></li>
+          <li>Value Chain = Primary (สร้างคุณค่า) + Supporting (ค้ำจุน แต่ไม่สร้างคุณค่าโดยตรง)</li>
+        </ol>
+      </div>
+
+      <div class="quiz-q">
+        <div class="q-text">🧪 ลองทำ: ข้อใด "ไม่ใช่" ประโยชน์ของระบบเทคโนโลยีสารสนเทศระดับองค์กร (Enterprise Systems)?</div>
+        <div class="opts">
+          <button class="opt">ก. ช่วยผู้บริหารติดตามผลประกอบการแต่ละหน่วยงานได้ทันที</button>
+          <button class="opt">บ. บังคับใช้มาตรฐานและข้อมูลร่วมกันทั้งบริษัท</button>
+          <button class="opt" data-c="1">ค. รับประกันว่าลูกค้าทุกคนจะพึงพอใจในทุกสถานการณ์โดยอัตโนมัติ</button>
+          <button class="opt">ง. ช่วยให้ตอบสนองคำขอของลูกค้าได้รวดเร็วขึ้น</button>
+        </div>
+        <div class="explain">💡 Enterprise systems ช่วยเรื่องข้อมูล มาตรฐาน ประสิทธิภาพ และการตอบสนอง — แต่ไม่ได้ "รับประกัน" ความพึงพอใจลูกค้าโดยอัตโนมัติ (ข้อ ค เป็นคำกล่าวเกินจริง)</div>
+      </div>
+
+      <div id="doneWrap" style="margin-top:30px;">
+        <button id="doneBtn" style="font-family:inherit;font-size:15px;font-weight:700;padding:10px 22px;border-radius:12px;border:2px solid #16a34a;background:#fff;color:#14713c;cursor:pointer;">☑ ทำเครื่องหมายว่าอ่านแล้ว</button>
+      </div>
+      <div class="pager" id="pager"></div>
+    </main>
+  </div>
+</div>
+<script src="assets/app.js"></script>
+<script src="assets/tts.js"></script>
+</body>
+</html>

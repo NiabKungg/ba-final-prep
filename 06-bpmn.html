@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<title>บทที่ 6 — BPMN สอบเขียนข้อ 1 | BA Final Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%232456d6%27/%3E%3Ctext x=%2750%27 y=%2770%27 font-size=%2752%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27sans-serif%27 font-weight=%27bold%27%3EBA%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="topbar">
+      <button class="burger" id="burger" aria-label="เปิดเมนู">☰</button>
+      <div class="crumb" id="crumb"></div>
+      <div class="spacer"></div>
+      <a class="home-link" href="index.html">หน้าแรก</a>
+    </header>
+    <main class="content">
+
+      <h1 class="hero">บทที่ 6 · BPMN — Business Process Model and Notation</h1>
+      <p class="lead">⭐ <strong>ออกสอบเขียนข้อ 1 แน่นอน:</strong> ให้โจทย์กรณี 3-4 หน้า แล้วเขียน BPMN แบบ Swimlane — บทนี้สอนทุกสัญลักษณ์ + วิธีแปลงโจทย์เป็นแผนภาพ <strong>ทีละขั้น</strong> พร้อมตัวอย่างเต็ม</p>
+
+      <div class="box exam">
+        <div class="box-title">🎯 คำย้ำจากรีวิวข้อสอบรุ่นพี่</div>
+        <ul>
+          <li>ข้อสอบเคยให้เขียน BPMN จากกรณี<strong>ระบบจัดซื้อครุภัณฑ์ (Procure-to-Pay: P2P)</strong> ของโรงพยาบาล และแนะ<strong>กรณีการให้บริการตามคิว</strong>ให้ทำความเข้าใจไว้ด้วย</li>
+          <li><strong>"ย้ำว่าอย่าเว้นว่าง — แค่เขียนก็มีคะแนนแล้ว"</strong> เขียนเท่าที่เข้าใจให้เต็มกระดาษ อย่าทิ้งข้อ!</li>
+          <li>ข้อสอบปี 2566 เป็น Open book (เอา handout ได้) แต่ปีหลัง ๆ <strong>เอาได้กระดาษ A4 แผ่นเดียว</strong> — สรุปสัญลักษณ์+กฎจากบทนี้ใส่แผ่นนั้น</li>
+        </ul>
+      </div>
+
+      <h2 id="s1">1. BPMN คืออะไร</h2>
+      <ul>
+        <li><strong>มาตรฐานของ OMG</strong> (ปัจจุบันคือ BPMN 2.0) — รองรับ tool กว่า 70 ตัว ใช้ได้ทั้งโมเดลเชิงแนวคิด (conceptual) และโมเดลที่รันได้จริง (executable)</li>
+        <li><strong>ตำแหน่งใน BPM Lifecycle:</strong> Process identification → <strong>Process discovery (สร้าง As-is)</strong> → <strong>Process analysis</strong> → <strong>Process redesign (สร้าง To-be)</strong> → Process implementation → Process monitoring & controlling (วนกลับเป็นวงจรต่อเนื่อง)</li>
+        <li><strong>จุดมุ่งหมายของการทำโมเดลกระบวนการ:</strong> Communication (สื่อสาร) · Documentation (บันทึก) · Analysis เช่น simulation · Automation · Testing · ได้ Conformance & performance insights</li>
+        <li><strong>ทำไมต้องมี "ภาษากลาง":</strong> ป้องกัน Tower of Babel — ต่างคนต่างวาด ต่างคนต่างเข้าใจ (จาก handout BPAD: จุดรากของโครงการล้มเหลวมากมายคือจุดอ่อนด้าน Business Analysis) · BPMN คือภาษาที่<strong>ธุรกิจเข้าใจได้</strong>และมี<strong>ความเข้มงวดพอสำหรับ IT</strong> — What (ธุรกิจ define) ส่งต่อให้ IT เป็น How</li>
+      </ul>
+
+      <h2 id="s2">2. องค์ประกอบหลัก 4 อย่าง (อย่างอื่นต่อยอดจาก 4 นี้)</h2>
+      <figure class="diagram">
+        <svg viewBox="0 0 720 250" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <g text-anchor="middle">
+            <!-- activity -->
+            <rect x="40" y="30" width="140" height="70" rx="10" fill="#e8eeff" stroke="#2456d6" stroke-width="2.5"/>
+            <text x="110" y="60" font-size="14" font-weight="800" fill="#1a3fa0">Activity</text>
+            <text x="110" y="82" font-size="11.5" fill="#445">งาน (กริยา+คำนาม)</text>
+            <!-- event -->
+            <circle cx="300" cy="65" r="34" fill="#fff4dc" stroke="#f59e0b" stroke-width="2.5"/>
+            <text x="300" y="60" font-size="13" font-weight="800" fill="#a16207">Event</text>
+            <text x="300" y="78" font-size="10.5" fill="#7a5a10">เหตุการณ์</text>
+            <!-- gateway -->
+            <path d="M 470 31 L 504 65 L 470 99 L 436 65 Z" fill="#fdeaea" stroke="#dc2626" stroke-width="2.5"/>
+            <text x="470" y="60" font-size="12.5" font-weight="800" fill="#b91c1c">Gateway</text>
+            <text x="470" y="78" font-size="10.5" fill="#8a3030">ทางแยก</text>
+            <!-- sequence flow -->
+            <line x1="560" y1="65" x2="680" y2="65" stroke="#16a34a" stroke-width="3.5" marker-end="url(#a61)"/>
+            <defs><marker id="a61" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/></marker></defs>
+            <text x="620" y="42" font-size="13" font-weight="800" fill="#14713c">Sequence</text>
+            <text x="620" y="58" font-size="11.5" fill="#3a7">Flow</text>
+          </g>
+          <text x="360" y="150" text-anchor="middle" font-size="12.5" fill="#556">BPMN process model = graph ที่ประกอบด้วย 4 ชนิด core elements นี้เท่านั้น</text>
+          <text x="360" y="175" text-anchor="middle" font-size="12" fill="#888">Event แบ่งเป็น Start (วงกลมบาง) · Intermediate (วงกลมคู่) · End (วงกลมหนา)</text>
+          <text x="360" y="200" text-anchor="middle" font-size="12" fill="#888">Activity แบ่งเป็น Task (งานเดี่ยว) · Subprocess (งานย่อยซ้อนใน) · Transaction</text>
+          <text x="360" y="225" text-anchor="middle" font-size="12" fill="#888">Gateway แบ่งเป็น XOR (×) · AND (+) · OR (○) — ดูหัวข้อ 5</text>
+        </svg>
+        <figcaption>ภาพ 6.1 — 4 core elements: Activity (สี่เหลี่ยม) · Event (วงกลม) · Gateway (เพชร) · Sequence Flow (ลูกศร)</figcaption>
+      </figure>
+
+      <h3>Events — เหตุการณ์ (สิ่งที่ "เกิดขึ้น" ณ ชั่วขณะ ไม่ใช่สิ่งที่เราทำ)</h3>
+      <ul>
+        <li><strong>Start event</strong> — จุดเริ่ม สร้าง token แล้วปล่อยให้วิ่งในกระบวนการ ("token source") · <strong>ตัวอย่าง:</strong> Purchase order received</li>
+        <li><strong>End event</strong> — จุดจบ ดูด token ทิ้ง ("token sink") · บอกว่า instance จบด้วยผลลัพธ์ใด · <strong>ตัวอย่าง:</strong> Order fulfilled / Order rejected</li>
+        <li><strong>Intermediate event</strong> — เหตุการณ์ระหว่างทาง เช่น รอรับข้อความ/ถึงเวลา (timer)</li>
+      </ul>
+
+      <h3>Activities — งาน</h3>
+      <ul>
+        <li><strong>Task</strong> = หน่วยงานเดี่ยว · <strong>Subprocess</strong> = ชุดงานที่ม้วนรวมเป็นกล่องเดียว (คลิกขยายดูได้) · <strong>Transaction</strong> = งานที่ต้องสำเร็จทั้งหมด ไม่งั้นยกเลิก/ย้อน (compensation)</li>
+        <li>Task types (แบบละเอียดของ BPMN): <strong>User</strong> (คนทำผ่านแอป) · <strong>Service</strong> (ระบบอัตโนมัติ) · <strong>Send / Receive</strong> (ส่ง/รอรับข้อความ) · <strong>Script</strong> (engine รัน) · <strong>Manual</strong> (มือ ไม่มีระบบ) · <strong>Business Rule</strong> (ส่งเข้า rule engine)</li>
+      </ul>
+
+      <h2 id="s3">3. ตั้งชื่ออย่างไร (Naming Conventions — ให้คะแนนตรงนี้แน่นอน!)</h2>
+      <div class="box def">
+        <div class="box-title">📖 กฎการตั้งชื่อ</div>
+        <ol>
+          <li>ทุก event และ task <strong>ต้องมีชื่อเสมอ</strong></li>
+          <li><strong>Task/Activity = Verb + Business Object</strong> (กริยา + คำนาม) เช่น <em>Issue Driver Licence, Check stock availability, Assess credit risk</em></li>
+          <li><strong>Message Event = Object + Past Participle (V3)</strong> เช่น <em>Invoice received, Claim settled, Purchase order received</em></li>
+          <li><strong>เลี่ยงกริยากว้าง ๆ</strong> เช่น Handle, Record, Manage</li>
+          <li><strong>ทุกเส้นออกจาก XOR-split ต้องติด condition</strong> เช่น <em>"Items in stock" / "Items not in stock"</em></li>
+        </ol>
+        <p>เพิ่มเติม (guidelines): เงื่อนไขบนเส้นอ้างอิงถึง object ("Policy is invalid") · ผังไล่จากซ้ายบนไปขวาล่าง · เส้นตรง ไม่ตัดกันถ้าเลี่ยงได้</p>
+      </div>
+
+      <h2 id="s4">4. Token Game — ทำความเข้าใจ "การรัน" ของโมเดล</h2>
+      <p>จินตนาการว่ามี <strong>เหรียญ (token)</strong> วิ่งตามเส้น: ออกจาก start → เข้ากิจกรรม (ทำงาน) → เจอ gateway แยกทาง → ไปจนถึง end · Order #1 #2 #3 = 3 instance ที่มี token ของตัวเองวิ่งพร้อมกันได้</p>
+
+      <h2 id="s5">5. Gateways 3 แบบ — หัวใจของการสอบ</h2>
+      <figure class="diagram">
+        <svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <defs><marker id="a62" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#556"/></marker></defs>
+          <!-- XOR -->
+          <g>
+            <path d="M 90 30 L 120 60 L 90 90 L 60 60 Z" fill="#fdeaea" stroke="#dc2626" stroke-width="2.5"/>
+            <path d="M 76 46 L 104 74 M 104 46 L 76 74" stroke="#dc2626" stroke-width="2.5"/>
+            <text x="90" y="115" text-anchor="middle" font-size="13.5" font-weight="800" fill="#b91c1c">XOR (Exclusive)</text>
+            <text x="90" y="135" text-anchor="middle" font-size="11.5" fill="#666">= ทางเลือก เลือกอันเดียว</text>
+            <rect x="200" y="42" width="100" height="36" rx="8" fill="#fff" stroke="#556" stroke-width="1.5"/><text x="250" y="65" text-anchor="middle" font-size="11.5">ทางออก ก</text>
+            <rect x="200" y="120" width="100" height="36" rx="8" fill="#fff" stroke="#556" stroke-width="1.5"/><text x="250" y="143" text-anchor="middle" font-size="11.5">ทางออก ข</text>
+            <line x1="120" y1="52" x2="196" y2="56" stroke="#556" stroke-width="2" marker-end="url(#a62)"/>
+            <line x1="120" y1="70" x2="196" y2="138" stroke="#556" stroke-width="2" marker-end="url(#a62)"/>
+            <text x="158" y="42" font-size="10.5" fill="#b91c1c">cond ✓</text>
+            <text x="158" y="100" font-size="10.5" fill="#b91c1c">¬cond</text>
+            <text x="180" y="185" font-size="11.5" fill="#556">split: เดิน<strong> 1 เส้น</strong>ตามเงื่อนไข (มี default flow สำรองได้)</text>
+            <text x="180" y="205" font-size="11.5" fill="#556">join: พร้อมเดินต่อเมื่อ <strong>1 เส้นเข้า</strong>มาถึง</text>
+          </g>
+          <!-- AND -->
+          <g transform="translate(360,0)">
+            <path d="M 90 240 L 120 270 L 90 300 L 60 270 Z" fill="#e7f8ee" stroke="#16a34a" stroke-width="2.5"/>
+            <path d="M 90 254 L 90 286 M 74 270 L 106 270" stroke="#16a34a" stroke-width="2.5"/>
+            <text x="90" y="325" text-anchor="middle" font-size="13.5" font-weight="800" fill="#14713c">AND (Parallel)</text>
+            <text x="90" y="345" text-anchor="middle" font-size="11.5" fill="#666">= ขนาน ทำครบทุกเส้น</text>
+            <rect x="200" y="252" width="100" height="36" rx="8" fill="#fff" stroke="#556" stroke-width="1.5"/><text x="250" y="275" text-anchor="middle" font-size="11.5">งาน ก</text>
+            <rect x="200" y="330" width="100" height="36" rx="8" fill="#fff" stroke="#556" stroke-width="1.5"/><text x="250" y="353" text-anchor="middle" font-size="11.5">งาน ข</text>
+            <line x1="120" y1="262" x2="196" y2="266" stroke="#556" stroke-width="2" marker-end="url(#a62)"/>
+            <line x1="120" y1="280" x2="196" y2="348" stroke="#556" stroke-width="2" marker-end="url(#a62)"/>
+            <text x="175" y="395" font-size="11.5" fill="#556">split: token <strong>แตกเป็นทุกเส้น</strong> · join: รอจน<strong>ทุกเส้นมาครบ</strong>แล้วรวมเป็น 1</text>
+          </g>
+          <!-- OR -->
+          <g>
+            <path d="M 90 240 L 120 270 L 90 300 L 60 270 Z" fill="#f1e9fe" stroke="#7c3aed" stroke-width="2.5" transform="translate(0,0)"/>
+            <circle cx="90" cy="270" r="11" fill="none" stroke="#7c3aed" stroke-width="2.5"/>
+            <text x="90" y="325" text-anchor="middle" font-size="13.5" font-weight="800" fill="#6d28d9">OR (Inclusive)</text>
+            <text x="90" y="345" text-anchor="middle" font-size="11.5" fill="#666">= เลือกอย่างน้อย 1 / หลายเส้นได้</text>
+            <rect x="200" y="252" width="100" height="36" rx="8" fill="#fff" stroke="#556" stroke-width="1.5"/><text x="250" y="275" text-anchor="middle" font-size="11.5">งาน ก (ถ้ามีของสาขา ก)</text>
+            <rect x="200" y="330" width="100" height="36" rx="8" fill="#fff" stroke="#556" stroke-width="1.5"/><text x="250" y="353" text-anchor="middle" font-size="11.5">งาน ข (ถ้ามีของสาขา ข)</text>
+            <line x1="120" y1="262" x2="196" y2="266" stroke="#556" stroke-width="2" marker-end="url(#a62)"/>
+            <line x1="120" y1="280" x2="196" y2="348" stroke="#556" stroke-width="2" marker-end="url(#a62)"/>
+            <text x="20" y="395" font-size="11.5" fill="#556">split: เดิน 1 หรือหลายเส้นตามเงื่อนไข · join: รอเฉพาะเส้นที่<strong> active</strong> ครบ — ⚠️ 7PMG แนะนำเลี่ยง OR</text>
+          </g>
+          <g transform="translate(360,190)">
+            <text x="160" y="20" font-size="11" fill="#888">ตัวอย่าง: สินค้าอยู่ 2 คลัง (Silom + LKB) — ส่งแยกเฉพาะคลังที่มีของ = OR (หรือใช้ 2 XOR ซ้อนก็ได้)</text>
+          </g>
+        </svg>
+        <figcaption>ภาพ 6.2 — Gateway 3 แบบ: XOR (ตัดกัน ×) เลือกเดียว · AND (บวก +) ทำครบทุกเส้น · OR (วงกลม ○) อย่างน้อยหนึ่งเส้น</figcaption>
+      </figure>
+
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Gateway</th><th>สัญลักษณ์</th><th>Split (แยก)</th><th>Join (รวม)</th><th>ใช้เมื่อ</th></tr></thead>
+        <tbody>
+          <tr><td><strong>XOR</strong></td><td>× ในเพชร</td><td>เลือก<strong> 1 เส้น</strong>ตามเงื่อนไข (เส้นอื่นไม่ทำ)</td><td>พอเส้นใดเส้นหนึ่งมาถึงก็เดินต่อ</td><td>จุดตัดสินใจ (มีของ/ไม่มีของ, ผ่าน/ไม่ผ่าน)</td></tr>
+          <tr><td><strong>AND</strong></td><td>+ ในเพชร</td><td>token <strong>แตกไปทุกเส้น</strong> (ไม่ต้องมีเงื่อนไข)</td><td>รอ<strong>ทุกเส้น</strong>มาบรรจบแล้วจึงต่อ</td><td>งานควรทำ<strong>พร้อมกัน</strong>ได้ (ออกใบเสร็จ ∥ จัดส่ง)</td></tr>
+          <tr><td><strong>OR</strong></td><td>○ ในเพชร</td><td>1 หรือหลายเส้น ตามเงื่อนไขแต่ละเส้น</td><td>รอเฉพาะเส้นที่ active</td><td>ทำงานบางส่วนตามเงื่อนไข (เลี่ยงถ้าไม่จำเป็น)</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="box warn">
+        <div class="box-title">⚠️ Default Flow คืออะไร?</div>
+        <p>เส้นทาง "สำรอง" ของ (X)OR-split ที่จะถูกเลือกโดยอัตโนมัติ<strong>เมื่อเงื่อนไขอื่น ๆ เป็นเท็จทั้งหมด</strong> (ขีดทับที่ปลายเส้น) — เช่น เส้น "อื่น ๆ / ไม่ตรงเงื่อนไขใด"</p>
+      </div>
+
+      <div class="box deep">
+        <div class="box-title">🧠 หลักจับคู่ (Model in blocks)</div>
+        <p>จับคู่ split กับ join <strong>ชนิดเดียวกัน</strong>เสมอ: AND-split ↔ AND-join · XOR-split ↔ XOR-join · ข้อยกเว้นที่ยอมได้: XOR-split ที่แยกไป <strong>2 end events คนละผลลัพธ์</strong> (เช่น สำเร็จ/ยกเลิก) ไม่ต้องมี join ปิดท้าย · ผิดพลาดก็คือ deadlock/livelock ตามที่เรียนในบท 5</p>
+      </div>
+
+      <h2 id="s6">6. Pool, Lane และ Message Flow (โจทย์เขียนของเขา Swimlane!)</h2>
+      <figure class="diagram">
+        <svg viewBox="0 0 740 330" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <defs><marker id="a63" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#556"/></marker>
+          <marker id="a64" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker></defs>
+          <!-- Customer pool -->
+          <rect x="10" y="14" width="720" height="56" fill="#fafcff" stroke="#8896b5" stroke-width="2"/>
+          <rect x="10" y="14" width="34" height="56" fill="#e3e9f5" stroke="#8896b5" stroke-width="1"/>
+          <text x="27" y="46" text-anchor="middle" font-size="11" fill="#445" transform="rotate(-90 27 42)" transform-origin="27 42">POOL: ลูกค้า</text>
+          <circle cx="80" cy="42" r="13" fill="#fff4dc" stroke="#f59e0b" stroke-width="2"/><text x="80" y="46" text-anchor="middle" font-size="8.5">สั่ง</text>
+          <circle cx="660" cy="42" r="13" fill="#fff4dc" stroke="#f59e0b" stroke-width="2"/><text x="660" y="46" text-anchor="middle" font-size="8.5">รับ</text>
+          <!-- Seller pool -->
+          <rect x="10" y="70" width="720" height="240" fill="#fff" stroke="#2456d6" stroke-width="2.5"/>
+          <rect x="10" y="70" width="34" height="240" fill="#e8eeff" stroke="#2456d6" stroke-width="1"/>
+          <text x="27" y="190" text-anchor="middle" font-size="11" fill="#1a3fa0" font-weight="700" transform="rotate(-90 27 190)">POOL: บริษัทขาย</text>
+          <!-- lane Sales -->
+          <rect x="44" y="70" width="686" height="90" fill="#fdfefe" stroke="#9db4e4" stroke-width="1.5"/>
+          <rect x="44" y="70" width="30" height="90" fill="#dce7fb" stroke="#9db4e4" stroke-width="1"/>
+          <text x="59" y="115" text-anchor="middle" font-size="10.5" fill="#1a3fa0" transform="rotate(-90 59 115)">Lane: Sales</text>
+          <circle cx="110" cy="115" r="14" fill="#e7f8ee" stroke="#16a34a" stroke-width="2.5"/><text x="110" y="119" text-anchor="middle" font-size="9">start</text>
+          <rect x="150" y="95" width="120" height="40" rx="9" fill="#e8eeff" stroke="#2456d6" stroke-width="2"/><text x="210" y="119" text-anchor="middle" font-size="11">Check stock</text>
+          <path d="M 310 85 L 340 115 L 310 145 L 280 115 Z" fill="#fdeaea" stroke="#dc2626" stroke-width="2"/>
+          <path d="M 296 101 L 324 129 M 324 101 L 296 129" stroke="#dc2626" stroke-width="2"/>
+          <rect x="380" y="70" width="115" height="38" rx="9" fill="#e8eeff" stroke="#2456d6" stroke-width="2"/><text x="437" y="93" text-anchor="middle" font-size="11">Confirm order</text>
+          <rect x="380" y="128" width="115" height="38" rx="9" fill="#e8eeff" stroke="#2456d6" stroke-width="2"/><text x="437" y="151" text-anchor="middle" font-size="11">Reject order</text>
+          <!-- lane Warehouse -->
+          <rect x="44" y="160" width="686" height="70" fill="#fdfefe" stroke="#9db4e4" stroke-width="1.5"/>
+          <rect x="44" y="160" width="30" height="70" fill="#dce7fb" stroke="#9db4e4" stroke-width="1"/>
+          <text x="59" y="195" text-anchor="middle" font-size="10.5" fill="#1a3fa0" transform="rotate(-90 59 195)">Lane: Warehouse</text>
+          <rect x="380" y="172" width="120" height="40" rx="9" fill="#e8eeff" stroke="#2456d6" stroke-width="2"/><text x="440" y="196" text-anchor="middle" font-size="11">Ship goods</text>
+          <!-- lane Finance -->
+          <rect x="44" y="230" width="686" height="80" fill="#fdfefe" stroke="#9db4e4" stroke-width="1.5"/>
+          <rect x="44" y="230" width="30" height="80" fill="#dce7fb" stroke="#9db4e4" stroke-width="1"/>
+          <text x="59" y="270" text-anchor="middle" font-size="10.5" fill="#1a3fa0" transform="rotate(-90 59 270)">Lane: Finance</text>
+          <rect x="380" y="248" width="120" height="40" rx="9" fill="#e8eeff" stroke="#2456d6" stroke-width="2"/><text x="440" y="272" text-anchor="middle" font-size="11">Send invoice</text>
+          <path d="M 545 200 L 575 230 L 545 260 L 515 230 Z" fill="#e7f8ee" stroke="#16a34a" stroke-width="2"/>
+          <path d="M 545 216 L 545 244 M 531 230 L 559 230" stroke="#16a34a" stroke-width="2"/>
+          <rect x="600" y="210" width="110" height="40" rx="9" fill="#e8eeff" stroke="#2456d6" stroke-width="2"/><text x="655" y="234" text-anchor="middle" font-size="11">Archive order</text>
+          <circle cx="715" cy="230" r="14" fill="#fdeaea" stroke="#dc2626" stroke-width="3"/><text x="715" y="234" text-anchor="middle" font-size="8.5">end</text>
+          <circle cx="560" cy="147" r="14" fill="#fdeaea" stroke="#dc2626" stroke-width="3"/><text x="560" y="151" text-anchor="middle" font-size="8.5">end</text>
+          <!-- flows -->
+          <g stroke="#556" stroke-width="2" marker-end="url(#a63)" fill="none">
+            <line x1="124" y1="115" x2="146" y2="115"/>
+            <line x1="270" y1="115" x2="276" y2="115"/>
+            <line x1="340" y1="105" x2="376" y2="90"/>
+            <line x1="340" y1="125" x2="376" y2="147"/>
+            <line x1="495" y1="89" x2="545" y2="147"/>
+            <line x1="495" y1="192" x2="513" y2="205"/>
+            <line x1="495" y1="268" x2="512" y2="252"/>
+            <line x1="575" y1="230" x2="596" y2="230"/>
+            <line x1="710" y1="230" x2="700" y2="230"/>
+          </g>
+          <!-- message flows -->
+          <g stroke="#dc2626" stroke-width="2" stroke-dasharray="6 4" fill="none">
+            <path d="M 93 42 L 103 98" marker-end="url(#a64)"/>
+            <path d="M 647 42 L 600 208" marker-end="url(#a64)"/>
+          </g>
+          <text x="370" y="325" text-anchor="middle" font-size="12" fill="#556">เส้นประแดง = Message Flow (ข้าม pool) · เส้นทึบ = Sequence Flow (ใน pool เดียวกัน ข้าม lane ได้)</text>
+        </svg>
+        <figcaption>ภาพ 6.3 — ตัวอย่าง Order-to-Cash แบบ Swimlane: Pool "ลูกค้า" (แบบ black-box) + Pool "บริษัทขาย" มี 3 Lanes (Sales, Warehouse, Finance)</figcaption>
+      </figure>
+
+      <ul>
+        <li><strong>Pool</strong> = ผู้เข้าร่วมรายใหญ่หนึ่งฝ่าย (บริษัท/องค์กร) — ใช้แทน resource class · <strong>Lane</strong> = สายย่อยใน pool แทนแผนก/บทบาทภายใน/ระบบ (เช่น ERP, CRM)</li>
+        <li>ประโยชน์ของ swimlane: เห็น <strong>ใครทำอะไร เมื่อไร ตอบสนองอะไร</strong> · เห็น <strong>handoff</strong> (การส่งมอบงานระหว่างหน่วยงาน) · เห็นงานซ้ำซ้อน</li>
+        <li><strong>กฎไวยากรณ์ (ออกสอบ!):</strong>
+          <ol>
+            <li><strong>Sequence Flow ข้ามขอบ Pool ไม่ได้</strong> (เพราะคนละฝ่ายควบคุม) — แต่ Message Flow ข้ามได้</li>
+            <li>Sequence Flow และ Message Flow <strong>ข้าม Lane ได้</strong> (เพราะ lane อยู่ใน pool เดียวกัน)</li>
+            <li><strong>Message Flow ต่อภายใน pool เดียวกันห้าม</strong> (ต้องเชื่อม 2 pool เท่านั้น)</li>
+          </ol>
+        </li>
+        <li>Message flow ชี้ได้ 2 แบบ: โดนขอบ pool (ข้อความเพื่อบอกข่าว) หรือ ชี้ที่ activity/event ใน pool นั้น (ข้อความไป<strong>กระตุ้น</strong>งานนั้น)</li>
+      </ul>
+
+      <h2 id="s7">7. Data / Artifacts — ของที่ไหลในกระบวนการ</h2>
+      <ul>
+        <li><strong>Data Object</strong> (ใบกระดาษหลังแผ่นเบา) = สิ่งที่ activity ต้องใช้ (input) หรือผลิตออกมา (output) — เป็นของจริงหรืออิเล็กทรอนิกส์ก็ได้ เช่น Purchase Order [checked], Invoice, Shipment notice</li>
+        <li><strong>Data Store</strong> (รูปทรงกระบอก) = ที่เก็บถาวรที่ใช้ข้าม instance เช่น Orders DB, Warehouse DB</li>
+        <li><strong>Text Annotation</strong> (วงเล็บเปิด) = หมายเหตุอธิบายเพิ่ม — <strong>ไม่มีผลกับการไหลของ token</strong></li>
+        <li>ในระดับละเอียด: Data inputs / outputs / collections / stores (จาก handout BPAD) + <strong>Group</strong> (กล่องจัดกลุ่มงาน) เพื่อให้อ่านง่าย</li>
+      </ul>
+
+      <h2 id="s8">8. วงจรย้อนกลับ (Rework Loop) — แบบฝึกจากเอกสาร</h2>
+      <div class="box baseline">
+        <div class="box-title">📋 โจทย์: ร่างหนังสือตอบรัฐมนตรี (Address ministerial correspondence)</div>
+        <p>"เมื่อได้รับคำร้องทางรัฐมนตรี → ลงทะเบียนในระบบ → สืบสวนเพื่อเตรียมคำตอบ → เตรียมคำตอบโดยเจ้าหน้าที่ตู้ (cabinet officer) → หัวหน้าทะเบียน (principal registrar) ตรวจคำตอบ → <strong>ถ้าไม่อนุมัติ ให้เตรียมใหม่</strong> → เสร็จเมื่ออนุมัติ"</p>
+      </div>
+      <figure class="diagram">
+        <svg viewBox="0 0 740 220" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <defs><marker id="a65" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#556"/></marker></defs>
+          <circle cx="36" cy="90" r="16" fill="#e7f8ee" stroke="#16a34a" stroke-width="2.5"/>
+          <text x="36" y="95" text-anchor="middle" font-size="8.5" fill="#14713c">start</text>
+          <g font-size="10.5" text-anchor="middle">
+            <rect x="70" y="70" width="105" height="40" rx="9" fill="#fff" stroke="#556" stroke-width="1.8"/><text x="122" y="87">Register</text><text x="122" y="102">inquiry</text>
+            <rect x="200" y="70" width="105" height="40" rx="9" fill="#fff" stroke="#556" stroke-width="1.8"/><text x="252" y="87">Investigate</text><text x="252" y="102">inquiry</text>
+            <rect x="330" y="70" width="125" height="40" rx="9" fill="#fff" stroke="#556" stroke-width="1.8"/><text x="392" y="87">Prepare</text><text x="392" y="102">response</text>
+            <path d="M 505 60 L 533 90 L 505 120 L 477 90 Z" fill="#fdeaea" stroke="#dc2626" stroke-width="2"/>
+            <path d="M 492 77 L 518 103 M 518 77 L 492 103" stroke="#dc2626" stroke-width="2"/>
+            <rect x="565" y="70" width="110" height="40" rx="9" fill="#fff" stroke="#556" stroke-width="1.8"/><text x="620" y="94">Review response</text>
+            <circle cx="715" cy="90" r="16" fill="#fdeaea" stroke="#dc2626" stroke-width="3"/>
+            <text x="715" y="95" text-anchor="middle" font-size="8.5" fill="#b91c1c">end</text>
+          </g>
+          <g stroke="#556" stroke-width="2" fill="none" marker-end="url(#a65)">
+            <line x1="52" y1="90" x2="66" y2="90"/>
+            <line x1="175" y1="90" x2="196" y2="90"/>
+            <line x1="305" y1="90" x2="326" y2="90"/>
+            <line x1="455" y1="90" x2="473" y2="90"/>
+            <line x1="533" y1="90" x2="561" y2="90"/>
+            <line x1="675" y1="90" x2="697" y2="90"/>
+          </g>
+          <!-- loop back -->
+          <path d="M 505 120 L 505 165 L 392 165 L 392 114" stroke="#dc2626" stroke-width="2.5" fill="none" marker-end="url(#a65)"/>
+          <text x="449" y="182" text-anchor="middle" font-size="10.5" fill="#b91c1c" font-weight="700">ไม่อนุมัติ → เตรียมใหม่ (loop)</text>
+          <text x="604" y="58" text-anchor="middle" font-size="10.5" fill="#16a34a" font-weight="700">อนุมัติ ✓</text>
+          <text x="370" y="210" text-anchor="middle" font-size="11.5" fill="#888">โครงสร้าง: XOR-join เป็น "ทางเข้า" ของลูป + XOR-split เป็น "ทางออก" — วาดเป็นบล็อกให้ครบ</text>
+        </svg>
+        <figcaption>ภาพ 6.4 — Rework Loop: วงจรตรวจ-แก้ จนกว่าจะผ่าน โดยมี XOR คู่เป็นประตูเข้า-ออกของลูป</figcaption>
+      </figure>
+
+      <h2 id="s9">9. 🖊️ แปลงโจทย์เป็น BPMN ทีละขั้น (ทำตามนี้ในห้องสอบ!)</h2>
+      <p>โจทย์ฝึก (Order-to-Cash ฉบับเต็ม): <em>"กระบวนการเริ่มเมื่อ<strong>ได้รับใบสั่งซื้อ</strong>จากลูกค้า จากนั้น<strong>ตรวจสอบสต๊อก</strong>ว่ามีสินค้าหรือไม่ ถ้ามี → <strong>ยืนยันออเดอร์</strong> แล้ว<strong>ออกใบแจ้งหนี้</strong>กับ<strong>จัดส่งสินค้า</strong> (ทำพร้อมกันตามลำดับใดก็ได้) แล้ว<strong>จัดเก็บเอกสาร</strong>เสร็จสิ้น · ถ้าไม่มี → <strong>ปฏิเสธออเดอร์</strong> แล้วจบ"</em></p>
+
+      <ol class="steps">
+        <li><b class="st">ขั้น 1 — หา Trigger และ Outcomes (ขอบเขต)</b>
+          Trigger = "ได้รับใบสั่งซื้อ" → <strong>start event</strong> · ผลลัพธ์ = "สำเร็จ (fulfilled)" และ "ถูกปฏิเสธ (rejected)" → <strong>end event 2 อัน</strong></li>
+        <li><b class="st">ขั้น 2 — ขีดเส้นใต้ "กริยา + กรรม"</b>
+          ตรวจสอบสต๊อก / ยืนยันออเดอร์ / ออกใบแจ้งหนี้ / จัดส่งสินค้า / จัดเก็บเอกสาร / ปฏิเสธออเดอร์ → ทุกตัวคือ <strong>activity</strong> (ชื่อรูป Verb+Noun อยู่แล้ว)</li>
+        <li><b class="st">ขั้น 3 — หาคำบอกทางแยก</b>
+          "ถ้ามี / ถ้าไม่มี" = <strong>XOR-split</strong> (เลือกเส้นเดียว) พร้อมเขียนเงื่อนไขบนเส้น: "Items in stock" / "Items not in stock"</li>
+        <li><b class="st">ขั้น 4 — หาคำบอกขนาน</b>
+          "พร้อมกัน / ตามลำดับใดก็ได้ (in any order)" = <strong>AND-split + AND-join</strong> ครอบ "ออกใบแจ้งหนี้" กับ "จัดส่งสินค้า"</li>
+        <li><b class="st">ขั้น 5 — มองหา "ใครทำ"</b>
+          ใส่ Pool/Lane ตามที่โจทย์บอก (Sales ตรวจสต๊อก/ยืนยัน, Warehouse จัดส่ง, Finance ออกใบเสร็จ) — ส่วนลูกค้าเป็น pool แยกถ้าโจทย์เล่าฝั่งลูกค้าด้วย</li>
+        <li><b class="st">ขั้น 6 — ต่อเส้น + ตรวจกฎ</b>
+          ต่อ sequence flow ให้ต่อเนื่อง start → ... → end ทุกเส้นทาง · ตรวจ: ทุกกิจกรรมมีเส้นเข้า-ออก · ทุกเส้น XOR มีเงื่อนไข · split-join จับคู่ชนิดเดียวกัน · ไม่มี node ลอย</li>
+      </ol>
+
+      <figure class="diagram">
+        <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <defs><marker id="a66" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#556"/></marker></defs>
+          <!-- start -->
+          <circle cx="42" cy="130" r="20" fill="#e7f8ee" stroke="#16a34a" stroke-width="2.5"/>
+          <text x="42" y="127" text-anchor="middle" font-size="8" fill="#14713c">Purchase</text>
+          <text x="42" y="137" text-anchor="middle" font-size="8" fill="#14713c">order</text>
+          <text x="42" y="147" text-anchor="middle" font-size="8" fill="#14713c">received</text>
+          <!-- check stock -->
+          <rect x="92" y="106" width="115" height="48" rx="10" fill="#fff" stroke="#2456d6" stroke-width="2.5"/>
+          <text x="149" y="126" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1a3fa0">Check stock</text>
+          <text x="149" y="141" text-anchor="middle" font-size="10.5" fill="#1a3fa0">availability</text>
+          <!-- XOR -->
+          <path d="M 258 100 L 288 130 L 258 160 L 228 130 Z" fill="#fdeaea" stroke="#dc2626" stroke-width="2.5"/>
+          <path d="M 245 117 L 271 143 M 271 117 L 245 143" stroke="#dc2626" stroke-width="2.5"/>
+          <!-- reject branch -->
+          <rect x="330" y="34" width="105" height="40" rx="9" fill="#fff" stroke="#556" stroke-width="2"/>
+          <text x="382" y="58" text-anchor="middle" font-size="10.5">Reject order</text>
+          <circle cx="488" cy="54" r="20" fill="#fdeaea" stroke="#dc2626" stroke-width="3"/>
+          <text x="488" y="51" text-anchor="middle" font-size="8" fill="#b91c1c">Order</text>
+          <text x="488" y="61" text-anchor="middle" font-size="8" fill="#b91c1c">rejected</text>
+          <!-- confirm -->
+          <rect x="322" y="110" width="110" height="40" rx="9" fill="#fff" stroke="#2456d6" stroke-width="2.5"/>
+          <text x="377" y="134" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1a3fa0">Confirm order</text>
+          <!-- AND split -->
+          <path d="M 478 100 L 508 130 L 478 160 L 448 130 Z" fill="#e7f8ee" stroke="#16a34a" stroke-width="2.5"/>
+          <path d="M 478 114 L 478 146 M 464 130 L 492 130" stroke="#16a34a" stroke-width="2.5"/>
+          <!-- parallel tasks -->
+          <rect x="540" y="66" width="105" height="40" rx="9" fill="#fff" stroke="#2456d6" stroke-width="2"/>
+          <text x="592" y="90" text-anchor="middle" font-size="10.5">Send invoice</text>
+          <rect x="540" y="155" width="105" height="40" rx="9" fill="#fff" stroke="#2456d6" stroke-width="2"/>
+          <text x="592" y="179" text-anchor="middle" font-size="10.5">Ship goods</text>
+          <!-- AND join -->
+          <path d="M 692 100 L 722 130 L 692 160 L 662 130 Z" fill="#e7f8ee" stroke="#16a34a" stroke-width="2.5"/>
+          <path d="M 692 114 L 692 146 M 678 130 L 706 130" stroke="#16a34a" stroke-width="2.5"/>
+          <!-- archive + end -->
+          <rect x="560" y="222" width="110" height="40" rx="9" fill="#fff" stroke="#556" stroke-width="2"/>
+          <text x="615" y="246" text-anchor="middle" font-size="10.5">Archive order</text>
+          <circle cx="722" cy="242" r="20" fill="#fdeaea" stroke="#dc2626" stroke-width="3"/>
+          <text x="722" y="239" text-anchor="middle" font-size="8" fill="#b91c1c">Order</text>
+          <text x="722" y="249" text-anchor="middle" font-size="8" fill="#b91c1c">fulfilled</text>
+          <!-- flows -->
+          <g stroke="#556" stroke-width="2" fill="none" marker-end="url(#a66)">
+            <line x1="62" y1="130" x2="88" y2="130"/>
+            <line x1="207" y1="130" x2="224" y2="130"/>
+            <line x1="288" y1="117" x2="326" y2="57"/>
+            <line x1="288" y1="130" x2="318" y2="130"/>
+            <line x1="432" y1="130" x2="444" y2="130"/>
+            <line x1="508" y1="117" x2="536" y2="88"/>
+            <line x1="508" y1="143" x2="536" y2="172"/>
+            <line x1="645" y1="86" x2="658" y2="112"/>
+            <line x1="645" y1="175" x2="658" y2="148"/>
+            <path d="M 692 160 L 692 200 L 672 240"/>
+            <line x1="670" y1="242" x2="698" y2="242"/>
+          </g>
+          <text x="305" y="95" font-size="9.5" fill="#b91c1c" font-weight="700">not in stock</text>
+          <text x="298" y="150" font-size="9.5" fill="#16a34a" font-weight="700">in stock</text>
+          <text x="380" y="290" text-anchor="middle" font-size="12" fill="#556">แผนภาพเต็ม: XOR แยกสำเร็จ/ปฏิเสธ · AND ครอบ "ออกใบเสร็จ ∥ จัดส่ง" · จบ 2 ผลลัพธ์</text>
+        </svg>
+        <figcaption>ภาพ 6.5 — คำตอบโจทย์ Order-to-Cash ฉบับเต็ม (เทียบกับที่สอนในคลิป BPM-PM Ep.1-4)</figcaption>
+      </figure>
+
+      <div class="box exam">
+        <div class="box-title">🎯 Checklist ก่อนส่งกระดาษ (ข้อเขียนข้อ 1)</div>
+        <ul>
+          <li>☐ มี start event 1 อัน (หรือ 1 ต่อ trigger) และ end event ครบตามผลลัพธ์</li>
+          <li>☐ ชื่อกิจกรรมเป็น <strong>Verb + Object</strong> ทุกช่อง / ชื่อ event เป็น <strong>คำนาม + V3</strong></li>
+          <li>☐ ทุกเส้นออกจาก XOR มีเงื่อนไขกำกับ</li>
+          <li>☐ AND-split จับคู่ AND-join เป็นบล็อก</li>
+          <li>☐ Sequence flow ไม่ข้าม pool · Message flow เส้นประข้าม pool เท่านั้น</li>
+          <li>☐ มี Swimlane แบ่งตามผู้ทำ (โจทย์ของเขา Swimlane!)</li>
+          <li>☐ ไม่มีกิจกรรมลอย ๆ / เส้นหลุด — แล้วเขียนเต็มพื้นที่ อย่าเว้นว่าง!</li>
+        </ul>
+      </div>
+
+      <h2 id="s10">10. บทเรียนจากคลิปอาจารย์ (สรุปจาก NotebookLM)</h2>
+      <div class="box baseline">
+        <div class="box-title">🎬 จุดเน้นที่อาจารย์ย้ำในคลิป</div>
+        <ul>
+          <li><strong>BPM-PAD:</strong> BPMN = ภาษากลาง Business–IT · mapping Exclusive=XOR / Inclusive=OR / Parallel=AND · แปลง diagram → BPEL (ภาษาสั่งรัน Web Services) ได้</li>
+          <li><strong>BPM-PM:</strong> สอน Order-to-Cash + กรณีร่าง/อนุมัติแถลงการณ์ (PR) ที่มี rework loop · เดิน token ให้ดู 2 scenario เทียบ Parallel vs Exclusive · <strong>Decision Point = กิจกรรมสุดท้ายก่อนแยกเส้น</strong> · swimlanes เห็น handover (Sales, Warehouse) · lifecycle ต้องมี Monitoring & Control ป้อนกลับ</li>
+          <li><strong>BPM-PD:</strong> George vs Sarah (domain expert vs process analyst) · หา boundaries + positive/negative outcomes · <strong>1 start ต่อ trigger, 1 end ต่อ outcome</strong> · เลี่ยง OR · ไม่เกิน 30 nodes</li>
+        </ul>
+      </div>
+
+      <h2 id="s11">สรุปท้ายบท</h2>
+      <div class="box def">
+        <div class="box-title">✅ ต้องจำให้ได้จากบทนี้</div>
+        <ol>
+          <li>4 core elements: <strong>Activity · Event · Gateway · Sequence flow</strong></li>
+          <li>ชื่อ: Task = <strong>Verb+Noun</strong> · Event = <strong>Noun+V3</strong> · เส้น XOR ติด condition · ห้ามใช้ Handle/Record</li>
+          <li>XOR เลือกเดียว (มี default flow) · AND ทำครบทุกเส้น · OR อย่างน้อยหนึ่ง (เลี่ยงถ้าได้)</li>
+          <li>Pool = ฝ่ายรายใหญ่ · Lane = แผนก/บทบาทใน pool · Sequence flow ห้ามข้าม pool · Message flow (เส้นประ) ห้ามใน pool เดียวกัน</li>
+          <li>Data object (input/output) · Data store (ถาวร) · Annotation (ไม่กระทบ token)</li>
+          <li>Rework loop = XOR-join เข้า + XOR-split ออก</li>
+          <li>เทคนิคทำโจทย์: trigger→outcomes→กริยา+กรรม→คำบอกแยก/ขนาน→ใครทำ→ต่อเส้นตรวจกฎ</li>
+        </ol>
+      </div>
+
+      <div class="quiz-q">
+        <div class="q-text">🧪 ข้อความโจทย์ตัวไหนบอกว่าต้องใช้ AND gateway?</div>
+        <div class="opts">
+          <button class="opt">ก. "ถ้าเครดิตไม่ผ่าน ให้ปฏิเสธคำขอ"</button>
+          <button class="opt" data-c="1">ข. "ออกใบเสร็จและจัดส่งสินค้า โดยทำพร้อมกันได้ทั้งสองงาน"</button>
+          <button class="opt">ค. "ถ้าลูกค้าเป็นสมาชิกให้ส่วนลด ถ้าซื้อครบ 1,000 ให้แต้ม ถ้าทั้งคู่ให้ทั้งสองอย่าง"</button>
+          <button class="opt">ง. "รออนุมัติจากหัวหน้าก่อนดำเนินการต่อ"</button>
+        </div>
+        <div class="explain">💡 "ทำพร้อมกันทั้งสองงาน" = AND · ก/ง เป็น XOR · ค เป็น OR (ได้ทั้งสองหรืออย่างเดียวตามเงื่อนไข)</div>
+      </div>
+
+      <div id="doneWrap" style="margin-top:30px;">
+        <button id="doneBtn" style="font-family:inherit;font-size:15px;font-weight:700;padding:10px 22px;border-radius:12px;border:2px solid #16a34a;background:#fff;color:#14713c;cursor:pointer;">☑ ทำเครื่องหมายว่าอ่านแล้ว</button>
+      </div>
+      <div class="pager" id="pager"></div>
+    </main>
+  </div>
+</div>
+<script src="assets/app.js"></script>
+<script src="assets/tts.js"></script>
+</body>
+</html>

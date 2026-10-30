@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<title>บทที่ 14 — Voice of the User & User Classes | BA Final Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%232456d6%27/%3E%3Ctext x=%2750%27 y=%2770%27 font-size=%2752%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27sans-serif%27 font-weight=%27bold%27%3EBA%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="topbar">
+      <button class="burger" id="burger" aria-label="เปิดเมนู">☰</button>
+      <div class="crumb" id="crumb"></div>
+      <div class="spacer"></div>
+      <a class="home-link" href="index.html">หน้าแรก</a>
+    </header>
+    <main class="content">
+
+      <h1 class="hero">บทที่ 14 · Finding the Voice of the User — User Classes, Personas, Product Champion</h1>
+      <p class="lead">ความสำเร็จของ requirements ขึ้นกับการนำ "เสียงผู้ใช้" ไปใกล้ "หูนักพัฒนา" (⭐ ควิซ 10 ออกเกือบทั้งชุด)</p>
+
+      <h2 id="s1">1. หลักคิดเปิดบท</h2>
+      <div class="box def">
+        <div class="box-title">📖 Voice of the User</div>
+        <p>"ความสำเร็จของ software requirements (และการพัฒนาซอฟต์แวร์) ขึ้นกับการนำ <strong>เสียงของผู้ใช้ไปใกล้หูของนักพัฒนา</strong>" — ขั้นตอน: ① ระบุ <strong>user classes</strong> ต่าง ๆ ② เลือกและทำงานกับ<strong>ผู้แทน</strong>ของแต่ละ class ③ ตกลงว่าใครคือ <strong>requirements decision makers</strong></p>
+        <p>🔑 <strong>การมีส่วนร่วมของลูกค้า (customer involvement) คือวิธีดีที่สุดที่จะหลีกเลี่ยง expectation gap</strong> — และ "wants" ที่ผู้ใช้เสนอ<strong>ไม่จำเป็น</strong>ต้องเท่ากับ "needs" ที่ใช้ทำงานจริง: BA ต้องรวบรวม input หลากหลาย → วิเคราะห์/ทำให้ชัด → ระบุเฉพาะสิ่งที่ต้องสร้าง · ถ้าไม่ลงทุนทำเรื่องนี้ → <strong>rework + ส่งช้า + งบเกิน + ลูกค้าไม่พอใจ</strong></p>
+      </div>
+
+      <div class="box analogy">
+        <div class="box-title">💭 เจ้าหน้าที่คลังกับปุ่มสีแดงกะพริบ (ตัวอย่างควิซจริง)</div>
+        <p>ผู้จัดการคลัง: "อยากได้<strong>ปุ่มสีแดงกะพริบ</strong>หน้าแรก คลิกดูรายงานยอดคงเหลือ" — BA ที่ดี<strong>ไม่</strong>จดเป็น FR ทันที แต่มองว่านี่คือ <strong>want</strong> → ถามต่อ: งานจริง (task) ที่เขาต้องการทำให้สำเร็จคืออะไร? (ดูรายงานประจำวัน) → แล้วค่อยออกแบบทางเข้าถึงรายงานที่ดีกว่าปุ่มกะพริบร่วมกับทีม — <strong>แก้โจทย์ ไม่ใช่แก้คำขอ</strong></p>
+      </div>
+
+      <h2 id="s2">2. User Classes — จัดกลุ่มผู้ใช้</h2>
+      <ul>
+        <li><strong>User class</strong> = ส่วนย่อยของ "ผู้ใช้" ของผลิตภัณฑ์ (ผู้ใช้ ⊂ ลูกค้า ⊂ stakeholders) · <strong>คนหนึ่งอยู่ได้หลาย class</strong> · user class <strong>ไม่จำเป็นต้องเป็นมนุษย์</strong> (software agents/bots ที่ทำงานแทนคนก็นับ)</li>
+        <li>วิธีคิดที่ดีกว่าดู "ตำแหน่ง": คิดจาก <strong>งาน (tasks)</strong> ที่กลุ่มต่าง ๆ จะทำกับระบบ</li>
+      </ul>
+      <figure class="diagram">
+        <svg viewBox="0 0 700 270" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <!-- nested sets -->
+          <circle cx="180" cy="130" r="120" fill="#eef2fa" stroke="#55657a" stroke-width="2"/>
+          <circle cx="150" cy="150" r="85" fill="#dbe7fb" stroke="#3b6fe0" stroke-width="2"/>
+          <circle cx="130" cy="170" r="50" fill="#c4d8f9" stroke="#2456d6" stroke-width="2"/>
+          <text x="310" y="45" font-size="13" fill="#334" font-weight="700">Stakeholders (ผู้มีส่วนได้ส่วนเสียทั้งหมด)</text>
+          <text x="285" y="110" font-size="12.5" fill="#1a3fa0" font-weight="700">Customers (ลูกค้า/ผู้ซื้อ)</text>
+          <text x="255" y="185" font-size="12.5" fill="#1a3fa0" font-weight="700">Users (ผู้ใช้)</text>
+          <text x="130" y="240" text-anchor="middle" font-size="12" fill="#fff" font-weight="800">User</text>
+          <text x="130" y="255" text-anchor="middle" font-size="12" fill="#fff" font-weight="800">Classes</text>
+          <!-- right: 4 types -->
+          <g font-size="12">
+            <rect x="420" y="30" width="265" height="46" rx="10" fill="#e7f8ee" stroke="#16a34a" stroke-width="2"/>
+            <text x="552" y="49" text-anchor="middle" font-weight="800" fill="#14713c">FAVORED — สนับสนุนเต็มที่</text>
+            <text x="552" y="66" text-anchor="middle" fill="#3a7" font-size="10.5">ความพึงพอใจสอดคล้อง business objectives มากสุด</text>
+            <rect x="420" y="90" width="265" height="46" rx="10" fill="#fdeaea" stroke="#dc2626" stroke-width="2"/>
+            <text x="552" y="109" text-anchor="middle" font-weight="800" fill="#b91c1c">DISFAVORED — จงใจจำกัด</text>
+            <text x="552" y="126" text-anchor="middle" fill="#a33" font-size="10.5">กลุ่มที่ไม่ควรใช้ (กฎหมาย/ความปลอดภัย) เช่น แฮกเกอร์ → สร้างกลไกกัน</text>
+            <rect x="420" y="150" width="265" height="46" rx="10" fill="#f1e9fe" stroke="#7c3aed" stroke-width="2"/>
+            <text x="552" y="169" text-anchor="middle" font-weight="800" fill="#6d28d9">IGNORED — ไม่ออกแบบให้โดยเฉพาะ</text>
+            <text x="552" y="186" text-anchor="middle" fill="#84c" font-size="10.5">ใช้ได้ แต่เราไม่ทำเพื่อเขาเป็นพิเศษ (≠ บล็อก!)</text>
+            <rect x="420" y="210" width="265" height="46" rx="10" fill="#fff8e9" stroke="#f59e0b" stroke-width="2"/>
+            <text x="552" y="229" text-anchor="middle" font-weight="800" fill="#a16207">OTHER — ความต้องการซ้อนทับกันได้</text>
+            <text x="552" y="246" text-anchor="middle" fill="#a16a08" font-size="10.5">new user ชอบง่าย-มีเมนู · power user ชอบ shortcut/ปรับแต่งได้</text>
+          </g>
+        </svg>
+        <figcaption>ภาพ 14.1 — ความสัมพันธ์ Stakeholders ⊃ Customers ⊃ Users ⊃ User Classes + การแบ่ง 4 กลุ่มตามเจตนาของโครงการ</figcaption>
+      </figure>
+
+      <div class="box exam">
+        <div class="box-title">🎯 จุดสอบของ User Classes</div>
+        <ul>
+          <li><strong>เกณฑ์ตัดสิน Favored = ความสอดคล้องกับ business objectives</strong> ไม่ใช่ "คนจ่ายเงิน" หรือ "อำนาจทางการเมือง"</li>
+          <li><strong>Disfavored:</strong> สร้าง feature ที่จงใจทำให้ยาก เช่น lock account หลังพินผิด 4 ครั้ง, ขอ OTP ถ้าเครื่องไม่รู้จัก</li>
+          <li><strong>Ignored ≠ Disfavored:</strong> Ignored ใช้ได้แต่ไม่ออกแบบให้ (ไม่ได้บล็อก!)</li>
+          <li>แยก class ตาม: สิทธิ์การเข้าถึง · งานที่ทำ · ฟีเจอร์ที่ใช้ · ความถี่ใช้ · ประสบการณ์ domain/IT · platform · ภาษา · ติดต่อตรง/อ้อม</li>
+        </ul>
+      </div>
+
+      <h3>วิธีระบุ User Classes — "Expand then Contract"</h3>
+      <ol>
+        <li>ถาม project sponsor ว่าคาดว่าใครใช้ระบบ</li>
+        <li><strong>ระดมสมองให้มากที่สุด</strong> (หลายสิบกลุ่มก็ไม่ต้องตกใจ)</li>
+        <li>รวมกลุ่มที่ความต้องการคล้ายกัน (หรือเป็น class ใหญ่ + subclasses)</li>
+        <li><strong>บีบให้เหลือ ≤ 15 กลุ่ม</strong> — อย่าลืมกลุ่มใดไป เดี๋ยวช้า ๆ มาคนเดือนว่าระบบไม่ตอบโจทย์!</li>
+      </ol>
+      <p><strong>Organization chart analysis:</strong> ดูแผนผังองค์กรเพื่อหา: แผนกที่มีส่วนร่วม/ได้รับผลกระทบจากกระบวนการ · จุดที่ซ่อน direct/indirect users · user class ที่คร่อมหลายแผนก · แผนกที่เชื่อมต่อ stakeholder ภายนอก (+ เข้าใจว่าแต่ละแผนก "ให้ข้อมูลอะไร" ตามบทบาท-มุมมองของเขา)</p>
+      <p>⚠️ <strong>กับดัก focus group:</strong> อย่าเลือกแต่ early adopters / blue-sky thinkers — จะได้แต่ requirements หรูหรายากที่ลูกค้าจริงไม่ใช้ · ต้องมีทั้งผู้ใช้เก่งและมือใหม่</p>
+
+      <h2 id="s3">3. User Personas</h2>
+      <div class="box def">
+        <div class="box-title">📖 นิยาม</div>
+        <p><strong>Persona</strong> = คำอธิบายของบุคคลสมมติ (hypothetical generic person) ที่เป็นตัวแทนกลุ่มผู้ใช้ที่มีลักษณะ-ความต้องการคล้ายกัน — ใช้เข้าใจ requirements และออกแบบ user experience · เป็น <strong>placeholder เมื่อไม่มีตัวแทนผู้ใช้จริง</strong> · ต้องสร้างจากการวิจัยตลาด/ประชากร/ชาติพันธุ์วิทยาจริง (❌ ตั้งชื่อ+วาดรูปเฉย ๆ ใช้ไม่ได้)</p>
+      </div>
+
+      <h2 id="s4">4. Product Champion</h2>
+      <div class="box def">
+        <div class="box-title">📖 หลักการ</div>
+        <p>โครงการต้องมีผู้แทนผู้ใช้ที่เหมาะสม และต้องมีส่วนร่วม<strong>ตลอด life cycle</strong> ไม่ใช่แค่ช่วง requirements · <strong>ทุก user class ต้องมีคนพูดแทน</strong> · พิจารณาตั้ง focus groups (ของลูกค้าจริง/ของคู่แข่ง) — <strong>ถามจริง ดีกว่าเดา</strong></p>
+      </div>
+      <ul>
+        <li><strong>Product Champion คือใคร:</strong> <strong>ผู้ใช้จริง</strong> (ไม่ใช่ sponsor/ผู้จัดการที่ไม่ได้ใช้ระบบ) · หน้าที่: <strong>รวบรวมความต้องการจากเพื่อนร่วมงานใน class ตน + ช่วยไกล่เกลี่ยข้อขัดแย้ง</strong> · ต้องได้รับ<strong>อำนาจเต็มที่ในการตัดสินใจแทนกลุ่ม</strong> (หนึ่ง class หนึ่ง champion — ไม่ใช่คนเดียวทำแทนทุก class)</li>
+        <li><strong>แบ่งเบาความกังวลผู้บริหาร:</strong> champion ตัดสินใจเฉพาะ<strong>ระดับ user requirements</strong> ภายใต้กรอบ business requirements · <strong>ผู้บริหาร (sponsor) ยังถืออำนาจ</strong>เรื่อง product vision, scope, priorities เชิงธุรกิจ, schedule, budget · ต้องเขียนบทบาท-หน้าที่ให้ชัด</li>
+        <li><strong>เมื่อเจอ resistance:</strong> ย้ำว่า "การขาด user involvement เป็นสาเหตุอันดับต้น ๆ ของโครงการล้มเหลว" + ยกตัวอย่างหนัง ๆ จากอดีต (นรกที่เคยเจอ) — champion ช่วยให้ได้ customer input <strong>ทันเวลา</strong> ไม่ใช่ปลายโครงการ</li>
+      </ul>
+
+      <div class="box warn">
+        <div class="box-title">⚠️ Product Champion Traps (ออกสอบ!)</div>
+        <ol>
+          <li><strong>ผู้บริหารล้มการตัดสินของ champion</strong> ตลอด → ผู้ใช้ไม่พอใจ champion รู้สึกไม่ได้รับความไว้วางใจ</li>
+          <li><strong>Champion นำเสนอแต่ความต้องการตัวเอง</strong> ลืมว่าต้องเป็นตัวแทนลูกค้าคนอื่น</li>
+          <li><strong>Champion ไม่มีวิสัยทัศน์ → ยอมทุกอย่างที่ BA เสนอ</strong> (defer การตัดสินใจทั้งหมด) = ไม่ได้ช่วยอะไร</li>
+          <li><strong>รุ่นพี่โยนงานให้น้องใหม่</strong>ไม่มีประสบการณ์ + ยังคอย "ขับรถย้อนหลัง" (backseat driving) อยู่</li>
+          <li>ระวังคนที่<strong>อ้างว่าพูดแทน class ที่ตนไม่ได้อยู่</strong></li>
+        </ol>
+      </div>
+
+      <h2 id="s5">5. บน Agile: Product Owner</h2>
+      <ul>
+        <li>Agile มี <strong>Product Owner</strong> คนเดียวเป็นเสียงของลูกค้า: นิยาม product vision + จัดลำดับ <strong>product backlog</strong> (รายการ user stories เรียงตาม priority + จัดสรรเข้า sprints ของ Scrum)</li>
+        <li>Product owner ครอบคลุม <strong>ทั้ง 3 ระดับ requirements</strong> (business, user, functional) — "นั่งข้าม" บทบาท product champion + BA</li>
+        <li><strong>คนเดียวอาจไม่พอในองค์กรใหญ่:</strong> บริษัทประกัน (แพ็กเกจระบบ) ใหญ่และซับซ้อนเกินกว่าใครคนเดียวจะรู้ครบ → <strong>เลือก product owner หนึ่งคนต่อแผนก</strong> เป็นเจ้าของ priority ของฟังก์ชันแผนกตน</li>
+        <li><strong>Product Owner กับ Product Champion ใช้ร่วมกันได้</strong> (ไม่เห็นแย่งกัน): ถ้า PO ทำหน้าที่แบบ BA ก็ตั้ง champions เป็นแหล่ง input ได้ · หรือ PO ทำงานกับ BA หลายคน — PO เป็น decision maker สุดท้าย</li>
+      </ul>
+
+      <h2 id="s6">สรุปท้ายบท</h2>
+      <div class="box def">
+        <div class="box-title">✅ ต้องจำให้ได้</div>
+        <ol>
+          <li>Wants ≠ Needs — BA ต้องวิเคราะห์ให้ถึง "task ที่ผู้ใช้ต้องทำให้สำเร็จ"</li>
+          <li>User class: คนหนึ่งได้หลาย class · ไม่จำเป็นเป็นมนุษย์ · คิดจาก tasks · Expand-then-Contract ≤15 กลุ่ม</li>
+          <li>4 กลุ่ม: Favored (ตาม objectives!) · Disfavored (กันโดยเจตนา) · Ignored (ไม่ออกแบบให้) · Other</li>
+          <li>Persona = ตัวแทนสมมติที่ตั้งบนข้อมูลวิจัยจริง</li>
+          <li>Product Champion = ผู้ใช้จริง+อำนาจตัดสิน+เก็บเสียงทั้งกลุ่ม · กับดัก 4-5 ข้อ · ผู้บริหารยังคงอำนาจ vision/scope/งบ</li>
+          <li>Product Owner (Agile) = 1 คน/แผนก ได้ · ใช้ร่วมกับ champion ได้</li>
+        </ol>
+      </div>
+
+      <div class="quiz-q">
+        <div class="q-text">🧪 (ควิซจริง) เกิดข้อขัดแย้งความต้องการระหว่างลูกค้าทั่วไปกับผู้ดูแลระบบส่วนกลาง — ควรตัดสินอย่างไร?</div>
+        <div class="opts">
+          <button class="opt" data-c="1">ก. ให้สิทธิพิเศษแก่ Favored User Class ที่สอดคล้อง business objectives มากที่สุด</button>
+          <button class="opt">ข. ให้ผู้ดูแลระบบชนะ เพราะมีอำนาจทางเทคนิค</button>
+          <button class="opt">ค. ทำตามคำขอของลูกค้าทุกข้อเพราะลูกค้าคือคนจ่ายเงิน</button>
+          <button class="opt">ง. ให้โปรแกรมเมอร์ตัดสินใจเอง</button>
+        </div>
+        <div class="explain">💡 เกณฑ์เดียวคือ "ความสอดคล้องกับวัตถุประสงค์ธุรกิจของโครงการ" ไม่ใช่อำนาจหรือเงิน</div>
+      </div>
+
+      <div id="doneWrap" style="margin-top:30px;">
+        <button id="doneBtn" style="font-family:inherit;font-size:15px;font-weight:700;padding:10px 22px;border-radius:12px;border:2px solid #16a34a;background:#fff;color:#14713c;cursor:pointer;">☑ ทำเครื่องหมายว่าอ่านแล้ว</button>
+      </div>
+      <div class="pager" id="pager"></div>
+    </main>
+  </div>
+</div>
+<script src="assets/app.js"></script>
+<script src="assets/tts.js"></script>
+</body>
+</html>

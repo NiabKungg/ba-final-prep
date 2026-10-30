@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<title>บทที่ 9 — Qualitative Process Analysis | BA Final Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%232456d6%27/%3E%3Ctext x=%2750%27 y=%2770%27 font-size=%2752%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27sans-serif%27 font-weight=%27bold%27%3EBA%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="topbar">
+      <button class="burger" id="burger" aria-label="เปิดเมนู">☰</button>
+      <div class="crumb" id="crumb"></div>
+      <div class="spacer"></div>
+      <a class="home-link" href="index.html">หน้าแรก</a>
+    </header>
+    <main class="content">
+
+      <h1 class="hero">บทที่ 9 · Qualitative Process Analysis</h1>
+      <p class="lead">วิเคราะห์กระบวนการ As-Is ให้เห็น "ของเสีย" และ "ปัญหา" — Value-Added & Waste Analysis · 7 Wastes · Issue Register · Pareto · PICK · Why-Why · Fishbone (เป็นพื้นของข้อสอบเขียนข้อ 2-3 และข้อเลือกอีกเยอะ)</p>
+
+      <div class="box def">
+        <div class="box-title">📖 เทคนิควิเคราะห์กระบวนการ</div>
+        <p><strong>Qualitative:</strong> Value-Added & Waste Analysis · Root-Cause Analysis · Pareto Analysis · Issue Register<br><strong>Quantitative:</strong> (บทที่ 11 — การคำนวณเวลา)</p>
+      </div>
+
+      <h2 id="s1">1. Value-Added Analysis — ผ่าชันกระบวนการ</h2>
+      <ol class="steps">
+        <li><b class="st">Decorticate (ผ่าแยก) กระบวนการเป็นขั้นเล็ก ๆ</b> — แต่ละ task มอง 3 ช่วง: ขั้นเตรียมก่อนงาน · ตัวงาน (แตกย่อยได้อีก) · ขั้นเก็บงานเตรียมส่งต่อ</li>
+        <li><b class="st">จัดประเภททุกขั้น</b> — VA / BVA / NVA (เกณฑ์ตามบทที่ 4)</li>
+      </ol>
+
+      <figure class="diagram">
+        <svg viewBox="0 0 740 300" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <defs><marker id="a91" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#556"/></marker></defs>
+          <!-- process flow with classifications -->
+          <g font-size="10.5" text-anchor="middle">
+            <!-- steps top row -->
+            <rect x="20" y="30" width="120" height="44" rx="9" fill="#e7f8ee" stroke="#16a34a" stroke-width="2"/><text x="80" y="49">Fill request</text><text x="80" y="65" fill="#14713c" font-weight="700">VA</text>
+            <rect x="160" y="30" width="130" height="44" rx="9" fill="#fdeaea" stroke="#dc2626" stroke-width="2"/><text x="225" y="49">Send to clerk</text><text x="225" y="65" fill="#b91c1c" font-weight="700">NVA</text>
+            <rect x="310" y="30" width="120" height="44" rx="9" fill="#fdeaea" stroke="#dc2626" stroke-width="2"/><text x="370" y="49">Open &amp; read</text><text x="370" y="65" fill="#b91c1c" font-weight="700">NVA</text>
+            <rect x="450" y="30" width="120" height="44" rx="9" fill="#e7f8ee" stroke="#16a34a" stroke-width="2"/><text x="510" y="49">Select equip.</text><text x="510" y="65" fill="#14713c" font-weight="700">VA</text>
+            <rect x="590" y="30" width="130" height="44" rx="9" fill="#e7f8ee" stroke="#16a34a" stroke-width="2"/><text x="655" y="49">Check avail.</text><text x="655" y="65" fill="#14713c" font-weight="700">VA</text>
+            <!-- steps bottom row -->
+            <rect x="60" y="140" width="150" height="44" rx="9" fill="#fff8e9" stroke="#f59e0b" stroke-width="2"/><text x="135" y="159">Record equip.</text><text x="135" y="175" fill="#a16207" font-weight="700">BVA</text>
+            <rect x="230" y="140" width="150" height="44" rx="9" fill="#fdeaea" stroke="#dc2626" stroke-width="2"/><text x="305" y="159">Forward to engineer</text><text x="305" y="175" fill="#b91c1c" font-weight="700">NVA (รอวิศวกร)</text>
+            <rect x="400" y="140" width="140" height="44" rx="9" fill="#fff8e9" stroke="#f59e0b" stroke-width="2"/><text x="470" y="159">Examine request</text><text x="470" y="175" fill="#a16207" font-weight="700">BVA</text>
+            <rect x="560" y="140" width="150" height="44" rx="9" fill="#fdeaea" stroke="#dc2626" stroke-width="2"/><text x="635" y="159">Send back to clerk</text><text x="635" y="175" fill="#b91c1c" font-weight="700">NVA</text>
+          </g>
+          <g stroke="#556" stroke-width="1.8" fill="none" marker-end="url(#a91)">
+            <line x1="140" y1="52" x2="156" y2="52"/><line x1="290" y1="52" x2="306" y2="52"/><line x1="430" y1="52" x2="446" y2="52"/><line x1="570" y1="52" x2="586" y2="52"/>
+            <path d="M 655 74 L 655 110 L 135 110 L 135 136"/>
+            <line x1="210" y1="162" x2="226" y2="162"/><line x1="380" y1="162" x2="396" y2="162"/><line x1="540" y1="162" x2="556" y2="162"/>
+          </g>
+          <text x="370" y="230" text-anchor="middle" font-size="12.5" fill="#556">ตัวอย่างจากกรณีศึกษา <tspan font-weight="800">BuildIT Equipment Rental</tspan> (เช่าอุปกรณ์ก่อสร้าง)</text>
+          <text x="370" y="255" text-anchor="middle" font-size="12" fill="#888">🟩 VA = ลูกค้ายินดีจ่าย · 🟨 BVA = ธุรกิจต้องมี · 🟥 NVA = ของเสีย (ส่งต่อ/เปิดอ่าน/รอ)</text>
+          <text x="370" y="280" text-anchor="middle" font-size="12" fill="#888">"Open and read request" จัด NVA เพราะเป็นงานเตรียมการที่ไม่สร้างมูลค่า — ส่วน "Examine" ของวิศวกรคือ BVA</text>
+        </svg>
+        <figcaption>ภาพ 9.1 — ผ่ากระบวนการเช่าอุปกรณ์ (Site Engineer → Clerk → Works Engineer) แล้วติดป้าย VA/BVA/NVA ทีละขั้น</figcaption>
+      </figure>
+
+      <h2 id="s2">2. Waste Analysis — 7 Sources of Waste (Taiichi Ohno / Toyota)</h2>
+      <div class="box def">
+        <div class="box-title">📖 คำกล่าวของ Taiichi Ohno</div>
+        <p>"สิ่งที่เราทำคือมองไปที่ <strong>ไทม์ไลน์</strong> จากวินาทีที่ลูกค้าสั่งจนถึงวันที่เราเก็บเงินได้ — และ<strong>ลดไทม์ไลน์นั้นโดยลดของเสียที่ไม่สร้างมูลค่า</strong>"</p>
+      </div>
+      <p>จำเป็นกลุ่ม <strong>Move (2) · Hold (2) · Over-do (3)</strong> = TIMWOOD:</p>
+      <figure class="diagram">
+        <svg viewBox="0 0 740 380" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <g text-anchor="middle" font-size="11">
+            <!-- MOVE group -->
+            <rect x="15" y="14" width="225" height="110" rx="14" fill="#e8eeff" stroke="#2456d6" stroke-width="2"/>
+            <text x="127" y="36" font-size="13" font-weight="800" fill="#1a3fa0">MOVE (เคลื่อนย้าย)</text>
+            <rect x="30" y="48" width="195" height="30" rx="8" fill="#fff" stroke="#8896b5"/><text x="127" y="68">🚚 Transportation — ส่งของ/เอกสาร</text>
+            <rect x="30" y="82" width="195" height="30" rx="8" fill="#fff" stroke="#8896b5"/><text x="127" y="102">🚶 Motion — คน/เครื่องขยับในงาน</text>
+            <!-- HOLD group -->
+            <rect x="258" y="14" width="225" height="110" rx="14" fill="#fff8e9" stroke="#f59e0b" stroke-width="2"/>
+            <text x="370" y="36" font-size="13" font-weight="800" fill="#a16207">HOLD (กักเก็บ)</text>
+            <rect x="273" y="48" width="195" height="30" rx="8" fill="#fff" stroke="#8896b5"/><text x="370" y="68">📦 Inventory — ของ/WIP ค้าง</text>
+            <rect x="273" y="82" width="195" height="30" rx="8" fill="#fff" stroke="#8896b5"/><text x="370" y="102">⏳ Waiting — รอของ/รอคน/งานว่าง</text>
+            <!-- OVERDO group -->
+            <rect x="501" y="14" width="225" height="110" rx="14" fill="#fdeaea" stroke="#dc2626" stroke-width="2"/>
+            <text x="613" y="36" font-size="13" font-weight="800" fill="#b91c1c">OVER-DO (ทำเกิน)</text>
+            <rect x="516" y="48" width="195" height="30" rx="8" fill="#fff" stroke="#8896b5"/><text x="613" y="68">🐛 Defects — งานพัง/แก้ซ้ำ</text>
+            <rect x="516" y="82" width="195" height="30" rx="8" fill="#fff" stroke="#8896b5"/><text x="613" y="102">🔧 Over-processing — ทำเกินจำเป็น</text>
+            <rect x="516" y="116" width="195" height="0" rx="8" fill="none"/>
+          </g>
+          <rect x="258" y="140" width="225" height="34" rx="10" fill="#fff" stroke="#8896b5"/><text x="370" y="162" font-size="11" text-anchor="middle">🏭 Over-production — ผลิตเกิน/งานไม่จำเป็น</text>
+          <text x="370" y="210" text-anchor="middle" font-size="12" fill="#556">จำ: <tspan font-weight="800">T</tspan>ransport · <tspan font-weight="800">I</tspan>nventory · <tspan font-weight="800">M</tspan>otion · <tspan font-weight="800">W</tspan>aiting · <tspan font-weight="800">O</tspan>ver-production · <tspan font-weight="800">O</tspan>ver-processing · <tspan font-weight="800">D</tspan>efects = TIMWOOD</text>
+          <text x="370" y="240" text-anchor="middle" font-size="11.5" fill="#888">ตัวอย่าง: นักศึกษายื่นสมัครออนไลน์แล้วต้องพิมพ์ PDF ลงนามส่งไปรษณีย์ (Transportation) · ใบสมัคร 3,000 ใบค้างพร้อมกัน (Inventory)</text>
+          <text x="370" y="262" text-anchor="middle" font-size="11.5" fill="#888">พนักงานเดินเก็บลายเซ็นรอบองค์กร (Motion) · ใบสมัครไม่ครบรอเอกสารเพิ่ม/รอประชุมคณะกรรมการ (Waiting)</text>
+          <text x="370" y="284" text-anchor="middle" font-size="11.5" fill="#888">ส่งกลับให้แก้ไข (Defects) · เช็คความจริงของปริญญาทั้งที่เจอปัญหาแค่ 1% (Over-processing) · ออก quote 100 ครั้งได้ออเดอร์ 50 (Over-production)</text>
+          <text x="370" y="330" text-anchor="middle" font-size="12" fill="#556" font-weight="700">ในกรณี BuildIT: Transportation (ส่งเอกสารไป-กลับ 3 รอบ) · Inventory (ดองอุปกรณ์เกินจำเป็น) · Waiting (รอวิศวกร)</text>
+          <text x="370" y="352" text-anchor="middle" font-size="12" fill="#556">Defect (อุปกรณ์ที่เลือกไม่มี/ส่งผิด) · Over-processing (หาอุปกรณ์แล้วโดนปฏิเสธ) · Over-production (เช่าแล้วไม่ได้ใช้)</text>
+        </svg>
+        <figcaption>ภาพ 9.2 — 7 Wastes จำกลุ่ม Move-Hold-Over-do (ตัวช่วยจำ: TIMWOOD)</figcaption>
+      </figure>
+
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>ของเสีย</th><th>ความหมาย</th><th>ตัวอย่างเด่นจากเอกสาร</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Transportation</strong></td><td>การส่ง/รับวัสดุ-เอกสาร (รวมอิเล็กทรอนิกส์) เข้า-ออกกิจกรรม</td><td>นักศึกษาพิมพ์ใบสมัครลงนามส่งไปรษณีย์ + เอกสารรับรอง</td></tr>
+          <tr><td><strong>Motion</strong></td><td>การขยับของทรัพยากร<strong>ภายใน</strong>กระบวนการ (พบบ่อยในโรงงาน น้อยในงานบริการ)</td><td>พนักงานตรวจรถเดินจากจุดตรวจหนึ่งไปอีกจุด / เดินเก็บลายเซ็น</td></tr>
+          <tr><td><strong>Inventory</strong></td><td>วัสดุคงคลัง + งานที่ทำค้าง (Work-In-Process)</td><td>ใบสมัคร 3,000 ใบถูกประมวลผลพร้อมกัน</td></tr>
+          <tr><td><strong>Waiting</strong></td><td>งานรอของ/ข้อมูล · รอทรัพยากร · <strong>ทรัพยากรรองาน</strong> (idleness)</td><td>คำขอรอผู้อนุมัติ · ใบสมัครไม่ครบรอเอกสาร · รอประชุมคณะกรรมการ</td></tr>
+          <tr><td><strong>Defects</strong></td><td>แก้/ชดเชยข้อผิดพลาด · rework loops</td><td>คำขอเดินทางถูกส่งกลับแก้ไข · ใบสมัครต้องประเมินใหม่เพราะข้อมูลไม่ครบ</td></tr>
+          <tr><td><strong>Over-processing</strong></td><td>ทำงานที่<strong>ไม่จำเป็น</strong>ต่อผลลัพธ์ · perfectionism</td><td>อนุมัติเดินทาง 10% ถูกปฏิเสธตอนจบเพราะไม่มีงบ · ตรวจนิติภาวะที่เจอปัญหาแค่ 1%</td></tr>
+          <tr><td><strong>Over-production</strong></td><td>ทำ instance ที่<strong>ไม่ก่อคุณค่า</strong>ตอนจบ</td><td>quote 100 → ได้ order 50 · อนุมัติเดินทางแล้วยกเลิก 5% · สมัคร 3000 → มีสิทธิ์ 600</td></tr>
+        </tbody>
+      </table></div>
+
+      <h2 id="s3">3. Stakeholder Analysis — เก็บปัญหาจาก 5 มุมมอง</h2>
+      <p>สัมภาษณ์ stakeholder หลายประเภทแล้วประสาน (reconcile) มุมมอง — 5 กลุ่ม + สิ่งที่เขาเป็นหวัง:</p>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Stakeholder</th><th>Concerns ที่พบบ่อย</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Customers</strong></td><td>cycle time ช้า · defects · ไม่โปร่งใส (lack of transparency) · ตามสถานะไม่ได้ (lack of traceability)</td></tr>
+          <tr><td><strong>Process participants</strong> (ผู้ปฏิบัติ)</td><td>ถูกใช้ทรัพยากรหนัก/เครียด · defects จาก handoffs · ของเสีย</td></tr>
+          <tr><td><strong>External parties</strong> (ซัพพลายเออร์/ผู้รับเหมา)</td><td>อยากมีงานเข้ามาสม่ำเสมอ/เติบโต · วางแผนงานล่วงหน้าได้ · ทำตามสัญญาได้</td></tr>
+          <tr><td><strong>Process owner + operational managers</strong></td><td>performance (cycle/processing time สูง) · defects/wastes ที่เกิดซ้ำ · ปฏิบัติตาม policy ภายใน+กฎระเบียบภายนอก</td></tr>
+          <tr><td><strong>Sponsor + executives</strong></td><td>ความสอดคล้องเชิงกลยุทธ์ · ผลต่อ KPI · ปรับตัวตามลูกค้า/คู่แข่ง/ตลาด</td></tr>
+        </tbody>
+      </table></div>
+
+      <h2 id="s4">4. Issue Register — ทะเบียนปัญหา</h2>
+      <div class="box def">
+        <div class="box-title">📖 โครงสร้าง Issue Register</div>
+        <p><strong>วัตถุประสงค์:</strong> เก็บ-จัดระเบียบ-จัดลำดับความสำคัญของจุดอ่อนที่รับรู้ได้ (issues) · <strong>แหล่งที่มา:</strong> input โครงการ BPM · จากการปรับปรุงต่อเนื่อง · ระหว่าง discovery · จาก value-added/waste analysis</p>
+        <p><strong>คอลัมน์:</strong> Issue identifier · Short name · Description · Assumptions · <strong>Impact (Qualitative + Quantitative)</strong> · Possible improvement actions · (โครงการใหญ่อาจใช้ issue tracker)</p>
+      </div>
+
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Issue</th><th>คำอธิบาย</th><th>Assumptions</th><th>Impact คุณภาพ</th><th>Impact ปริมาณ</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Equipment kept longer than needed</strong></td><td>วิศวกรหน้างานขอขยายกำหนดคืนอุปกรณ์ ทำให้ถือครองนานเกินจำเป็น</td><td>เช่า 3,000 ชิ้น/ปี · 10% ของเคสถือนานเกิน 2 วัน · ค่าเช่า 100 บาท/วัน</td><td>—</td><td><strong>0.1 × 3,000 × 2 × 100 = 60,000/ปี</strong></td></tr>
+          <tr><td><strong>Wrong equipment delivered</strong></td><td>วิศวกรปฏิเสธอุปกรณ์ที่ส่งมาเพราะไม่ตรงสเปก (ความผิดพลาดภายใน)</td><td>3,000 ชิ้น/ปี · 5% ถูกปฏิเสธ · ถูกปรับ 100/เคส</td><td>ตารางสับสน พนักงานเครียด-หงุดหงิด</td><td>3,000 × 0.05 × 100 = <strong>15,000/ปี</strong></td></tr>
+          <tr><td><strong>Late payment fees</strong></td><td>จ่ายใบแจ้งหนี้ล่าช้าเกินกำหนด</td><td>เช่า 3,000 ครั้ง/ปี เฉลี่ย 4 วัน/ครั้ง · 100/วัน · ใบแจ้งหนี้ 1 ใบ/ครั้ง · 10% จ่ายช้า · ค่าปรับ 2%</td><td>ชื่อเสียงกับซัพพลายเออร์แย่</td><td>0.1 × 3,000 × 4 × 100 × 0.02 = <strong>2,400/ปี</strong></td></tr>
+        </tbody>
+      </table></div>
+      <p><small>💡 Issue Register ของ BuildIT (จากเอกสาร+คลิปอาจารย์) — ตัวเลขชุดนี้อาจารย์เดินคำนวณให้ดูในคลิป QLT PA Ep.4</small></p>
+
+      <h2 id="s5">5. จัดลำดับปัญหา: Pareto Chart + PICK Chart</h2>
+      <h3>Pareto Chart (กฎ 80/20)</h3>
+      <ul>
+        <li>แผนภูมิแท่ง ความสูง = impact ของแต่ละ issue · <strong>เรียงจากมากไปน้อย</strong> · วาดเส้นโค้ง % สะสมทับ</li>
+        <li>หลัก 80/20: <strong>ปัญหา ~20% แรก สร้างผลกระทบ ~80%</strong> — แก้ไม่กี่เรื่องแรกได้ = คุ้มที่สุด</li>
+      </ul>
+      <figure class="diagram">
+        <svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <!-- axes -->
+          <line x1="60" y1="20" x2="60" y2="240" stroke="#556" stroke-width="2"/>
+          <line x1="60" y1="240" x2="600" y2="240" stroke="#556" stroke-width="2"/>
+          <!-- bars -->
+          <rect x="90" y="40" width="90" height="200" fill="#2456d6"/>
+          <rect x="210" y="200" width="90" height="40" fill="#5b8bff"/>
+          <rect x="330" y="233" width="90" height="7" fill="#93b4ff"/>
+          <!-- cumulative curve -->
+          <path d="M 135 40 L 255 200 L 375 233" fill="none" stroke="#f59e0b" stroke-width="3"/>
+          <circle cx="135" cy="40" r="5" fill="#f59e0b"/><circle cx="255" cy="200" r="5" fill="#f59e0b"/><circle cx="375" cy="233" r="5" fill="#f59e0b"/>
+          <g font-size="11" text-anchor="middle" fill="#334">
+            <text x="135" y="30" font-weight="700">60,000</text>
+            <text x="255" y="192" font-weight="700">15,000</text>
+            <text x="375" y="222" font-weight="700">2,400</text>
+            <text x="135" y="260">Equipment kept</text><text x="135" y="276">longer than needed</text>
+            <text x="255" y="260">Wrong equipment</text><text x="255" y="276">delivered</text>
+            <text x="375" y="260">Late payment</text><text x="375" y="276">fees</text>
+          </g>
+          <text x="135" y="30" font-size="10"></text>
+          <text x="530" y="120" font-size="11" fill="#a16207">เส้นโค้ง = % สะสม</text>
+          <text x="530" y="136" font-size="11" fill="#a16207">(77% → 97% → 100%)</text>
+          <text x="330" y="295" text-anchor="middle" font-size="11.5" fill="#888">เรียงแท่งจาก impact มาก→น้อย แล้วอ่านเส้นสะสม: 2 เรื่องแรกครอบคลุมผลกระทบเกือบ 97%</text>
+        </svg>
+        <figcaption>ภาพ 9.3 — Pareto Chart ของ Issue Register ตัวอย่าง (ค่า 77% + 19% + 3% ≈ สัดส่วนของ 60k, 15k, 2.4k)</figcaption>
+      </figure>
+
+      <h3>PICK Chart — คัด 2 มิติ Payoff × Difficulty</h3>
+      <figure class="diagram">
+        <svg viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <!-- axes -->
+          <line x1="80" y1="270" x2="600" y2="270" stroke="#556" stroke-width="2"/>
+          <line x1="80" y1="30" x2="80" y2="270" stroke="#556" stroke-width="2"/>
+          <text x="340" y="300" text-anchor="middle" font-size="13" fill="#334" font-weight="700">Difficulty / Cost (ความยาก-ต้นทุนที่จะแก้) →</text>
+          <text x="50" y="150" text-anchor="middle" font-size="13" fill="#334" font-weight="700" transform="rotate(-90 50 150)">Payoff (ผลตอบแทน) →</text>
+          <!-- quadrants -->
+          <rect x="90" y="40" width="245" height="110" rx="10" fill="#e7f8ee" stroke="#16a34a" stroke-width="2"/>
+          <text x="212" y="80" text-anchor="middle" font-size="16" font-weight="800" fill="#14713c">IMPLEMENT</text>
+          <text x="212" y="102" text-anchor="middle" font-size="11" fill="#3a7">Payoff สูง · ง่าย</text>
+          <text x="212" y="120" text-anchor="middle" font-size="11" fill="#3a7">👉 ทำก่อนเลย!</text>
+          <rect x="345" y="40" width="245" height="110" rx="10" fill="#fff8e9" stroke="#f59e0b" stroke-width="2"/>
+          <text x="467" y="80" text-anchor="middle" font-size="16" font-weight="800" fill="#a16207">CHALLENGE</text>
+          <text x="467" y="102" text-anchor="middle" font-size="11" fill="#a16a08">Payoff สูง · ยาก</text>
+          <text x="467" y="120" text-anchor="middle" font-size="11" fill="#a16a08">วางแผนพิเศษ/ทีมพิเศษ</text>
+          <rect x="90" y="160" width="245" height="100" rx="10" fill="#e8eeff" stroke="#2456d6" stroke-width="2"/>
+          <text x="212" y="200" text-anchor="middle" font-size="16" font-weight="800" fill="#1a3fa0">POSSIBLE</text>
+          <text x="212" y="222" text-anchor="middle" font-size="11" fill="#45c">Payoff น้อย · ง่าย</text>
+          <text x="212" y="240" text-anchor="middle" font-size="11" fill="#45c">ทำเมื่อมีเวลาเหลือ</text>
+          <rect x="345" y="160" width="245" height="100" rx="10" fill="#fdeaea" stroke="#dc2626" stroke-width="2"/>
+          <text x="467" y="200" text-anchor="middle" font-size="16" font-weight="800" fill="#b91c1c">KILL</text>
+          <text x="467" y="222" text-anchor="middle" font-size="11" fill="#a33">Payoff น้อย · ยาก</text>
+          <text x="467" y="240" text-anchor="middle" font-size="11" fill="#a33">❌ ตัดทิ้ง</text>
+        </svg>
+        <figcaption>ภาพ 9.4 — PICK Chart: Possible · Implement · Challenge · Kill — คัดจาก Pareto อีกชั้นว่าจะเริ่มแก้อะไรก่อน (Quadrant Implement ก่อน)</figcaption>
+      </figure>
+
+      <h2 id="s6">6. Root-Cause Analysis — หาสาเหตุลึก</h2>
+      <h3>Why-Why Diagram (5 Whys)</h3>
+      <p>ถาม "ทำไม" ซ้อนกัน <strong>5 ระดับ</strong> จนถึง root cause — ตัวอย่าง BuildIT:</p>
+      <figure class="diagram">
+        <svg viewBox="0 0 720 330" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <g font-size="11.5">
+            <rect x="230" y="10" width="260" height="40" rx="10" fill="#dc2626"/>
+            <text x="360" y="28" text-anchor="middle" fill="#fff" font-weight="800">ISSUE: วิศวกรดองอุปกรณ์เกินจำเป็น</text>
+            <text x="360" y="44" text-anchor="middle" fill="#ffd7d7" font-size="10">(Equipment kept longer than needed)</text>
+            <line x1="360" y1="50" x2="360" y2="70" stroke="#556" stroke-width="2"/>
+            <rect x="205" y="70" width="310" height="36" rx="9" fill="#fff" stroke="#556" stroke-width="1.5"/>
+            <text x="360" y="93" text-anchor="middle">ทำไม 1: กลัวขอเช่าไม่ทันเมื่อต้องใช้ (ต่อไปนี้ย่อ)</text>
+            <line x1="360" y1="106" x2="360" y2="126" stroke="#556" stroke-width="2"/>
+            <rect x="205" y="126" width="310" height="36" rx="9" fill="#fff" stroke="#556" stroke-width="1.5"/>
+            <text x="360" y="149" text-anchor="middle">ทำไม 2: ระหว่างขอถึงได้ขอใช้เวลานาน</text>
+            <line x1="360" y1="162" x2="360" y2="182" stroke="#556" stroke-width="2"/>
+            <rect x="205" y="182" width="310" height="36" rx="9" fill="#fff" stroke="#556" stroke-width="1.5"/>
+            <text x="360" y="205" text-anchor="middle">ทำไม 3: หาอุปกรณ์ที่เหมาะสม+อนุมัติ กินเวลามาก</text>
+            <g>
+              <line x1="360" y1="218" x2="360" y2="238" stroke="#556" stroke-width="2"/>
+              <line x1="180" y1="238" x2="540" y2="238" stroke="#556" stroke-width="2"/>
+              <line x1="180" y1="238" x2="180" y2="252" stroke="#556" stroke-width="2"/>
+              <line x1="540" y1="238" x2="540" y2="252" stroke="#556" stroke-width="2"/>
+              <rect x="60" y="252" width="240" height="36" rx="9" fill="#fff8e9" stroke="#f59e0b" stroke-width="1.8"/>
+              <text x="180" y="275" text-anchor="middle">ทำไม 4a: รอวิศวกรตรวจคำขอ</text>
+              <rect x="420" y="252" width="240" height="36" rx="9" fill="#fff8e9" stroke="#f59e0b" stroke-width="1.8"/>
+              <text x="540" y="275" text-anchor="middle">ทำไม 4b: เสมียนทักทายซัพพลายเออร์ทีละราย</text>
+            </g>
+            <text x="360" y="315" text-anchor="middle" font-size="11.5" fill="#888">แตกกิ่งได้เมื่อมีหลายสาเหตุ — เจาะจนถึง "ราก" ที่แก้ได้จริง</text>
+          </g>
+        </svg>
+        <figcaption>ภาพ 9.5 — Why-Why Diagram: ไล่ "ทำไม" ลงไป 5 ชั้นจาก issue สู่ root causes</figcaption>
+      </figure>
+
+      <h3>Cause-Effect / Fishbone Diagram + Six Ms</h3>
+      <figure class="diagram">
+        <svg viewBox="0 0 720 340" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <!-- spine -->
+          <line x1="40" y1="170" x2="600" y2="170" stroke="#556" stroke-width="3"/>
+          <rect x="600" y="140" width="105" height="60" rx="10" fill="#dc2626"/>
+          <text x="652" y="165" text-anchor="middle" fill="#fff" font-size="11.5" font-weight="800">EFFECT</text>
+          <text x="652" y="182" text-anchor="middle" fill="#ffd7d7" font-size="9.5">ปัญหาที่ศึกษา</text>
+          <!-- bones -->
+          <g stroke="#2456d6" stroke-width="2.5">
+            <line x1="130" y1="60" x2="230" y2="170"/>
+            <line x1="300" y1="60" x2="400" y2="170"/>
+            <line x1="470" y1="60" x2="570" y2="170"/>
+            <line x1="130" y1="280" x2="230" y2="170"/>
+            <line x1="300" y1="280" x2="400" y2="170"/>
+            <line x1="470" y1="280" x2="570" y2="170"/>
+          </g>
+          <g font-size="12" font-weight="800" fill="#1a3fa0">
+            <text x="100" y="48" text-anchor="middle">1. Machine</text>
+            <text x="270" y="48" text-anchor="middle">2. Method</text>
+            <text x="440" y="48" text-anchor="middle">3. Material</text>
+            <text x="100" y="300" text-anchor="middle">4. Man</text>
+            <text x="270" y="300" text-anchor="middle">5. Measurement</text>
+            <text x="440" y="300" text-anchor="middle">6. Milieu</text>
+          </g>
+          <g font-size="10" fill="#556">
+            <text x="118" y="76">ระบบขาดฟังก์ชัน · UI แย่</text>
+            <text x="118" y="90">เชื่อมต่อระบบไม่ได้</text>
+            <text x="288" y="76">หน้าที่ไม่ชัด · คำสั่งไม่ชัด</text>
+            <text x="288" y="90">อบรมไม่พอ · สื่อสารช้า</text>
+            <text x="458" y="76">ข้อมูลหาย/ผิด/ล้าสมัย</text>
+            <text x="458" y="90">(input data)</text>
+            <text x="118" y="262">ขาดอบรม/คำสั่งชัด · ขาดแรงจูงใจ</text>
+            <text x="118" y="248">เรียกร้องเกินกำลังคน</text>
+            <text x="288" y="262">ประมาณการไม่แม่น · คำนวณผิด</text>
+            <text x="458" y="262">ปัจจัยภายนอก: คู่ค้าไม่ตอบ</text>
+            <text x="458" y="248">งานพุ่งจากเหตุพิเศษ</text>
+          </g>
+          <text x="360" y="330" text-anchor="middle" font-size="12" fill="#888">Six Ms — ปลายกระดูกแต่ละเส้น = กลุ่มสาเหตุ แล้วระดมสมองย่อยๆ ในแต่ละกลุ่ม</text>
+        </svg>
+        <figcaption>ภาพ 9.6 — Fishbone (Cause-Effect) Diagram กับหมวดสาเหตุ Six Ms: Machine · Method · Material · Man · Measurement · Milieu (Mother nature)</figcaption>
+      </figure>
+
+      <h2 id="s7">สรุปท้ายบท</h2>
+      <div class="box def">
+        <div class="box-title">✅ 4 ขั้นของการวิเคราะห์เชิงคุณภาพ (สรุปจากเอกสาร)</div>
+        <ol>
+          <li><strong>แยก</strong>ขั้น VA / BVA / NVA</li>
+          <li><strong>ระบุ</strong>ของเสีย (7 wastes)</li>
+          <li><strong>เก็บ-จัดระเบียบปัญหา</strong>อย่างเป็นระบบ ประเมิน impact (Issue Register + Stakeholder Analysis + Pareto + PICK)</li>
+          <li><strong>วิเคราะห์สาเหตุลึก</strong> (Why-Why · Fishbone)</li>
+        </ol>
+      </div>
+
+      <div class="quiz-q">
+        <div class="q-text">🧪 "ใบสมัคร 3,000 ใบค้างอยู่ในระบบพร้อมกันระหว่างรอคณะกรรมการประชุม" เป็น waste ประเภทใด?</div>
+        <div class="opts">
+          <button class="opt">ก. Transportation</button>
+          <button class="opt" data-c="1">ข. Inventory (Work-in-process)</button>
+          <button class="opt">ค. Motion</button>
+          <button class="opt">ง. Over-production</button>
+        </div>
+        <div class="explain">💡 งานที่ "เข้ามาแล้วยังไม่เสร็จ ค้างอยู่" = WIP = Inventory · Transportation = การเคลื่อนย้าย · Motion = การขยับในงาน · Over-production = ผลิต/ทำงานที่ไม่จำเป็นตอนจบ</div>
+      </div>
+
+      <div id="doneWrap" style="margin-top:30px;">
+        <button id="doneBtn" style="font-family:inherit;font-size:15px;font-weight:700;padding:10px 22px;border-radius:12px;border:2px solid #16a34a;background:#fff;color:#14713c;cursor:pointer;">☑ ทำเครื่องหมายว่าอ่านแล้ว</button>
+      </div>
+      <div class="pager" id="pager"></div>
+    </main>
+  </div>
+</div>
+<script src="assets/app.js"></script>
+<script src="assets/tts.js"></script>
+</body>
+</html>

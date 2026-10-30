@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<title>บทที่ 8 — Business Rules vs Processes | BA Final Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%232456d6%27/%3E%3Ctext x=%2750%27 y=%2770%27 font-size=%2752%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27sans-serif%27 font-weight=%27bold%27%3EBA%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="topbar">
+      <button class="burger" id="burger" aria-label="เปิดเมนู">☰</button>
+      <div class="crumb" id="crumb"></div>
+      <div class="spacer"></div>
+      <a class="home-link" href="index.html">หน้าแรก</a>
+    </header>
+    <main class="content">
+
+      <h1 class="hero">บทที่ 8 · Business Rules vs Business Processes</h1>
+      <p class="lead">องค์ประกอบในกระบวนการ · ข้อมูลกับการตัดสินใจ · Business Rules คืออะไร ต่างจาก Process อย่างไร — และ ECA rules + Structured vs Unstructured processes</p>
+
+      <h2 id="s1">1. ใน Business Process มีอะไรอยู่ข้างใน? (4 องค์ประกอบ)</h2>
+      <div class="grid c2">
+        <div class="card"><h4>⚙️ 1. Activities (กิจกรรม)</h4><p>เปลี่ยนทรัพยากร/ข้อมูลรูปหนึ่งเป็นอีกรูปหนึ่ง · ทำตามกฎและขั้นตอน · เป็นได้ทั้ง manual / automated / ผสม</p></div>
+        <div class="card"><h4>👥 2. Resources (ทรัพยากร)</h4><p>สิ่งที่มีค่าที่ถูกใช้/เปลี่ยนในกระบวนการ เช่น คนงาน ลูกค้า ซัพพลายเออร์</p></div>
+        <div class="card"><h4>🏗️ 3. Facilities (สิ่งอำนวยความสะดวก)</h4><p>โครงสร้างที่ใช้ในกระบวนการ: ฐานข้อมูล โรงงาน เครื่องจักร</p></div>
+        <div class="card"><h4>ℹ️ 4. Information (ข้อมูล/สารสนเทศ)</h4><p>ความรู้ที่ได้จากข้อมูล (knowledge derived from data) — ข้อมูลที่ถูกประมวล (summing, ordering, averaging, grouping, comparing) จนมีความหมายในบริบท · "A difference that makes a difference"</p></div>
+      </div>
+
+      <h3>คุณสมบัติของ Information ที่ดี (5 ข้อ)</h3>
+      <ol>
+        <li><strong>Accurate</strong> — ถูกต้อง+ครบถ้วน (สำคัญต่อการบริหาร ต้อง cross-check)</li>
+        <li><strong>Timely</strong> — มาทันเวลาที่จะใช้</li>
+        <li><strong>Relevant</strong> — เกี่ยวกับบริบท+ผู้ใช้</li>
+        <li><strong>Just barely sufficient</strong> — เพียงพอต่อวัตถุประสงค์ <strong>ไม่เกินจำเป็น</strong> (รู้ว่าอะไรไม่ต้องสนใจนั้นยาก!)</li>
+        <li><strong>Worth its cost</strong> — คุ้มค่ากับค่าใช้จ่ายในการสร้าง/ดูแล/ใช้งาน</li>
+      </ol>
+      <p><strong>IS สนับสนุนกระบวนการอย่างไร:</strong> กิจกรรมในกระบวนการใช้ระบบ (หลายกิจกรรมใช้ระบบเดียว / กิจกรรมเดียวใช้หลายระบบก็ได้) · IS สนับสนุนการตัดสินใจด้วยการให้ "วัตถุดิบ" คือข้อมูล</p>
+
+      <h2 id="s2">2. การตัดสินใจในองค์กร — แบ่ง 2 มิติ</h2>
+      <h3>มิติที่ 1: ระดับการตัดสินใจ (Level)</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>ระดับ</th><th>เกี่ยวกับ</th><th>ระบบสนับสนุน</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Strategic</strong></td><td>ประเด็นกว้างระดับองค์กร (พันธกิจ ทิศทาง)</td><td>EIS — Executive Information Systems</td></tr>
+          <tr><td><strong>Managerial</strong></td><td>การจัดสรรและใช้ทรัพยากร</td><td>MIS — Management Information Systems</td></tr>
+          <tr><td><strong>Operational</strong></td><td>งานประจำวัน</td><td>TPS — Transaction Processing Systems</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>มิติที่ 2: โครงสร้างการตัดสินใจ (Structure)</h3>
+      <ul>
+        <li><strong>Structured decision</strong> — มีวิธีการที่เข้าใจตรงกันและยอมรับแล้ว · ทำบ่อย · ตัดสินจาก input ตรง ๆ เช่น สั่งซื้อเครื่องเขียน, เช็ค prerequisites</li>
+        <li><strong>Unstructured decision</strong> — ไม่มีวิธีที่ตกลงร่วมกัน ต้องใช้วิจารณญาณ/ความคิดสร้างสรรค์ เช่น การวางแผนธุรกิจ, จะเปิด section ใหม่ไหม, นโยบายเทคโนโลยี</li>
+        <li><strong>Semi-structured</strong> — ผสม: บางส่วนมีโครงสร้าง บางส่วนใช้ประสบการณ์คน เช่น <strong>การจ้างงาน</strong> (ประสบการณ์+วุฒิ = structured / ทักษะสังคม+แก้ปัญหา = มนุษย์)</li>
+      </ul>
+
+      <div class="box analogy">
+        <div class="box-title">💭 ตัวอย่างจากเอกสาร: ร้านอาหารกับขนมหวานฟรี</div>
+        <p>เจ้าของร้านตัดสินใจ<strong>เชิงกลยุทธ์</strong>ว่า "ร้านต้องบริการเยี่ยม" → ผู้จัดการแปลงเป็นนโยบาย "ลูกค้าร้องเรียน = แถมขนมหวาน" (การตัดสินใจ<strong>เชิงกลวิธี/tactical</strong>) → พนักงานเสิร์ฟตัดสินใจ<strong>รายวัน</strong>ว่าคำร้องเรียนแต่ละเคสสมควรได้ขนมหวานไหม (operational) — ระบบสารสนเทศต่างชนิดรองรับแต่ละระดับ</p>
+      </div>
+
+      <h2 id="s3">3. Business Rules — กำเนิดและนิยาม</h2>
+      <figure class="diagram">
+        <svg viewBox="0 0 700 230" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <defs><marker id="a81" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#556"/></marker></defs>
+          <g text-anchor="middle">
+            <rect x="20" y="20" width="130" height="56" rx="12" fill="#e8eeff" stroke="#2456d6" stroke-width="2"/>
+            <text x="85" y="44" font-size="12.5" font-weight="800" fill="#1a3fa0">POLICY</text>
+            <text x="85" y="62" font-size="10.5" fill="#556">แถลงการณ์ทิศทาง</text>
+            <text x="85" y="100" font-size="10" fill="#888">ทั่วไปขององค์กร</text>
+            <rect x="210" y="20" width="165" height="56" rx="12" fill="#fff8e9" stroke="#f59e0b" stroke-width="2"/>
+            <text x="292" y="44" font-size="12" font-weight="800" fill="#a16207">BUSINESS RULE</text>
+            <text x="292" y="62" font-size="10.5" fill="#556">STATEMENT</text>
+            <rect x="435" y="20" width="120" height="56" rx="12" fill="#e7f8ee" stroke="#16a34a" stroke-width="2"/>
+            <text x="495" y="44" font-size="12.5" font-weight="800" fill="#14713c">BUSINESS</text>
+            <text x="495" y="62" font-size="12.5" font-weight="800" fill="#14713c">RULE (atomic)</text>
+            <rect x="605" y="20" width="90" height="56" rx="12" fill="#f1e9fe" stroke="#7c3aed" stroke-width="2"/>
+            <text x="650" y="44" font-size="11.5" font-weight="800" fill="#6d28d9">FORMAL</text>
+            <text x="650" y="62" font-size="11.5" fill="#6d28d9">RULE</text>
+          </g>
+          <g stroke="#556" stroke-width="2" marker-end="url(#a81)">
+            <line x1="150" y1="48" x2="206" y2="48"/>
+            <line x1="375" y1="48" x2="431" y2="48"/>
+            <line x1="555" y1="48" x2="601" y2="48"/>
+          </g>
+          <text x="360" y="130" text-anchor="middle" font-size="12" fill="#556">Policy = ทิศทางกว้าง ๆ (ซ้อนกันได้หลายชั้น)</text>
+          <text x="360" y="152" text-anchor="middle" font-size="12" fill="#556">Rule Statement = ประโยคประกาศโครงสร้าง/ข้อจำกัด (ยังแตกย่อยได้)</text>
+          <text x="360" y="174" text-anchor="middle" font-size="12" fill="#556">Business Rule = แตกย่อยไม่ได้อีก (atomic) · Formal Rule = เขียนด้วยไวยากรณ์เป็นทางการ</text>
+          <text x="360" y="205" text-anchor="middle" font-size="12.5" fill="#888" font-weight="700">"Business rules are the language of business" — อ่านแล้วต้องได้ค่า true/false เสมอ</text>
+        </svg>
+        <figcaption>ภาพ 8.1 — ลำดับกำเนิด: Policy → Business Rule Statement → Business Rule (atomic) → Formal Rule</figcaption>
+      </figure>
+
+      <div class="box def">
+        <div class="box-title">📖 นิยาม Business Rule</div>
+        <p><strong>Business Rule</strong> = กฎที่<strong>นิยามหรือจำกัด (defines or constrains)</strong> บางด้านของธุรกิจ และให้ผลเป็น <strong>true หรือ false เสมอ</strong> — ใช้เพื่อกำหนดโครงสร้าง หรือควบคุม/มีอิทธิพลต่อพฤติกรรมของธุรกิจ ครอบคลุม การดำเนินงาน นิยาม และข้อจำกัดขององค์กร ใช้ได้กับทั้งคน กระบวนการ พฤติกรรมองค์กร และระบบคอมพิวเตอร์ เพื่อให้องค์กรบรรลุเป้าหมาย</p>
+      </div>
+
+      <h3>แหล่งที่มาของ Business Rules (ตัวอย่างวิธีสร้าง)</h3>
+      <ul>
+        <li>ลำดับชั้นอนุมัติใบแจ้งหนี้ที่ผูกมูลค่ากับระดับผู้จัดการ</li>
+        <li>สูตรคำนวณโบนัส/คอมมิชชั่นของฝ่ายขาย</li>
+        <li>ชุดคำถามกรองความต้องการคัดเลือก vendor</li>
+        <li>คำถาม ใช่/ไม่ใช่ ที่ใช้กำหนด quote/แพ็กเกจ/ผลิตภัณฑ์ที่เสนอลูกค้า</li>
+      </ul>
+
+      <h3>7 Steps ในการเขียน Business Rules</h3>
+      <ol class="steps">
+        <li><b class="st">เลือกระบบจัดเก็บ</b> ที่เหมาะกับธุรกิจ (จะเป็น spreadsheet ก็ได้)</li>
+        <li><b class="st">สร้างระบบตั้งชื่อ/รหัสกฎ</b> ที่มีความหมายและอ้างอิงง่าย</li>
+        <li><b class="st">เขียนคำอธิบายภาษาง่าย</b> ชัดเจน พร้อมระบุวัตถุประสงค์ของกฎ</li>
+        <li><b class="st">ใส่ตัวอย่างการใช้งานจริง</b> (อาจใช้ flowchart ประกอบ)</li>
+        <li><b class="st">ระบุแหล่งที่มา</b> ของกฎ (คน/แผนก/stakeholder ใด) เพื่อสอบถามย้อนกลับได้</li>
+        <li><b class="st">เชื่อมโยงดิจิทัล</b> กฎไปยังกฎอื่น/workflow/กระบวนการที่เกี่ยวข้อง</li>
+        <li><b class="st">แนบประวัติการเปลี่ยนแปลง</b> (วันที่ + แหล่งที่มา) ของกฎ</li>
+      </ol>
+
+      <h3>เอกสารกฎแบ่งเหลือ 2 ประเภทใหญ่</h3>
+      <p><strong>Decisions</strong> (การตัดสินใจ if-this-then-that) และ <strong>Calculations</strong> (สูตรคำนวณ/เกณฑ์วัด) — มีประโยชน์เมื่อต้องเดินตามกระบวนการที่มีเงื่อนไข, หรือตัดสินใจจากผลลัพธ์/สูตร (เช่น คุณสมบัติ sales lead, เกณฑ์เครดิต)</p>
+
+      <div class="box exam">
+        <div class="box-title">🎯 ตัวอย่างเอกสารกฎ (ออกแนวอ่านแล้วตอบ)</div>
+        <p><strong>Rule PO101 / ใบสั่งซื้อ — วัตถุประสงค์: รักษางบประมาณและกระแสเงินสด</strong><br>• ใบสั่งซื้อ <strong>ต่ำกว่า $200</strong> → หัวหน้าแผนกอนุมัติ<br>• ใบสั่งซื้อ <strong>สูงกว่า $200</strong> → หัวหน้าฝ่ายบัญชีอนุมัติ</p>
+        <p><strong>Rule PD101 / พัฒนาผลิตภัณฑ์ — วัตถุประสงค์: ลดความเสี่ยง</strong><br>ROI = Product Lifetime Sales ÷ Development Cost × 100 → <strong>&lt;20%</strong> ปฏิเสธ · <strong>20-25%</strong> ทบทวนฟีเจอร์/ต้นทุน · <strong>&gt;25%</strong> ไปขั้นต่อไป</p>
+      </div>
+
+      <h2 id="s4">4. Rules vs Processes — แยกให้ออก! (หัวใจของบท)</h2>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th></th><th>Business Process</th><th>Business Rule</th></tr></thead>
+        <tbody>
+          <tr><td><strong>บอกอะไร</strong></td><td><strong>What is done</strong> — สิ่งที่ทำเพื่อสร้างคุณค่า</td><td><strong>What ensures it is done right</strong> — สิ่งที่รับประกันว่าทำถูกต้อง</td></tr>
+          <tr><td><strong>ปรัชญา</strong></td><td>"Doing the <strong>right things</strong>"</td><td>"Doing things <strong>right</strong>"</td></tr>
+          <tr><td><strong>ความสัมพันธ์</strong></td><td colspan="2">ไม่ขัดแย้งกันแน่นอน — <strong>เสริมกัน</strong> (complementary) อย่างสมบูรณ์ · <strong>ต้องมีทั้งคู่</strong> แทนกันไม่ได้ · กฎ "ไม่ควร" ฝังอยู่ในกระบวนการ — กฎใช้<strong>ข้าม</strong>หลายกระบวนการ (apply across processes)</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="box analogy">
+        <div class="box-title">💭 เปรียบเทียบ</div>
+        <p>กระบวนการ = <strong>สูตรทำขนม</strong> (ขั้นตอนผสม-อบ 1-2-3) · business rule = <strong>กฎ "อบไม่เกิน 180°C 20 นาที"</strong> (เงื่อนไขที่ทำให้ขนมออกมาถูกต้อง ใช้ได้กับหลายสูตร) — สูตรไม่มีกฎ = ขนมพัง กฎไม่มีสูตร = ไม่มีขนมเกิดขึ้นเลย</p>
+      </div>
+
+      <p><strong>ประโยชน์ของ business rules ต่อองค์กร:</strong> ชี้จุดผิดพลาด/คอขวดได้เร็ว · ควบคุมกระบวนการได้ดีขึ้น · เสริมกระบวนการให้มีประสิทธิภาพ · ใช้วางแนวทางลดความเสียหายเพิ่มกำไร · กำหนดมาตรฐานร่วมให้องค์กรไปถึงเป้าได้เร็ว</p>
+
+      <h2 id="s5">5. ECA Rules — Event-Condition-Action</h2>
+      <figure class="diagram">
+        <svg viewBox="0 0 700 170" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <g text-anchor="middle">
+            <rect x="20" y="30" width="180" height="86" rx="14" fill="#e7f8ee" stroke="#16a34a" stroke-width="2.5"/>
+            <text x="110" y="58" font-size="15" font-weight="800" fill="#14713c">ON Event</text>
+            <text x="110" y="80" font-size="11.5" fill="#445">เหตุการณ์ที่ปลุกกฎ</text>
+            <text x="110" y="98" font-size="11.5" fill="#445">(เดี่ยวหรือ composite)</text>
+            <rect x="260" y="30" width="180" height="86" rx="14" fill="#fff8e9" stroke="#f59e0b" stroke-width="2.5"/>
+            <text x="350" y="58" font-size="15" font-weight="800" fill="#a16207">IF Condition</text>
+            <text x="350" y="80" font-size="11.5" fill="#445">เงื่อนไขที่ต้องเป็นจริง</text>
+            <text x="350" y="98" font-size="11.5" fill="#445">(ตรวจเมื่อ event เกิด)</text>
+            <rect x="500" y="30" width="180" height="86" rx="14" fill="#fdeaea" stroke="#dc2626" stroke-width="2.5"/>
+            <text x="590" y="58" font-size="15" font-weight="800" fill="#b91c1c">DO Action</text>
+            <text x="590" y="80" font-size="11.5" fill="#445">การกระทำกับข้อมูล</text>
+            <text x="590" y="98" font-size="11.5" fill="#445">(ทำอัตโนมัติ)</text>
+          </g>
+          <text x="350" y="145" text-anchor="middle" font-size="12.5" fill="#556">ECA = แนวทางยืดหยุ่น-ปรับตัวได้-เป็นโมดูล · ต่างจากภาษาบรรยายกระบวนการทั่วไปตรงที่ <tspan font-weight="800">เน้น "เหตุการณ์" เป็นศูนย์กลาง</tspan></text>
+        </svg>
+        <figcaption>ภาพ 8.2 — โครงสร้าง ECA Rule: "on event if condition do action"</figcaption>
+      </figure>
+
+      <h3>Behavioral Rules vs Decision Rules</h3>
+      <ul>
+        <li><strong>Behavioral Rules</strong> — คุม<strong>พฤติกรรม</strong>การทำงานที่กำลังดำเนินอยู่ โดย "<strong>เฝ้าระวังการละเมิด</strong>" (watching for violations) · หน้าที่/ข้อผูกพัน (obligations) พบได้ทุกที่: กฎหมาย ระเบียบ สัญญา MOU ข้อตกลง เงื่อนไขบริการ ประกัน ใบอนุญาต… · สมมติฐานพื้นฐาน: <strong>ตรวจจับการละเมิดได้</strong>จึงบังคับใช้ (real time) ได้ — "ถ้าตรวจไม่ได้ จะบริหารได้อย่างไร"</li>
+      </ul>
+
+      <h2 id="s6">6. ประเภทของ Processes: Structured / Semi / Unstructured</h2>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>ประเภท</th><th>ลักษณะ</th><th>หมายเหตุ</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Unstructured</strong></td><td>แต่ละ instance ต่างกันตามสภาพแวดล้อม เนื้อหา และทักษะคน · <strong>เป็นงานคนเสมอ</strong> · มี framework/guideline เป็นเพียงคำแนะนำ</td><td>เรียกอีกอย่าง: Manual/Expert Processes, Case Management, Supervisory Functions · คนส่วนใหญ่ใช้เวลาส่วนใหญ่อยู่กับงานแบบนี้ (ประชุม ตอบอีเมล)</td></tr>
+          <tr><td><strong>Structured</strong></td><td>กำหนดแบบ end-to-end ครบทุก permutation · คน-เครื่องมือ-ข้อมูล-เวลาระบุชัด · <strong>อิงข้อมูลมากกว่าคน</strong> · <strong>คาดเดาได้ (predictable)</strong> · ขั้นตอนเรียงเหมือนทุกครั้ง</td><td>พบมากในองค์กรใหญ่ · expectation ชัด มี feedback สม่ำเสมอ</td></tr>
+          <tr><td><strong>Semi-structured</strong></td><td>บางส่วน structured บางส่วนเรียก unstructured (ตอน exception/โมเดลใช้ไม่ได้)</td><td>บางองค์ประกอบกำหนดชัด บางส่วน ad hoc</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>รับมืองาน Unstructured อย่างไร (3 ข้อ)</h3>
+      <ol>
+        <li><strong>Deliverables และ Deadlines ต้องชัดเจน</strong></li>
+        <li><strong>นัด check-in</strong> กับผู้บริหาร/ผู้มีส่วนได้ส่วนเสียเป็นประจำ</li>
+        <li><strong>Policies และ procedures กำหนดชัด</strong>และคาดหวังให้ทำตาม</li>
+      </ol>
+
+      <h2 id="s7">สรุปท้ายบท</h2>
+      <div class="box def">
+        <div class="box-title">✅ ต้องจำให้ได้จากบทนี้</div>
+        <ol>
+          <li>4 องค์ประกอบกระบวนการ: Activities · Resources · Facilities · Information</li>
+          <li>Information ดี 5 ข้อ: Accurate · Timely · Relevant · Just barely sufficient · Worth its cost</li>
+          <li>การตัดสินใจ: 3 ระดับ (Strategic/Managerial/Operational ↔ EIS/MIS/TPS) × 3 โครงสร้าง (Structured/Semi/Unstructured)</li>
+          <li>Business Rule = นิยาม/จำกัดธุรกิจ ตอบได้ true/false · ลำดับกำเนิด: Policy → Rule Statement → <strong>Rule (atomic)</strong> → Formal Rule</li>
+          <li>Process = doing the right things · Rule = doing things right · <strong>ต้องมีทั้งคู่ กฎใช้ข้ามกระบวนการ</strong></li>
+          <li>ECA = on Event if Condition do Action · Behavioral rules เฝ้าระวังการละเมิด</li>
+        </ol>
+      </div>
+
+      <div class="quiz-q">
+        <div class="q-text">🧪 ข้อใดกล่าวถึงความสัมพันธ์ระหว่าง Business Rules กับ Business Processes ได้ถูกต้อง?</div>
+        <div class="opts">
+          <button class="opt">ก. กฎธุรกิจควรฝังรวมอยู่ในขั้นตอนของกระบวนการเดียวเสมอ</button>
+          <button class="opt" data-c="1">ข. ทั้งสองเสริมกัน ใช้แทนกันไม่ได้ — กระบวนการบอก "ทำอะไร" กฎบอก "ทำอย่างไรให้ถูก"</button>
+          <button class="opt">ค. หากมีกระบวนการที่ดีแล้วจะไม่ต้องมีกฎธุรกิจ</button>
+          <button class="opt">ง. กฎธุรกิจใช้ได้เฉพาะในระบบคอมพิวเตอร์เท่านั้น</button>
+        </div>
+        <div class="explain">💡 กฎไม่ควร "ถูกบรรจุ" ในกระบวนการ เพราะกฎใช้ข้ามหลายกระบวนการ · ต้องมีทั้งคู่ (complementary)</div>
+      </div>
+
+      <div id="doneWrap" style="margin-top:30px;">
+        <button id="doneBtn" style="font-family:inherit;font-size:15px;font-weight:700;padding:10px 22px;border-radius:12px;border:2px solid #16a34a;background:#fff;color:#14713c;cursor:pointer;">☑ ทำเครื่องหมายว่าอ่านแล้ว</button>
+      </div>
+      <div class="pager" id="pager"></div>
+    </main>
+  </div>
+</div>
+<script src="assets/app.js"></script>
+<script src="assets/tts.js"></script>
+</body>
+</html>

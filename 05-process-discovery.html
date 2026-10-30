@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<title>บทที่ 5 — Process Discovery & คุณภาพโมเดล | BA Final Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%232456d6%27/%3E%3Ctext x=%2750%27 y=%2770%27 font-size=%2752%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27sans-serif%27 font-weight=%27bold%27%3EBA%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="topbar">
+      <button class="burger" id="burger" aria-label="เปิดเมนู">☰</button>
+      <div class="crumb" id="crumb"></div>
+      <div class="spacer"></div>
+      <a class="home-link" href="index.html">หน้าแรก</a>
+    </header>
+    <main class="content">
+
+      <h1 class="hero">บทที่ 5 · Process Discovery & คุณภาพโมเดล</h1>
+      <p class="lead">ก่อนจะวาด BPMN ได้ ต้อง "ค้นพบ" กระบวนการจริง ๆ ก่อน — บทนี้คือวิธีเก็บข้อมูล วิธีสร้างโมเดลทีละขั้น และเกณฑ์ตรวจว่าโมเดล "ดี" หรือไม่ (อ้างอิงหนังสือ Fundamentals of BPM โดย Dumas et al.)</p>
+
+      <h2 id="s1">1. Process Discovery คืออะไร มี 4 งานหลัก</h2>
+      <ol class="steps">
+        <li><b class="st">Defining the setting</b> — รวมทีมที่จะรับผิดชอบบริหารกระบวนการ</li>
+        <li><b class="st">Gather information</b> — สร้างความเข้าใจกระบวนการ ด้วยวิธี discovery หลากหลาย</li>
+        <li><b class="st">Conduct the modeling</b> — ลงมือสร้างโมเดลจริง</li>
+        <li><b class="st">Assure model quality</b> — รับประกันว่าโมเดลผ่านเกณฑ์คุณภาพ</li>
+      </ol>
+      <p>ทั้ง 4 งานนี้ทำร่วมกันตลอด (Done together) · คนที่เกี่ยวข้อง: <strong>Process Analysts</strong> (ฝั่งวิเคราะห์) + <strong>Domain Experts</strong> (ฝั่งผู้รู้งานจริง)</p>
+
+      <h3>3 ความท้าทาย (Challenges) ของการ Discovery</h3>
+      <div class="grid c3">
+        <div class="card"><h4>1️⃣ Fragmented Process Knowledge</h4><p>ความรู้กระบวนการ<strong>กระจัดกระจาย</strong> — ไม่มีใครรู้ทั้งกระบวนการ แต่ละคนรู้เฉพาะชิ้นของตัวเอง</p></div>
+        <div class="card"><h4>2️⃣ Experts คิดระดับ "instance"</h4><p>Domain expert มักเล่าเหตุการณ์<strong>รายกรณี (instance)</strong> ที่ตัวเองเจอ ไม่ใช่ภาพรวมกระบวนการ (process level)</p></div>
+        <div class="card"><h4>3️⃣ ความรู้การทำโมเดลหายาก</h4><p>คนทั่วไปไม่คุ้นกับสัญลักษณ์โมเดล — "ไดอะแกรมนี้ถูกต้องไหม" ถามตรง ๆ มักไม่ค่อยได้คำตอบที่มีประโยชน์</p></div>
+      </div>
+
+      <div class="box analogy">
+        <div class="box-title">💭 จ้างใครดี? George vs Sarah (แบบฝึกในเอกสาร)</div>
+        <p><strong>George</strong> ประสบการณ์ 10 ปีกับร้านค้าออนไลน์ (รู้งานลึก แต่เป็น domain expert) · <strong>Sarah</strong> ประสบการณ์นักวิเคราะห์กระบวนการ 5 ปีในธนาคาร (รู้จักภาษาโมเดล + เครื่องมือ) — <strong>เฉลยแนวคิด:</strong> งานนี้คือ "นักวิเคราะห์กระบวนการ" Sarah มีทักษะ abstraction และ modeling ที่จำเป็น ส่วน George เก่งเรื่อง domain แต่คิดเป็น instance และอาจมี bias จากที่เคยทำ</p>
+      </div>
+
+      <h3>คุณสมบัติของ Process Analyst ที่เก่งงาน (4 ข้อ)</h3>
+      <ol>
+        <li>Getting the right people on board — ดึงคนที่ใช่เข้าทีม</li>
+        <li>Having a set of working hypotheses — มีสมมติฐานว่ากระบวนการน่าจะเป็นอย่างไร หลายระดับความละเอียด แล้ว<strong>ทดสอบ</strong>มัน</li>
+        <li>Identifying patterns — มองเห็นแพทเทิร์นในข้อมูลที่ผู้เชี่ยวชาญบอก</li>
+        <li>Paying attention to model quality</li>
+      </ol>
+
+      <h2 id="s2">2. Discovery Methods — วิธีเก็บข้อมูล 3 กลุ่ม</h2>
+      <figure class="diagram">
+        <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <g text-anchor="middle">
+            <rect x="20" y="20" width="200" height="70" rx="14" fill="#e8eeff" stroke="#2456d6" stroke-width="2"/>
+            <text x="120" y="48" font-size="14.5" font-weight="800" fill="#1a3fa0">1. Evidence-based</text>
+            <text x="120" y="72" font-size="12" fill="#445">Document analysis · Observation ·</text>
+            <text x="120" y="88" font-size="12" fill="#445">Automated process discovery</text>
+            <rect x="250" y="20" width="200" height="70" rx="14" fill="#e2f7f4" stroke="#0d9488" stroke-width="2"/>
+            <text x="350" y="48" font-size="14.5" font-weight="800" fill="#0b7a70">2. Interview-based</text>
+            <text x="350" y="72" font-size="12" fill="#445">Forward vs Backward</text>
+            <text x="350" y="88" font-size="12" fill="#445">Structured vs Unstructured</text>
+            <rect x="480" y="20" width="200" height="70" rx="14" fill="#f1e9fe" stroke="#7c3aed" stroke-width="2"/>
+            <text x="580" y="48" font-size="14.5" font-weight="800" fill="#6d28d9">3. Workshop-based</text>
+            <text x="580" y="72" font-size="12" fill="#445">ทุก stakeholder หลักรวมกัน</text>
+            <text x="580" y="88" font-size="12" fill="#445">สร้างความเข้าใจร่วม</text>
+          </g>
+          <text x="350" y="135" text-anchor="middle" font-size="13" fill="#556" font-weight="700">เลือก 1 หรือหลายวิธี ตามบริบท (context) และงบประมาณ (budget)</text>
+          <text x="350" y="175" text-anchor="middle" font-size="12.5" fill="#888">Automated discovery ต้องมีข้อมูลอย่างน้อย: ชื่อกิจกรรม + timestamp + CASE ID (เพิ่มเติมได้: resource, cost, attributes)</text>
+          <text x="350" y="215" text-anchor="middle" font-size="12.5" fill="#888">วัฒนธรรมองค์กรสำคัญ: องค์กรเปิดกว้าง → workshop ได้ประโยชน์เต็ม / องค์กรลำดับชั้นเข้ม → ต้องดูแลให้ทุกคนได้พูดเท่ากัน</text>
+          <text x="350" y="255" text-anchor="middle" font-size="12.5" fill="#888">บริษัท startup อายุ 3 ปี vs หน่วยงานรัฐที่มีกฎเกณฑ์เยอะ → วิธีจัด workshop ต้องต่างกัน</text>
+        </svg>
+        <figcaption>ภาพ 5.1 — Discovery Methods 3 กลุ่ม: Evidence-based · Interview-based · Workshop-based</figcaption>
+      </figure>
+
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>วิธี</th><th>จุดแข็ง (Strength)</th><th>จุดอ่อน (Weakness)</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Document Analysis</strong></td><td>ข้อมูลเป็นระบบ · ไม่ต้องรบกวนเวลา stakeholder</td><td>เอกสาร<strong>ล้าสมัย</strong> (outdated) · ระดับ abstraction ไม่ตรง</td></tr>
+          <tr><td><strong>Observation</strong></td><td>เห็นบริบทจริงลึกซึ้ง (context-rich)</td><td>อาจ<strong>รบกวน</strong>การทำงาน (intrusive) · คนถูกสังเกตทำตัวผิดธรรมชาติ · เห็นเพียงไม่กี่เคส</td></tr>
+          <tr><td><strong>Automated Discovery</strong></td><td>เคสจำนวนมหาศาล · ข้อมูลวัตถุวิสัย (objective)</td><td>คุณภาพข้อมูล/ระดับ abstraction อาจมีปัญหา</td></tr>
+          <tr><td><strong>Interview</strong></td><td>ถามเจาะรายละเอียดได้ลึก</td><td>ต้องขอเวลาอันมีค่าของ stakeholder · ต้อง<strong>หลายรอบ</strong>กว่าจะ sign-off</td></tr>
+          <tr><td><strong>Workshop</strong></td><td><strong>แก้ข้อขัดแย้ง</strong>ระหว่างมุมมองได้ทันที</td><td>ต้องให้หลาย stakeholder ว่างพร้อมกัน</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>มิติ</th><th>Evidence-based</th><th>Interviews</th><th>Workshops</th></tr></thead>
+        <tbody>
+          <tr><td>Objectivity (ความเป็นกลาง)</td><td><strong>สูง</strong></td><td>ปานกลาง-สูง</td><td>ปานกลาง-สูง</td></tr>
+          <tr><td>Richness (ความลุ่มลึกของข้อมูล)</td><td>ปานกลาง</td><td><strong>สูง</strong></td><td><strong>สูง</strong></td></tr>
+          <tr><td>Time consumption (เวลา)</td><td>ต่ำ-ปานกลาง</td><td>ปานกลาง</td><td>ปานกลาง</td></tr>
+          <tr><td>Immediacy of feedback (ได้ผลตอบทันที)</td><td>ต่ำ</td><td><strong>สูง</strong></td><td><strong>สูง</strong></td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="box baseline">
+        <div class="box-title">📋 รายละเอียดแต่ละวิธี</div>
+        <ul>
+          <li><strong>Document Analysis</strong> — อ่าน: process descriptions (ดีที่สุดถ้ามี), internal policies, org charts, employment plans, quality reports, glossaries/handbooks, forms, work instructions · <em>ใช้เก็บข้อมูลก่อนเข้าพบ domain experts ได้</em></li>
+          <li><strong>Observation</strong> — ตามดูการทำงานรายเคส แล้วยกระดับจาก instance → process: บทบาท <strong>Active</strong> (เล่นบทบาทจริง เช่น เป็นลูกค้า — เสี่ยง: เห็นแค่ภาพเล็ก) / <strong>Passive</strong> (สังเกตผู้ปฏิบัติ+สิ่งแวดล้อม — เสี่ยง: bias ของคนถูกสังเกต) · ตามรอย business object ตลอด life cycle</li>
+          <li><strong>Interview</strong> — แนว <strong>Forward</strong> (ไล่ตั้งแต่เริ่มกระบวนการ) vs <strong>Backward</strong> (ย้อนจากผลลัพธ์) · <strong>Structured</strong> (คำถามตามแบบ) vs <strong>Unstructured</strong> · <strong>กับดัก:</strong> พฤติกรรม exception มักถูกละเลย → ตั้งคำถามเจาะหา exception โดยเฉพาะ</li>
+          <li><strong>Workshop</strong> — รวม key stakeholders ทั้งหมด มี process analyst 1 คนเป็น facilitator + domain experts หลายคน (process owner อาจร่วมด้วย) · อาจมี tool operator วาดโมเดลสด ๆ · ทางเลือก: <strong>brown-paper workshop</strong> · ปกติ <strong>3-5 ครั้ง ครั้งละครึ่งวัน</strong></li>
+        </ul>
+      </div>
+
+      <h2 id="s3">3. วิธีสร้างโมเดลทีละขั้น (Stepwise Modeling Method)</h2>
+      <ol class="steps">
+        <li><b class="st">Identify the process boundaries</b> — จุดเริ่ม/จบ: Trigger คืออะไร? ผลลัพธ์บวก/ลบคืออะไร? มองจากมุมไหน (perspective)? ต้องใช้/ผลิตเอกสารอะไร (input/output)?</li>
+        <li><b class="st">Identify activities and events</b> — เอากิจกรรม+เหตุการณ์ออกมาให้ครบ</li>
+        <li><b class="st">Identify resources and their handovers</b> — ใครทำ ส่งงานต่อกันตรงไหน</li>
+        <li><b class="st">Identify the control flow</b> — ลำดับ เงื่อนไข ทางแยก</li>
+        <li><b class="st">Identify additional elements</b> — data objects, ชนิด events พิเศษ, exception handling</li>
+      </ol>
+
+      <div class="box exam">
+        <div class="box-title">🎯 ตัวอย่างการหา Boundaries (Order-to-Cash)</div>
+        <ul>
+          <li><strong>Trigger:</strong> Purchase order received (ได้รับใบสั่งซื้อ)</li>
+          <li><strong>Positive outcome:</strong> Order fulfilled (ส่งมอบสำเร็จ) · <strong>Negative outcome:</strong> Order rejected (ปฏิเสธคำสั่งซื้อ)</li>
+          <li><strong>Perspective:</strong> Seller (มองจากฝั่งผู้ขาย — มุมมองลูกค้าจะต่างออกไป!)</li>
+          <li><strong>Input:</strong> Purchase Order · <strong>Outputs:</strong> Invoice, Shipment notice</li>
+        </ul>
+      </div>
+
+      <h2 id="s4">4. คุณภาพโมเดล (Model Quality Assurance)</h2>
+      <figure class="diagram">
+        <svg viewBox="0 0 660 330" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <g text-anchor="middle">
+            <rect x="180" y="16" width="300" height="52" rx="14" fill="#101a30"/>
+            <text x="330" y="48" font-size="15" font-weight="800" fill="#fff">คุณภาพโมเดล</text>
+            <rect x="30" y="100" width="180" height="150" rx="14" fill="#e8eeff" stroke="#2456d6" stroke-width="2"/>
+            <text x="120" y="126" font-size="13.5" font-weight="800" fill="#1a3fa0">Syntactic</text>
+            <text x="120" y="148" font-size="11.5" fill="#445">(ถูกไวยากรณ์)</text>
+            <text x="120" y="172" font-size="11.5" fill="#445">· Structural correctness</text>
+            <text x="120" y="192" font-size="11.5" fill="#445">· Behavioral correctness</text>
+            <text x="120" y="216" font-size="11" fill="#888">(ตรวจด้วย Verification)</text>
+            <rect x="240" y="100" width="180" height="150" rx="14" fill="#e7f8ee" stroke="#16a34a" stroke-width="2"/>
+            <text x="330" y="126" font-size="13.5" font-weight="800" fill="#14713c">Semantic</text>
+            <text x="330" y="148" font-size="11.5" fill="#445">(ตรงความจริง)</text>
+            <text x="330" y="172" font-size="11.5" fill="#445">· Valid (ถูกต้อง)</text>
+            <text x="330" y="192" font-size="11.5" fill="#445">· Complete (ครบ)</text>
+            <text x="330" y="216" font-size="11" fill="#888">(ตรวจด้วย Validation)</text>
+            <rect x="450" y="100" width="180" height="150" rx="14" fill="#f1e9fe" stroke="#7c3aed" stroke-width="2"/>
+            <text x="540" y="126" font-size="13.5" font-weight="800" fill="#6d28d9">Pragmatic</text>
+            <text x="540" y="148" font-size="11.5" fill="#445">(ใช้งานได้จริง)</text>
+            <text x="540" y="172" font-size="11.5" fill="#445">· Understandability</text>
+            <text x="540" y="192" font-size="11.5" fill="#445">· Maintainability · Learning</text>
+            <text x="540" y="216" font-size="11" fill="#888">(ตรวจด้วย Certification)</text>
+          </g>
+          <text x="330" y="290" text-anchor="middle" font-size="12.5" fill="#556">ปัจจัยที่มีผลต่อ Pragmatic: ขนาดโมเดล (size) · ความซับซ้อนโดยโครงสร้าง (structural complexity) · ผัง/เลย์เอาต์ (layout)</text>
+          <text x="330" y="313" text-anchor="middle" font-size="12.5" fill="#888">ปรับปรุง pragmatic ด้วย block-structuring + กำหนด guidelines/conventions (จำกัด vocabulary, ขนาด, semantics, appearance)</text>
+        </svg>
+        <figcaption>ภาพ 5.2 — 3 ชั้นคุณภาพโมเดล: Syntactic (Verification) · Semantic (Validation) · Pragmatic (Certification)</figcaption>
+      </figure>
+
+      <h3>Structural Correctness (กฎโครงสร้าง)</h3>
+      <ul>
+        <li>Element-level: กิจกรรมต้องมี sequence flow <strong>เข้าอย่างน้อย 1 + ออกอย่างน้อย 1</strong> · <strong>Start ห้ามมีเส้นเข้า</strong> · <strong>End ห้ามมีเส้นออก</strong> · Gateway แบบ split ต้องมีเข้า 1 ออก ≥2 · แบบ join เข้า ≥2 ออก 1</li>
+        <li>Model-level: ทุก node ต้องอยู่บนเส้นทางจาก start → end (ไม่มี node ลอย ๆ หรือเส้นหลุด)</li>
+      </ul>
+
+      <h3>Behavioral Correctness = "Soundness" (เสียง 3 ข้อ — ออกสอบ!)</h3>
+      <ol>
+        <li><strong>Option to complete</strong> — process instance ใด ๆ ที่เริ่มแล้ว<strong>ต้องจบได้</strong>เสมอ (ไม่ติด deadlock/livelock)</li>
+        <li><strong>Proper completion</strong> — ตอนจบ ต้องมี token เพียง<strong>อันเดียว</strong>ใน end event (ไม่มี token ค้างซ้อน = lack of synchronization)</li>
+        <li><strong>No dead activities</strong> — ทุกกิจกรรม<strong>ต้องมีโอกาสได้ทำ</strong>อย่างน้อยหนึ่ง instance (ห้ามมีกิจกรรมที่ทำไม่ได้กันหมด)</li>
+      </ol>
+
+      <figure class="diagram">
+        <svg viewBox="0 0 700 240" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <!-- deadlock example -->
+          <g font-size="11.5">
+            <text x="150" y="26" text-anchor="middle" font-size="13" font-weight="800" fill="#b91c1c">❌ Deadlock (ไม่มี option to complete)</text>
+            <circle cx="40" cy="80" r="13" fill="#16a34a"/>
+            <rect x="72" y="62" width="60" height="36" rx="8" fill="#fff" stroke="#556" stroke-width="1.5"/><text x="102" y="84" text-anchor="middle">A</text>
+            <path d="M 152 80 L 172 62 L 152 44" fill="none" stroke="#556" stroke-width="2" transform="translate(20,20)"/>
+            <path d="M 190 46 l 22 22 m 0 -22 l -22 22" stroke="#556" stroke-width="2.5" fill="none"/>
+            <rect x="230" y="24" width="60" height="36" rx="8" fill="#fff" stroke="#556" stroke-width="1.5"/><text x="260" y="46" text-anchor="middle">B</text>
+            <rect x="230" y="100" width="60" height="36" rx="8" fill="#fff" stroke="#556" stroke-width="1.5"/><text x="260" y="122" text-anchor="middle">C</text>
+            <path d="M 302 42 l 22 22 m 0 -22 l -22 22" stroke="#556" stroke-width="2.5" fill="none"/>
+            <rect x="342" y="24" width="60" height="36" rx="8" fill="#fff" stroke="#556" stroke-width="1.5"/><text x="372" y="46" text-anchor="middle">D (dead)</text>
+            <text x="150" y="180" text-anchor="middle" fill="#556">XOR-split คู่ AND-join (หรือกลับกัน)</text>
+            <text x="150" y="198" text-anchor="middle" fill="#888">token ติดค้าง ไม่มาบรรจบกัน</text>
+          </g>
+          <line x1="350" y1="30" x2="350" y2="210" stroke="#ddd" stroke-width="2"/>
+          <!-- livelock -->
+          <g font-size="11.5">
+            <text x="520" y="26" text-anchor="middle" font-size="13" font-weight="800" fill="#b91c1c">❌ Livelock (วนไม่รู้จบ)</text>
+            <rect x="440" y="50" width="70" height="36" rx="8" fill="#fff" stroke="#556" stroke-width="1.5"/><text x="475" y="72" text-anchor="middle">A</text>
+            <rect x="560" y="50" width="70" height="36" rx="8" fill="#fff" stroke="#556" stroke-width="1.5"/><text x="595" y="72" text-anchor="middle">B</text>
+            <path d="M 510 60 C 535 30 555 30 560 60" fill="none" stroke="#dc2626" stroke-width="2"/>
+            <path d="M 560 78 C 535 108 515 108 510 78" fill="none" stroke="#dc2626" stroke-width="2"/>
+            <text x="535" y="20" text-anchor="middle" fill="#dc2626" font-size="10.5">วนกลับไม่มีทางออก</text>
+            <text x="520" y="130" text-anchor="middle" fill="#556">B ทำซ้ำไปเรื่อย ๆ (เส้นทางกลับไม่มีเงื่อนไขออก)</text>
+            <text x="520" y="150" text-anchor="middle" fill="#888">โมเดลนี้ผิด structural ด้วย: B ไม่อยู่บนเส้นทางสู่ end</text>
+            <text x="520" y="180" text-anchor="middle" fill="#556">❌ No proper completion: จบแล้วเหลือ token 2 ชิ้น</text>
+            <text x="520" y="198" text-anchor="middle" fill="#888">(AND-join รอทุกสาย แต่ XOR-split ปล่อยมาชิ้นเดียว)</text>
+          </g>
+        </svg>
+        <figcaption>ภาพ 5.3 — ตัวอย่างโมเดลที่ "ไม่ sound": Deadlock · Livelock · การจบไม่เรียบร้อย (คู่ split/join ผิดประเภท)</figcaption>
+      </figure>
+
+      <div class="box warn">
+        <div class="box-title">⚠️ กับดักมือใหม่ (Beginner's Mistake)</div>
+        <p>จับคู่ gateway ผิดประเภท — เช่น เปิดด้วย <strong>AND-split</strong> แต่ปิดด้วย <strong>XOR-join</strong> (หรือ XOR-split + AND-join) → เกิด deadlock/livelock เสมอ · กฎทับทิม: <strong>แต่ละ split จับคู่กับ join ชนิดเดียวกัน (model in blocks)</strong></p>
+      </div>
+
+      <h3>7PMG — 7 Process Modeling Guidelines (แนวปฏิบัติ 7 ข้อ)</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>#</th><th>กฎ</th><th>ความหมาย</th></tr></thead>
+        <tbody>
+          <tr><td>G1</td><td>ใช้ elements ให้<strong>น้อยที่สุด</strong></td><td>โมเดลเล็กยิ่งอ่านง่าย</td></tr>
+          <tr><td>G2</td><td>ลด routing paths ต่อ element</td><td>เส้นทางยิ่งน้อยยิ่งเข้าใจง่าย</td></tr>
+          <tr><td>G3</td><td>Start event <strong>1 อันต่อ trigger</strong> · End event <strong>1 อันต่อ outcome</strong></td><td>แยกตามเหตุการณ์เริ่ม/ผลลัพธ์</td></tr>
+          <tr><td>G4</td><td>วาดโมเดลให้<strong>เป็น blocks ที่มีโครงสร้าง</strong></td><td>split-join จับคู่กันเป็นบล็อก</td></tr>
+          <tr><td>G5</td><td><strong>เลี่ยง OR gateway</strong> ถ้าทำได้</td><td>semantics ซับซ้อน เสี่ยงสับสน</td></tr>
+          <tr><td>G6</td><td>ใช้ label <strong>Verb + Object</strong></td><td>"Issue Driver Licence" ไม่ใช่ "ทำ"</td></tr>
+          <tr><td>G7</td><td>โมเดลเกิน <strong>30 elements</strong> → แตกเป็น subprocess</td><td>รักษาความเข้าใจง่าย</td></tr>
+        </tbody>
+      </table></div>
+
+      <h2 id="s5">สรุปท้ายบท + สรุปเรื่อง Events/Exceptions (จากท้ายเอกสาร)</h2>
+      <div class="box def">
+        <div class="box-title">✅ ต้องจำให้ได้จากบทนี้</div>
+        <ol>
+          <li>Discovery 4 งาน: setting → gather → model → quality · คน: Process Analyst + Domain Expert</li>
+          <li>3 ความท้าทาย: ความรู้กระจัดกระจาย · expert คิดระดับ instance · คนไม่คุ้นโมเดล</li>
+          <li>วิธี 3 กลุ่ม (Evidence / Interview / Workshop) + ตารางจุดแข็ง-จุดอ่อน + automated discovery ต้องมี Activity+Timestamp+CaseID</li>
+          <li>วาดโมเดล 5 ขั้น: boundaries → activities/events → resources/handovers → control flow → เพิ่มเติม</li>
+          <li>คุณภาพ 3 ชั้น: Syntactic (Verification) / Semantic (Validation: Valid+Complete) / Pragmatic (Certification)</li>
+          <li>Soundness 3 ข้อ: option to complete · proper completion · no dead activities</li>
+          <li>7PMG (โดยเฉพาะ G5 เลี่ยง OR, G6 Verb+Object, G7 ไม่เกิน 30 elements)</li>
+        </ol>
+        <p><small>เกร็ดเพิ่มเติมท้ายเอกสาร: loop แบบมีโครงสร้างใช้ loop activities ได้ แต่รอบ arbitrary ไม่ได้ · intermediate events เป็น catching หรือ throwing · timer events = เหตุการณ์ตามเวลา (จับเวลา/เป็นระยะ) · จัดการ exception ง่ายสุดด้วย terminate event · boundary error/message/timer events ใช้จับ exception ภายใน/ภายนอก/timeout · compensation events ใช้ย้อนผลของงานที่เสร็จแล้ว · conditional events ใช้แทน business rules ได้</small></p>
+      </div>
+
+      <div class="quiz-q">
+        <div class="q-text">🧪 โมเดลใด "ไม่ sound" ตามเกณฑ์ Option to complete?</div>
+        <div class="opts">
+          <button class="opt">ก. โมเดลที่ทุกกิจกรรมทำได้อย่างน้อยหนึ่งครั้ง</button>
+          <button class="opt" data-c="1">ข. โมเดลที่ token วนในลูปไม่มีทางออก (livelock) จึงไม่มาถึง end event</button>
+          <button class="opt">ค. โมเดลที่จบแล้วมี token 2 ชิ้นใน 2 end events ต่างผลลัพธ์</button>
+          <button class="opt">ง. โมเดลที่มี 1 start event และ 2 end events</button>
+        </div>
+        <div class="explain">💡 Livelock = instance ไม่สามารถจบได้ (ข้อ 1 คือ no dead activities · ข้อ ค ในกรณี XOR-end คู่กันถือว่าเป็น proper completion ได้ · ข้อ ง ถูกต้องตาม G3)</div>
+      </div>
+
+      <div id="doneWrap" style="margin-top:30px;">
+        <button id="doneBtn" style="font-family:inherit;font-size:15px;font-weight:700;padding:10px 22px;border-radius:12px;border:2px solid #16a34a;background:#fff;color:#14713c;cursor:pointer;">☑ ทำเครื่องหมายว่าอ่านแล้ว</button>
+      </div>
+      <div class="pager" id="pager"></div>
+    </main>
+  </div>
+</div>
+<script src="assets/app.js"></script>
+<script src="assets/tts.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<title>บทที่ 12 — Requirements Elicitation Techniques | BA Final Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%232456d6%27/%3E%3Ctext x=%2750%27 y=%2770%27 font-size=%2752%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27sans-serif%27 font-weight=%27bold%27%3EBA%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="topbar">
+      <button class="burger" id="burger" aria-label="เปิดเมนู">☰</button>
+      <div class="crumb" id="crumb"></div>
+      <div class="spacer"></div>
+      <a class="home-link" href="index.html">หน้าแรก</a>
+    </header>
+    <main class="content">
+
+      <h1 class="hero">บทที่ 12 · Requirements Elicitation Techniques</h1>
+      <p class="lead">เทคนิคการ "ขุด" ความต้องการ: วิเคราะห์เอกสารเดิม · การสังเกต · Ethnography · สัมภาษณ์ · Brainstorming · JAD · Prototyping — พร้อมข้อดี/ข้อเสียที่ออกสอบเป็นตาราง</p>
+
+      <blockquote style="border-left:4px solid var(--brand);margin:18px 0;padding:6px 16px;color:var(--ink-soft);font-style:italic;">"When people talk, listen completely. Most people never listen." — Ernest Hemingway</blockquote>
+
+      <h2 id="s1">1. ตารางเปรียบเทียบ Data-Gathering Techniques (ท่องตารางนี้!)</h2>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>เทคนิค</th><th>เหมาะกับ</th><th>ชนิดข้อมูล</th><th>ข้อดี (Plus)</th><th>ข้อเสีย (Minus)</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Questionnaires</strong></td><td>ตอบคำถามเฉพาะเจาะจง</td><td>ปริมาณ+คุณภาพ</td><td>เข้าถึงคนจำนวนมากด้วยทรัพยากรต่ำ</td><td><strong>การออกแบบสำคัญมาก</strong> · response rate ต่ำได้ · คำตอบอาจไม่ตรงใจ</td></tr>
+          <tr><td><strong>Interviews</strong></td><td>สำรวจ/ขุดประเด็น (exploring)</td><td>คุณภาพเป็นหลัก</td><td>ผู้สัมภาษณ์ควบคุม/นำสนทนาได้ · สร้างสัมพันธ์ dev-user</td><td><strong>ใช้เวลามาก</strong> · สภาพแวดล้อมเทียม (artificial) ทำให้ถูกกดดัน/กลัว</td></tr>
+          <tr><td><strong>Focus groups &amp; Workshops</strong></td><td>เก็บมุมมองหลายฝ่าย</td><td>คุณภาพเป็นหลัก</td><td>เห็นจุด<strong>เห็นพ้อง (consensus)</strong> และ <strong>ขัดแย้ง (conflict)</strong> · สร้างสัมพันธ์</td><td>เสี่ยง <strong>dominant characters</strong> (คนพูดเด่นครองวง)</td></tr>
+          <tr><td><strong>Naturalistic observation</strong></td><td>เข้าใจ context ของผู้ใช้</td><td>คุณภาพ</td><td>เห็นการทำงานจริง ได้ insight ที่อย่างอื่นให้ไม่ได้</td><td><strong>ใช้เวลามหาศาล</strong> · ข้อมูลปริมาณมหาศาล</td></tr>
+          <tr><td><strong>Studying documentation</strong></td><td>เรียนรู้ procedures/regulations/standards</td><td>เชิงปริมาณ</td><td>ไม่ต้องเบียดเวลาผู้ใช้</td><td>งานจริงกับเอกสารมัก<strong>ต่างกัน</strong> (ล้าสมัย)</td></tr>
+        </tbody>
+      </table></div>
+
+      <h2 id="s2">2. การวิเคราะห์ระบบเดิม (Analysis of Existing Systems)</h2>
+      <p>เหมาะเมื่อ<strong>พัฒนาระบบใหม่จากของเดิม</strong> ต้องรู้: อะไรถูกใช้/ไม่ถูกใช้/ขาด · อะไรเวิร์ก/ไม่เวิร์ก · ระบบถูกใช้จริงอย่างไร (ความถี่+ความสำคัญ) เทียบกับ "ที่ควรใช้" และ "ที่อยากให้ใช้"</p>
+      <p><strong>เหตุผล 4 ข้อ:</strong> ① ผู้ใช้อาจผิดหวังถ้าระบบใหม่ต่างเดิมมาก (nostalgia) ② ได้ usage patterns + human issues + กิจกรรมถี่ + ความสำคัญสัมพัทธ์ ③ จับ improvements ชัด ๆ ได้ทันที ④ ตัดสินใจเรื่อง <strong>legacy features</strong> ว่าตัดได้/ตัดไม่ได้</p>
+      <ul>
+        <li><strong>Documentation review:</strong> อ่าน user docs, development docs, requirements docs, memos, change histories — <em>จุดเริ่มต้นที่ดี แต่มักล้าสมัย</em> · <strong>Discourse analysis</strong> = ตรวจการใช้คำ/วลีในเอกสาร-บทสนทนา</li>
+        <li><strong>Observation:</strong> ลงไปดูผู้เชี่ยวชาญ "in the wild" · <strong>shadow</strong> (เดินตาม) ผู้ใช้สำคัญ · ช่วงแรก<strong>สังเกตเงียบ ๆ</strong> กัน bias · อาจใช้ videotaping · เสริมด้วย questionnaire (เก็บสถิติจากคนจำนวนมาก เช่น "ใช้ฟีเจอร์ X บ่อยไหม") และ interviews (ถามลึกทีหลัง — ไม่เสียเวลาใคร)</li>
+      </ul>
+
+      <h3>Ethnography (ชาติพันธุ์วิทยา) — กรณีศึกษาที่ออกสอบ</h3>
+      <div class="box exam">
+        <div class="box-title">🎯 แนวคิด + 2 ตัวอย่างคลาสสิก</div>
+        <p>มาจากมานุษยวิทยา — แปลว่า <strong>"writing the culture"</strong> · เป้าหมาย: ทำสิ่งที่ <strong>implicit → explicit</strong> โดย<strong>สังเกตเอง ไม่ถามให้ worker อธิบาย</strong> · <strong>ไม่เหมาะกับปัจจัยการเมือง (political factors)</strong> เพราะคนรู้ตัวว่าถูกสังเกต</p>
+        <ul>
+          <li><strong>Air traffic control:</strong> controller จงใจวางเครื่องบินให้ "เกือดชน" แล้วจะแก้ทีหลัง + ปิด alarm เพราะรำคาญ → สรุปผิด: "ไม่ชอบ alarm เสียง" → <strong>สรุบถูก: "ไม่ชอบถูกปฏิบัติเหมือนคนโง่"</strong> (ต้องตีความลึกกว่าพฤติกรรมผิวเผิน)</li>
+          <li><strong>Stock exchange:</strong> เสนอเปลี่ยนกระดาษ/ดินสอเป็น touch screen + หูฟัง → การศึกษาพบว่าการ<strong>เห็น dealer คนอื่น (peripheral monitoring)</strong> คือหัวใจของธุรกิจ — "improvement" นั้นจะทำลายช่องทางสื่อสารเสียเอง</li>
+        </ul>
+      </div>
+
+      <h2 id="s3">3. Interviews — การสัมภาษณ์</h2>
+      <h3>วัตถุประสงค์ 3 ข้อ</h3>
+      <ol>
+        <li><strong>Record information</strong> เป็น input สำหรับ analysis &amp; modeling</li>
+        <li><strong>Discover information</strong> อย่างแม่นยำ มีประสิทธิภาพ</li>
+        <li><strong>Reassure interviewee</strong> ว่าความเข้าใจเขาถูกสำรวจ/รับฟัง/ให้คุณค่า</li>
+      </ol>
+
+      <h3>กระบวนการ 4 ขั้น</h3>
+      <ol class="steps">
+        <li><b class="st">Planning &amp; preparation</b> — ตั้งเป้า · ศึกษา background (domain+interviewee) · เตรียมคำถามล่วงหน้าเป็นหมวด · จัดสภาพแวดล้อม + วิธีจดบันทึก (มือ/audio/video/ใครจด)</li>
+        <li><b class="st">Interview session</b> — ทำให้สบายใจ · สุภาพ · ยืดหยุ่นแต่ persistent · สัมภาษณ์<strong>หลายคนพร้อมกัน</strong>สร้าง synergy · จับ<strong>ปัจจัยการเมือง</strong> (สิ่งที่พูด และ<strong>ไม่พูด</strong>)</li>
+        <li><b class="st">Consolidation</b> — แก้ notes <strong>โดยเร็ว</strong> (ลืมไว!) · หา inconsistencies → follow-up · เก็บ diagrams ทั้งหมด · สนใจ terminology → สร้าง <strong>glossary</strong></li>
+        <li><b class="st">Follow-up</b> — ปิดจ๊อบค้าง อีเมลยืนยัน</li>
+      </ol>
+
+      <h3>ความผิดพลาดที่พบบ่อย 5 ข้อ (ออกสอบแน่!)</h3>
+      <ol>
+        <li><strong>ไม่สัมภาษณ์คนที่ถูกต้องครบทุกกลุ่ม</strong></li>
+        <li><strong>ถาม direct เร็วเกินไป</strong> — ควรถาม indirect: ❌"ต้องการกี่แรงม้า?" → ✅"กี่ผู้โดยสาร ไกลแค่ไหน เร็วแค่ไหน?" · ❌"ควบคุม shutter/aperture สำคัญแค่ไหน?" → ✅"จะถ่ายภาพนิ่งหรือภาพเคลื่อนไหว?"</li>
+        <li><strong>สัมภาษณ์ทีละคน แทนที่จะเป็นกลุ่มเล็ก</strong> — กลุ่ม = brainstorm + จำได้มากขึ้น + ลด spotlight → <strong>synergy</strong> (แต่ห้ามใครคนเดียว dominate)</li>
+        <li><strong>Assume ว่า stated needs ถูกทั้งหมด</strong> — ผู้ใช้มักไม่รู้ว่าตัวเองต้องการอะไร ต้องแยก "ที่ขอ" vs "ที่ต้องการ"</li>
+        <li><strong>พยายามพิสูจน์ว่าตัวเองฉลาด</strong> — ควรแสดงว่า <strong>stakeholder ฉลาด</strong>: ❌"ผมว่าคุณมีปัญหา throughput ไม่ใช่ speed" → ✅"ครับ ช่วยเล่าให้ฟังว่าทำไมรู้สึกว่ามันช้าครับ"</li>
+      </ol>
+
+      <h3>Context-free Questions (ของ Weinberg) — คำถามเปิดประเด็น</h3>
+      <ul>
+        <li><strong>ลูกค้า/เป้าหมาย/ผลประโยชน์:</strong> ใครอยู่เบื้องหลังคำขอจริง ๆ? ใครใช้? ผู้ใช้กี่ประเภท? ผลประโยชน์ทางเศรษฐกิจจากทางออกที่สำเร็จคือ?</li>
+        <li><strong>กรอบเวลา/ข้อจำกัด:</strong> ต้องการเมื่อไร? จัดลำดับได้ไหม? constraints (เวลา/งบ/คน)? milestones?</li>
+        <li><strong>ปัญหา/ทางออก:</strong> อะไรคือทางออกที่ "ดี"? ระบบแก้ปัญหาอะไร? ใช้ใน environment ใด? performance พิเศษ? อะไรไม่ควรเปลี่ยน? อนาคต?</li>
+        <li><strong>Calibration:</strong> คุณใช่คนที่ควรตอบไหม? คำตอบ "official" ไหม? ควรคุยกับใครอีก? มีอะไรควรถามที่ผมไม่ได้ถาม?</li>
+        <li><strong>ถามอ้อม (เพราะถามตรง ๆ ไม่ได้):</strong> คุณคัดค้านระบบนี้ไหม? พยายามถ่วงเวลา? รู้สึกถูกคุกคาย? ปกป้องงานตัวเอง?</li>
+      </ul>
+
+      <h2 id="s4">4. Brainstorming</h2>
+      <ul>
+        <li><strong>2 กิจกรรม:</strong> <strong>The Storm</strong> (คิดให้<strong>มาก</strong> — quantity not quality · wild is good! · ห้ามวิจารณ์) → <strong>The Calm</strong> (คัดกรอง: combine, clarify, prioritize)</li>
+        <li><strong>Roles:</strong> <strong>Scribe</strong> (จดทุกไอเดีย ให้ทุกคนเห็น — "Ideas do not leave the room") · <strong>Moderator</strong> 2 สไตล์: <strong>Traffic cop</strong> (บังคับกติกาอย่างเดียว) หรือ <strong>Agent provocateur</strong> (+โยน wild ideas เมื่อวงเงียบ) — <strong>ห้าม</strong>เป็น scribe+moderator พร้อมกัน · <strong>Participants</strong> = stakeholder ใดก็ได้ (+Ideas-people)</li>
+        <li>ประชุมสร้างสรรค์โฟกัสได้ดีแค่ <strong>90-120 นาที</strong> — เกินต้องพัก/นัดใหม่</li>
+        <li><strong>วิธีคัดไอเดีย:</strong> Blending (รวมคล้ายกัน) · ให้เงินสมมติ $100 ไปลงให้ไอเดีย · apply acceptance criteria · ranking/scoring · <strong>vote with threshold</strong> (โหวตได้ n ครั้ง เก็บที่ได้ &gt;m เสียง แล้วลด n,m ทีละรอบ) · <strong>vote with campaign speeches</strong> (ไอเดียที่ได้ ≥1 เสียง ให้คนที่ไม่ได้โหวตมา "ปกป้อง" มัน)</li>
+      </ul>
+
+      <h2 id="s5">5. JAD — Joint Application Design</h2>
+      <div class="box def">
+        <div class="box-title">📖 นิยาม</div>
+        <p><strong>"Structured brainstorming" แบบ IBM</strong> (คิดค้นในทศวรรษ 1970s) — เต็มไปด้วยโครงสร้าง บทบาทที่กำหนด และแบบฟอร์มมาตรฐาน · session อาจยาว<strong>หลายวัน</strong> · ใช้กับทุกเรื่องที่ต้องการ <strong>consensus-based decision ข้าม functional areas</strong></p>
+      </div>
+      <ul>
+        <li><strong>4 Tenets:</strong> ① ใช้ group dynamics อย่างมีประสิทธิผล (สู่ common understanding + <strong>universal buy-in</strong>) ② ใช้ visual aids ③ กระบวนการที่นิยามชัด ④ แบบฟอร์มมาตรฐาน</li>
+        <li><strong>3 กิจกรรม:</strong> Preparation (pre-session planning + pre-work) → Working Session (ตั้ง common understanding → consensus → ownership → deliverables มาตรฐาน → open issues) → Summary (follow-up + wrap-up + lessons learned)</li>
+        <li><strong>6 P's (Gottesdiener):</strong> Purpose(ทำไม) · Participants(ใคร) · Principles(กติกา) · Products(ผลลัพธ์) · Place(ที่ไหน) · Process(ลำดับอะไร)</li>
+        <li><strong>6 Roles:</strong> <strong>Session leader</strong> (facilitator ผู้เชี่ยวชาญ JAD) · <strong>Analyst</strong> ("Scribe++" ผู้ผลิตเอกสารทางการ) · <strong>Executive sponsor</strong> (ผู้รับผิดชอบสูงสุด ให้ insights เชิงกลยุทธ์) · <strong>User representatives</strong> (end-users+managers ผู้รู้งาน) · <strong>IS representatives</strong> (ผู้เชี่ยวชาญเทคนิค — มาเพื่อ<strong>ให้ข้อมูล</strong> ไม่ใช่ตัดสินใจ) · <strong>Specialists</strong> (ผู้เชี่ยวชาญแคบ เช่น security, กฎหมาย)</li>
+      </ul>
+
+      <h2 id="s6">6. Prototyping — ต้นแบบ</h2>
+      <p><strong>ใช้เมื่อ:</strong> ผู้ใช้บอกไม่ได้ว่าต้องการอะไร — ตอบโจทย์ <em>"I'll know it when I see it"</em> รวมถึงกลุ่มอาการ <strong>"Yes, But"</strong> และ <strong>"Undiscovered Ruins"</strong> · โฟกัส prototype ไปที่ส่วนที่ <strong>ยังไม่แน่ใจ</strong></p>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>ประเภท (4)</th><th>ลักษณะ</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Horizontal</strong></td><td>กว้างแต่ตื้น — โฟกัส<strong>หนึ่งชั้น</strong> เช่น UI ทั้งหมดของระบบ</td></tr>
+          <tr><td><strong>Vertical</strong></td><td>แคบแต่ลึก — <strong>slice เดียวผ่านทุกชั้น</strong>ของระบบจริง</td></tr>
+          <tr><td><strong>Evolutive</strong></td><td>ค่อย ๆ โตเป็น product จริงแบบ incremental (เริ่มจากส่วนที่เข้าใจแล้ว)</td></tr>
+          <tr><td><strong>Throw-away</strong></td><td>หยาบ ๆ แล้ว<strong>ทิ้ง</strong> — โฟกัสส่วนที่ยังเข้าใจน้อย เพื่อ elicit/validate</td></tr>
+        </tbody>
+      </table></div>
+      <ul>
+        <li><strong>Fidelity:</strong> High (รันได้จริง — เข้าใจ functionality ดี แต่แพง แก้ยาก เสี่ยง false sense of security) vs Low (static เช่น กระดาษ — เร็ว ถูก ดึงผู้ใช้เข้าร่วมดี แต่ไม่ interactive)</li>
+        <li><strong>ความเสี่ยง 3:</strong> ① โฟกัส UI จนเสียโฟกัส functionality ② ความคาดหวังลูกค้าเรื่องความพร้อมสูงเกินจริง ③ <strong>เอา throwaway ไปใช้ production</strong> — ต้องระบุ purpose ของทุก prototype ให้ชัดก่อนสร้างเสมอ</li>
+      </ul>
+
+      <h2 id="s7">สรุปท้ายบท</h2>
+      <div class="box def">
+        <div class="box-title">✅ ต้องจำให้ได้</div>
+        <ol>
+          <li>ตาราง 5 เทคนิค + ข้อดี/ข้อเสีย (โดยเฉพาะ: interviews ใช้เวลามาก · workshops เสี่ยงคนพูดเด่น · เอกสารล้าสมัย · observation ช้า)</li>
+          <li>Ethnography = "writing the culture" · implicit→explicit · ไม่เหมาะเรื่องการเมือง + 2 กรณี (ATC alarm / Stock exchange peripheral monitoring)</li>
+          <li>Interview: จุดมุ่งหมาย 3 · ขั้น 4 · ความผิดพลาด 5 (ถาม direct เร็วไป / ทีละคน / assume stated needs / อวดเก่ง…)</li>
+          <li>Brainstorming: Storm (จำนวน, wild, ห้ามวิจารณ์) + Calm · scribe ห้ามเป็น moderator · 90-120 นาที · วิธ้ vote 2 แบบ</li>
+          <li>JAD: IBM 1970s · 4 tenets · 6 P's · 6 roles (IS reps มาให้ข้อมูล ไม่ใช่ตัดสินใจ)</li>
+          <li>Prototype 4 ประเภท + fidelity + ความเสี่ยง (ห้ามเอา throwaway ไป production)</li>
+        </ol>
+      </div>
+
+      <div class="quiz-q">
+        <div class="q-text">🧪 ข้อใดเป็น "ข้อเสีย" ของ Focus groups &amp; Workshops?</div>
+        <div class="opts">
+          <button class="opt">ก. ต้องใช้เวลามากและได้ข้อมูลปริมาณมหาศาล</button>
+          <button class="opt" data-c="1">ข. คนพูดเด่น (dominant characters) อาจครองการสนทนา</button>
+          <button class="opt">ค. ได้ข้อมูลเชิงปริมาณเท่านั้น ไม่เห็นความขัดแย้ง</button>
+          <button class="opt">ง. ผู้ตอบอาจไม่ตอบแบบตรงไปตรงมาทำให้ response rate ต่ำ</button>
+        </div>
+        <div class="explain">💡 ก = naturalistic observation · ง = questionnaires · ค ผิดเพราะ workshops เห็น consensus+conflict ได้เลย (นั่นคือจุดแข็ง)</div>
+      </div>
+
+      <div id="doneWrap" style="margin-top:30px;">
+        <button id="doneBtn" style="font-family:inherit;font-size:15px;font-weight:700;padding:10px 22px;border-radius:12px;border:2px solid #16a34a;background:#fff;color:#14713c;cursor:pointer;">☑ ทำเครื่องหมายว่าอ่านแล้ว</button>
+      </div>
+      <div class="pager" id="pager"></div>
+    </main>
+  </div>
+</div>
+<script src="assets/app.js"></script>
+<script src="assets/tts.js"></script>
+</body>
+</html>

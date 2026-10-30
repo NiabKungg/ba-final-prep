@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<title>บทที่ 19 — Hedgehog Concept & Requirement Continuum | BA Final Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%232456d6%27/%3E%3Ctext x=%2750%27 y=%2770%27 font-size=%2752%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27sans-serif%27 font-weight=%27bold%27%3EBA%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="topbar">
+      <button class="burger" id="burger" aria-label="เปิดเมนู">☰</button>
+      <div class="crumb" id="crumb"></div>
+      <div class="spacer"></div>
+      <a class="home-link" href="index.html">หน้าแรก</a>
+    </header>
+    <main class="content">
+
+      <h1 class="hero">บทที่ 19 · The Hedgehog Concept & Requirement Continuum</h1>
+      <p class="lead">ปิดท้ายด้วยปรัชญาของคนทำ requirements: เจตจำนงแบบเฮดจ์ฮอก (อย่าเป็นจิ้งจอก!) และวงจร Requirements ที่หมุนวนต่อเนื่อง (ควิซ 11 ข้อ 2-4)</p>
+
+      <h2 id="s1">1. The Hedgehog and the Fox — คุณเป็นสัตว์แบบไหน?</h2>
+      <div class="box def">
+        <div class="box-title">📖 ที่มา (Isaiah Berlin, จากนิทานกรีกโบราณ)</div>
+        <p><em>"The fox knows many things, but the hedgehog knows one big thing."</em> — <strong>จิ้งจอก</strong>รู้เรื่องมากมายแต่กระจัดกระจาย · <strong>เฮดจ์ฮอก</strong>รู้ "หลักการใหญ่หนึ่งเดียว" ที่ใช้ทุกอย่าง</p>
+        <p><strong>Jim Collins:</strong> "ผู้นำที่พาจากดีสู่ยอดเยี่ยม (good-to-great) ล้วนเป็น hedgehog — พวกเขารู้วิธี<strong>ทำให้โลกที่ซับซ้อนง่ายลงเป็นแนวคิดจัดระเบียบหนึ่งเดียว</strong> — หลักการพื้นฐานที่<strong>รวมศูนย์ จัดระเบียบ และชี้นำการตัดสินใจทั้งหมด</strong>"</p>
+      </div>
+
+      <div class="box analogy">
+        <div class="box-title">💭 ในบริบท BA</div>
+        <p>❌ จิ้งจอก-style: BA ที่ไล่เรียนเรื่องเทคนิคกระจัดกระจาย รู้มั่วไปหมดแต่ไม่มีหลักยึด · ✅ Hedgehog-style: มี "<strong>เข็มทิศเดียว</strong>" คือ <strong>Business Need</strong> — ทุกคำถาม ทุกการตัดสินใจ อ้างกลับไปที่ความต้องการทางธุรกิจเสมอ</p>
+      </div>
+
+      <h3>BA Hedgehog — วงกลมความสำเร็จ 3 ด้าน</h3>
+      <figure class="diagram">
+        <svg viewBox="0 0 560 340" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <g text-anchor="middle" font-size="12">
+            <circle cx="280" cy="60" r="74" fill="#e8eeff" stroke="#2456d6" stroke-width="2.5"/>
+            <text x="280" y="50" font-weight="800" fill="#1a3fa0">BA Education,</text>
+            <text x="280" y="68" fill="#1a3fa0">Knowledge and</text>
+            <text x="280" y="86" fill="#1a3fa0">execution</text>
+            <circle cx="140" cy="240" r="74" fill="#fff8e9" stroke="#f59e0b" stroke-width="2.5"/>
+            <text x="140" y="225" font-weight="800" fill="#a16207">Requirement</text>
+            <text x="140" y="243" fill="#a16207">Development, testing</text>
+            <text x="140" y="261" fill="#a16207">and implementation</text>
+            <circle cx="420" cy="240" r="74" fill="#e2f7f4" stroke="#0d9488" stroke-width="2.5"/>
+            <text x="420" y="225" font-weight="800" fill="#0b7a70">Process</text>
+            <text x="420" y="243" fill="#0b7a70">Development, Rigor</text>
+            <text x="420" y="261" fill="#0b7a70">and execution</text>
+            <text x="280" y="180" font-size="15" font-weight="800" fill="#dc2626">SUCCESS</text>
+            <text x="280" y="200" font-size="12" fill="#556">→ Good Product</text>
+          </g>
+          <text x="280" y="332" text-anchor="middle" font-size="12" fill="#556">สมดุล 3 วง: ความรู้+การลงมือของ BA · พัฒนา-ทดสอบ-ใช้งาน requirements · วินัยกระบวนการ = ผลิตภัณฑ์ที่ดี</text>
+        </svg>
+        <figcaption>ภาพ 19.1 — BA Hedgehog: ความสมดุลของ 3 ด้านนำสู่ Success / Good Product</figcaption>
+      </figure>
+
+      <h3>Syllogism — ห่วงโซ่เหตุผลของ Hedgehog (ท่อง!)</h3>
+      <div class="box exam">
+        <div class="box-title">🎯 จำลำดับนี้ (ควิซถามตรง ๆ)</div>
+        <p>ต้องการ<strong>การตัดสินใจที่ดี</strong> → ต้องถาม<strong>คำถามที่ดี/ตรงประเด็น</strong> → คำถามจะตรงประเด็น ก็ต่อเมื่อรู้<strong>วัตถุประสงค์</strong>ว่าถามไปทำไม → เหตุที่มีวัตถุประสงค์ คือมี<strong>Business Need ที่ต้องบรรลุ</strong> → <strong>"ดังนั้น Business Need คืออะไร?"</strong></p>
+      </div>
+
+      <h2 id="s2">2. Requirement Continuum — วงจร requirements ที่หมุนไม่หยุด</h2>
+      <figure class="diagram">
+        <svg viewBox="0 0 740 380" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <defs><marker id="a191" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#556"/></marker></defs>
+          <!-- cycle -->
+          <g text-anchor="middle" font-size="12">
+            <rect x="20" y="150" width="180" height="70" rx="14" fill="#e8eeff" stroke="#2456d6" stroke-width="2"/>
+            <text x="110" y="178" font-weight="800" fill="#1a3fa0">Functional</text>
+            <text x="110" y="196" fill="#1a3fa0">Decomposition</text>
+            <text x="110" y="211" font-size="10" fill="#888">Capability → Feature</text>
+            <rect x="270" y="150" width="200" height="70" rx="14" fill="#fff8e9" stroke="#f59e0b" stroke-width="2"/>
+            <text x="370" y="172" font-weight="800" fill="#a16207">Feature → User Stories</text>
+            <text x="370" y="192" fill="#a16207" font-size="11">แต่ละ story มี Acceptance Criteria</text>
+            <text x="370" y="209" fill="#a16207" font-size="10.5">= Guardrails ของความ "สมบูรณ์"</text>
+            <rect x="540" y="150" width="185" height="70" rx="14" fill="#e2f7f4" stroke="#0d9488" stroke-width="2"/>
+            <text x="632" y="172" font-weight="800" fill="#0b7a70">Delivery Team</text>
+            <text x="632" y="190" font-size="11" fill="#0b7a70">พัฒนา · QA ตรวจ+ทดสอบ</text>
+            <text x="632" y="207" font-size="10.5" fill="#0b7a70">บน Prototype environment</text>
+          </g>
+          <g stroke="#556" stroke-width="2.5" marker-end="url(#a191)">
+            <line x1="200" y1="185" x2="266" y2="185"/>
+            <line x1="470" y1="185" x2="536" y2="185"/>
+            <path d="M 632 220 C 632 320, 110 320, 110 224" fill="none"/>
+          </g>
+          <text x="370" y="300" text-anchor="middle" font-size="12" fill="#556">จบ sprint → สร้าง features ใหม่ → แตก user stories ใหม่ → วนต่อ = <tspan font-weight="800">"Continuum"</tspan></text>
+          <text x="370" y="330" text-anchor="middle" font-size="12" fill="#888">ใช้ได้ทั้ง Agile และ Waterfall · ให้ความสม่ำเสมอ (consistency) ทุกครั้งที่สร้างชุด requirements</text>
+          <!-- roles note -->
+          <rect x="20" y="30" width="700" height="84" rx="12" fill="#fafcff" stroke="#8896b5" stroke-width="1.5"/>
+          <text x="370" y="56" text-anchor="middle" font-size="12" fill="#334" font-weight="800">บทบาทในวงจร: แทรก Solution Architect · System Analyst · Implementation Team (หรือคำ Waterfall)</text>
+          <text x="370" y="78" text-anchor="middle" font-size="11.5" fill="#556">QA = ตรวจ (verify) + ทดสอบกระบวนการ — ไม่ใช่รอทดสอบตอน Production แล้ว</text>
+          <text x="370" y="98" text-anchor="middle" font-size="11.5" fill="#556">Functional Review / Exploratory Testing = หา Errors + Impact issues ก่อนเป็นโค้ดจริง</text>
+        </svg>
+        <figcaption>ภาพ 19.2 — Requirement Continuum: Functional Decomposition → User Stories (+Acceptance Criteria) → Delivery/QA → วนกลับ</figcaption>
+      </figure>
+
+      <h3>Key Points ของ Continuum (จากเอกสาร — ออกสอบ)</h3>
+      <ol>
+        <li>เป็น life cycle การพัฒนา requirements ที่ใช้ได้ทั้ง <strong>Agile และ Waterfall</strong></li>
+        <li>เริ่มจาก <strong>Functional Decomposition</strong> ของระบบ/capability ลงมาถึง<strong>ระดับ Feature</strong></li>
+        <li>Features ถูกขยายเป็น <strong>User Stories</strong> ที่มี <strong>Acceptance Criteria</strong> = guardrails บอกว่าอะไรคือ "สมบูรณ์และสำเร็จ"</li>
+        <li><strong>QA validate + test บน prototype environment</strong> ก่อน/ควบคู่การพัฒนา → แล้ว delivery team จึง develop · timeframe จบ sprint</li>
+        <li>แต่ละ sprint นิยามด้วย user stories → จบ sprint สร้าง feature ใหม่ → <strong>วงจรต่อเนื่องจนโครงการเสร็จ</strong> (❌ ไม่ใช่เส้นตรงทางเดียวที่ห้ามย้อน!)</li>
+      </ol>
+
+      <h2 id="s3">3. Functional Decomposition — โครงสร้างลำดับชั้น</h2>
+      <figure class="diagram">
+        <svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <g text-anchor="middle" font-size="12">
+            <rect x="270" y="16" width="160" height="44" rx="10" fill="#16256b"/>
+            <text x="350" y="42" fill="#fff" font-weight="800">CAPABILITY</text>
+            <g>
+              <rect x="60" y="100" width="150" height="40" rx="9" fill="#e8eeff" stroke="#2456d6" stroke-width="2"/><text x="135" y="124" fill="#1a3fa0" font-weight="700">Feature 1</text>
+              <rect x="275" y="100" width="150" height="40" rx="9" fill="#e8eeff" stroke="#2456d6" stroke-width="2"/><text x="350" y="124" fill="#1a3fa0" font-weight="700">Feature 2</text>
+              <rect x="490" y="100" width="150" height="40" rx="9" fill="#e8eeff" stroke="#2456d6" stroke-width="2"/><text x="565" y="124" fill="#1a3fa0" font-weight="700">Feature 3</text>
+            </g>
+            <g>
+              <rect x="30" y="185" width="105" height="36" rx="8" fill="#fff" stroke="#8896b5"/><text x="82" y="207">Function</text>
+              <rect x="145" y="185" width="105" height="36" rx="8" fill="#fff" stroke="#8896b5"/><text x="197" y="207">Function</text>
+              <rect x="245" y="185" width="105" height="36" rx="8" fill="#fff" stroke="#8896b5"/><text x="297" y="207">Function</text>
+              <rect x="360" y="185" width="105" height="36" rx="8" fill="#fff" stroke="#8896b5"/><text x="412" y="207">Function</text>
+              <rect x="460" y="185" width="105" height="36" rx="8" fill="#fff" stroke="#8896b5"/><text x="512" y="207">Function</text>
+              <rect x="575" y="185" width="105" height="36" rx="8" fill="#fff" stroke="#8896b5"/><text x="627" y="207">Function</text>
+            </g>
+          </g>
+          <g stroke="#8896b5" stroke-width="1.8">
+            <line x1="350" y1="60" x2="135" y2="98"/><line x1="350" y1="60" x2="350" y2="98"/><line x1="350" y1="60" x2="565" y2="98"/>
+            <line x1="120" y1="140" x2="82" y2="183"/><line x1="150" y1="140" x2="197" y2="183"/>
+            <line x1="330" y1="140" x2="297" y2="183"/><line x1="370" y1="140" x2="412" y2="183"/>
+            <line x1="550" y1="140" x2="512" y2="183"/><line x1="580" y1="140" x2="627" y2="183"/>
+          </g>
+          <text x="350" y="248" text-anchor="middle" font-size="12" fill="#888">ระดับล่างสุด = Function — "detail, but not data" (ยังไม่ใส่ data values/Data type ของฐานข้อมูล!)</text>
+        </svg>
+        <figcaption>ภาพ 19.3 — ลำดับชั้น: Capability → Features (ต่อยอดเป็น User Stories + Acceptance Criteria) → Functions</figcaption>
+      </figure>
+      <div class="box exam">
+        <div class="box-title">🎯 ควิซตรง ๆ เรื่อง Decomposition</div>
+        <ul>
+          <li>✅ เริ่มจาก <strong>Capability (สูงสุด)</strong> → แตกลงมาเป็น <strong>Feature level</strong></li>
+          <li>✅ Feature → <strong>User Stories + Acceptance Criteria</strong></li>
+          <li>❌ ระดับล่างสุดใส่ data values/Data type ทันที (ผิด — "detail, but not data")</li>
+          <li>❌ ใช้ได้แค่ Waterfall (ผิด — ใช้ได้ทั้ง Agile) · ❌ ละเว้น traceability (ผิด — ต้องมี)</li>
+        </ul>
+      </div>
+
+      <h2 id="s4">สรุปท้ายบท</h2>
+      <div class="box def">
+        <div class="box-title">✅ ต้องจำให้ได้</div>
+        <ol>
+          <li>Hedgehog = ทำโลกซับซ้อนให้ง่ายเป็น<strong>หลักการเดียว</strong>ที่ชี้นำทุกการตัดสินใจ (BA: ยึด Business Need) · ❌ จิ้งจอกรู้กระจัดกระจาย</li>
+          <li>BA Hedgehog = สมดุล ความรู้+ลงมือของ BA · พัฒนา/ทดสอบ/ใช้ requirements · วินัยกระบวนการ → Good Product</li>
+          <li>คำถามดีมาจากวัตถุประสงค์ มาจาก Business Need</li>
+          <li>Continuum: FD(Capability→Feature) → User Stories(+AC เป็น guardrails) → Delivery+QA (prototype) → วนซ้ำ — Agile+Waterfall ใช้ได้</li>
+          <li>Decomposition ล่างสุด = Function (ไม่ใส่ data type)</li>
+        </ol>
+      </div>
+
+      <div class="quiz-q">
+        <div class="q-text">🧪 (ควิซจริง) ข้อใดอธิบาย "แก่นของ Hedgehog Concept" ได้ถูกต้อง?</div>
+        <div class="opts">
+          <button class="opt" data-c="1">ก. ทำให้โลกซับซ้อนเรียบง่ายลงสู่หลักการเดียวที่ชี้นำและรวมศูนย์การตัดสินใจทั้งหมด</button>
+          <button class="opt">ข. BA ต้องรู้เรื่องเทคนิคทุกเรื่องแบบกระจัดกระจาย</button>
+          <button class="opt">ค. Requirement Continuum เป็นเส้นตรงทางเดียว ห้ามย้อนทำซ้ำ</button>
+          <button class="opt">ง. ตัดสินใจจากความชอบส่วนตัวของนักวิเคราะห์</button>
+        </div>
+        <div class="explain">💡 ข คือนิสัย "จิ้งจอก" · ค ผิด (เป็นวงจรวนซ้ำ — continuum) · ง ผิดทุกหลักการ</div>
+      </div>
+
+      <div id="doneWrap" style="margin-top:30px;">
+        <button id="doneBtn" style="font-family:inherit;font-size:15px;font-weight:700;padding:10px 22px;border-radius:12px;border:2px solid #16a34a;background:#fff;color:#14713c;cursor:pointer;">☑ ทำเครื่องหมายว่าอ่านแล้ว</button>
+      </div>
+      <div class="pager" id="pager"></div>
+    </main>
+  </div>
+</div>
+<script src="assets/app.js"></script>
+<script src="assets/tts.js"></script>
+</body>
+</html>

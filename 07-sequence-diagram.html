@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<title>บทที่ 7 — Sequence Diagram | BA Final Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%232456d6%27/%3E%3Ctext x=%2750%27 y=%2770%27 font-size=%2752%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27sans-serif%27 font-weight=%27bold%27%3EBA%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="topbar">
+      <button class="burger" id="burger" aria-label="เปิดเมนู">☰</button>
+      <div class="crumb" id="crumb"></div>
+      <div class="spacer"></div>
+      <a class="home-link" href="index.html">หน้าแรก</a>
+    </header>
+    <main class="content">
+
+      <h1 class="hero">บทที่ 7 · Sequence Diagram (แผนภาพลำดับ)</h1>
+      <p class="lead">BPMN บอกว่า "ธุรกิจทำงานอย่างไร" ส่วน Sequence Diagram บอกว่า <strong>"ระบบกับผู้ใช้คุยกันอย่างไร ตามลำดับเวลา"</strong> — เป็นสะพานจาก Use Case สู่โค้ด (อยู่ในชุด Requirements/Analysis Model)</p>
+
+      <h2 id="s1">1. Sequence Diagram คืออะไร ใช้เมื่อไร</h2>
+      <div class="box def">
+        <div class="box-title">📖 นิยาม</div>
+        <p>Sequence diagram เป็น <strong>interaction diagram</strong> ชนิดหนึ่ง — อธิบายว่า <strong>กลุ่มของ objects ทำงานร่วมกันอย่างไร และในลำดับใด</strong> (how—and in what order) บางครั้งเรียก <strong>event diagrams หรือ event scenarios</strong></p>
+        <p><strong>ใช้ทำอะไร:</strong> นักพัฒนาและนักธุรกิจใช้เข้าใจ requirements ของระบบใหม่ หรือบันทึกกระบวนการที่มีอยู่ · แสดงปฏิสัมพันธ์ของ objects ใน scenario หนึ่ง ๆ ของ Use Case · วางแผน/ทำความเข้าใจฟังก์ชันของระบบเชิงลึก</p>
+      </div>
+
+      <div class="box analogy">
+        <div class="box-title">💭 เปรียบเทียบให้เห็นภาพ</div>
+        <p>ลองนึกถึง <strong>บทสนทนาแชท</strong>: แต่ละคน (object) มี "คอลัมน์" ของตัวเอง เวลาไหลจาก<strong>บนลงล่าง</strong> และข้อความ (message) คือลูกศรที่ยิงไปหากัน — อ่าาศจากบนลงล่างก็รู้ลำดับเหตุการณ์ทันที</p>
+      </div>
+
+      <h3>ตำแหน่งในกระบวนการพัฒนา (จากเอกสาร)</h3>
+      <ul>
+        <li><strong>Requirements Model:</strong> Requirements Elicitation → Functional/Nonfunctional Requirements → <strong>Use Case Diagrams / Sequence Diagrams (ระดับระบบ)</strong></li>
+        <li><strong>Object-Oriented Analysis:</strong> Static (Class Diagrams) · Dynamic (State Diagrams / Refined Sequence Diagrams — ระดับ object)</li>
+      </ul>
+
+      <h2 id="s2">2. องค์ประกอบพื้นฐาน</h2>
+      <figure class="diagram">
+        <svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <defs><marker id="a71" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2456d6"/></marker>
+          <marker id="a72" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker></defs>
+          <!-- actor -->
+          <circle cx="60" cy="40" r="12" fill="#fff4dc" stroke="#f59e0b" stroke-width="2.5"/>
+          <line x1="60" y1="52" x2="60" y2="82" stroke="#f59e0b" stroke-width="2.5"/>
+          <line x1="42" y1="62" x2="78" y2="62" stroke="#f59e0b" stroke-width="2.5"/>
+          <line x1="60" y1="82" x2="46" y2="102" stroke="#f59e0b" stroke-width="2.5"/>
+          <line x1="60" y1="82" x2="74" y2="102" stroke="#f59e0b" stroke-width="2.5"/>
+          <text x="60" y="122" text-anchor="middle" font-size="12" font-weight="800" fill="#a16207">Actor (User)</text>
+          <text x="60" y="138" text-anchor="middle" font-size="10" fill="#888">อยู่นอกระบบเสมอ</text>
+          <!-- objects -->
+          <rect x="185" y="28" width="110" height="30" rx="6" fill="#e8eeff" stroke="#2456d6" stroke-width="2"/>
+          <text x="240" y="48" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a3fa0">:System</text>
+          <rect x="395" y="28" width="110" height="30" rx="6" fill="#e8eeff" stroke="#2456d6" stroke-width="2"/>
+          <text x="450" y="48" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a3fa0">:Database</text>
+          <rect x="585" y="28" width="110" height="30" rx="6" fill="#e8eeff" stroke="#2456d6" stroke-width="2"/>
+          <text x="640" y="48" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a3fa0">:Printer</text>
+          <!-- lifelines -->
+          <line x1="60" y1="60" x2="60" y2="330" stroke="#8896b5" stroke-width="1.5" stroke-dasharray="6 5"/>
+          <line x1="240" y1="58" x2="240" y2="330" stroke="#8896b5" stroke-width="1.5" stroke-dasharray="6 5"/>
+          <line x1="450" y1="58" x2="450" y2="330" stroke="#8896b5" stroke-width="1.5" stroke-dasharray="6 5"/>
+          <line x1="640" y1="58" x2="640" y2="330" stroke="#8896b5" stroke-width="1.5" stroke-dasharray="6 5"/>
+          <!-- activations -->
+          <rect x="234" y="90" width="12" height="150" fill="#cfe0ff" stroke="#2456d6" stroke-width="1"/>
+          <rect x="444" y="130" width="12" height="60" fill="#cfe0ff" stroke="#2456d6" stroke-width="1"/>
+          <rect x="634" y="230" width="12" height="40" fill="#cfe0ff" stroke="#2456d6" stroke-width="1"/>
+          <!-- messages -->
+          <line x1="72" y1="105" x2="230" y2="105" stroke="#2456d6" stroke-width="2.5" marker-end="url(#a71)"/>
+          <text x="150" y="98" text-anchor="middle" font-size="11" fill="#1a3fa0">1. insertCard() — Request</text>
+          <line x1="246" y1="140" x2="438" y2="140" stroke="#2456d6" stroke-width="2.5" marker-end="url(#a71)"/>
+          <text x="342" y="133" text-anchor="middle" font-size="11" fill="#1a3fa0">2. validateCard()</text>
+          <line x1="438" y1="172" x2="252" y2="172" stroke="#dc2626" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#a72)"/>
+          <text x="342" y="165" text-anchor="middle" font-size="11" fill="#b91c1c">3. return isValid — Reply (เส้นประ)</text>
+          <line x1="252" y1="212" x2="60" y2="212" stroke="#dc2626" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#a72)"/>
+          <text x="156" y="205" text-anchor="middle" font-size="11" fill="#b91c1c">4. askPIN() — ตอบกลับหาผู้ใช้</text>
+          <line x1="252" y1="250" x2="628" y2="250" stroke="#2456d6" stroke-width="2.5" marker-end="url(#a71)"/>
+          <text x="440" y="243" text-anchor="middle" font-size="11" fill="#1a3fa0">5. printSlip() — ไปหา object อื่น</text>
+          <!-- annotations -->
+          <text x="350" y="310" text-anchor="middle" font-size="12" fill="#556">เวลาไหลจาก <tspan font-weight="800">บน → ล่าง</tspan> · Objects เรียงซ้าย → ขวาตามความสำคัญ/ลำดับที่เข้ามา</text>
+          <text x="350" y="332" text-anchor="middle" font-size="12" fill="#888">Activation box (แท่งสีฟ้า) = ช่วงที่ object นั้น "กำลังทำงาน" — เห็นได้ว่าตัวไหน active มาก/น้อย</text>
+        </svg>
+        <figcaption>ภาพ 7.1 — องค์ประกอบ Sequence Diagram: Actor · Objects · Lifelines · Messages (Request เส้นทึบ / Reply เส้นประ) · Activation box</figcaption>
+      </figure>
+
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>องค์ประกอบ</th><th>คือ</th><th>จุดสังเกต</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Actor</strong></td><td>ผู้ใช้/ระบบภายนอกที่เริ่มปฏิสัมพันธ์</td><td><strong>อยู่นอกขอบเขตระบบ (outside the scope) เสมอ</strong></td></tr>
+          <tr><td><strong>Object</strong></td><td>ส่วนประกอบของระบบ (ถ้าเป็นโค้ด = Class)</td><td>วางเรียงซ้าย→ขวาตามลำดับที่เข้ามาปฏิบัติการ</td></tr>
+          <tr><td><strong>Lifeline</strong></td><td>เส้นประแสดงการมีชีวิตของ actor/object ตามเวลา</td><td>เดินลงล่าง = เวลาผ่านไป</td></tr>
+          <tr><td><strong>Message</strong></td><td>ข้อมูลที่ส่งระหว่าง object (ลูกศรแนวนอน)</td><td><strong>Request</strong> (เส้นทึบ, เปิดเรื่องใหม่) vs <strong>Return/Reply</strong> (เส้นประ, ตอบกลับ) — reply <strong>ไม่จำเป็น</strong>ต้องวิ่งขวา→ซ้ายเสมอ</td></tr>
+          <tr><td><strong>Activation box</strong></td><td>แท่งบน lifeline แสดงช่วงที่ object ทำงานอยู่</td><td>เห็นว่า object ไหนยุ่ง/ว่าง (เช่น Bank Account แทบไม่ active)</td></tr>
+        </tbody>
+      </table></div>
+
+      <h2 id="s3">3. ชนิดของ Message (แบบละเอียด)</h2>
+      <ul>
+        <li><strong>Self message</strong> — object เรียกตัวเอง</li>
+        <li><strong>Recursive message</strong> — เรียกตัวเองโดยชี้ไปที่ activation ที่ซ้อนอยู่ด้านบน</li>
+        <li><strong>Create message</strong> — สร้าง object ใหม่ (lifeline เริ่มต้นที่จุดนั้น)</li>
+        <li><strong>Destroy message</strong> — ทำลาย lifeline ปลายทาง (มักมี X ปิดท้าย)</li>
+        <li><strong>Duration message</strong> — แสดงระยะเวลาระหว่างจุดเวลา 2 จุดของการเรียก</li>
+        <li><strong>Note</strong> — คอมเมนต์/หมายเหตุ ไม่มีผลเชิงความหมาย</li>
+      </ul>
+
+      <h2 id="s4">4. Sequence Fragments (UML 2.0) — กล่องควบคุมการไหล</h2>
+      <p>Fragment คือกล่อง (combined fragment) ที่ครอบส่วนของแผนภาพ มี <strong>operator มุมซ้ายบน</strong> บอกชนิด: <code>ref, assert, loop, break, alt, opt, neg</code></p>
+      <div class="grid c3">
+        <div class="card"><h4>alt — ทางเลือก</h4><p>เลือกหนึ่งในหลายทาง (mutually exclusive) เช่น <strong>บัตรถูก/บัตรไม่ถูก</strong> — แบ่งด้วยเส้นประ (partition)</p></div>
+        <div class="card"><h4>opt — ทางเลือกเดียว</h4><p>ทำหรือไม่ทำ กรณีเดียว (เหมือน alt ที่มีทางเดียว) เช่น "ถ้าเงินไม่พอ → แจ้งเตือน"</p></div>
+        <div class="card"><h4>loop — วนซ้ำ</h4><p>ทำซ้ำตามเงื่อนไข เช่น loop [พินผิด &lt; 3 ครั้ง]</p></div>
+      </div>
+      <figure class="diagram">
+        <svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <defs><marker id="a73" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#2456d6"/></marker></defs>
+          <!-- actor & objects -->
+          <circle cx="60" cy="36" r="10" fill="#fff4dc" stroke="#f59e0b" stroke-width="2.5"/>
+          <line x1="60" y1="46" x2="60" y2="70" stroke="#f59e0b" stroke-width="2"/>
+          <line x1="47" y1="55" x2="73" y2="55" stroke="#f59e0b" stroke-width="2"/>
+          <text x="60" y="90" text-anchor="middle" font-size="11" font-weight="700" fill="#a16207">Customer</text>
+          <rect x="180" y="24" width="80" height="28" rx="6" fill="#e8eeff" stroke="#2456d6" stroke-width="2"/><text x="220" y="43" text-anchor="middle" font-size="11" font-weight="700" fill="#1a3fa0">:ATM</text>
+          <rect x="420" y="24" width="100" height="28" rx="6" fill="#e8eeff" stroke="#2456d6" stroke-width="2"/><text x="470" y="43" text-anchor="middle" font-size="11" font-weight="700" fill="#1a3fa0">:BankServer</text>
+          <line x1="60" y1="56" x2="60" y2="280" stroke="#8896b5" stroke-width="1.5" stroke-dasharray="6 5"/>
+          <line x1="220" y1="52" x2="220" y2="280" stroke="#8896b5" stroke-width="1.5" stroke-dasharray="6 5"/>
+          <line x1="470" y1="52" x2="470" y2="280" stroke="#8896b5" stroke-width="1.5" stroke-dasharray="6 5"/>
+          <!-- alt fragment -->
+          <rect x="100" y="110" width="440" height="150" rx="8" fill="none" stroke="#7c3aed" stroke-width="2.5"/>
+          <rect x="100" y="110" width="42" height="24" fill="#7c3aed"/>
+          <text x="121" y="127" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">alt</text>
+          <text x="152" y="127" font-size="10.5" fill="#6d28d9">[บัตรถูกต้อง]</text>
+          <line x1="72" y1="150" x2="212" y2="150" stroke="#2456d6" stroke-width="2" marker-end="url(#a73)"/>
+          <text x="142" y="143" text-anchor="middle" font-size="10.5" fill="#1a3fa0">requestPIN()</text>
+          <line x1="470" y1="230" x2="230" y2="230" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="5 4"/>
+          <text x="152" y="224" font-size="10.5" fill="#6d28d9">[บัตรไม่ถูกต้อง]</text>
+          <line x1="72" y1="255" x2="212" y2="255" stroke="#2456d6" stroke-width="2" marker-end="url(#a73)"/>
+          <text x="142" y="248" text-anchor="middle" font-size="10.5" fill="#1a3fa0">ejectCard()</text>
+          <line x1="240" y1="185" x2="462" y2="185" stroke="#2456d6" stroke-width="2" marker-end="url(#a73)"/>
+          <text x="350" y="178" text-anchor="middle" font-size="10.5" fill="#1a3fa0">verifyPIN()</text>
+          <text x="340" y="292" text-anchor="middle" font-size="11.5" fill="#556">alt fragment แบ่ง 2 ช่วงด้วยเส้นประ: บัตรถูก → ขอ PIN | บัตรไม่ถูก → คายบัตร</text>
+        </svg>
+        <figcaption>ภาพ 7.2 — ตัวอย่าง Alternate Frame (alt): ทางเลือก "บัตรถูกต้อง / ไม่ถูกต้อง" ของเครื่อง ATM</figcaption>
+      </figure>
+
+      <h2 id="s5">5. ตัวอย่างเต็ม: ATM ถอนเงิน (สอนในเอกสารทีละขั้น)</h2>
+      <div class="box baseline">
+        <div class="box-title">📋 ลำดับเหตุการณ์ทั้งหมด (14 ขั้น)</div>
+        <ol>
+          <li>ลูกค้า<strong>ใส่บัตร</strong>เข้าเครื่อง ATM</li>
+          <li>ATM <strong>ตรวจบัตรกับ Bank Server</strong> ว่าบัตรใช้ได้ไหม</li>
+          <li>Server ตรวจแล้ว<strong>ตอบกลับ</strong> ATM</li>
+          <li>บัตรถูก → ATM <strong>ขอ PIN</strong> · บัตรไม่ถูก → <strong>คายบัตร</strong> (alt)</li>
+          <li>ลูกค้า<strong>กรอก PIN</strong> (message นี้เป็น <strong>Return</strong> เพราะตอบคำขอของ ATM)</li>
+          <li>ATM <strong>ถาม Server ว่า PIN ถูกไหม</strong> → Server ตอบ</li>
+          <li>PIN ถูก → ATM <strong>ถามจำนวนเงิน</strong> · ไม่ถูก → คายบัตร</li>
+          <li>ลูกค้า<strong>กรอกจำนวนเงิน</strong></li>
+          <li>ATM <strong>เริ่มธุรกรรม</strong>กับ Server</li>
+          <li>Server <strong>ถามบัญชี (Bank Account) ว่าเงินพอไหม</strong></li>
+          <li>เงินพอ → Server <strong>ตัดยอดและสั่ง ATM จ่ายเงิน</strong> · ไม่พอ → ธุรกรรมไม่สำเร็จ</li>
+          <li><strong>บัตรถูกระงับ หรือ ธุรกรรมถูกยกเลิก → คายบัตร</strong></li>
+        </ol>
+        <p><small>ข้อสังเกตจากเอกสาร: object "Bank Account" มี activation น้อยมาก (ถูกถามแค่ครั้งเดียว) — activation box ช่วยให้เห็นภาพนี้</small></p>
+      </div>
+
+      <h2 id="s6">6. ทำไมต้องวาด ทั้งที่ใกล้โค้ดมาก? (Model before code)</h2>
+      <ul>
+        <li>Sequence diagram ที่ดียัง<strong>อยู่เหนือระดับโค้ดจริง</strong>เล็กน้อย</li>
+        <li><strong>Language neutral</strong> — ไม่ผูกกับภาษาโปรแกรมใด</li>
+        <li><strong>คนไม่ใช่โปรแกรมเมอร์ก็วาดได้</strong> (นักธุรกิจ/BA)</li>
+        <li>ทำเป็นทีมง่ายกว่าเขียนโค้ด</li>
+        <li>ใช้ต่อได้กับ <strong>testing และ UX wireframing</strong></li>
+      </ul>
+
+      <div class="box exam">
+        <div class="box-title">🎯 จุดที่ออกสอบ (แนวถูก/ผิด + เลือกตอบ)</div>
+        <ul>
+          <li>เวลาใน sequence diagram ไหล<strong>บน→ล่าง</strong> (ไม่ใช่ซ้าย→ขวา)</li>
+          <li>Actor อยู่<strong>นอก</strong>ขอบเขตระบบเสมอ</li>
+          <li>Return/Reply = <strong>เส้นประ</strong> · Request = เส้นทึบ · Reply ไม่จำเป็นต้องวิ่งขวา→ซ้าย</li>
+          <li>Fragment operator ยอดฮิต: <strong>alt</strong> (ทางเลือก), <strong>opt</strong> (หนึ่งเงื่อนไข), <strong>loop</strong> (วนซ้ำ)</li>
+          <li>ถ้าวาดโค้ด: object = ชื่อ Class · message = method/function</li>
+        </ul>
+      </div>
+
+      <h2 id="s7">สรุปท้ายบท</h2>
+      <div class="box def">
+        <div class="box-title">✅ ต้องจำให้ได้จากบทนี้</div>
+        <ol>
+          <li>Sequence diagram = interaction diagram แสดงลำดับปฏิสัมพันธ์ object ตามเวลา (event diagrams/scenarios)</li>
+          <li>องค์ประกอบ: Actor (นอกระบบ) · Objects · Lifeline · Message (Request ทึบ / Reply ประ) · Activation box</li>
+          <li>Message ชนิดพิเศษ: self, recursive, create, destroy, duration + note</li>
+          <li>Fragments: ref, assert, loop, break, <strong>alt, opt</strong>, neg</li>
+          <li>ใช้จำลอง use case scenario → เป็นสะพานสู่การออกแบบ/ทดสอบ</li>
+        </ol>
+      </div>
+
+      <div class="quiz-q">
+        <div class="q-text">🧪 ต้องการแสดง "ถ้า PIN ผิดให้ลูกค้ากรอกใหม่ แต่ไม่เกิน 3 ครั้ง" ควรใช้ fragment ใด?</div>
+        <div class="opts">
+          <button class="opt">ก. opt</button>
+          <button class="opt" data-c="1">ข. loop</button>
+          <button class="opt">ค. ref</button>
+          <button class="opt">ง. assert</button>
+        </div>
+        <div class="explain">💡 "ทำซ้ำตามเงื่อนไข (ไม่เกิน 3 ครั้ง)" = loop · opt ใช้กรณีทำหรือไม่ทำก็ได้ 1 เงื่อนไข · ref = อ้างแผนภาพอื่น · assert = ยืนยันว่าต้องเป็นไปตามนี้</div>
+      </div>
+
+      <div id="doneWrap" style="margin-top:30px;">
+        <button id="doneBtn" style="font-family:inherit;font-size:15px;font-weight:700;padding:10px 22px;border-radius:12px;border:2px solid #16a34a;background:#fff;color:#14713c;cursor:pointer;">☑ ทำเครื่องหมายว่าอ่านแล้ว</button>
+      </div>
+      <div class="pager" id="pager"></div>
+    </main>
+  </div>
+</div>
+<script src="assets/app.js"></script>
+<script src="assets/tts.js"></script>
+</body>
+</html>

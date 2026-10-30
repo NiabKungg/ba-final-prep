@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<title>บทที่ 13 — Business Requirements & Vision-Scope | BA Final Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%232456d6%27/%3E%3Ctext x=%2750%27 y=%2770%27 font-size=%2752%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27sans-serif%27 font-weight=%27bold%27%3EBA%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="topbar">
+      <button class="burger" id="burger" aria-label="เปิดเมนู">☰</button>
+      <div class="crumb" id="crumb"></div>
+      <div class="spacer"></div>
+      <a class="home-link" href="index.html">หน้าแรก</a>
+    </header>
+    <main class="content">
+
+      <h1 class="hero">บทที่ 13 · Establishing the Business Requirements & Vision-Scope</h1>
+      <p class="lead">Business Requirements = ฐานของทุกอย่าง (⭐ ควิซ 8 ออกทั้งชุด) — Vision &amp; Scope Document, Context Diagram, Ecosystem Map, Feature Tree, Event List และการบริหาร Scope</p>
+
+      <h2 id="s1">1. Business Requirements คืออะไร</h2>
+      <div class="box def">
+        <div class="box-title">📖 นิยาม</div>
+        <p>"Business requirements" = ชุดข้อมูลที่รวมกันอธิบาย <strong>ความต้องการที่นำไปสู่โครงการอย่างน้อยหนึ่งโครงการ</strong> เพื่อส่งมอบทางออก และ<strong>ผลลัพธ์ทางธุรกิจที่ปรารถนา</strong></p>
+        <p><strong>ประกอบด้วย:</strong> <strong>Business opportunities + Business objectives + Success metrics + Vision statement</strong></p>
+        <p><strong>ข้อสำคัญ:</strong> ปัญหา BR ต้องคลี่คลายก่อน FR/NFR จะระบุได้เต็มที่ · ขอบเขตโครงการช่วยการพูดคุยเรื่องฟีเจอร์ · BR เป็นตัวอ้างอิงตัดสิน change request · <strong>แนะนำให้ติด objectives+vision+scope ไว้ในทุก elicitation session</strong> เพื่อตัดสินใจทันทีว่า requirement เข้า/ไม่เข้าขอบเขต</p>
+      </div>
+
+      <figure class="diagram">
+        <svg viewBox="0 0 700 250" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <g text-anchor="middle">
+            <rect x="230" y="14" width="240" height="52" rx="14" fill="#16256b"/>
+            <text x="350" y="45" font-size="15" font-weight="800" fill="#fff">BUSINESS REQUIREMENTS</text>
+            <g font-size="11.5">
+              <rect x="20" y="110" width="150" height="80" rx="12" fill="#e8eeff" stroke="#2456d6" stroke-width="2"/>
+              <text x="95" y="138" font-weight="800" fill="#1a3fa0">Business</text><text x="95" y="155" font-weight="800" fill="#1a3fa0">Opportunity</text><text x="95" y="175" fill="#556" font-size="10">โอกาส/ปัญหา</text>
+              <rect x="190" y="110" width="150" height="80" rx="12" fill="#e7f8ee" stroke="#16a34a" stroke-width="2"/>
+              <text x="265" y="138" font-weight="800" fill="#14713c">Business</text><text x="265" y="155" font-weight="800" fill="#14713c">Objectives</text><text x="265" y="175" fill="#556" font-size="10">เป้าวัดผลได้</text>
+              <rect x="360" y="110" width="150" height="80" rx="12" fill="#fff8e9" stroke="#f59e0b" stroke-width="2"/>
+              <text x="435" y="138" font-weight="800" fill="#a16207">Success</text><text x="435" y="155" font-weight="800" fill="#a16207">Metrics</text><text x="435" y="175" fill="#556" font-size="10">ตัวชี้วัดความสำเร็จ</text>
+              <rect x="530" y="110" width="150" height="80" rx="12" fill="#f1e9fe" stroke="#7c3aed" stroke-width="2"/>
+              <text x="605" y="138" font-weight="800" fill="#6d28d9">Vision</text><text x="605" y="155" font-weight="800" fill="#6d28d9">Statement</text><text x="605" y="175" fill="#556" font-size="10">วิสัยทัศน์ผลิตภัณฑ์</text>
+            </g>
+            <line x1="350" y1="66" x2="95" y2="106" stroke="#8896b5" stroke-width="1.5"/>
+            <line x1="350" y1="66" x2="265" y2="106" stroke="#8896b5" stroke-width="1.5"/>
+            <line x1="350" y1="66" x2="435" y2="106" stroke="#8896b5" stroke-width="1.5"/>
+            <line x1="350" y1="66" x2="605" y2="106" stroke="#8896b5" stroke-width="1.5"/>
+          </g>
+          <text x="350" y="225" text-anchor="middle" font-size="12" fill="#888">รวมทั้ง 4 ส่วนนี้ไว้ใน "Vision and Scope Document" (= Project Charter = Business Case)</text>
+        </svg>
+        <figcaption>ภาพ 13.1 — องค์ประกอบ 4 ส่วนของ Business Requirements</figcaption>
+      </figure>
+
+      <h3>Business Benefits — ประโยชน์ที่แท้จริง</h3>
+      <ul>
+        <li>ตั้งเป้าแบบ<strong>วัดได้</strong> (business objectives) แล้วกำหนด <strong>success metrics</strong> ให้วัดได้ว่ากำลังไปถูกทางไหม — <strong>ห้ามเริ่มโครงการโดยไม่เข้าใจคุณค่า</strong>ที่จะเพิ่ม</li>
+        <li>แหล่ง BR: funding sponsors, executives, marketing managers, product visionaries</li>
+        <li>⚠️ "แค่รวม 2 ระบบเป็นหนึ่ง"<strong>ไม่ใช่</strong> business objective ที่แท้ (ลูกค้าไม่สนว่าเบื้องหลังมีกี่ระบบ — เขาสน revenue/cost) การ merge อาจเป็นส่วนหนึ่งของทางออกเท่านั้น</li>
+        <li>โครงการ compliance (กฎระเบียบ) ก็มี objectives ชัดเจน — มักเป็นแบบ <strong>risk avoidance</strong> (กันถูกฟ้อง/เลิกกิจการ)</li>
+      </ul>
+
+      <h2 id="s2">2. Product Vision vs Project Scope (ออกสอบแน่!)</h2>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th></th><th>Product Vision 🧭</th><th>Project Scope 🎯</th></tr></thead>
+        <tbody>
+          <tr><td><strong>อธิบาย</strong></td><td>ผลิตภัณฑ์สุดท้ายที่จะบรรลุ business objectives — "ผลิตภัณฑ์นี้เกี่ยวกับอะไร และจะกลายเป็นอะไรในท้ายที่สุด"</td><td><strong>ส่วนใดของ vision</strong> ที่โครงการ/iteration ปัจจุบันจะทำ</td></tr>
+          <tr><td><strong>ขอบเขต</strong></td><td>ทั้งผลิตภัณฑ์</td><td>เฉพาะโครงการ/รอบนี้ — ขีดเส้น <strong>in-scope / out-of-scope</strong></td></tr>
+          <tr><td><strong>ความเปลี่ยนแปลง</strong></td><td>เปลี่ยน<strong>ช้า</strong> ตามกลยุทธ์</td><td><strong>ยืดหยุ่น/พลวัต</strong>กว่า — ปรับได้ตาม schedule, budget, resources, quality</td></tr>
+          <tr><td><strong>บทบาท</strong></td><td>ทำให้ทุกคนรู้ว่า "ไปไหน" ในระยะยาว</td><td>ทำให้ทุกคนคุยเรื่อง "เดียวกัน" ในโครงการนี้</td></tr>
+        </tbody>
+      </table></div>
+      <div class="box warn">
+        <div class="box-title">⚠️ ข้อผิดที่ออกสอบ (T/F)</div>
+        <p>❌ Vision ต้องเขียนใหม่ทุก sprint · ❌ Vision = Scope คำเดียวกัน · ✅ Scope เปลี่ยนง่ายกว่า Vision · ✅ Scope แบ่ง in/out ชัดเจน</p>
+      </div>
+
+      <h3>Conflicting Business Requirements</h3>
+      <p>ตัวอย่างจากเอกสาร (ตู้ล็อกเกอร์): ผู้จัดการร้านสะดวกซื้ออยากได้ตู้<strong>เล็ก ไม่ต้องดูแล</strong> · บริษัทผู้ผลิตอยากได้ตู้<strong>ใหญ่+จอโฆษณา</strong> (รายได้ค่าเช่าพื้นที่) · ลูกค้าอยากรับของ<strong>ภายใน 10 วินาที</strong> → สิ่งที่ต้องทำ: <strong>ผู้มีอำนาจตัดสินใจปรับแนวทางร่วมกันเพื่อมอบคุณค่าสูงสุดแก่ stakeholder หลัก + โฟกัสที่วัตถุประสงค์ธุรกิจจริง ไม่ใช่คุณลักษณะผิวเผิน</strong> (ไม่ใช่: รวมทุกฟีเจอร์โดยไม่ประนีประนอม / โยนให้ทีมพัฒนาตัดสินเอง)</p>
+
+      <h2 id="s3">3. Vision and Scope Document</h2>
+      <ul>
+        <li>รวม business requirements เป็น deliverable เดียว — <strong>= Project Charter = Business Case</strong> · บริษัทซอฟต์แวร์เชิงพาณิชย์มังทำ MRD (market requirements document) เพิ่ม</li>
+        <li><strong>เจ้าของเอกสาร = executive sponsor / funding authority</strong> · BA ทำงานร่วมเพื่อเขียนมัน · input มาจากผู้รู้ว่า "ทำไมทำโครงการนี้" (ผู้บริหารอาวุโส, product visionary, PM, SME, marketing)</li>
+        <li>กำหนด scope ระดับสูงเท่านั้น — รายละเอียดอยู่ที่ release baseline · โครงการใหม่ใหญ่ควรมีทั้ง Vision &amp; Scope doc <strong>และ</strong> SRS</li>
+      </ul>
+      <div class="box exam">
+        <div class="box-title">🎯 Best Practices ของการกรอกเทมเพลต (ควิซตรง ๆ!)</div>
+        <ul>
+          <li>กรอก<strong>ไม่เรียงบนลงล่าง</strong>ตายตัว (Not top to bottom)</li>
+          <li>ช่องไหนยังไม่รู้ → <strong>เว้นว่าง/ระบุชัดว่าเป็นช่องว่างความรู้</strong> — <strong>ห้ามเดาสมมติฐานเอง</strong> (เขียนอย่าง "No risks have been identified" ได้)</li>
+          <li><strong>ลบหัวข้อที่ไม่ใช้ทิ้ง</strong> อย่าปล่อยหัวข้อว่าง ๆ ให้สับสน</li>
+          <li>❌ ห้ามใส่ data dictionary/UI wireframes ในหมวด 1 · ❌ ให้โปรแกรมเมอร์รุ่นใหม่เป็นเจ้าของเอกสาร · ❌ ใส่ FR ทั้งหมดแทนการทำ SRS</li>
+        </ul>
+      </div>
+
+      <h3>Business Opportunity (หมวดย่อย) เขียนอะไร</h3>
+      <p>อธิบายปัญหาที่<strong>แก้ไม่ได้หากไม่มีทางออกนี้</strong> · โยงกับ market trends/เทคโนโลยี/กลยุทธ์ · ความต้องการของลูกค้ากลุ่มเป้าหมาย · ปัญหาลูกค้าที่ผลิตภัณฑ์จะแก้ · <strong>ตัวอย่างการใช้งานจริง</strong> (ให้เห็นภาพวิธีใช้) · interface/quality ที่วิกฤต (แต่<strong>ไม่ใส่ design/implementation specifics</strong>) — สำหรับระบบภายในบริษัท: อธิบายปัญหา/กระบวนการที่ปรับปรุง+สภาพแวดล้อมการใช้ · สำหรับผลิตภัณฑ์เชิงพาณิชย์: โอกาสทางตลาด+ตลาดที่แข่ง</p>
+
+      <h3>Business Objectives + Business Objectives Model</h3>
+      <ul>
+        <li>สรุปประโยชน์ธุรกิจแบบ<strong>เชิงปริมาณ วัดผลได้</strong> (เช่น "ลด onboarding จาก 48 ชม. เหลือ ≤2 ชม. ภายใน 6 เดือน สำหรับ 85% ของผู้สมัคร")</li>
+        <li>Model แสดงลำดับชั้นของ <strong>ปัญหา ↔ วัตถุประสงค์</strong> ที่ผูกกัน — เข้าใจอันหนึ่งจะเผยอีกอันหนึ่ง</li>
+      </ul>
+
+      <h2 id="s4">4. Scope Representation — 4 เครื่องมือแสดงขอบเขต (ควิซตรง!)</h2>
+      <div class="grid c2">
+        <div class="card">
+          <h4>⭕ Context Diagram</h4>
+          <p>วงกลมกลาง = ระบบ (รวม software+hardware+<strong>manual operations ได้</strong>) · กล่องภายนอก = <strong>External entities</strong>: user classes (Chemist, Buyer), องค์กร, ระบบอื่น (Training DB), อุปกรณ์ (Barcode reader) · ลูกศร = การไหลของ<strong>ข้อมูลหรือของจริง</strong> (ภาชนะสารเคมี, คำขอรายงาน)</p>
+          <p>⚠️ <strong>ห้าม</strong>แตกวงกลมเป็นฟังก์ชันย่อย/ตาราง DB · <strong>ไม่จริง</strong>ว่าห้ามมี manual ops</p>
+        </div>
+        <div class="card">
+          <h4>🌐 Ecosystem Map</h4>
+          <p>แสดง<strong>ทุกระบบที่เชื่อมโยง</strong>กับระบบเรา — <strong>รวมระบบที่ไม่มี interface ตรง ๆ แต่มีความสัมพันธ์</strong> (ต่างจาก context!) เพื่อบอกว่าระบบเดิมใด<strong>อาจต้องแก้</strong>ตามระบบใหม่</p>
+        </div>
+        <div class="card">
+          <h4>🌳 Feature Tree</h4>
+          <p>ภาพลำดับชั้นของฟีเจอร์ (L1, L2, L3) — <strong>เหมาะกับผู้บริหาร</strong>ที่อยากเห็นภาพรวม scope แบบกระชับ</p>
+        </div>
+        <div class="card">
+          <h4>📋 Event List</h4>
+          <p>ระบุ<strong>เหตุการณ์ภายนอกที่กระตุ้นพฤติกรรมของระบบ</strong>: business events (ผู้ใช้) · <strong>temporal</strong> (ถึงเวลา เช่น สิ้นเดือนเที่ยงคืน) · <strong>signal</strong> (จากฮาร์ดแวร์ เช่น สแกนบาร์โค้ด) — บอกเพียงชื่อ event; การตอบสนองระบุใน SRS (event-response tables)</p>
+        </div>
+      </div>
+
+      <div class="box exam">
+        <div class="box-title">🎯 Event อะไร "ใช่/ไม่ใช่" ใน Event List (จากควิซ)</div>
+        <p>✅ เจ้าหน้าที่สแกนบาร์โค้ดพาเลทขาเข้า (Signal/Hardware event) · ✅ ถึงเที่ยงคืนสิ้นเดือนตัดยอด (Temporal) · ✅ ลูกค้าสั่งซื้อ/ร้องเรียน (Business event)<br>❌ ระบบรัน SQL ภายใน (internal routine) · ❌ cache miss · ❌ data normalization — เหล่านี้เป็น<strong>กลไกภายใน</strong> ไม่ใช่ external event</p>
+      </div>
+
+      <h2 id="s5">5. บริหาร Scope (Keeping the Scope in Focus)</h2>
+      <ul>
+        <li>Scope definition เป็น "โครงสร้าง ไม่ใช่เสื้อล็อกตัว" (structure, not a straitjacket) — เปลี่ยนได้ถ้า<strong>ตั้งใจ โดยคนที่ถูกต้อง เพราะเหตุผลธุรกิจที่ถูกต้อง</strong> และเข้าใจ trade-offs</li>
+        <li><strong>Business objectives คือปัจจัยสำคัญที่สุด</strong>ของการตัดสิน scope — ฟีเจอร์ใดเพิ่มคุณค่าต่อ objectives มากสุด ให้เข้า release แรก · เมื่อ stakeholder ขอเพิ่ม ให้ถามว่า "ช่วยบรรลุ objectives อย่างไร"</li>
+        <li><strong>ผลกระทบของ scope change:</strong> ต้องเจรจางบ/คน/เวลาใหม่ · งานที่เสร็จแล้วอาจต้อง rework · คุณภาพตกถ้าไม่เพิ่มเวลา/คน · BR ที่มีเอกสารช่วยให้ PM กล้าพูด <strong>"no" หรือ "not yet"</strong></li>
+      </ul>
+
+      <h3>Completion — โครงการจบเมื่อไร?</h3>
+      <p>โครงการ<strong>สมบูรณ์เมื่อ success metrics บอกว่ามีโอกาสบรรลุ business objectives</strong> — objectives ที่คลุมเครือ = โครงการไม่มีจุดจบ ประเมินไม่ได้ว่าได้ value จริงไหม (❌ จบเพราะโค้ดเสร็จ/งบหมด — ไม่ใช่เกณฑ์!)</p>
+
+      <h2 id="s6">สรุปท้ายบท</h2>
+      <div class="box def">
+        <div class="box-title">✅ ต้องจำให้ได้</div>
+        <ol>
+          <li>BR = Opportunity + Objectives + Success metrics + Vision · ต้องคลี่คลายก่อน FR/NFR</li>
+          <li>Vision (ทั้งผลิตภัณฑ์ เปลี่ยนช้า) ≠ Scope (โครงการนี้ พลวัต แบ่ง in/out)</li>
+          <li>Vision &amp; Scope doc = Project Charter = Business Case · เจ้าของ = executive sponsor · เว้นว่างตรงที่ไม่รู้ · ลบหัวข้อไม่ใช้</li>
+          <li>4 เครื่องมือ scope: Context (entities+data flows รอบระบบ) · Ecosystem (ระบบที่เกี่ยวข้องแม้ไม่มี interface) · Feature tree (L1-L3 สำหรับผู้บริหาร) · Event list (business+temporal+signal)</li>
+          <li>Scope change: ประเมินผลต่อ objectives → เจรจาทรัพยากร → คุณภาพต้องไม่ตก · จบโครงการที่ metrics ไม่ใช่โค้ดเสร็จ</li>
+        </ol>
+      </div>
+
+      <div class="quiz-q">
+        <div class="q-text">🧪 (ควิซจริง) ข้อใดคือ "Business Objective ที่ถูกต้องและวัดผลได้ชัดเจน"?</div>
+        <div class="opts">
+          <button class="opt">ก. ปรับหน้าจอให้ทันสมัย สวยงาม ใช้ง่าย</button>
+          <button class="opt" data-c="1">ข. ลดเวลาเปิดบัญชีลูกค้าใหม่จาก 48 ชม. เหลือไม่เกิน 2 ชม. สำหรับลูกค้า 85% ภายใน 6 เดือน</button>
+          <button class="opt">ค. ย้ายข้อมูลบัญชีทั้งหมดไปฐานข้อมูลรวมศูนย์เพื่อลดความซับซ้อน</button>
+          <button class="opt">ง. เปลี่ยน Core Banking ระบบใหม่ภายในปีนี้</button>
+        </div>
+        <div class="explain">💡 Objective ที่ดี = ผลลัพธ์ธุรกิจ + ตัวเลขวัดได้ + กรอบเวลา (ข) · ก/ค เป็น "วิธี/ทางออก" ไม่ใช่ผลลัพธ์ · ง ไม่มีตัวชี้วัดความสำเร็จ</div>
+      </div>
+
+      <div id="doneWrap" style="margin-top:30px;">
+        <button id="doneBtn" style="font-family:inherit;font-size:15px;font-weight:700;padding:10px 22px;border-radius:12px;border:2px solid #16a34a;background:#fff;color:#14713c;cursor:pointer;">☑ ทำเครื่องหมายว่าอ่านแล้ว</button>
+      </div>
+      <div class="pager" id="pager"></div>
+    </main>
+  </div>
+</div>
+<script src="assets/app.js"></script>
+<script src="assets/tts.js"></script>
+</body>
+</html>

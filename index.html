@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<title>BA Final Exam Prep — BPM69 Business Process Management</title>
+<meta name="description" content="เว็บสื่อการสอนติวสอบ Final วิชา Business Analysis / BPM ครบทุกบท อ่านได้ทั้งคอมและมือถือ">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%232456d6%27/%3E%3Ctext x=%2750%27 y=%2770%27 font-size=%2752%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27sans-serif%27 font-weight=%27bold%27%3EBA%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="topbar">
+      <button class="burger" id="burger" aria-label="เปิดเมนู">☰</button>
+      <div class="crumb" id="crumb"></div>
+      <div class="spacer"></div>
+      <a class="home-link" href="index.html">หน้าแรก</a>
+    </header>
+    <main class="content">
+
+      <div class="home-hero">
+        <h1>📚 ติว Final — Business Analysis<br>&amp; Business Process Management</h1>
+        <p>สรุปเนื้อหาทั้งหมดในรายวิชา (BPM69) แบบละเอียด เข้าใจง่าย มีภาพประกอบทุกหัวข้อ<br>เน้นตามแนวข้อสอบจากรีวิวข้อสอบรุ่นพี่ และเฉลยควิซที่ออกซ้ำในข้อสอบ</p>
+        <div class="badges">
+          <span class="badge">📖 20 บท</span>
+          <span class="badge">🖼️ ภาพอธิบายทุกหัวข้อยาก</span>
+          <span class="badge">📱 อ่านได้ทุกอุปกรณ์</span>
+          <span class="badge">📝 แบบฝึกหัด interactive</span>
+        </div>
+      </div>
+
+      <div class="progress-wrap">
+        <div class="progress-bar"><div id="homeProgressBar"></div></div>
+        <div class="progress-label" id="homeProgressLabel">อ่านไปแล้ว 0 / 20 บท</div>
+      </div>
+      <p><a id="resumeBtn" class="pager-link" href="01-intro-business.html" style="display:inline-block;background:var(--brand);color:#fff;text-decoration:none;font-weight:700;padding:10px 22px;border-radius:12px;">▶ เริ่มอ่านบทแรก</a></p>
+
+      <h2>🎯 ข้อสอบ Final เป็นแบบไหน? (สรุปจากรีวิวรุ่นพี่)</h2>
+      <div class="box exam">
+        <div class="box-title">⚠️ เตรียมตัวให้ถูกทิศทาง</div>
+        <ul>
+          <li><strong>ข้อสอบตัวเลือก 40 ข้อ</strong> — ประมาณ <strong>60% เหมือนควิซ</strong> (อาจเปลี่ยนคำถาม เช่น "ข้อใดเป็น…" ⇒ "ข้อใด<strong>ไม่</strong>เป็น…") ที่เหลือเป็นข้อใหม่ (unseen) แบบเลือก/ถูก-ผิด</li>
+          <li><strong>ข้อเขียน 3 ข้อ</strong>
+            <ol>
+              <li><strong>เขียน BPMN ตามโจทย์</strong> (แบบ Swimlane — ย้ำว่าอย่าเว้นว่าง เขียนเท่าที่ได้ก็มีคะแนน) → <a href="06-bpmn.html">บทที่ 6</a></li>
+              <li><strong>Re-Design Process</strong> จากข้อ 1 พร้อมอธิบายเหตุผล → <a href="10-process-redesign.html">บทที่ 10</a></li>
+              <li><strong>คำนวณเวลาที่ใช้บริการ / เวลาที่เสียไป</strong> (แนวกรณีศึกษา "ผู้พันแซนเดอส์ / ลุง Ken" ร้านไก่ทอด) → <a href="11-time-calculation.html">บทที่ 11</a></li>
+            </ol>
+          </li>
+          <li>ปีล่าสุดนำเข้าห้องสอบได้ <strong>กระดาษ A4 แผ่นเดียว</strong> (เขียนมือ/พิมพ์ได้) — <strong>ห้าม</strong>นำเฉลยควิซเข้าไปไม่ว่ารูปแบบใด</li>
+        </ul>
+        <p>💡 <strong>กลยุทธ์เตรียมกระดาษ A4:</strong> รวมสูตรคำนวณ (บท 11), สัญลักษณ์ BPMN + กฎการเขียน (บท 6), ตารางเปรียบเทียบที่ออกบ่อย (5 โมเดล, VA/BVA/NVA, UC vs User Story, FR vs NFR) และเทคนิคทำข้อเลือกจากบทที่ 20</p>
+      </div>
+
+      <div class="group-h">ส่วนที่ 1 · ธุรกิจ & บทบาท BA</div>
+      <div class="chapter-list">
+        <a class="chapter-card" href="01-intro-business.html">
+          <div class="cnum" style="background:#2456d6;">01</div>
+          <div><b>พื้นฐานธุรกิจ & ความต้องการธุรกิจ</b><span>Business, Needs, Intentions, IRACIS, Vision-Mission, Competitive Advantage, Value Chain</span></div>
+        </a>
+        <a class="chapter-card" href="02-ba-role-bok.html">
+          <div class="cnum" style="background:#3b6fe0;">02</div>
+          <div><b>บทบาท Business Analyst & Body of Knowledge</b><span>BA ทำอะไร, 6 Core Concepts (BOK/BACCM), As-Is → To-Be, SMART Objectives</span></div>
+        </a>
+        <a class="chapter-card" href="03-five-models.html">
+          <div class="cnum" style="background:#4f7ae8;">03</div>
+          <div><b>5 Aspects of Business Models</b><span>Process/Data/Event/Location/Socio-Political — คำถาม Who-What-When-Where-How (ออกสอบควิซแน่นอน)</span></div>
+        </a>
+      </div>
+
+      <div class="group-h">ส่วนที่ 2 · Business Process Management</div>
+      <div class="chapter-list">
+        <a class="chapter-card" href="04-types-of-bpm.html">
+          <div class="cnum" style="background:#0d9488;">04</div>
+          <div><b>Types of BPM & PPT & VA/BVA/NVA</b><span>Document/Integration/Human-centric, Golden Triangle, 3 ประเภทกิจกรรม + วิธีแยกแยะ</span></div>
+        </a>
+        <a class="chapter-card" href="05-process-discovery.html">
+          <div class="cnum" style="background:#12a69a;">05</div>
+          <div><b>Process Discovery & คุณภาพโมเดล</b><span>วิธีเก็บข้อมูลกระบวนการ, 5 ขั้นสร้างโมเดล, 7PMG, Soundness (Deadlock/Livelock)</span></div>
+        </a>
+        <a class="chapter-card" href="06-bpmn.html">
+          <div class="cnum" style="background:#f59e0b;color:#3d2b00;">06</div>
+          <div><b>BPMN — พระเอกของข้อสอบเขียนข้อ 1 ⭐</b><span>สัญลักษณ์ทั้งหมด, Gateway 3 แบบ, Swimlane, วาดทีละขั้นจากโจทย์, ตัวอย่างเต็ม</span></div>
+        </a>
+        <a class="chapter-card" href="07-sequence-diagram.html">
+          <div class="cnum" style="background:#18b2a5;">07</div>
+          <div><b>Sequence Diagram</b><span>Lifeline, Message, Activation, Fragment (alt/loop/opt) — ตัวอย่าง ATM ทีละขั้น</span></div>
+        </a>
+        <a class="chapter-card" href="08-business-rules.html">
+          <div class="cnum" style="background:#1ebfb1;">08</div>
+          <div><b>Business Rules vs Processes</b><span>Rule ต่างจาก Process อย่างไร, ECA, ระดับการตัดสินใจ, Structured vs Unstructured</span></div>
+        </a>
+      </div>
+
+      <div class="group-h">ส่วนที่ 3 · วิเคราะห์ & ปรับปรุงกระบวนการ</div>
+      <div class="chapter-list">
+        <a class="chapter-card" href="09-process-analysis.html">
+          <div class="cnum" style="background:#7c3aed;">09</div>
+          <div><b>Qualitative Process Analysis</b><span>Value-Added & Waste Analysis, 7 Wastes (TIMWOOD), Issue Register, Pareto, PICK, Why-Why, Fishbone</span></div>
+        </a>
+        <a class="chapter-card" href="10-process-redesign.html">
+          <div class="cnum" style="background:#8b5cf0;">10</div>
+          <div><b>Process Redesign / BPR — สอบเขียนข้อ 2 ⭐</b><span>As-Is → To-Be, 5 ระยะโครงการ BPR, Methodology, Barriers, เทคนิคตอบข้อสอบ</span></div>
+        </a>
+        <a class="chapter-card" href="11-time-calculation.html">
+          <div class="cnum" style="background:#9d6cf5;">11</div>
+          <div><b>การคำนวณเวลา — สอบเขียนข้อ 3 ⭐</b><span>Cycle Time = Service + Waste, PCE, Quantitative Impact, โจทย์แนวลุง Ken พร้อมเฉลยละเอียด</span></div>
+        </a>
+      </div>
+
+      <div class="group-h">ส่วนที่ 4 · Requirements Engineering</div>
+      <div class="chapter-list">
+        <a class="chapter-card" href="12-elicitation.html">
+          <div class="cnum" style="background:#db2777;">12</div>
+          <div><b>Elicitation Techniques</b><span>Interview, Observation, Ethnography, Brainstorming, JAD, Prototyping, ข้อดี-ข้อเสีย</span></div>
+        </a>
+        <a class="chapter-card" href="13-business-requirements.html">
+          <div class="cnum" style="background:#e13c85;">13</div>
+          <div><b>Business Requirements & Vision-Scope</b><span>Vision vs Scope, Context Diagram, Ecosystem Map, Feature Tree, Event List (ควิซ 8)</span></div>
+        </a>
+        <a class="chapter-card" href="14-voice-of-user.html">
+          <div class="cnum" style="background:#e64f92;">14</div>
+          <div><b>Voice of the User & User Classes</b><span>Favored/Disfavored/Ignored, Persona, Product Champion + กับดัก, Product Owner</span></div>
+        </a>
+        <a class="chapter-card" href="15-user-requirements.html">
+          <div class="cnum" style="background:#ea5f9e;">15</div>
+          <div><b>User Requirements: Use Case vs User Story</b><span>โครงสร้าง "As a…I want…so that…", ข้อดี-ข้อเสีย, Wants vs Needs (ควิซ 10)</span></div>
+        </a>
+        <a class="chapter-card" href="16-use-case-modeling.html">
+          <div class="cnum" style="background:#ee6fa9;">16</div>
+          <div><b>Use Case Modeling (UML)</b><span>Actor 4 ชนิด, include/extend, Use Case Narrative, Ranking Matrix, Misuse Case</span></div>
+        </a>
+        <a class="chapter-card" href="17-functional-requirements.html">
+          <div class="cnum" style="background:#f27fb3;">17</div>
+          <div><b>Functional Requirements & SRS & EARS ⭐</b><span>การตั้งรหัส FR, EARS, Active Voice, Ambiguity, Boundary Values (ควิซ 11)</span></div>
+        </a>
+        <a class="chapter-card" href="18-non-functional.html">
+          <div class="cnum" style="background:#f68fbd;">18</div>
+          <div><b>Non-Functional Requirements</b><span>3 หมวดใหญ่, Quality Attributes, Supplementary Specifications, Trade-offs</span></div>
+        </a>
+        <a class="chapter-card" href="19-hedgehog-continuum.html">
+          <div class="cnum" style="background:#fa9fc7;">19</div>
+          <div><b>Hedgehog & Requirement Continuum</b><span>แก่นแนวคิด Hedgehog, Functional Decomposition, Acceptance Criteria, QA/Delivery Team</span></div>
+        </a>
+      </div>
+
+      <div class="group-h">ส่วนที่ 5 · ติวสอบ</div>
+      <div class="chapter-list">
+        <a class="chapter-card" href="20-exam-central.html">
+          <div class="cnum" style="background:#dc2626;">🎯</div>
+          <div><b>ศูนย์กลางติวสอบ Final</b><span>เฉลยควิซ 8-11 พร้อมเหตุผล, เทคนิคทำข้อเลือก, แนวข้อเขียนทั้ง 3 ข้อ, แบบฝึกหัด interactive, Checklist วันสอบ</span></div>
+        </a>
+      </div>
+
+      <h2>🧭 แผนการอ่านแนะนำ (เหลือเวลาน้อย อ่านยังไง?)</h2>
+      <div class="grid c3">
+        <div class="card"><h4>⚡ อ่านฉุกเฉิน (1 วัน)</h4><p>บท 6 (BPMN) → บท 11 (คำนวณ) → บท 10 (Redesign) → บท 20 (เฉลยควิซ + เทคนิค) ครอบคลุมข้อเขียน 3 ข้อ + ควิซซ้ำ</p></div>
+        <div class="card"><h4>📆 มีเวลา 3-4 วัน</h4><p>วันแรก บท 1-5 · วันที่สอง บท 6-8 · วันที่สาม บท 9-11 · วันสุดท้าย บท 12-19 + บท 20 ทบทวนควิซทั้งหมด</p></div>
+        <div class="card"><h4>🏆 อ่านครบจริงจัง</h4><p>ไล่บท 1→20 ตามลำดับ ทำแบบฝึกหัดท้ายบทที่สำคัญ (6, 9, 11, 17, 20) แล้วสรุปลงกระดาษ A4 แผ่นเดียวด้วยตัวเอง</p></div>
+      </div>
+
+      <h2>📖 ที่มาของเนื้อหา</h2>
+      <p>เนื้อหาทั้งหมดสรุปจากเอกสารประกอบการสอนในโฟลเดอร์ (PDF 21 ไฟล์), วิดีโอสอนของอาจารย์, เฉลยควิซ 8-11 และ "รีวิวข้อสอบ Final จากรุ่นพี่" — จัดเรียงใหม่ให้อ่านง่าย เพิ่มคำอธิบายพื้นฐาน ตัวอย่างเปรียบเทียบ และภาพประกอบ (วาดใหม่ทั้งหมด) เพื่อเตรียมสอบโดยเฉพาะ</p>
+
+      <div id="doneWrap" style="margin-top:30px;"></div>
+    </main>
+  </div>
+</div>
+<script src="assets/app.js"></script>
+<script src="assets/tts.js"></script>
+</body>
+</html>

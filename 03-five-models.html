@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<title>บทที่ 3 — 5 Aspects of Business Models | BA Final Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%232456d6%27/%3E%3Ctext x=%2750%27 y=%2770%27 font-size=%2752%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27sans-serif%27 font-weight=%27bold%27%3EBA%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="topbar">
+      <button class="burger" id="burger" aria-label="เปิดเมนู">☰</button>
+      <div class="crumb" id="crumb"></div>
+      <div class="spacer"></div>
+      <a class="home-link" href="index.html">หน้าแรก</a>
+    </header>
+    <main class="content">
+
+      <h1 class="hero">บทที่ 3 · 5 Aspects of Business Models</h1>
+      <p class="lead">ธุรกิจเดียวกันสามารถ "ถูกมอง" ได้ 5 มุม — แต่ละมุมตอบคำถามต่างกัน (Who / What / When / Where / How) และมีโมเดลประจำมุม นี่คือเนื้อหาที่<strong>ออกสอบควิซแน่นอน</strong> (ควิซ 9 ตั้งแต่ข้อ 1 ถึงข้อ 11!)</p>
+
+      <div class="box analogy">
+        <div class="box-title">💭 นึกภาพก่อนเรียน</div>
+        <p>ลองนึกถึง <strong>ร้านสะดวกซื้อ 1 สาขา</strong>: มุมมองเดียวดูไม่ครบ — ต้องถามครบ 5 คำถาม: <strong>ทำงานอย่างไร</strong> (พนักงานคิดเงินอย่างไร = Process) · <strong>มีอะไร</strong> (สินค้า/คำสั่งซื้อ = Data) · <strong>เมื่อไร</strong> (สถานะคำสั่งซื้อเปลี่ยนเมื่อไหร่ = Event) · <strong>ที่ไหน</strong> (สาขา/คลัง/เส้นทาง = Location) · <strong>ใคร</strong> (พนักงาน/แผนก/ผู้จัดส่ง = Socio-Political) — อาจารย์วาดเป็น<strong>วงกลม</strong>เพราะทั้ง 5 มุมคือ "สิ่งเดียวกัน" ที่มองจากต่างมุม!</p>
+      </div>
+
+      <h2 id="s1">1. ภาพรวม — วงล้อ 5 โมเดล (ท่องตารางนี้ให้ขึ้นใจ)</h2>
+
+      <figure class="diagram">
+        <svg viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <circle cx="320" cy="240" r="78" fill="#101a30"/>
+          <text x="320" y="228" text-anchor="middle" font-size="14.5" font-weight="800" fill="#fff">THE BUSINESS</text>
+          <text x="320" y="250" text-anchor="middle" font-size="11.5" fill="#9db4e4">"ธุรกิจเดียวกัน</text>
+          <text x="320" y="266" text-anchor="middle" font-size="11.5" fill="#9db4e4">มองได้ 5 มุม"</text>
+          <!-- 5 sectors -->
+          <g font-size="13.5" font-weight="800" text-anchor="middle">
+            <!-- top: Process (How) -->
+            <rect x="240" y="14" width="160" height="64" rx="14" fill="#f59e0b"/>
+            <text x="320" y="40" fill="#3d2b00">PROCESS — How?</text>
+            <text x="320" y="60" fill="#5a4100" font-size="11.5">ทำงาน "อย่างไร"</text>
+            <!-- right-top: Data (What) -->
+            <rect x="450" y="70" width="170" height="64" rx="14" fill="#16a34a"/>
+            <text x="535" y="96" fill="#fff">DATA — What?</text>
+            <text x="535" y="116" fill="#d3f5df" font-size="11.5">มี "อะไร"</text>
+            <!-- right-bottom: Event (When) -->
+            <rect x="450" y="330" width="170" height="64" rx="14" fill="#dc2626"/>
+            <text x="535" y="356" fill="#fff">EVENT — When?</text>
+            <text x="535" y="376" fill="#ffd7d7" font-size="11.5">เกิด "เมื่อไร"</text>
+            <!-- bottom: Location (Where) -->
+            <rect x="240" y="396" width="160" height="64" rx="14" fill="#7c3aed"/>
+            <text x="320" y="422" fill="#fff">LOCATION — Where?</text>
+            <text x="320" y="442" fill="#efe4ff" font-size="11.5">อยู่ "ที่ไหน"</text>
+            <!-- left: Socio-Political (Who) -->
+            <rect x="20" y="200" width="180" height="64" rx="14" fill="#2456d6"/>
+            <text x="110" y="226" fill="#fff">SOCIO-POLITICAL — Who?</text>
+            <text x="110" y="246" fill="#dbe6ff" font-size="11.5">เกี่ยวกับ "ใคร"</text>
+          </g>
+          <!-- connecting lines -->
+          <g stroke="#93a5c8" stroke-width="2.5" stroke-dasharray="5 4">
+            <line x1="320" y1="78" x2="320" y2="162"/>
+            <line x1="450" y1="122" x2="378" y2="192"/>
+            <line x1="450" y1="342" x2="378" y2="288"/>
+            <line x1="320" y1="396" x2="320" y2="318"/>
+            <line x1="200" y1="232" x2="242" y2="238"/>
+          </g>
+          <!-- arcs implying circle -->
+          <circle cx="320" cy="240" r="150" fill="none" stroke="#c8d4ee" stroke-width="2" stroke-dasharray="3 6"/>
+        </svg>
+        <figcaption>ภาพ 3.1 — วงล้อ 5 Aspects: Process(How) · Data(What) · Event(When) · Location(Where) · Socio-Political(Who) ล้อมรอบธุรกิจเดียวกัน</figcaption>
+      </figure>
+
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Aspect</th><th>คำถาม</th><th>โมเดล</th><th>Nodes =</th><th>Links =</th><th>ตัวอย่าง Diagram</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Process</strong></td><td><strong>How?</strong> อย่างไร</td><td>Business Process Model</td><td><strong>Activities</strong> (กิจกรรม)</td><td>Control / Data-material / Performer / Interface / Hierarchy</td><td>Process Map (swimlanes), DFD, Activity Flow Diagram</td></tr>
+          <tr><td><strong>Objects/Data</strong></td><td><strong>What?</strong> อะไร</td><td>Business Object (Data) Model</td><td><strong>Entities</strong> (สิ่งของ/ข้อมูล)</td><td><strong>Relationships</strong> (ความสัมพันธ์)</td><td>Entity-Relationship Diagram (ERD)</td></tr>
+          <tr><td><strong>Event</strong></td><td><strong>When?</strong> เมื่อไร</td><td>Business Event Model</td><td><strong>States</strong> (สถานะของ entity)</td><td><strong>Events</strong> (เหตุการณ์ที่ทำให้เปลี่ยนสถานะ)</td><td>State Transition Diagram</td></tr>
+          <tr><td><strong>Location</strong></td><td><strong>Where?</strong> ที่ไหน</td><td>Business Location Model</td><td><strong>Locations/Sites</strong> (สถานที่)</td><td><strong>Channels</strong> (ช่องทางเชื่อม: Data/Control/Material/Participants)</td><td>Location/Site Channel Diagram</td></tr>
+          <tr><td><strong>Socio-Political</strong></td><td><strong>Who?</strong> ใคร</td><td>Business Socio-Political (Organization) Model</td><td><strong>Parties</strong> / Org Units (คน/องค์กร)</td><td><strong>Affiliations</strong> (ความสัมพันธ์ เช่น ผู้ให้บริการ-ลูกค้า)</td><td>Party Affiliation Diagram, Org Chart</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="box exam">
+        <div class="box-title">🎯 กับดักข้อสอบยอดฮิต (จากควิซ 9)</div>
+        <ul>
+          <li>❌ "Business <u>Event</u> Model เน้น Where" — ผิด! Event = <strong>When</strong>, Location = Where</li>
+          <li>❌ "Business <u>Location</u> Model เน้น What" — ผิด! Location = <strong>Where</strong>, Data = What</li>
+          <li>❌ "Socio-Political Model เน้น When" — ผิด! Socio-Political = <strong>Who</strong></li>
+          <li>✅ "โมเดลประกอบด้วย <strong>Node และ Narrative</strong>" (Diagram + ข้อความ) — ตัวเลือกที่ถูกในควิซ</li>
+          <li>✅ โมเดลที่อธิบาย "ความสัมพันธ์ระหว่างคนกับกิจกรรม" = <strong>Business Process Model</strong></li>
+          <li>✅ สถานะ "สินค้าอยู่ระหว่างตรวจสอบคุณภาพ" = Node ของ <strong>Business Event Model</strong> (State)</li>
+          <li>✅ "สาขาจตุจักร" = Node ของ <strong>Location Model</strong> ไม่ใช่ Process Model</li>
+        </ul>
+      </div>
+
+      <h2 id="s2">2. Business Process Model (How?)</h2>
+      <ul>
+        <li><strong>จุดมุ่งหมาย:</strong> แทน Business <strong>work requirements</strong> — "เราทำงานนี้อย่างไร" (เช่น เติมออเดอร์อย่างไร จ้างคนอย่างไร) เป็นรากฐานให้ Application procedural designs → โค้ด และ Manual procedure designs → คู่มือปฏิบัติงาน</li>
+        <li><strong>Nodes = Activities</strong> · <strong>Links</strong> มีได้หลายแบบ:
+          <ul>
+            <li><strong>Control</strong> — ลำดับการทำงาน (ใครทำก่อน-หลัง)</li>
+            <li><strong>Data/material dependencies</strong> — input/output ของงาน</li>
+            <li><strong>Performer</strong> — ใครทำ (มักแสดงด้วย <strong>swim lanes</strong>)</li>
+            <li><strong>Interface</strong> — ใคร/อะไรให้-รับ input/output</li>
+            <li><strong>Hierarchy</strong> — งานใหญ่ม้วนขึ้น (roll-up) / แตกลง (break-down) อย่างไร</li>
+          </ul>
+        </li>
+        <li><strong>Process Map vs DFD:</strong> Process Map เน้น Links = Control + Performer (swimlanes) · DFD เน้น Links = Data & material dependencies + Interfaces</li>
+        <li><strong>กริยาต้นแบบของกิจกรรม:</strong> Receive/Get · Review/Verify · Determine/Calculate · Produce/Develop/Create · Conduct/Monitor · Assign · Prioritize · Deliver/Issue/Send</li>
+        <li><strong>ตัวอย่างจากเอกสาร:</strong> การขอใบอนุญาตก่อสร้าง — Receive Application (Receptionist) → Review for Completeness (Permit Clerk) → Review for Compliance (Inspector) → Issue Permit (Permit Clerk)</li>
+      </ul>
+
+      <figure class="diagram">
+        <svg viewBox="0 0 720 190" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <defs><marker id="a31" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#556"/></marker></defs>
+          <!-- start -->
+          <circle cx="30" cy="90" r="16" fill="#16a34a"/><text x="30" y="95" text-anchor="middle" font-size="10" fill="#fff">S</text>
+          <g text-anchor="middle" font-size="11.5">
+            <rect x="70" y="62" width="130" height="56" rx="10" fill="#fff" stroke="#2456d6" stroke-width="2"/>
+            <text x="135" y="85" font-weight="700" fill="#1a3fa0">Receive Application</text><text x="135" y="103" fill="#888">(Receptionist)</text>
+            <rect x="230" y="62" width="150" height="56" rx="10" fill="#fff" stroke="#2456d6" stroke-width="2"/>
+            <text x="305" y="85" font-weight="700" fill="#1a3fa0">Review Completeness</text><text x="305" y="103" fill="#888">(Permit Clerk)</text>
+            <rect x="410" y="62" width="140" height="56" rx="10" fill="#fff" stroke="#2456d6" stroke-width="2"/>
+            <text x="480" y="85" font-weight="700" fill="#1a3fa0">Review Compliance</text><text x="480" y="103" fill="#888">(Inspector)</text>
+            <rect x="580" y="62" width="120" height="56" rx="10" fill="#fff" stroke="#2456d6" stroke-width="2"/>
+            <text x="640" y="85" font-weight="700" fill="#1a3fa0">Issue Permit</text><text x="640" y="103" fill="#888">(Permit Clerk)</text>
+          </g>
+          <circle cx="700" cy="150" r="16" fill="#dc2626"/><text x="700" y="155" text-anchor="middle" font-size="10" fill="#fff">E</text>
+          <g stroke="#556" stroke-width="2.5" marker-end="url(#a31)">
+            <line x1="46" y1="90" x2="66" y2="90"/>
+            <line x1="200" y1="90" x2="226" y2="90"/>
+            <line x1="380" y1="90" x2="406" y2="90"/>
+            <line x1="550" y1="90" x2="576" y2="90"/>
+            <line x1="640" y1="118" x2="692" y2="140"/>
+          </g>
+          <text x="360" y="165" text-anchor="middle" font-size="12" fill="#777">ตัวอย่าง Process Model: ขั้นตอนออกใบอนุญาตก่อสร้าง (ชื่อผู้ทำในวงเล็บ = Performer)</text>
+        </svg>
+        <figcaption>ภาพ 3.2 — Business Process Model อย่างง่าย: กิจกรรม (Node) + ลูกศรลำดับงาน (Control) + ผู้ทำ (Performer)</figcaption>
+      </figure>
+
+      <h2 id="s3">3. Business Object/Data Model (What?)</h2>
+      <ul>
+        <li><strong>จุดมุ่งหมาย:</strong> แทน (1) <strong>แนวคิด/คำศัพท์ของสิ่งของในธุรกิจ</strong> ("สินค้า" คืออะไร? "คำสั่งซื้อ" คืออะไร?) และ (2) <strong>ความต้องการข้อมูล</strong> (เราต้องรู้อะไรเกี่ยวกับมัน?) — เป็นรากฐานของ Data store designs</li>
+        <li><strong>Nodes = Entities</strong> ตัวอย่าง: สินค้า คำสั่งซื้อ ลูกค้า ยานพาหนะ เอกสาร โรค เฟอร์นิเจอร์ · <strong>Links = Relationships</strong> เช่น contains / classifies / is assigned to / is affiliated with / employs / purchases / is prerequisite for</li>
+        <li><strong>Attributes</strong> = ส่วนเสริมที่บอกว่าต่อ entity หนึ่งเราเก็บข้อมูลอะไร (เช่น รถ 1 คัน มี make, model, VIN)</li>
+      </ul>
+
+      <figure class="diagram">
+        <svg viewBox="0 0 620 220" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <g text-anchor="middle" font-size="13">
+            <rect x="30" y="40" width="150" height="56" rx="10" fill="#e7f8ee" stroke="#16a34a" stroke-width="2"/>
+            <text x="105" y="63" font-weight="800" fill="#14713c">CUSTOMER</text><text x="105" y="82" font-size="11" fill="#556">(ลูกค้า)</text>
+            <rect x="240" y="40" width="150" height="56" rx="10" fill="#e7f8ee" stroke="#16a34a" stroke-width="2"/>
+            <text x="315" y="63" font-weight="800" fill="#14713c">ORDER</text><text x="315" y="82" font-size="11" fill="#556">(คำสั่งซื้อ)</text>
+            <rect x="450" y="40" width="150" height="56" rx="10" fill="#e7f8ee" stroke="#16a34a" stroke-width="2"/>
+            <text x="525" y="63" font-weight="800" fill="#14713c">PRODUCT</text><text x="525" y="82" font-size="11" fill="#556">(สินค้า)</text>
+          </g>
+          <g stroke="#16a34a" stroke-width="2.5">
+            <line x1="180" y1="68" x2="236" y2="68"/>
+            <line x1="390" y1="68" x2="446" y2="68"/>
+          </g>
+          <text x="208" y="56" text-anchor="middle" font-size="11.5" fill="#14713c" font-weight="700">places</text>
+          <text x="418" y="56" text-anchor="middle" font-size="11.5" fill="#14713c" font-weight="700">contains</text>
+          <!-- crow feet-ish -->
+          <text x="105" y="140" text-anchor="middle" font-size="11.5" fill="#666">Node = Entity</text>
+          <text x="318" y="140" text-anchor="middle" font-size="11.5" fill="#666">Link = Relationship ("ลูกค้า <tspan font-weight="700">ทำ</tspan>คำสั่งซื้อ")</text>
+          <text x="318" y="175" text-anchor="middle" font-size="12" fill="#888">ควิซ: Node ของโมเดลนี้แทนได้ทั้ง สินค้า/คำสั่งซื้อ (entity) — ไม่ใช่กิจกรรมพนักงาน หรือเส้นทางขนส่ง</text>
+        </svg>
+        <figcaption>ภาพ 3.3 — ERD อย่างง่าย: Customer —places→ Order —contains→ Product</figcaption>
+      </figure>
+
+      <div class="box exam">
+        <div class="box-title">🎯 เกณฑ์ตัดสิน "สิ่งนี้ควรอยู่ใน Data Model ไหม?"</div>
+        <p>ใส่ใน Data Model เมื่อ <strong>ต้อง "track"</strong> — มี information requirement (ต้องเก็บข้อมูลอะไรต่อสิ่งนั้น) หรือต้องนิยามคำศัพท์ให้ชัด</p>
+        <p>แต่ถ้าแค่ต้อง <strong>"do"</strong> มัน → ไป Process Model · ต้อง <strong>"be there"</strong> → Location Model · ต้อง <strong>"serve"</strong> → Socio-Political Model · ต้อง <strong>"respond"</strong> → Event Model</p>
+      </div>
+
+      <h2 id="s4">4. Business Event Model (When?)</h2>
+      <ul>
+        <li><strong>จุดมุ่งหมาย:</strong> แทน Business <strong>timing requirements</strong> — ธุรกิจต้องตอบสนองเหตุการณ์ภายนอกอะไร? และเหตุการณ์เปลี่ยน<strong>สถานะ (status)</strong> ของสิ่งใด? เป็นรากฐานของ trigger designs และ status tracking</li>
+        <li><strong>Nodes = States</strong> (ของ entity/relationship) · <strong>Links = Events</strong> (เหตุการณ์ที่ทำให้เปลี่ยนสถานะ)</li>
+      </ul>
+
+      <figure class="diagram">
+        <svg viewBox="0 0 700 240" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <defs><marker id="a32" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#dc2626"/></marker></defs>
+          <g text-anchor="middle" font-size="13">
+            <!-- states as rounded boxes -->
+            <rect x="20" y="60" width="130" height="52" rx="26" fill="#fdeaea" stroke="#dc2626" stroke-width="2"/>
+            <text x="85" y="82" font-weight="800" fill="#b91c1c">รอชำระเงิน</text><text x="85" y="100" font-size="10.5" fill="#966">(Pending)</text>
+            <rect x="210" y="60" width="130" height="52" rx="26" fill="#fff8e9" stroke="#f59e0b" stroke-width="2"/>
+            <text x="275" y="82" font-weight="800" fill="#a16207">รอจัดส่ง</text><text x="275" y="100" font-size="10.5" fill="#966">(Paid)</text>
+            <rect x="400" y="60" width="130" height="52" rx="26" fill="#e2f7f4" stroke="#0d9488" stroke-width="2"/>
+            <text x="465" y="82" font-weight="800" fill="#0b7a70">กำลังจัดส่ง</text><text x="465" y="100" font-size="10.5" fill="#966">(Shipping)</text>
+            <rect x="560" y="60" width="130" height="52" rx="26" fill="#e7f8ee" stroke="#16a34a" stroke-width="2"/>
+            <text x="625" y="82" font-weight="800" fill="#14713c">ส่งสำเร็จ</text><text x="625" y="100" font-size="10.5" fill="#966">(Delivered)</text>
+          </g>
+          <g stroke="#dc2626" stroke-width="2.5" marker-end="url(#a32)">
+            <line x1="150" y1="86" x2="206" y2="86"/>
+            <line x1="340" y1="86" x2="396" y2="86"/>
+            <line x1="530" y1="86" x2="556" y2="86"/>
+          </g>
+          <g text-anchor="middle" font-size="11" fill="#b91c1c" font-weight="700">
+            <text x="178" y="48">ชำระเงินสำเร็จ</text>
+            <text x="368" y="48">เริ่มจัดส่ง</text>
+            <text x="543" y="48">ส่งถึงลูกค้า</text>
+          </g>
+          <text x="350" y="160" text-anchor="middle" font-size="12.5" fill="#556">วงกลม/แคปซูล = <tspan font-weight="800" fill="#b91c1c">State (Node)</tspan> · ลูกศร = <tspan font-weight="800" fill="#b91c1c">Event (Link)</tspan> ที่กระตุ้นให้เปลี่ยนสถานะ</text>
+          <text x="350" y="185" text-anchor="middle" font-size="12" fill="#888">Event 3 ประเภท: Time (ถึงเวลา) · Business (เกิดธุรกรรม) · Natural (ภัยธรรมชาติ)</text>
+          <text x="350" y="210" text-anchor="middle" font-size="12" fill="#888">State เรียงตาม life cycle: ต้น (Potential/Received) → กลาง (Active/Approved) → ปลาย (Closed/Expired/Denied)</text>
+        </svg>
+        <figcaption>ภาพ 3.4 — Business Event Model (State Transition) ของ "คำสั่งซื้อ" บน E-commerce</figcaption>
+      </figure>
+
+      <h2 id="s5">5. Business Location Model (Where?)</h2>
+      <ul>
+        <li><strong>จุดมุ่งหมาย:</strong> แทน Business <strong>location requirements</strong> — ต้องดำเนินธุรกิจที่ใด? อะไรต้อง<strong>เดินทาง</strong>ข้ามสถานที่? — เป็นรากฐานของ Facility designs + Network designs</li>
+        <li><strong>Nodes = Locations/Sites:</strong> แบ่งตามเจ้าของ (Internal/External) และธรรมชาติ (Geographic areas = เน้นขอบเขต / Sites = เน้นจุด ระบุที่อยู่ได้) เช่น Office, Store, Plant, Warehouse, Lab, Building, รถ (mobile site), "any connected site"</li>
+        <li><strong>Links = Channels 4 ชนิด:</strong>
+          <ol>
+            <li><strong>Data</strong> — ข้อมูลวิ่งระหว่างสถานที่</li>
+            <li><strong>Control</strong> — สัญญาณ trigger ("OK ที่จะเริ่มงาน")</li>
+            <li><strong>Material</strong> — ของจริง/เอกสารต้นฉบับที่ต้องขนส่ง</li>
+            <li><strong>Participants</strong> — คนเคลื่อนย้าย (พนักงาน/ลูกค้า)</li>
+          </ol>
+        </li>
+        <li>สิ่งที่เดินทางผ่าน channel (<strong>Cargo</strong>) อาจเป็น ข้อมูล / สินค้า / คน ได้ทั้งหมด</li>
+      </ul>
+
+      <h2 id="s6">6. Business Socio-Political Model (Who?)</h2>
+      <ul>
+        <li><strong>จุดมุ่งหมาย:</strong> แทน Business <strong>organizational requirements</strong> — ต้องรองรับองค์กรภายนอก/กลุ่มสังคมใด? โครงสร้างองค์กรแบบไหนสนับสนุนเป้าหมาย? ต้องการ <strong>roles</strong> อะไร? — เป็นรากฐานของ Organization designs + External interface requirements</li>
+        <li><strong>2 แบบไดอะแกรม:</strong>
+          <ul>
+            <li><strong>Party Affiliation Diagram</strong> — Nodes = Parties (คน/องค์กร) · Links = Affiliations</li>
+            <li><strong>Org Chart</strong> — Nodes = Org Units · Links = สายบังคับบัญชา + เส้นประ functional accountability</li>
+          </ul>
+        </li>
+        <li><strong>Affiliations ที่พบบ่อย:</strong> Customer (current/potential) · Vendor (current/preferred/potential) · Org Parent–Org Child (บริษัทแม่-ลูก) · Partner (collaboration) · Competitor · Substitution</li>
+        <li><strong>Roles 3 กลุ่ม:</strong> Performing (Coordinator, Analyst, Clerk…) · Leadership (Team lead, PM) · Management (Executive, Manager)</li>
+      </ul>
+
+      <div class="box deep">
+        <div class="box-title">🧠 เครื่องมือเสริม: Role Profile Matrix (ออกสอบ!)</div>
+        <p>ตารางบันทึกคุณลักษณะของแต่ละ <strong>Role</strong> เพื่อออกแบบระบบให้เหมาะกับผู้ใช้จริง ประกอบด้วย:</p>
+        <ul>
+          <li><strong>Role Description</strong> — General description, Explicit authorities, Credentials, Other responsibilities</li>
+          <li><strong>Population size</strong> (จำนวนคน) · <strong>Literacy</strong> (ความรู้ด้าน subject area + technical) · Language(s) · Tenure · Work period · Salary grade</li>
+          <li><strong>Special accommodation needs</strong> — สายตา/สี/การได้ยิน/การเคลื่อนไหว</li>
+          <li><strong>System usage</strong> — ชนิดการใช้ (Navigation, Inquiry, Data entry, Updates, Approvals, Reports) + ความถี่</li>
+          <li><strong>Stand to Gain</strong> — สิ่งที่ได้ (automation งานน่าเบื่อ, เข้าถึงข้อมูลดีขึ้น, เครื่องมือดีขึ้น, audit trails)</li>
+          <li><strong>Stand to Lose</strong> — สิ่งที่เสีย (อำนาจควบคุมบางฟังก์ชัน, ต้องเรียนใหม่, ความเชี่ยวชาญเดิม, งาน, "เครื่องจักรตัดสินใจแทนที่คน")</li>
+        </ul>
+        <p>💡 ควิซ: "การจัดทำ Role Profile Matrix เพื่ออธิบายคุณลักษณะเฉพาะของแต่ละบทบาท เป็นเครื่องมือสนับสนุน <strong>Socio-Political Model</strong>" ✅ และ "Link ของโมเดลนี้ เช่น ร้านค้าเป็น<strong>ผู้ให้บริการกับลูกค้า</strong>" ✅</p>
+      </div>
+
+      <h2 id="s7">7. Cross-Model — วิเคราะห์ข้ามโมเดล</h2>
+      <ul>
+        <li>โมเดลแต่ละชนิดคือ "สิ่งเดียวกันจากมุมต่างกัน" — สร้างหลายโมเดลร่วมกันช่วยให้<strong>ค้นพบปัญหาที่แท้จริง</strong>และหาทางออกได้ง่ายขึ้น</li>
+        <li>ทำ cross-reference ได้ 2 ทาง: (1) ฝังไว้ในโมเดลหลักเป็น annotation · (2) สร้าง <strong>cross-reference matrices</strong> (ทำเป็น formal specification หรือ sketch ก็ได้)</li>
+        <li>หลักการปิดท้ายจากผู้สอน: <strong>"Do whatever your needs dictate and your time allows"</strong> — ไม่จำเป็นต้อง cross-reference ครบ 100% ทุกโมเดลเสมอไป</li>
+        <li>ตัวอย่างเมทริกซ์: จับคู่ <strong>ข้อมูล × กระบวนการ</strong> (เช่น CRUD: กระบวนการใด สร้าง(C)/อ่าน(R)/แก้(U)/ลบ(D) ข้อมูลใด)</li>
+      </ul>
+
+      <div class="box exam">
+        <div class="box-title">🎯 แบบฝึกจับคู่ (เหมือนในเอกสาร — ลองทำดู!)</div>
+        <p>สิ่งต่อไปนี้ควรอธิบายด้วยโมเดลใด? (เฉลยกดดู)</p>
+        <details class="fold">
+          <summary>กดดูเฉลยพร้อมเหตุผล</summary>
+          <div class="fold-body">
+            <ol>
+              <li>"ต้องรู้ว่าคนใดทำกิจกรรมใดเสร็จ" → <strong>Data Model</strong> (มี information requirement ต้อง track ความสัมพันธ์ คน-งาน)</li>
+              <li>"รับ order → เช็ค stock → แพ็ค → ส่ง" → <strong>Process Model</strong></li>
+              <li>"คำถามลูกค้าทั้งหมดดูแลโดยตัวแทน CRM" → <strong>Socio-Political Model</strong> (role)</li>
+              <li>"ฝ่ายขายมี 3 สายงานย่อย" → <strong>Socio-Political Model</strong> (org units)</li>
+              <li>"ศูนย์ขายมี 4 ห้องขาย" → <strong>Location Model</strong></li>
+              <li>"เมื่อโจทก์ถอนคดี ถือว่า 'closed'" → <strong>Event Model</strong> (เปลี่ยน state)</li>
+              <li>"เมื่อถอนคดี ต้องแจ้งทุกฝ่ายและยกเลิกการนัด" → <strong>Event + Process Model</strong> (event ทริกเกอร์งาน)</li>
+              <li>"รถแต่ละคันมี make, model, VIN" → <strong>Data Model</strong> (attributes)</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+
+      <h2 id="s8">8. Case Study สุดคลาสสิก: Calvert County (การขอใบอนุญาตก่อสร้าง)</h2>
+      <div class="box baseline">
+        <div class="box-title">🏛️ ปัญหา As-Is → ทางแก้ด้วยแต่ละโมเดล</div>
+        <p><strong>ปัญหาเดิม:</strong> ขั้นตอนรีวิวยาวเหยียดซับซ้อน ทุกอย่างเป็นกระดาษส่งต่อในแฟ้ม ไม่มีใครรู้สถานะคำขอ ผู้ขอได้คำแนะนำว่า <em>"เตรียมสมุดเช็คและรองเท้าเดินสบาย ๆ มาด้วย"</em></p>
+        <ul>
+          <li><strong>Process:</strong> FIFO ทำให้งานเล็กก็ต้องรองานใหญ่ → แก้ด้วย <strong>triage 3 ระดับ</strong> (Simple ประเมินทันที / Routine จองเวลารีวิวพร้อมกัน / Complex ตามมาตรฐาน) + เปลี่ยน<strong> รีวิวเรียงลำดับเป็นขนาน (concurrent)</strong> เพราะ dependency จริงมีแค่จุดเดียว → เวลารวมลดมหาศาล</li>
+          <li><strong>Event:</strong> สถานะคำขอบอกไม่ได้ → <strong>ระบุ+ติดตามสถานะแบบละเอียด</strong> (Submitted → Approved → Pending Payment → Issued → Expired) + ใช้ super state "UNDER REVIEW" ให้หลายกิจกรรมเริ่มพร้อมกัน</li>
+          <li><strong>Socio-Political:</strong> ผู้ขอต้องคุยกับ 17 หน่วยงาน → สร้าง role <strong>"Permit Coordinator"</strong> เป็นคนกลาง (แม้มีข้อจำกัด "ห้ามตั้งตำแหน่งใหม่" แต่โมเดลช่วยพิสูจน์ว่าคุ้มค่า)</li>
+          <li><strong>Location:</strong> ผู้ขอต้องเดินไล่หลายอาคาร → <strong>รวมจุดติดต่อไว้ที่เดียว</strong> (Building Permit Office) + เปลี่ยนช่องทางจาก<strong>ของจริง (กระดาษ) เป็นข้อมูลดิจิทัล</strong> ไม่ต้องขนแฟ้ม</li>
+          <li><strong>Data:</strong> คำศัพท์ที่ดินสับสน (block/section/parcel/subdivision/lot) → <strong>นิยามชัด + ERD</strong></li>
+        </ul>
+        <p><strong>ธีมสรุป:</strong> แต่ละโมเดลทำให้ <strong>เห็นปัญหา</strong> (discovery + communication) และ <strong>เห็นทางแก้</strong> (assessment + specification + communication ต่อผู้บริหาร/vendor) — และทำได้ <strong>"เร็ว"</strong></p>
+      </div>
+
+      <div class="box analogy">
+        <div class="box-title">💭 อุปมา "ปริศนาและกุญแจ" (Puzzle & Key)</div>
+        <p>แต่ละ business need = <strong>ปริศนาหนึ่งข้อ</strong> ที่มีกุญแจของมันเอง · แต่ละโมเดล = <strong>กุญแจดอกหนึ่ง</strong> — บางปริศนามีหลายกุญแจ แต่มักมี "กุญแจที่หรูหราที่สุด" ดอกเดียว ที่: แก้ปัญหาจริง · ชัดเจน · เข้าใจง่าย · โต้แย้งยาก · ประหยัด · แก้ปัญหาแถมไปด้วย — เรา<strong>เดาล่วงหน้าไม่ได้ว่าโมเดลไหนคือกุญแจ</strong> จึงควร sketch ทุกโมเดล "อย่างน้อยระดับหนึ่ง"</p>
+      </div>
+
+      <h2 id="s9">สรุปท้ายบท</h2>
+      <div class="box def">
+        <div class="box-title">✅ ต้องจำให้ได้จากบทนี้</div>
+        <ol>
+          <li>5 คำถาม-5 โมเดล: <strong>Process=How · Data=What · Event=When · Location=Where · Socio-Political=Who</strong></li>
+          <li>Node/Link ของแต่ละโมเดล: Activities/Control · Entities/Relationships · <strong>States/Events</strong> · <strong>Sites/Channels</strong> · <strong>Parties/Affiliations</strong></li>
+          <li>Event 3 ประเภท: Time · Business · Natural / Channel 4 ประเภท: Data · Control · Material · Participants</li>
+          <li>Role Profile Matrix เป็นเครื่องมือของ Socio-Political Model (Stand to Gain / Stand to Lose)</li>
+          <li>โมเดล = สิ่งเดียวกันต่างมุม → ใช้ร่วมกัน + cross-reference matrices</li>
+          <li>กรณี Calvert County: triage, concurrent review, Permit Coordinator, รวมสถานที่, ลำดับความสำคัญของสถานะ</li>
+        </ol>
+      </div>
+
+      <div class="quiz-q">
+        <div class="q-text">🧪 (ควิซจริง) Business Event Model (State Transition Diagram) ใช้อย่างไรในการติดตามสถานะคำสั่งซื้อ?</div>
+        <div class="opts">
+          <button class="opt" data-c="1">ก. แสดงสถานะ (States) ของเอนทิตี เช่น รอชำระเงิน → รอจัดส่ง → ส่งสำเร็จ</button>
+          <button class="opt">ข. Node หลักคือบุคคล/แผนกที่รับผิดชอบคำสั่งซื้อ</button>
+          <button class="opt" data-c="1">ค. Link คือเหตุการณ์ (Events) ที่กระตุ้นให้เปลี่ยนสถานะ เช่น ลูกค้าโอนเงินสำเร็จ</button>
+          <button class="opt">ง. โมเดลนี้ใช้ออกแบบโครงข่ายโกดังสินค้าทั่วประเทศเป็นหลัก</button>
+        </div>
+        <div class="explain">💡 ก+ค ถูก (Node=State, Link=Event) — ข คือ Socio-Political · ง คือ Location Model</div>
+      </div>
+
+      <div id="doneWrap" style="margin-top:30px;">
+        <button id="doneBtn" style="font-family:inherit;font-size:15px;font-weight:700;padding:10px 22px;border-radius:12px;border:2px solid #16a34a;background:#fff;color:#14713c;cursor:pointer;">☑ ทำเครื่องหมายว่าอ่านแล้ว</button>
+      </div>
+      <div class="pager" id="pager"></div>
+    </main>
+  </div>
+</div>
+<script src="assets/app.js"></script>
+<script src="assets/tts.js"></script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<title>บทที่ 11 — การคำนวณเวลา (สอบเขียนข้อ 3) | BA Final Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%232456d6%27/%3E%3Ctext x=%2750%27 y=%2770%27 font-size=%2752%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27sans-serif%27 font-weight=%27bold%27%3EBA%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="topbar">
+      <button class="burger" id="burger" aria-label="เปิดเมนู">☰</button>
+      <div class="crumb" id="crumb"></div>
+      <div class="spacer"></div>
+      <a class="home-link" href="index.html">หน้าแรก</a>
+    </header>
+    <main class="content">
+
+      <h1 class="hero">บทที่ 11 · การคำนวณเวลาในกระบวนการ ⭐ (สอบเขียนข้อ 3)</h1>
+      <p class="lead">"คำนวณเวลาที่ใช้บริการ เวลาที่เสียไป" ตามแนวกรณีศึกษา <strong>ผู้พันแซนเดอส์ / ลุง Ken (ร้านไก่ทอด KFC)</strong> — บทนี้สอนสูตรทุกตัว + โจทย์แบบ step-by-step พร้อมเฉลยละเอียด ให้ทำตามมือในห้องสอบได้เลย</p>
+
+      <div class="box exam">
+        <div class="box-title">🎯 สูตรหลักจากคลิป/เอกสาร (จำให้ขึ้นใจ — ใส่กระดาษ A4 บรรทัดแรก!)</div>
+        <div class="formula">Cycle Time (CT) = <b>Service Time</b> (Processing) + <b>Waste Time</b> (Waiting)</div>
+        <div class="formula">Service Time = เวลาที่<b>ลงมือทำจริง</b> = VA + BVA</div>
+        <div class="formula">Waste Time = เวลา<b>ไม่สร้างมูลค่า</b> (NVA) = รอคอย · ส่งต่อ · แก้งานซ้ำ</div>
+        <div class="formula">PCE = Process Cycle Efficiency = <span class="frac"><span class="top">Value-Adding Time (VA)</span><span class="bot">Cycle Time</span></span> × 100%</div>
+        <div class="formula">Quantitative Impact = <b>สัดส่วน × ปริมาณ × ตัวคูณเวลา × หน่วยละทุน</b></div>
+        <p><strong>ความหมาย:</strong> Cycle Time = เวลารวมตั้งแต่เริ่มกระบวนการจนจบ · PCE ยิ่งสูงยิ่งดี (โดยทั่วไปกระบวนการโรงงานแถว ๆ 5-25% บริการอาจต่ำกว่า — ที่สำคัญคือแนวคิด "เวลาที่ลูกค้ายินดีจ่าย" คือ VA เท่านั้น)</p>
+      </div>
+
+      <h2 id="s1">1. แผนภาพเวลา 1 รอบกระบวนการ (Time Bar)</h2>
+      <figure class="diagram">
+        <svg viewBox="0 0 740 300" xmlns="http://www.w3.org/2000/svg" font-family="Sarabun, sans-serif">
+          <!-- timeline bar: VA/BVA/NVA segments -->
+          <g font-size="11" text-anchor="middle">
+            <rect x="40" y="40" width="90" height="46" fill="#16a34a"/>
+            <text x="85" y="60" fill="#fff" font-weight="800">VA 1</text>
+            <text x="85" y="76" fill="#d3f5df">สั่งอาหาร 2น.</text>
+            <rect x="130" y="40" width="220" height="46" fill="#dc2626"/>
+            <text x="240" y="60" fill="#fff" font-weight="800">NVA — รอคิว/รอทอด 10 น.</text>
+            <text x="240" y="76" fill="#ffd7d7">(Waiting)</text>
+            <rect x="350" y="40" width="140" height="46" fill="#f59e0b"/>
+            <text x="420" y="60" fill="#3d2b00" font-weight="800">BVA 2 น.</text>
+            <text x="420" y="76" fill="#5a4100">ตรวจสอบ/แพ็ก</text>
+            <rect x="490" y="40" width="90" height="46" fill="#16a34a"/>
+            <text x="535" y="60" fill="#fff" font-weight="800">VA 1 น.</text>
+            <text x="535" y="76" fill="#d3f5df">รับอาหาร</text>
+            <rect x="580" y="40" width="120" height="46" fill="#dc2626"/>
+            <text x="640" y="60" fill="#fff" font-weight="800">NVA 2 น.</text>
+            <text x="640" y="76" fill="#ffd7d7">รอเครื่องดื่ม</text>
+          </g>
+          <!-- braces -->
+          <g stroke="#556" stroke-width="2" fill="none">
+            <path d="M 40 100 L 40 92 L 580 92 L 580 100" />
+            <path d="M 580 100 L 580 92 L 700 92 L 700 100"/>
+          </g>
+          <text x="310" y="118" text-anchor="middle" font-size="12.5" fill="#1a3fa0" font-weight="700">Service Time = 2+2+1 = 5 นาที (VA+BVA)</text>
+          <text x="310" y="140" text-anchor="middle" font-size="12" fill="#888">(จริง ๆ ต้องบวก NVA รอเป็น Waste แยกไว้)</text>
+          <text x="640" y="118" text-anchor="middle" font-size="12.5" fill="#b91c1c" font-weight="700">Waste เพิ่ม</text>
+          <!-- total -->
+          <g stroke="#556" stroke-width="2" fill="none">
+            <path d="M 40 170 L 40 160 L 700 160 L 700 170"/>
+          </g>
+          <rect x="255" y="178" width="230" height="34" rx="17" fill="#101a30"/>
+          <text x="370" y="200" text-anchor="middle" font-size="13.5" fill="#fff" font-weight="800">Cycle Time = 15 นาที</text>
+          <!-- PCE box -->
+          <rect x="200" y="232" width="340" height="56" rx="12" fill="#e7f8ee" stroke="#16a34a" stroke-width="2"/>
+          <text x="370" y="255" text-anchor="middle" font-size="13" fill="#14713c" font-weight="800">PCE = VA / CT = (2+1) / 15 × 100%</text>
+          <text x="370" y="276" text-anchor="middle" font-size="14" fill="#14713c" font-weight="800">= 3/15 = 20%</text>
+        </svg>
+        <figcaption>ภาพ 11.1 — แถบเวลา 1 รอบ: แบ่งช่วง VA (เขียว) / BVA (ส้ม) / NVA รอคอย (แดง) แล้วรวมเป็น Cycle Time และคิด PCE</figcaption>
+      </figure>
+
+      <div class="box analogy">
+        <div class="box-title">💭 นึกภาพก่อนทำโจทย์</div>
+        <p>ลูกค้าร้านลุง Ken ใช้เวลารวมตั้งแต่จ่ายเงินจนได้อาหาร <strong>15 นาที</strong> — แต่จริง ๆ "คนกำลังทำงานให้เรา" แค่ <strong>5 นาที</strong> (service) ที่เหลือ 10 นาทีคือ<strong>การรอ</strong> (waste) — ลูกค้าจ่ายเงินเพราะ "ได้อาหาร" (VA) ไม่ใช่ "ได้ยืนรอ" ดังนั้นเวลาที่ลูกค้ายินดีจ่ายจริง ๆ มีแค่ VA 3 นาที เท่านั้น</p>
+      </div>
+
+      <h2 id="s2">2. วิธีทำโจทย์แบบ Step-by-Step (ทำตาม 5 ขั้นนี้ทุกครั้ง)</h2>
+      <ol class="steps">
+        <li><b class="st">List กิจกรรม + เวลาทุกขั้นจากโจทย์</b> — ทำตาราง: กิจกรรม | เวลา | ใครทำ</li>
+        <li><b class="st">ติดป้าย VA / BVA / NVA ทุกขั้น</b> — ใช้ 3 คำถามจากบท 4 (ลูกค้ายินดีจ่ายไหม? ทำถูกตั้งแต่แรกไหม? จำเป็นต่อธุรกิจ/กฎหมายไหม?)</li>
+        <li><b class="st">รวมเวลาเป็น 3 ค่า</b> — ΣVA, ΣBVA, ΣNVA · Service = ΣVA+ΣBVA · Waste = ΣNVA</li>
+        <li><b class="st">คำนวณตามที่โจทย์ถาม</b> — CT = Service+Waste · PCE = VA/CT×100 · ผลต่าง/เปอร์เซ็นต์ที่ลดลง</li>
+        <li><b class="st">เขียนสรุป 1 ประโยค</b> — "กระบวนการนี้ CT 15 นาที ใช้บริการจริง 5 นาที เสียเปล่า 10 นาที (66.7%) PCE 20% = ควรลดการรอ"</li>
+      </ol>
+
+      <h2 id="s3">3. โจทย์แบบ "ลุง Ken" เต็มรูปแบบ พร้อมเฉลยละเอียด</h2>
+      <div class="box baseline">
+        <div class="box-title">📋 โจทย์ (แนวเดียวกับที่รีวิวรุ่นพี่บอกให้ดู)</div>
+        <p>ร้านไก่ทอด "ลุง Ken" มีกระบวนการให้บริการ ณ เคาน์เตอร์ ดังนี้ (ต่อลูกค้า 1 คน):</p>
+        <ol>
+          <li>ลูกค้า<strong>ต่อคิวรอสั่ง</strong> — เฉลี่ย <strong>6 นาที</strong></li>
+          <li>พนักงาน<strong>รับออเดอร์+รับเงิน</strong> — <strong>2 นาที</strong></li>
+          <li>ลูกค้า<strong>รอไก่ทอด</strong>จากครัว — เฉลี่ย <strong>9 นาที</strong></li>
+          <li>พนักงานครัว<strong>ทอดไก่+จัดกล่อง</strong> (คิดเฉพาะส่วนต่อลูกค้ารายนี้) — <strong>3 นาที</strong></li>
+          <li>พนักงาน<strong>ตรวจสอบออเดอร์กับสลิป</strong> (ป้องกันส่งผิด) — <strong>1 นาที</strong></li>
+          <li>ลูกค้า<strong>รอเครื่องดื่ม</strong>ที่จุดรับ — <strong>2 นาที</strong></li>
+          <li>พนักงาน<strong>ส่งมอบอาหาร</strong> — <strong>1 นาที</strong></li>
+        </ol>
+        <p><strong>ถาม:</strong> (ก) Service Time, Waste Time, Cycle Time · (ข) PCE · (ค) หากปรับกระบวนการให้ "เตรียมไก่ล่วงหน้าตามช่วงพีค" ทำให้เวลารอไก่ลดเหลือ 2 นาที — CT และ PCE ใหม่เป็นเท่าใด ดีขึ้นกี่เปอร์เซ็นต์?</p>
+      </div>
+
+      <h3>เฉลย ขั้นที่ 1-2: ตารางจัดประเภท</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>#</th><th>กิจกรรม</th><th>เวลา</th><th>ประเภท</th><th>เหตุผล</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>รอคิวสั่ง</td><td>6 น.</td><td><span class="no">NVA</span></td><td>การรอ = ลูกค้าไม่ยินดีจ่าย (Waiting)</td></tr>
+          <tr><td>2</td><td>รับออเดอร์+รับเงิน</td><td>2 น.</td><td><span class="yes">VA</span></td><td>ลูกค้ายินดีจ่ายเพื่อสั่งได้ (transform)</td></tr>
+          <tr><td>3</td><td>รอไก่ทอด</td><td>9 น.</td><td><span class="no">NVA</span></td><td>การรอ (Waiting)</td></tr>
+          <tr><td>4</td><td>ทอดไก่+จัดกล่อง</td><td>3 น.</td><td><span class="yes">VA</span></td><td>เปลี่ยนวัตถุดิบเป็นอาหาร — หัวใจของคุณค่า</td></tr>
+          <tr><td>5</td><td>ตรวจสอบออเดอร์กับสลิป</td><td>1 น.</td><td>BVA</td><td>ลูกค้าไม่ได้จ่ายเพื่อ "ให้ตรวจ" แต่ร้านต้องทำเพื่อลดความผิดพลาด/ควบคุม</td></tr>
+          <tr><td>6</td><td>รอเครื่องดื่ม</td><td>2 น.</td><td><span class="no">NVA</span></td><td>การรอ</td></tr>
+          <tr><td>7</td><td>ส่งมอบอาหาร</td><td>1 น.</td><td><span class="yes">VA</span></td><td>ลูกค้าได้รับของ = คุณค่า</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>เฉลย (ก): รวมเวลา</h3>
+      <div class="formula">ΣVA = 2 + 3 + 1 = <b>6 นาที</b> &nbsp;·&nbsp; ΣBVA = <b>1 นาที</b> &nbsp;·&nbsp; ΣNVA = 6 + 9 + 2 = <b>17 นาที</b></div>
+      <div class="formula">Service Time = VA + BVA = 6 + 1 = <b>7 นาที</b> &nbsp;·&nbsp; Waste Time = <b>17 นาที</b></div>
+      <div class="formula">Cycle Time = 7 + 17 = <b>24 นาที</b></div>
+
+      <h3>เฉลย (ข): PCE</h3>
+      <div class="formula">PCE = VA / CT × 100% = 6 / 24 × 100% = <b>25%</b></div>
+
+      <h3>เฉลย (ค): หลังปรับปรุง (รอไก่ 9 น. → 2 น.)</h3>
+      <div class="formula">Waste ใหม่ = 6 + 2 + 2 = 10 น. · CT ใหม่ = 7 + 10 = <b>17 นาที</b></div>
+      <div class="formula">PCE ใหม่ = 6 / 17 × 100% ≈ <b>35.3%</b></div>
+      <div class="formula">CT ลดลง = (24−17)/24 × 100% ≈ <b>29.2%</b> (PCE เพิ่มจาก 25% → 35.3%)</div>
+      <p><strong>บทเรียน:</strong> การ "ลดเวลารอ" (NVA) คือวิธีเพิ่ม PCE ที่ทรงพลังที่สุด — ไม่ต้องทำงานเร็วขึ้นเลย แค่เอาการรอออก (ตรงกับคำกล่าวของ Taiichi Ohno ในบท 9)</p>
+
+      <h2 id="s4">4. โจทย์ Quantitative Impact (สไตล์ Issue Register ของ BuildIT — อาจารย์เดินให้ดูในคลิป!)</h2>
+      <div class="box baseline">
+        <div class="box-title">📋 โจทย์</div>
+        <p>ปัญหา "อุปกรณ์เช่าถูกดองนานเกินความจำเป็น" (Equipment kept longer than needed) — สมมติฐาน: เช่าอุปกรณ์ <strong>3,000 ชิ้น/ปี</strong> · <strong>10%</strong> ของเคสถูกดองเกินจำเป็นเฉลี่ย <strong>2 วัน</strong> · ค่าเช่า <strong>100 บาท/วัน</strong> — จงคำนวณผลกระทบเชิงปริมาณต่อปี</p>
+      </div>
+      <ol class="steps">
+        <li><b class="st">หาจำนวนเคสที่มีปัญหา:</b> 3,000 × 0.10 = <strong>300 เคส/ปี</strong></li>
+        <li><b class="st">หาความเสียหายต่อเคส:</b> 2 วัน × 100 บาท/วัน = <strong>200 บาท/เคส</strong></li>
+        <li><b class="st">รวมทั้งปี:</b> 300 × 200 = 0.1 × 3,000 × 2 × 100 = <strong>60,000 บาท/ปี</strong></li>
+      </ol>
+      <p>แบบฝึกเพิ่ม: <strong>ส่งอุปกรณ์ผิดสเปก 5%</strong> ค่าปรับ 100 บาท/เคส → 3,000 × 0.05 × 100 = <strong>15,000 บาท/ปี</strong> · <strong>จ่ายใบแจ้งหนี้ช้า 10%</strong> ค่าเช่าเฉลี่ย 4 วัน×100 บาท ค่าปรับ 2% → 0.1 × 3,000 × 4 × 100 × 0.02 = <strong>2,400 บาท/ปี</strong></p>
+
+      <h2 id="s5">5. โจทย์กำลังการผลิต/คิว (แนวที่อาจารย์ชอบ — เช่นงาน Badge Check)</h2>
+      <div class="box baseline">
+        <div class="box-title">📋 โจทย์</div>
+        <p>พนักงานตรวจบัตร 1 คน ตรวจรถได้ <strong>1 คันทุก 10 นาที</strong> · เวลาทำการ <strong>8 ชั่วโมง/คน/วัน</strong> · กำหนดให้ <strong>1 พนักงานดูแลได้ 4 คันพร้อมกัน</strong> — ถ้ามีรถ <strong>60 คัน/วัน</strong> ต้องมีพนักงานกี่คนจึง "พอต่องาน"?</p>
+      </div>
+      <ol class="steps">
+        <li><b class="st">กำลังตรวจต่อคนต่อวัน:</b> 8 ชม. = 480 นาที → 480 ÷ 10 = <strong>48 คัน/คน/วัน</strong></li>
+        <li><b class="st">เทียบกับอุปสงค์:</b> ต้องรองรับ 60 คัน → 60 ÷ 48 = 1.25 → ต้องมีอย่างน้อย <strong>2 คน</strong> (ปัดขึ้น!) — 1 คนไม่พอ</li>
+        <li><b class="st">เช็คเงื่อนไขขนาน:</b> 2 คน × ดูแล 4 คัน = รองรับพร้อมกันได้ 8 คัน ≥ จำเป็น ✓ · เวลารอสูงสุดต่อคัน ≈ 10 นาที × ⌈60/2⌉ คันต่อคน = 300 นาที (ถ้าคิวเดี่ยว) → จึงต้องออกแบบคิวแบบขนาน</li>
+      </ol>
+      <p><small>แนวคิดหลัก: <strong>Capacity = เวลาที่มี ÷ เวลาต่อหน่วย</strong> · จำนวนทรัพยากร = อุปสงค์ ÷ กำลังต่อทรัพยากร (ปัดขึ้น) · เทียบ Service Time กับอัตรามาถึงงาน (arrival) เพื่อดูว่าคิวจะยาวหรือไม่</small></p>
+
+      <h2 id="s6">6. เชื่อมกับ McDonald's Kiosk (ตัวอย่างจากคลิปอาจารย์)</h2>
+      <p>อาจารย์ยกกรณีสั่งอาหารผ่านตู้ Kiosk: ลูกค้ากดเมนู → พิมพ์สลิป → ไปรับอาหาร โดย<strong>กำหนดเป้า Process Time รวม ไม่เกิน 2-5 นาที</strong> — เกินกว่านั้นถือเป็น "ข้อผิดพลาดใน Process Time" (เพราะลูกค้า fast food มี expectation ชัดเจน) · สังเกตว่าตู้ Kiosk คือตัวอย่าง<strong> redesign ด้วย automation</strong>: ย้ายงานสั่ง-จ่ายไปที่เครื่อง พนักงานคงไว้เฉพาะงานทอด/ส่งมอบ → คิวสั้นลง</p>
+
+      <h2 id="s7">7. สรุปสูตรทั้งหมด + กับดักยอดฮิต</h2>
+      <div class="box def">
+        <div class="box-title">✅ สรุปท้ายบท</div>
+        <ol>
+          <li>CT = Service + Waste · Service = VA+BVA · Waste = NVA · PCE = VA/CT × 100</li>
+          <li>ทำ 5 ขั้น: ลิสต์กิจกรรม → ติดป้าย VA/BVA/NVA → รวม → คำนวณ → สรุป</li>
+          <li>Quantitative Impact = สัดส่วน × ปริมาณ × ตัวคูณ × ต้นทุน (เช่น 0.1×3000×2×100 = 60,000)</li>
+          <li>Capacity = เวลามี ÷ เวลา/หน่วย · จำนวนคน = อุปสงค์ ÷ กำลัง (ปัดขึ้น)</li>
+          <li>Redesign ที่ดีที่สุดมักเป็น "ลด NVA/การรอ" — อธิบายได้ว่าทำไม PCE เพิ่ม</li>
+        </ol>
+      </div>
+      <div class="box warn">
+        <div class="box-title">⚠️ กับดักข้อสอบ</div>
+        <ul>
+          <li><strong>Service Time ≠ VA</strong> — Service รวม BVA ด้วย! (ตรวจสอบ = บริการจริงแต่ไม่ใช่ VA)</li>
+          <li>PCE ใช้ <strong>VA เท่านั้น</strong> เป็นตัวเศษ (ไม่ใช่ Service Time)</li>
+          <li>เวลา "รอ" ทั้งหมดเป็น Waste ไม่ว่าจะรออะไร · การ "แก้งานเสีย (rework)" = Defect = NVA</li>
+          <li>ระวังหน่วย! แปลงชั่วโมง↔นาทีให้เสร็จก่อนคิด</li>
+          <li>คำถาม "เวลาที่เสียไป" = Waste Time (หรือ % ของ CT) — เขียนทั้งค่าจริงและ % จะปลอดภัยกว่า</li>
+        </ul>
+      </div>
+
+      <div class="quiz-q">
+        <div class="q-text">🧪 กระบวนการหนึ่ง: ตรวจเช็ค (4 น., BVA), ประกอบเครื่อง (10 น., VA), รออะไหล่ (20 น., NVA), ทดสอบ (6 น., VA) — PCE เป็นเท่าใด?</div>
+        <div class="opts">
+          <button class="opt">ก. 40/40 = 100%</button>
+          <button class="opt">ข. 20/40 = 50%</button>
+          <button class="opt" data-c="1">ค. 16/40 = 40%</button>
+          <button class="opt">ง. 16/24 ≈ 66.7%</button>
+        </div>
+        <div class="explain">💡 VA = 10+6 = 16 · CT = 4+10+20+6 = 40 → PCE = 16/40 = 40% (ข ผิดเพราะใช้ Service 20 คิด; ง ผิดเพราะหัก BVA ออกจาก CT ซึ่ง CT ต้องรวมทุกอย่าง)</div>
+      </div>
+
+      <div id="doneWrap" style="margin-top:30px;">
+        <button id="doneBtn" style="font-family:inherit;font-size:15px;font-weight:700;padding:10px 22px;border-radius:12px;border:2px solid #16a34a;background:#fff;color:#14713c;cursor:pointer;">☑ ทำเครื่องหมายว่าอ่านแล้ว</button>
+      </div>
+      <div class="pager" id="pager"></div>
+    </main>
+  </div>
+</div>
+<script src="assets/app.js"></script>
+<script src="assets/tts.js"></script>
+</body>
+</html>
