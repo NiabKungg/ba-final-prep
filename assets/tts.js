@@ -360,7 +360,13 @@
     /* การ์ดข้อสอบ (.quiz-q) */
     main.querySelectorAll('.quiz-q .q-text').forEach(function (q) {
       var card = q.closest('.quiz-q');
-      q.appendChild(makeBtn(card, card, q.textContent.replace(EMOJI_RE, '').trim().slice(0, 50)));
+      q.appendChild(makeBtn(card, q.textContent.replace(EMOJI_RE, '').trim().slice(0, 50)));
+    });
+    /* การ์ดโจทย์คลังควิซ (.qw-item) */
+    main.querySelectorAll('.qw-item .qw-text').forEach(function (q) {
+      var card = q.closest('.qw-item');
+      var label = q.textContent.replace(EMOJI_RE, '').trim().slice(0, 50);
+      q.appendChild(makeBtn(card, card, label));
     });
     /* ตัวอย่างโจทย์ละเอียด (.steps) */
     main.querySelectorAll('ol.steps').forEach(function (s) {

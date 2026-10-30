@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2722%27 fill=%27%232456d6%27/%3E%3Ctext x=%2750%27 y=%2770%27 font-size=%2752%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27sans-serif%27 font-weight=%27bold%27%3EBA%3C/text%3E%3C/svg%3E">
+<title>บทที่ 21 — คลังโจทย์ควิซ 8-11 เรียงทุกข้อ | BA Final Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="topbar">
+      <button class="burger" id="burger" aria-label="เปิดเมนู">☰</button>
+      <div class="crumb" id="crumb"></div>
+      <div class="spacer"></div>
+      <a class="home-link" href="index.html">หน้าแรก</a>
+    </header>
+    <main class="content">
+
+      <h1 class="hero">📋 คลังโจทย์ควิซ 8-11 — เรียงทุกข้อ พร้อมความรู้ข้างข้อ</h1>
+      <p class="lead">โจทย์จริงทั้งหมดจากไฟล์เฉลยทางการ (BPM69 Quiz 8-11) เรียงลงมาต่อเนื่อง — โจทย์อยู่ฝั่งซ้าย <strong>ความรู้ที่ใช้ทำข้อนั้นอยู่ฝั่งขวา</strong> พร้อมลิงก์ไปบทที่อ่านละเอียด · 60% ของข้อสอบมาจากควิซพวกนี้ (อาจสลับคำถาม "เป็น" ⇄ "ไม่เป็น")</p>
+
+      <div class="qw-toolbar">
+        <div class="qw-filters" id="qwFilters">
+          <button class="active" data-q="all">ทั้งหมด</button>
+          <button data-q="8">Quiz 8 · Business Req.</button>
+          <button data-q="9">Quiz 9 · 5 Models</button>
+          <button data-q="10">Quiz 10 · User Req.</button>
+          <button data-q="11">Quiz 11 · Func. Req.</button>
+        </div>
+        <div class="qw-tools">
+          <button id="qwHide" class="qw-hide">🙈 ซ่อนคำตอบ (ฝึกทำเอง)</button>
+          <span class="qw-total" id="qwTotal"></span>
+        </div>
+      </div>
+
+      <div class="box exam">
+        <div class="box-title">🎯 วิธีใช้หน้านี้ให้คุ้มค่าที่สุด</div>
+        <ul>
+          <li><strong>รอบแรก</strong> — อ่านโจทย์ → ทายคำตอบเองก่อน → ดูเฉลย (✓) → อ่านกล่อง 🧠 ความรู้ข้างข้อ เข้าใจ "ทำไม"</li>
+          <li><strong>รอบสอง</strong> — กด "🙈 ซ่อนคำตอบ" แล้วลองทำใหม่ทั้งหมด (ข้อสอบจริงชอบสลับคำถาม เช่น "ข้อใด<strong>ไม่</strong>ใช่")</li>
+          <li>กดปุ่ม 🔊 ฟัง ที่แต่ละข้อได้เลย — ระบบจะอ่านโจทย์กับคำตอบให้ (โหมดซ่อนคำตอบจะไม่อ่านว่าข้อไหนถูก)</li>
+        </ul>
+      </div>
+
+      <div id="quizList"></div>
+
+      <h2 id="end">จบคลังโจทย์ — ทบทวนยังไงต่อ?</h2>
+      <div class="grid c3">
+        <div class="card"><h4>🔁 ทำซ้ำแบบสุ่ม</h4><p>ใช้ปุ่ม 🙈 ซ่อนคำตอบ แล้วไล่ใหม่ทีละควิซ — ข้อไหนตอบผิดให้กลับไปอ่านกล่อง 🧠 + บทที่ลิงก์ไว้</p></div>
+        <div class="card"><h4>📝 ทำกระดาษ A4</h4><p>สรุปกฎที่ผิดบ่อยลงแผ่นเดียว: รหัส FR ห้าม reuse · ห้าม and/or · boundary ใช้ inclusive · EARS active voice ฯลฯ → <a href="20-exam-central.html">ดูเช็กลิสต์บทที่ 20</a></p></div>
+        <div class="card"><h4>✍️ ซ้อมข้อเขียน</h4><p>ควิซครอบข้อเลือก แต่ข้อเขียน 3 ข้อต้องซ้อมมือ: <a href="06-bpmn.html">BPMN (บท 6)</a> · <a href="10-process-redesign.html">Redesign (บท 10)</a> · <a href="11-time-calculation.html">คำนวณเวลา (บท 11)</a></p></div>
+      </div>
+
+      <div id="doneWrap" style="margin-top:30px;">
+        <button id="doneBtn" style="font-family:inherit;font-size:15px;font-weight:700;padding:10px 22px;border-radius:12px;border:2px solid #16a34a;background:#fff;color:#14713c;cursor:pointer;">☑ ทำเครื่องหมายว่าอ่านแล้ว</button>
+      </div>
+      <div class="pager" id="pager"></div>
+    </main>
+  </div>
+</div>
+<script src="assets/quiz-data.js"></script>
+<script src="assets/quiz-walkthrough.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/tts.js"></script>
+</body>
+</html>

@@ -24,6 +24,7 @@
     { file: '18-non-functional',      num: '18', title: 'Non-Functional Requirements',      group: 'g4' },
     { file: '19-hedgehog-continuum',  num: '19', title: 'Hedgehog & Requirement Continuum', group: 'g4' },
     { file: '20-exam-central',        num: '20', title: '🎯 ศูนย์กลางติวสอบ Final',        group: 'g5' },
+    { file: '21-quiz-walkthrough',    num: '21', title: '📋 คลังโจทย์ควิซ 8-11 (เรียงทุกข้อ)', group: 'g5' },
   ];
 
   const GROUPS = {

@@ -418,6 +418,97 @@ ol.steps ~ .tts-btn, .tts-btn.standalone { display: inline-block; margin: 0 0 10
   .tts-bar, .tts-btn { display: none !important; }
 }
 
+/* ============ 📋 คลังโจทย์ควิซ (quiz walkthrough) ============ */
+.qw-toolbar {
+  position: sticky; top: 54px; z-index: 40;
+  background: rgba(244, 246, 251, .96);
+  backdrop-filter: blur(8px);
+  padding: 10px 2px 8px;
+  border-bottom: 1px solid var(--line);
+  display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between;
+}
+.qw-filters { display: flex; gap: 8px; flex-wrap: wrap; }
+.qw-filters button {
+  font-family: inherit; font-size: 13px; font-weight: 700;
+  border: 1.5px solid var(--line); background: #fff; color: var(--ink);
+  border-radius: 999px; padding: 7px 15px; cursor: pointer;
+  transition: background .15s, border-color .15s;
+}
+.qw-filters button:hover { border-color: var(--brand); background: var(--brand-soft); }
+.qw-filters button.active { background: var(--brand); color: #fff; border-color: var(--brand); }
+.qw-tools { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.qw-hide {
+  font-family: inherit; font-size: 13px; font-weight: 700;
+  background: #fff; color: #a16207; border: 1.5px solid #f0c878;
+  border-radius: 999px; padding: 7px 15px; cursor: pointer;
+}
+.qw-hide:hover { background: #fff8e9; }
+.qw-total { font-size: 12.5px; color: var(--ink-soft); }
+
+.qw-item {
+  display: grid; grid-template-columns: 1.45fr 1fr; gap: 14px;
+  margin: 20px 0; align-items: stretch;
+}
+.qw-q {
+  background: #fff; border: 1px solid var(--line); border-radius: 14px;
+  padding: 16px 18px; box-shadow: var(--shadow);
+}
+.qw-meta { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 10px; }
+.qw-badge {
+  background: var(--brand-soft); color: var(--brand-dark);
+  font-weight: 700; font-size: 12.5px; border-radius: 999px; padding: 3px 12px;
+}
+.qw-pts { font-size: 12.5px; color: var(--ink-soft); }
+.qw-text { font-weight: 600; margin: 4px 0 12px; line-height: 1.7; }
+.qw-opts { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+.qw-opts li {
+  display: flex; gap: 9px; align-items: flex-start;
+  border-radius: 10px; padding: 8px 11px;
+  font-size: 14px; line-height: 1.6;
+}
+.qw-opts li.no { background: #f7f9fd; color: #6b7890; border: 1px solid #e8edf5; }
+.qw-opts li.ok { background: var(--green-soft); border: 1.5px solid var(--green); color: #143d26; }
+.qw-idx {
+  flex: none; font-weight: 800; font-size: 12px;
+  width: 22px; height: 22px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: #e6ebf5; color: #44546e; margin-top: 2px;
+}
+.qw-opts li.ok .qw-idx { background: var(--green); color: #fff; }
+.qw-opt { flex: 1; }
+.mark { margin-left: auto; flex: none; font-size: 11.5px; font-weight: 800; color: var(--green); white-space: nowrap; padding-top: 3px; }
+.qw-ansline { font-size: 13px; font-weight: 700; color: var(--green); margin: 10px 0 0; }
+
+.qw-know {
+  background: var(--purple-soft); border: 1.5px solid #d8c2fd;
+  border-radius: 14px; padding: 15px 17px; font-size: 14.5px; line-height: 1.7;
+  display: flex; flex-direction: column;
+}
+.qw-know .know-title { font-weight: 800; color: #6d28d9; margin-bottom: 6px; }
+.qw-know p { margin: 0 0 8px; }
+.know-link {
+  margin-top: auto; font-weight: 700; font-size: 13px;
+  color: var(--brand-dark); text-decoration: none;
+  background: #fff; border: 1px solid #d8c2fd; border-radius: 999px;
+  padding: 5px 14px; align-self: flex-start;
+}
+.know-link:hover { background: #fff; border-color: var(--purple); }
+
+/* หัวข้อคั่นควิซ */
+h2.qw-sep { scroll-margin-top: 110px; }
+
+/* โหมดซ่อนคำตอบ */
+#quizList.hide-ans .qw-opts li.ok { background: #fff; border: 1.5px solid var(--line); color: var(--ink); }
+#quizList.hide-ans .qw-opts li.ok .qw-idx { background: #e6ebf5; color: #44546e; }
+#quizList.hide-ans .mark, #quizList.hide-ans .qw-ansline { display: none; }
+#quizList.hide-ans .qw-opts li.no { color: var(--ink); }
+
+@media (max-width: 880px) {
+  .qw-item { grid-template-columns: 1fr; }
+  .qw-toolbar { top: 52px; }
+  .qw-tools { width: 100%; justify-content: space-between; }
+}
+
 
 /* ---------- Print ---------- */
 @media print {
